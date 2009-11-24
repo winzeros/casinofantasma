@@ -26,10 +26,12 @@ class RiverSuccessors implements SuccessorFunction {
 
     public List getSuccessors(Object arg0) {
         ArrayList result = new ArrayList();
+        RiverBoard state = new RiverBoard();
+
+
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                RiverBoard state = new RiverBoard();
                 state.setBoard((RiverBoard) arg0);
                 state.hit(i, j);
                 result.add(new Successor("(" + i + "," + j + ")", state));
