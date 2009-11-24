@@ -39,7 +39,8 @@ public class RiverBoard {
         int aux;
         boolean ok = false;
 
-        if (isValidState(wolfs, sheeps)) {
+        if (isValidState(wolfs, sheeps) && !(isRiskState(wolfs, sheeps)))
+        {
             aux = _boardState.get(WOLFS) - wolfs;
             _boardState.remove(WOLFS);
             _boardState.put(WOLFS, aux);
@@ -57,10 +58,10 @@ public class RiverBoard {
             }
             ok = true;
         }
-        return true;
+        return ok;
     }
 
-    public void setBoard(RiverBoard board){
+    public void setBoard(RiverBoard board) {
         _boardState.clear();
         _boardState.put(WOLFS, board._boardState.get(WOLFS));
         _boardState.put(SHEEPS, board._boardState.get(SHEEPS));
@@ -76,21 +77,30 @@ public class RiverBoard {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + (this._boardState != null ? this._boardState.hashCode() : 0);
+        hash = 11 * hash + (this._boardState != null ? this._boardState.hashCode() : 0);
         return hash;
     }
 
+
+
     private boolean isValidState(int wolfs, int sheeps) {
-        return (((wolfs + sheeps) < 3) &&
-                ((wolfs + sheeps) > 0) &&
-                ((_boardState.get(WOLFS) - wolfs) > 0) &&
-                ((_boardState.get(SHEEPS) - sheeps) > 0));
+
+        if (_boardState.get(BOAT) == 0) {
+            return (((wolfs + sheeps) < 3) &&
+                    ((wolfs + sheeps) > 0) &&
+                    ((_boardState.get(WOLFS) - wolfs) > 0) &&
+                    ((_boardState.get(SHEEPS) - sheeps) > 0));
+        } else {
+            return (((wolfs + sheeps) < 3) &&
+                    ((wolfs + sheeps) > 0) &&
+                    ((3 - _boardState.get(WOLFS) - wolfs) > 0) &&
+                    ((3 - _boardState.get(SHEEPS) - sheeps) > 0));
+        }
     }
 
-    /////
     private boolean isRiskState(int wolfs, int sheeps) {
         return ((_boardState.get(WOLFS) - wolfs) > _boardState.get(SHEEPS) - sheeps) ||
-                ((_boardState.get(SHEEPS) - sheeps) < (_boardState.get(WOLFS) - wolfs));
+                ((3 - _boardState.get(SHEEPS) - sheeps) < (3 - _boardState.get(WOLFS) - wolfs));
     }
 
     @Override
@@ -98,11 +108,10 @@ public class RiverBoard {
         String result = "";
         String boat = "";
 
-        if (_boardState.get(BOAT) == 0){
-            boat = " |<  | ";
-        }
-        else{
-            boat = " |  >| ";
+        if (_boardState.get(BOAT) == 0) {
+            boat = " | <__>          | ";
+        } else {
+            boat = " |          <__> | ";
         }
 
         result += "           ";
@@ -112,5 +121,4 @@ public class RiverBoard {
 
         return result;
     }
-
 }
