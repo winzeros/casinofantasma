@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package control.games.wolfsandsheeps;
+package control.games.wolfssheeps;
 
 import java.util.HashMap;
 
@@ -10,18 +10,18 @@ import java.util.HashMap;
  *
  * @author Alicia
  */
-public class RiverBoard {
+public class WolfsSheepsBoard {
 
     private HashMap<String, Integer> _boardState;
     public static final String WOLFS = "Lobos";
     public static final String SHEEPS = "Ovejas";
     public static final String BOAT = "Canoa";
 
-    public RiverBoard() {
+    public WolfsSheepsBoard() {
         _boardState = getInitialState();
     }
 
-    public RiverBoard(HashMap state) {
+    public WolfsSheepsBoard(HashMap state) {
         _boardState = state;
     }
 
@@ -61,7 +61,7 @@ public class RiverBoard {
         return ok;
     }
 
-    public void setBoard(RiverBoard board) {
+    public void setBoard(WolfsSheepsBoard board) {
         _boardState.clear();
         _boardState.put(WOLFS, board._boardState.get(WOLFS));
         _boardState.put(SHEEPS, board._boardState.get(SHEEPS));
@@ -71,7 +71,11 @@ public class RiverBoard {
     @Override
     @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     public boolean equals(Object o) {
-        return ((RiverBoard) o).hashCode() == hashCode();
+        WolfsSheepsBoard wsboard = (WolfsSheepsBoard) o;
+
+        return ((wsboard._boardState.get(WOLFS) == _boardState.get(WOLFS)) &&
+                (wsboard._boardState.get(SHEEPS) == _boardState.get(SHEEPS)) &&
+                (wsboard._boardState.get(BOAT) == _boardState.get(BOAT)));
     }
 
     @Override
@@ -93,14 +97,15 @@ public class RiverBoard {
         } else {
             return (((wolfs + sheeps) < 3) &&
                     ((wolfs + sheeps) > 0) &&
-                    ((3 - _boardState.get(WOLFS) - wolfs) > 0) &&
-                    ((3 - _boardState.get(SHEEPS) - sheeps) > 0));
+                    ((3 - _boardState.get(WOLFS) - wolfs) >= 0) &&
+                    ((3 - _boardState.get(SHEEPS) - sheeps) >= 0));
         }
     }
 
     private boolean isRiskState(int wolfs, int sheeps) {
         return ((_boardState.get(WOLFS) - wolfs) > _boardState.get(SHEEPS) - sheeps) ||
-                ((3 - _boardState.get(SHEEPS) - sheeps) < (3 - _boardState.get(WOLFS) - wolfs));
+                (((3 - _boardState.get(SHEEPS) - sheeps) < (3 - _boardState.get(WOLFS) - wolfs)) &&
+                (3 - _boardState.get(SHEEPS) - sheeps) != 0);
     }
 
     @Override
