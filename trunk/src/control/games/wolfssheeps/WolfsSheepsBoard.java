@@ -101,8 +101,8 @@ public class WolfsSheepsBoard {
         if (_boardState.get(BOAT) == 0) {
             return (((wolfs + sheeps) < 3) &&
                     ((wolfs + sheeps) > 0) &&
-                    ((_boardState.get(WOLFS) - wolfs) > 0) &&
-                    ((_boardState.get(SHEEPS) - sheeps) > 0));
+                    ((_boardState.get(WOLFS) - wolfs) >= 0) &&
+                    ((_boardState.get(SHEEPS) - sheeps) >= 0));
         } else {
             return (((wolfs + sheeps) < 3) &&
                     ((wolfs + sheeps) > 0) &&
@@ -113,8 +113,9 @@ public class WolfsSheepsBoard {
 
     private boolean isRiskState(int wolfs, int sheeps) {
         if (_boardState.get(BOAT) == 0) {
-            return ((_boardState.get(WOLFS) - wolfs) > (_boardState.get(SHEEPS) - sheeps) &&
-                    (_boardState.get(SHEEPS) - sheeps) != 0);
+            return(((_boardState.get(WOLFS) - wolfs) > (_boardState.get(SHEEPS) - sheeps)) ||
+                    ((_boardState.get(WOLFS) - wolfs) < (_boardState.get(SHEEPS) - sheeps) &&
+                    ((_boardState.get(SHEEPS) - sheeps) != 0) &&  ((_boardState.get(SHEEPS) - sheeps) != 3)));
         } else {
             return ((_boardState.get(WOLFS) + wolfs) > (_boardState.get(SHEEPS) + sheeps) &&
                     (_boardState.get(SHEEPS) + sheeps) != 3);
