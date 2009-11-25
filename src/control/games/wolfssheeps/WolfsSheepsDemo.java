@@ -5,7 +5,7 @@
 package control.games.wolfssheeps;
 
 import aima.search.framework.*;
-import aima.search.uninformed.DepthLimitedSearch;
+import aima.search.uninformed.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -26,7 +26,7 @@ public class WolfsSheepsDemo {
             Problem problem = new Problem(new WolfsSheepsBoard(),
                     new WolfsSheepsSuccesorFunction(),
                     new WolfsSheepsGoalTest());
-            Search search = new DepthLimitedSearch(9);
+            Search search = new  UniformCostSearch(new TreeSearch());
             SearchAgent agent = new SearchAgent(problem, search);
             printActions(agent.getActions());
             printInstrumentation(agent.getInstrumentation());
