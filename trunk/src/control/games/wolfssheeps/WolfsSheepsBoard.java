@@ -39,20 +39,31 @@ public class WolfsSheepsBoard {
         int aux;
         boolean ok = false;
 
-        if (isValidState(wolfs, sheeps) && !(isRiskState(wolfs, sheeps)))
-        {
-            aux = _boardState.get(WOLFS) - wolfs;
-            _boardState.remove(WOLFS);
-            _boardState.put(WOLFS, aux);
-
-            aux = _boardState.get(SHEEPS) - sheeps;
-            _boardState.remove(SHEEPS);
-            _boardState.put(SHEEPS, aux);
+        if (isValidState(wolfs, sheeps) && !(isRiskState(wolfs, sheeps))) {
 
             if (_boardState.get(BOAT) == 0) {
+
+                aux = _boardState.get(WOLFS) - wolfs;
+                _boardState.remove(WOLFS);
+                _boardState.put(WOLFS, aux);
+
+                aux = _boardState.get(SHEEPS) - sheeps;
+                _boardState.remove(SHEEPS);
+                _boardState.put(SHEEPS, aux);
+
                 _boardState.remove(BOAT);
                 _boardState.put(BOAT, 1);
+
             } else {
+
+                aux = _boardState.get(WOLFS) + wolfs;
+                _boardState.remove(WOLFS);
+                _boardState.put(WOLFS, aux);
+
+                aux = _boardState.get(SHEEPS) + sheeps;
+                _boardState.remove(SHEEPS);
+                _boardState.put(SHEEPS, aux);
+
                 _boardState.remove(BOAT);
                 _boardState.put(BOAT, 0);
             }
@@ -85,8 +96,6 @@ public class WolfsSheepsBoard {
         return hash;
     }
 
-
-
     private boolean isValidState(int wolfs, int sheeps) {
 
         if (_boardState.get(BOAT) == 0) {
@@ -103,9 +112,13 @@ public class WolfsSheepsBoard {
     }
 
     private boolean isRiskState(int wolfs, int sheeps) {
-        return ((_boardState.get(WOLFS) - wolfs) > _boardState.get(SHEEPS) - sheeps) ||
-                (((3 - _boardState.get(SHEEPS) - sheeps) < (3 - _boardState.get(WOLFS) - wolfs)) &&
-                (3 - _boardState.get(SHEEPS) - sheeps) != 0);
+        if (_boardState.get(BOAT) == 0) {
+            return ((_boardState.get(WOLFS) - wolfs) > (_boardState.get(SHEEPS) - sheeps) &&
+                    (_boardState.get(SHEEPS) - sheeps) != 0);
+        } else {
+            return ((_boardState.get(WOLFS) + wolfs) > (_boardState.get(SHEEPS) + sheeps) &&
+                    (_boardState.get(SHEEPS) + sheeps) != 3);
+        }
     }
 
     @Override
