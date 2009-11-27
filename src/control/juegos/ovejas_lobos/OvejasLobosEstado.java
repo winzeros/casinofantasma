@@ -21,6 +21,7 @@ public class OvejasLobosEstado {
     public static final String OVEJAS = "Ovejas";
     public static final String CANOA = "Canoa";
 
+// <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
 
     public OvejasLobosEstado() {
         _orilla = getEstadoInicial();
@@ -46,6 +47,10 @@ public class OvejasLobosEstado {
         _controlCiclos = estado._controlCiclos;
     }
 
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
     public HashMap getEstadoInicial() {
         HashMap estadoInicial = new HashMap(3);
 
@@ -55,6 +60,64 @@ public class OvejasLobosEstado {
 
         return estadoInicial;
     }
+
+   public void setEstado(OvejasLobosEstado estado) {
+        _orilla.clear();
+        _orilla.put(LOBOS, estado._orilla.get(LOBOS));
+        _orilla.put(OVEJAS, estado._orilla.get(OVEJAS));
+        _orilla.put(CANOA, estado._orilla.get(CANOA));
+    }
+
+    public HashMap<String, Integer> getOrilla() {
+        return this._orilla;
+    }
+
+    public ArrayList getRecorrido() {
+        return this._recorrido;
+    }
+
+    public void setRecorrido(ArrayList recorrido) {
+        this._recorrido = recorrido;
+    }
+
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
+
+    private boolean estadoValido(int lobos, int ovejas) {
+
+        if (_orilla.get(CANOA) == 0) {
+            return (((lobos + ovejas) < 3) &&
+                    ((lobos + ovejas) > 0) &&
+                    ((_orilla.get(LOBOS) - lobos) >= 0) &&
+                    ((_orilla.get(OVEJAS) - ovejas) >= 0));
+        } else {
+            return (((lobos + ovejas) < 3) &&
+                    ((lobos + ovejas) > 0) &&
+                    ((3 - _orilla.get(LOBOS) - lobos) >= 0) &&
+                    ((3 - _orilla.get(OVEJAS) - ovejas) >= 0));
+        }
+    }
+
+    private boolean estadoRiesgo(int lobos, int ovejas) {
+        if (_orilla.get(CANOA) == 0) {
+            return ((((_orilla.get(LOBOS) - lobos) > (_orilla.get(OVEJAS) - ovejas) &&
+                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
+                    ((_orilla.get(LOBOS) - lobos) < (_orilla.get(OVEJAS) - ovejas) &&
+                    ((_orilla.get(OVEJAS) - ovejas) != 0) && ((_orilla.get(OVEJAS) - ovejas) != 3)));
+        } else {
+            return ((((_orilla.get(LOBOS) + lobos) > (_orilla.get(OVEJAS) + ovejas) &&
+                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
+                    ((_orilla.get(LOBOS) + lobos) < (_orilla.get(OVEJAS) + ovejas) &&
+                    ((_orilla.get(OVEJAS) + ovejas) != 0) && ((_orilla.get(OVEJAS) + ovejas) != 3)));
+        }
+    }
+
+    boolean controlCiclos(HashMap<String, Integer> orilla) {
+        return !((this._controlCiclos) && (this._recorrido.contains(orilla)));
+    }
+
+// </editor-fold>
 
     public boolean mover(int lobos, int ovejas) {
         int aux;
@@ -99,59 +162,11 @@ public class OvejasLobosEstado {
         return ok;
     }
 
-    public void setRecorrido(ArrayList recorrido) {
-        this._recorrido = recorrido;
-    }
-
-    public ArrayList getRecorrido() {
-        return this._recorrido;
-    }
-
-    public HashMap<String, Integer> getOrilla() {
-        return this._orilla;
-    }
-
-    public void setEstado(OvejasLobosEstado estado) {
-        _orilla.clear();
-        _orilla.put(LOBOS, estado._orilla.get(LOBOS));
-        _orilla.put(OVEJAS, estado._orilla.get(OVEJAS));
-        _orilla.put(CANOA, estado._orilla.get(CANOA));
-    }
-
     public boolean equals(Object o) {
         OvejasLobosEstado estado = (OvejasLobosEstado) o;
         return ((estado._orilla.get(LOBOS) == _orilla.get(LOBOS)) &&
                 (estado._orilla.get(OVEJAS) == _orilla.get(OVEJAS)) &&
                 (estado._orilla.get(CANOA) == _orilla.get(CANOA)));
-    }
-
-    private boolean estadoValido(int lobos, int ovejas) {
-
-        if (_orilla.get(CANOA) == 0) {
-            return (((lobos + ovejas) < 3) &&
-                    ((lobos + ovejas) > 0) &&
-                    ((_orilla.get(LOBOS) - lobos) >= 0) &&
-                    ((_orilla.get(OVEJAS) - ovejas) >= 0));
-        } else {
-            return (((lobos + ovejas) < 3) &&
-                    ((lobos + ovejas) > 0) &&
-                    ((3 - _orilla.get(LOBOS) - lobos) >= 0) &&
-                    ((3 - _orilla.get(OVEJAS) - ovejas) >= 0));
-        }
-    }
-
-    private boolean estadoRiesgo(int lobos, int ovejas) {
-        if (_orilla.get(CANOA) == 0) {
-            return ((((_orilla.get(LOBOS) - lobos) > (_orilla.get(OVEJAS) - ovejas) &&
-                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
-                    ((_orilla.get(LOBOS) - lobos) < (_orilla.get(OVEJAS) - ovejas) &&
-                    ((_orilla.get(OVEJAS) - ovejas) != 0) && ((_orilla.get(OVEJAS) - ovejas) != 3)));
-        } else {
-            return ((((_orilla.get(LOBOS) + lobos) > (_orilla.get(OVEJAS) + ovejas) &&
-                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
-                    ((_orilla.get(LOBOS) + lobos) < (_orilla.get(OVEJAS) + ovejas) &&
-                    ((_orilla.get(OVEJAS) + ovejas) != 0) && ((_orilla.get(OVEJAS) + ovejas) != 3)));
-        }
     }
 
     @Override
@@ -175,7 +190,4 @@ public class OvejasLobosEstado {
         return resultado;
     }
 
-    boolean controlCiclos(HashMap<String, Integer> orilla) {
-        return !((this._controlCiclos) && (this._recorrido.contains(orilla)));
-    }
 }

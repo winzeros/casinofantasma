@@ -11,6 +11,7 @@ import aima.search.uninformed.*;
  *
  * @author Alicia
  */
+
 public class OvejasLobosDemo {
 
     public static void main(String[] args) {
