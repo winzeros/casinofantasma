@@ -17,11 +17,11 @@ import java.util.Properties;
  */
 public class OvejasLobosJuego implements IJuego {
 
-    private String      _nombre     = null;
-    private boolean     _solucion   = false;
-    private SearchAgent _agente     = null;
-    private Search      _busqueda   = null;
-    private Problem     _problema   = null;
+    private String _nombre = null;
+    private boolean _solucion = false;
+    private SearchAgent _agente = null;
+    private Search _busqueda = null;
+    private Problem _problema = null;
 
     public OvejasLobosJuego(Search busqueda) {
 
@@ -36,6 +36,8 @@ public class OvejasLobosJuego implements IJuego {
         }
     }
 
+// <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
     public void setSolucion(boolean b) {
         this._solucion = b;
     }
@@ -48,9 +50,41 @@ public class OvejasLobosJuego implements IJuego {
         this._busqueda = s;
     }
 
+        public String getNombre() {
+        return this._nombre;
+    }
+
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="IMPRIMIR">
+
+   public String imprimir(List eventos) {
+        String impresion = "";
+        for (int i = 0; i < eventos.size(); i++) {
+            String action = (String) eventos.get(i);
+            System.out.println(action);
+            impresion += action + "\n";
+        }
+        return impresion;
+    }
+
+    public String imprimirPropiedades(Properties propiedades) {
+        String impresion = "";
+        Iterator keys = propiedades.keySet().iterator();
+        while (keys.hasNext()) {
+            String key = (String) keys.next();
+            String property = propiedades.getProperty(key);
+            System.out.println(key + " : " + property);
+            impresion += key + " : " + property + "\n";
+        }
+        return impresion;
+    }
+
+// </editor-fold>
+
     public boolean ejecutar() {
 
-    	try{
+        try {
 
             this._agente = new SearchAgent(this._problema, this._busqueda);
             System.out.println("Estado inicial\n");
@@ -60,10 +94,11 @@ public class OvejasLobosJuego implements IJuego {
             this.imprimir(this._agente.getActions());
             this.imprimirPropiedades(this._agente.getInstrumentation());
 
-            if(this.getSolucion())
+            if (this.getSolucion()) {
                 System.out.println("Es Solución");
-            else
+            } else {
                 System.out.println("NO es solución");
+            }
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -72,33 +107,7 @@ public class OvejasLobosJuego implements IJuego {
         return this.getSolucion();
     }
 
-    public String getNombre() {
-        return this._nombre;
-    }
-
-    public String imprimir(List eventos) {
-		String impresion = "";
-		for (int i = 0; i < eventos.size(); i++) {
-			String action = (String) eventos.get(i);
-			System.out.println(action);
-			impresion+=action+"\n";
-		}
-		return impresion;
-    }
-
-    public String imprimirPropiedades(Properties propiedades) {
-		String impresion = "";
-		Iterator keys = propiedades.keySet().iterator();
-		while (keys.hasNext()) {
-			String key = (String) keys.next();
-			String property = propiedades.getProperty(key);
-			System.out.println(key + " : " + property);
-			impresion += key + " : " + property+"\n";
-		}
-		return impresion;
-    }
-
     public boolean permiteControlCiclos() {
-		return !(this._busqueda instanceof IterativeDeepeningSearch);
-	}
+        return !(this._busqueda instanceof IterativeDeepeningSearch);
+    }
 }

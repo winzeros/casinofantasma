@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author Alicia
  */
+
 public class OvejasLobosFuncionSucesor implements SuccessorFunction {
 
     public List getSuccessors(Object arg0) {
