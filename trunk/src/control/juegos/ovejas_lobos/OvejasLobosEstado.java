@@ -6,6 +6,8 @@ package control.juegos.ovejas_lobos;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,13 +18,11 @@ public class OvejasLobosEstado {
     private HashMap<String, Integer> _orilla;
     private ArrayList _recorrido;
     private boolean _controlCiclos;
-
     public static final String LOBOS = "Lobos";
     public static final String OVEJAS = "Ovejas";
     public static final String CANOA = "Canoa";
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
-
     public OvejasLobosEstado() {
         _orilla = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -40,7 +40,7 @@ public class OvejasLobosEstado {
     public OvejasLobosEstado(HashMap<String, Integer> orilla) {
         _orilla = orilla;
     }
-    
+
     public OvejasLobosEstado(OvejasLobosEstado estado) {
         _orilla = estado._orilla;
         _recorrido = estado._recorrido;
@@ -50,7 +50,6 @@ public class OvejasLobosEstado {
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
-
     public HashMap getEstadoInicial() {
         HashMap estadoInicial = new HashMap(3);
 
@@ -61,7 +60,7 @@ public class OvejasLobosEstado {
         return estadoInicial;
     }
 
-   public void setEstado(OvejasLobosEstado estado) {
+    public void setEstado(OvejasLobosEstado estado) {
         _orilla.clear();
         _orilla.put(LOBOS, estado._orilla.get(LOBOS));
         _orilla.put(OVEJAS, estado._orilla.get(OVEJAS));
@@ -83,34 +82,53 @@ public class OvejasLobosEstado {
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
-
     private boolean estadoValido(int lobos, int ovejas) {
 
-        if (_orilla.get(CANOA) == 0) {
-            return (((lobos + ovejas) < 3) &&
-                    ((lobos + ovejas) > 0) &&
-                    ((_orilla.get(LOBOS) - lobos) >= 0) &&
-                    ((_orilla.get(OVEJAS) - ovejas) >= 0));
-        } else {
-            return (((lobos + ovejas) < 3) &&
-                    ((lobos + ovejas) > 0) &&
-                    ((3 - _orilla.get(LOBOS) - lobos) >= 0) &&
-                    ((3 - _orilla.get(OVEJAS) - ovejas) >= 0));
+        boolean ok = false;
+
+        try {
+
+            if (_orilla.get(CANOA) == 0) {
+                ok = (((lobos + ovejas) < 3) &&
+                        ((lobos + ovejas) > 0) &&
+                        ((_orilla.get(LOBOS) - lobos) >= 0) &&
+                        ((_orilla.get(OVEJAS) - ovejas) >= 0));
+            } else {
+                ok = (((lobos + ovejas) < 3) &&
+                        ((lobos + ovejas) > 0) &&
+                        ((3 - _orilla.get(LOBOS) - lobos) >= 0) &&
+                        ((3 - _orilla.get(OVEJAS) - ovejas) >= 0));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(OvejasLobosEstado.class.getName()).log(Level.SEVERE, "Error al comprobar si es válido el movimiento " +
+                    "(" + lobos + "," + ovejas + ") en el estado " + this.toString(), ex);
         }
+
+        return ok;
     }
 
     private boolean estadoRiesgo(int lobos, int ovejas) {
-        if (_orilla.get(CANOA) == 0) {
-            return ((((_orilla.get(LOBOS) - lobos) > (_orilla.get(OVEJAS) - ovejas) &&
-                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
-                    ((_orilla.get(LOBOS) - lobos) < (_orilla.get(OVEJAS) - ovejas) &&
-                    ((_orilla.get(OVEJAS) - ovejas) != 0) && ((_orilla.get(OVEJAS) - ovejas) != 3)));
-        } else {
-            return ((((_orilla.get(LOBOS) + lobos) > (_orilla.get(OVEJAS) + ovejas) &&
-                    (_orilla.get(OVEJAS) - ovejas) != 0)) ||
-                    ((_orilla.get(LOBOS) + lobos) < (_orilla.get(OVEJAS) + ovejas) &&
-                    ((_orilla.get(OVEJAS) + ovejas) != 0) && ((_orilla.get(OVEJAS) + ovejas) != 3)));
+
+        boolean ok = false;
+
+        try {
+
+            if (_orilla.get(CANOA) == 0) {
+                ok = ((((_orilla.get(LOBOS) - lobos) > (_orilla.get(OVEJAS) - ovejas) &&
+                        (_orilla.get(OVEJAS) - ovejas) != 0)) ||
+                        ((_orilla.get(LOBOS) - lobos) < (_orilla.get(OVEJAS) - ovejas) &&
+                        ((_orilla.get(OVEJAS) - ovejas) != 0) && ((_orilla.get(OVEJAS) - ovejas) != 3)));
+            } else {
+                ok = ((((_orilla.get(LOBOS) + lobos) > (_orilla.get(OVEJAS) + ovejas) &&
+                        (_orilla.get(OVEJAS) - ovejas) != 0)) ||
+                        ((_orilla.get(LOBOS) + lobos) < (_orilla.get(OVEJAS) + ovejas) &&
+                        ((_orilla.get(OVEJAS) + ovejas) != 0) && ((_orilla.get(OVEJAS) + ovejas) != 3)));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(OvejasLobosEstado.class.getName()).log(Level.SEVERE, "Error al comprobar si es un estado de riesgo el movimiento " +
+                    "(" + lobos + "," + ovejas + ") en el estado " + this.toString(), ex);
         }
+        return ok;
     }
 
     boolean controlCiclos(HashMap<String, Integer> orilla) {
@@ -122,51 +140,69 @@ public class OvejasLobosEstado {
     public boolean mover(int lobos, int ovejas) {
         int aux;
         boolean ok = false;
-        HashMap<String, Integer> orilla = (HashMap<String, Integer>) _orilla.clone();
+        HashMap<String, Integer> orilla;
 
-        if (estadoValido(lobos, ovejas) && !(estadoRiesgo(lobos, ovejas))) {
+        try {
+            orilla = (HashMap<String, Integer>) _orilla.clone();
 
-            if (orilla.get(CANOA) == 0) {
+            if (estadoValido(lobos, ovejas) && !(estadoRiesgo(lobos, ovejas))) {
 
-                aux = _orilla.get(LOBOS) - lobos;
-                orilla.remove(LOBOS);
-                orilla.put(LOBOS, aux);
+                if (orilla.get(CANOA) == 0) {
 
-                aux = orilla.get(OVEJAS) - ovejas;
-                orilla.remove(OVEJAS);
-                orilla.put(OVEJAS, aux);
+                    aux = _orilla.get(LOBOS) - lobos;
+                    orilla.remove(LOBOS);
+                    orilla.put(LOBOS, aux);
 
-                orilla.remove(CANOA);
-                orilla.put(CANOA, 1);
+                    aux = orilla.get(OVEJAS) - ovejas;
+                    orilla.remove(OVEJAS);
+                    orilla.put(OVEJAS, aux);
 
-            } else {
+                    orilla.remove(CANOA);
+                    orilla.put(CANOA, 1);
 
-                aux = orilla.get(LOBOS) + lobos;
-                orilla.remove(LOBOS);
-                orilla.put(LOBOS, aux);
+                } else {
 
-                aux = orilla.get(OVEJAS) + ovejas;
-                orilla.remove(OVEJAS);
-                orilla.put(OVEJAS, aux);
+                    aux = orilla.get(LOBOS) + lobos;
+                    orilla.remove(LOBOS);
+                    orilla.put(LOBOS, aux);
 
-                orilla.remove(CANOA);
-                orilla.put(CANOA, 0);
+                    aux = orilla.get(OVEJAS) + ovejas;
+                    orilla.remove(OVEJAS);
+                    orilla.put(OVEJAS, aux);
+
+                    orilla.remove(CANOA);
+                    orilla.put(CANOA, 0);
+                }
+
+                if (this.controlCiclos(orilla)) {
+                    this._orilla = orilla;
+                    this._recorrido.add(orilla);
+                    ok = true;
+                }
             }
 
-            if (this.controlCiclos(orilla)) {
-                this._orilla = orilla;
-                this._recorrido.add(orilla);
-                ok = true;
-            }
+        } catch (Exception ex) {
+            Logger.getLogger(OvejasLobosEstado.class.getName()).log(Level.SEVERE, "Error al mover (" + lobos + "," + ovejas + ") en el estado " + this.toString(), ex);
         }
+
         return ok;
     }
 
     public boolean equals(Object o) {
-        OvejasLobosEstado estado = (OvejasLobosEstado) o;
-        return ((estado._orilla.get(LOBOS) == _orilla.get(LOBOS)) &&
-                (estado._orilla.get(OVEJAS) == _orilla.get(OVEJAS)) &&
-                (estado._orilla.get(CANOA) == _orilla.get(CANOA)));
+
+        boolean ok = false;
+
+        try {
+            OvejasLobosEstado estado = (OvejasLobosEstado) o;
+            ok = ((estado._orilla.get(LOBOS) == _orilla.get(LOBOS)) &&
+                    (estado._orilla.get(OVEJAS) == _orilla.get(OVEJAS)) &&
+                    (estado._orilla.get(CANOA) == _orilla.get(CANOA)));
+
+        } catch (Exception ex) {
+            Logger.getLogger(OvejasLobosEstado.class.getName()).log(Level.SEVERE, "Error al comparar " + this.toString() + " con " + o.toString(), ex);
+        }
+
+        return ok;
     }
 
     @Override
@@ -189,5 +225,4 @@ public class OvejasLobosEstado {
 
         return resultado;
     }
-
 }

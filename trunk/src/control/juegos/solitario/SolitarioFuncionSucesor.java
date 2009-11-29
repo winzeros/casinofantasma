@@ -17,7 +17,7 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
 
     public List getSuccessors(Object state) {
         ArrayList resultado = new ArrayList();
-        SolitarioEstado estadoPadre = (SolitarioEstado) state;
+     /*   SolitarioEstado estadoPadre = (SolitarioEstado) state;
         ArrayList recorrido = estadoPadre.getRecorrido();
 
         for (int i = 0; i < 7; i++) {
@@ -57,7 +57,7 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
                             estado));
                 }
             }
-        }
+        }*/
         return resultado;
     }
 }
