@@ -6,7 +6,6 @@
 package control.juegos.ovejas_lobos;
 
 import aima.search.framework.GoalTest;
-import control.juegos.IJuego;
 import java.util.HashMap;
 
 /**
@@ -15,7 +14,7 @@ import java.util.HashMap;
  */
 public class OvejasLobosEstadoObjetivo  implements GoalTest {
 
-    private IJuego _juego;
+    private OvejasLobosJuego _juego;
 
     OvejasLobosEstadoObjetivo(OvejasLobosJuego juego) {
         _juego = juego;
@@ -35,6 +34,6 @@ public class OvejasLobosEstadoObjetivo  implements GoalTest {
             this._juego.setSolucion(ok);
         }
 
-        return arg0.equals(new OvejasLobosEstado(estado));
+        return ok;
     }
 }
