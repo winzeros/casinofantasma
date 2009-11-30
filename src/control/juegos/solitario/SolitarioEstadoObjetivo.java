@@ -6,6 +6,7 @@
 package control.juegos.solitario;
 
 import aima.search.framework.GoalTest;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,73 +21,47 @@ public class SolitarioEstadoObjetivo implements GoalTest {
     }
 
     public boolean isGoalState(Object state) {
-        String[][] tablero = new String[7][7];
-        boolean ok;
+
+        ArrayList<ArrayList> tablero = new ArrayList(7);
+        boolean ok = false;
+        ArrayList<String> fila3fichas = new ArrayList(7);
+        ArrayList<String> fila7fichas = new ArrayList(7);
+        ArrayList<String> filaCentral = new ArrayList(7);
 
         //Primera fila --> ##***##
-        tablero[0][0] = SolitarioEstado.NO_POS;
-        tablero[0][1] = SolitarioEstado.NO_POS;
-        tablero[0][2] = SolitarioEstado.VACIO;
-        tablero[0][3] = SolitarioEstado.VACIO;
-        tablero[0][4] = SolitarioEstado.VACIO;
-        tablero[0][5] = SolitarioEstado.NO_POS;
-        tablero[0][6] = SolitarioEstado.NO_POS;
+        fila3fichas.add(SolitarioEstado.NO_POS);
+        fila3fichas.add(SolitarioEstado.NO_POS);
+        fila3fichas.add(SolitarioEstado.FICHA);
+        fila3fichas.add(SolitarioEstado.FICHA);
+        fila3fichas.add(SolitarioEstado.FICHA);
+        fila3fichas.add(SolitarioEstado.NO_POS);
+        fila3fichas.add(SolitarioEstado.NO_POS);
 
-        //Segunda fila --> ##***##
-        tablero[1][0] = SolitarioEstado.NO_POS;
-        tablero[1][1] = SolitarioEstado.NO_POS;
-        tablero[1][2] = SolitarioEstado.VACIO;
-        tablero[1][3] = SolitarioEstado.VACIO;
-        tablero[1][4] = SolitarioEstado.VACIO;
-        tablero[1][5] = SolitarioEstado.NO_POS;
-        tablero[1][6] = SolitarioEstado.NO_POS;
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
+        fila7fichas.add(SolitarioEstado.FICHA);
 
-        //Tercela fila --> *******
-        tablero[2][0] = SolitarioEstado.VACIO;
-        tablero[2][1] = SolitarioEstado.VACIO;
-        tablero[2][2] = SolitarioEstado.VACIO;
-        tablero[2][3] = SolitarioEstado.VACIO;
-        tablero[2][4] = SolitarioEstado.VACIO;
-        tablero[2][5] = SolitarioEstado.VACIO;
-        tablero[2][6] = SolitarioEstado.VACIO;
+        filaCentral.add(SolitarioEstado.FICHA);
+        filaCentral.add(SolitarioEstado.FICHA);
+        filaCentral.add(SolitarioEstado.FICHA);
+        filaCentral.add(SolitarioEstado.VACIO);
+        filaCentral.add(SolitarioEstado.FICHA);
+        filaCentral.add(SolitarioEstado.FICHA);
+        filaCentral.add(SolitarioEstado.FICHA);
 
-        //Cuarta fila --> *** ***
-        tablero[3][0] = SolitarioEstado.VACIO;
-        tablero[3][1] = SolitarioEstado.VACIO;
-        tablero[3][2] = SolitarioEstado.VACIO;
-        tablero[3][3] = SolitarioEstado.FICHA;
-        tablero[3][4] = SolitarioEstado.VACIO;
-        tablero[3][5] = SolitarioEstado.VACIO;
-        tablero[3][6] = SolitarioEstado.VACIO;
+        tablero.add(fila3fichas);
+        tablero.add(fila3fichas);
+        tablero.add(fila7fichas);
+        tablero.add(filaCentral);
+        tablero.add(fila7fichas);
+        tablero.add(fila3fichas);
+        tablero.add(fila3fichas);
 
-        //Quinta fila --> *******
-        tablero[4][0] = SolitarioEstado.VACIO;
-        tablero[4][1] = SolitarioEstado.VACIO;
-        tablero[4][2] = SolitarioEstado.VACIO;
-        tablero[4][3] = SolitarioEstado.VACIO;
-        tablero[4][4] = SolitarioEstado.VACIO;
-        tablero[4][5] = SolitarioEstado.VACIO;
-        tablero[4][6] = SolitarioEstado.VACIO;
-
-        //Sexta fila --> ##***##
-        tablero[5][0] = SolitarioEstado.NO_POS;
-        tablero[5][1] = SolitarioEstado.NO_POS;
-        tablero[5][2] = SolitarioEstado.VACIO;
-        tablero[5][3] = SolitarioEstado.VACIO;
-        tablero[5][4] = SolitarioEstado.VACIO;
-        tablero[5][5] = SolitarioEstado.NO_POS;
-        tablero[5][6] = SolitarioEstado.NO_POS;
-
-        //Septima fila --> ##***##
-        tablero[6][0] = SolitarioEstado.NO_POS;
-        tablero[6][1] = SolitarioEstado.NO_POS;
-        tablero[6][2] = SolitarioEstado.VACIO;
-        tablero[6][3] = SolitarioEstado.VACIO;
-        tablero[6][4] = SolitarioEstado.VACIO;
-        tablero[6][5] = SolitarioEstado.NO_POS;
-        tablero[6][6] = SolitarioEstado.NO_POS;
-
-        ok = state.equals(new SolitarioEstado(tablero));
+        ok = tablero.equals(state);
 
         if (ok) {
             this._juego.setSolucion(ok);

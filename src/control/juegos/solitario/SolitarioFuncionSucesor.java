@@ -15,22 +15,25 @@ import java.util.List;
  */
 public class SolitarioFuncionSucesor implements SuccessorFunction {
 
-    public List getSuccessors(Object state) {
+    private SolitarioEstado estadoPadre;
+
+    public List getSuccessors(Object arg0) {
         ArrayList resultado = new ArrayList();
-        SolitarioEstado estadoPadre = (SolitarioEstado) state;
+        estadoPadre = new SolitarioEstado((SolitarioEstado) arg0);
         ArrayList recorrido = estadoPadre.getRecorrido();
+        SolitarioEstado estado;
 
         for (int i = 0; i < 7; i++) {
 
             if ((i == 0) || (i == 1) || (i == 5) || (i == 6)) {
                 for (int j = 2; j < 5; j++) {
-                    SolitarioEstado estado = new SolitarioEstado(estadoPadre);
+                    estado = new SolitarioEstado(estadoPadre);
                     estado.setRecorrido(recorrido);
                     ejecutarMovimientos(estado, resultado, recorrido, i, j);
                 }
             } else {
                 for (int j = 0; j < 7; j++) {
-                    SolitarioEstado estado = new SolitarioEstado(estadoPadre);
+                    estado = new SolitarioEstado(estadoPadre);
                     estado.setRecorrido(recorrido);
                     ejecutarMovimientos(estado, resultado, recorrido, i, j);
                 }
@@ -40,7 +43,6 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
     }
 
     private void ejecutarMovimientos(SolitarioEstado estado, ArrayList resultado, ArrayList recorrido, int i, int j) {
-        estado.setRecorrido(recorrido);
 
         if (estado.ejecutarMovimiento(new Point(i, j), Movimiento.ABAJO)) {
             recorrido = estado.getRecorrido();
