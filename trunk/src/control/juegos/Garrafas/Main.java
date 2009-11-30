@@ -8,15 +8,7 @@ import aima.search.uninformed.*;
  * @author Grupo C15
  */
 public class Main {
-/*
-    public static void main(String[] args) {
-        Garrafas nuevo = new Garrafas();
-        nuevo.ejecutar();
-    }
 
-}
- * 
- */
 
 public static void main(String[] args) {
         System.out.println("\n\n\n**************************************");
