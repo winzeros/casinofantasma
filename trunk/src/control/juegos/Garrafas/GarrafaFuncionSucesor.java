@@ -20,10 +20,10 @@ public class GarrafaFuncionSucesor implements SuccessorFunction {
 	 * @param g4 Posible siguiente valor de la garrafa 4
 	 * @return Posible siguiente estado
 	 */
-	public GarrafaEstado crearSiguienteEstado(GarrafaEstado actual, int g3, int g4){
-        GarrafaEstado next = null;
+	public GarrafasEstado crearSiguienteEstado(GarrafasEstado actual, int g3, int g4){
+        GarrafasEstado next = null;
         if(actual.cambioAunNoRealizado(g3, g4)){
-            next = new GarrafaEstado(g3,g4,actual.getContenido());            
+            next = new GarrafasEstado(g3,g4,actual.getContenido());
         }
         return next;
     }
@@ -31,8 +31,8 @@ public class GarrafaFuncionSucesor implements SuccessorFunction {
     @Override
     public List getSuccessors(Object state){
         List<Successor> siguientes = new ArrayList<Successor>() {};
-        GarrafaEstado estado = (GarrafaEstado)state;
-        GarrafaEstado generado = null;
+        GarrafasEstado estado = (GarrafasEstado)state;
+        GarrafasEstado generado = null;
         int aux3 , aux4;
         /**
          * Llenar la garrafa de 3 litros de capacidad
