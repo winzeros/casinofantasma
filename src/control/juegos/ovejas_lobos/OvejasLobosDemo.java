@@ -24,6 +24,7 @@ public class OvejasLobosDemo {
         DepthLimitedSearchDemo();
         UniformCostSearchDemo();
         IterativeDeepeningSearchDemo();
+        BidirectionalSearchDemo();
     }
 
     private static void BreadthFirstDemo() {
@@ -107,6 +108,24 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n**************************************");
             log.info("           BÚSQUEDA ITERATIVA");
+            log.info("**************************************\n");
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static void BidirectionalSearchDemo() {
+
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new BidirectionalSearch());
+
+            log.info("\n\n\n**************************************");
+            log.info("       BÚSQUEDA BIDIRECCIONAL");
             log.info("**************************************\n");
 
             juego.ejecutar();
