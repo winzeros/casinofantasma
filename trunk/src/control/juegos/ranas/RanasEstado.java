@@ -34,6 +34,10 @@ public class RanasEstado {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    RanasEstado(RanasEstado estadoPadre) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
     /*public OvejasLobosEstado(HashMap<String, Integer> orilla) {
         _orilla = orilla;
     }
@@ -219,5 +223,13 @@ public class RanasEstado {
         resultado += "\n";
 
         return resultado;
+    }
+
+    ArrayList getRecorrido() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    void setRecorrido(ArrayList recorrido) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }
