@@ -15,15 +15,15 @@ import aima.search.uninformed.*;
 public class SolitarioDemo {
 
     public static void main(String[] args) {
-        System.out.println("\n\n\n**************************************");
+        /*System.out.println("\n\n\n**************************************");
         System.out.println("     BÚSQUEDA PRIMERO EN ANCHURA");
         System.out.println("**************************************\n");
-        BreadthFirstDemo();
-        /*System.out.println("\n\n\n**************************************");
+        BreadthFirstDemo();*/
+        System.out.println("\n\n\n**************************************");
         System.out.println("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
         System.out.println("**************************************\n");
         DepthFirstSearchDemo();
-        System.out.println("\n\n\n**************************************");
+        /*System.out.println("\n\n\n**************************************");
         System.out.println(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
         System.out.println("**************************************\n");
         DepthLimitedSearchDemo();

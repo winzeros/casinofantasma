@@ -8,23 +8,23 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-enum Movimiento {
-
-    IZQUIERDA, DERECHA, ARRIBA, ABAJO
-}
-
 /**
  *
  * @author Alicia
  */
 public class SolitarioEstado {
 
-    private ArrayList<ArrayList> _tablero;
-    private ArrayList _recorrido;
+    private String[][] _tablero;
+    private ArrayList<String[][]> _recorrido;
     private boolean _controlCiclos;
     public static final String FICHA = "*";
-    public static final String VACIO = " ";
+    public static final String VACIO = "_";
     public static final String NO_POS = "#";
+
+    public static enum Movimiento {
+
+        IZQUIERDA, DERECHA, ARRIBA, ABAJO
+    }
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public SolitarioEstado() {
@@ -41,70 +41,100 @@ public class SolitarioEstado {
         _controlCiclos = ciclos;
     }
 
-    public SolitarioEstado(ArrayList<ArrayList> tablero) {
-        _tablero = tablero;
+    public SolitarioEstado(String[][] tablero) {
+        _tablero = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                _tablero[i][j] = tablero[i][j];
+            }
+        }
     }
 
     public SolitarioEstado(SolitarioEstado estado) {
-        _tablero = estado._tablero;
-        _recorrido = estado._recorrido;
+        _tablero = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                _tablero[i][j] = estado._tablero[i][j];
+            }
+        }
+        _recorrido = (ArrayList) estado._recorrido.clone();
         _controlCiclos = estado._controlCiclos;
     }
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
-    private ArrayList<ArrayList> getEstadoInicial() {
+    private String[][] getEstadoInicial() {
 
-        ArrayList<ArrayList> tablero = new ArrayList(7);
-        ArrayList<String> fila3fichas = new ArrayList(7);
-        ArrayList<String> fila7fichas = new ArrayList(7);
-        ArrayList<String> filaCentral = new ArrayList(7);
+        String[][] tablero = new String[7][7];
 
-        //Primera fila --> ##***##
-        fila3fichas.add(NO_POS);
-        fila3fichas.add(NO_POS);
-        fila3fichas.add(FICHA);
-        fila3fichas.add(FICHA);
-        fila3fichas.add(FICHA);
-        fila3fichas.add(NO_POS);
-        fila3fichas.add(NO_POS);
+        tablero[0][0] = SolitarioEstado.NO_POS;
+        tablero[0][1] = SolitarioEstado.NO_POS;
+        tablero[0][2] = SolitarioEstado.FICHA;
+        tablero[0][3] = SolitarioEstado.FICHA;
+        tablero[0][4] = SolitarioEstado.FICHA;
+        tablero[0][5] = SolitarioEstado.NO_POS;
+        tablero[0][6] = SolitarioEstado.NO_POS;
 
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
-        fila7fichas.add(FICHA);
+        tablero[1][0] = SolitarioEstado.NO_POS;
+        tablero[1][1] = SolitarioEstado.NO_POS;
+        tablero[1][2] = SolitarioEstado.FICHA;
+        tablero[1][3] = SolitarioEstado.FICHA;
+        tablero[1][4] = SolitarioEstado.FICHA;
+        tablero[1][5] = SolitarioEstado.NO_POS;
+        tablero[1][6] = SolitarioEstado.NO_POS;
 
-        filaCentral.add(FICHA);
-        filaCentral.add(FICHA);
-        filaCentral.add(FICHA);
-        filaCentral.add(VACIO);
-        filaCentral.add(FICHA);
-        filaCentral.add(FICHA);
-        filaCentral.add(FICHA);
+        tablero[2][0] = SolitarioEstado.FICHA;
+        tablero[2][1] = SolitarioEstado.FICHA;
+        tablero[2][2] = SolitarioEstado.FICHA;
+        tablero[2][3] = SolitarioEstado.FICHA;
+        tablero[2][4] = SolitarioEstado.FICHA;
+        tablero[2][5] = SolitarioEstado.FICHA;
+        tablero[2][6] = SolitarioEstado.FICHA;
 
-        tablero.add(fila3fichas);
-        tablero.add(fila3fichas);
-        tablero.add(fila7fichas);
-        tablero.add(filaCentral);
-        tablero.add(fila7fichas);
-        tablero.add(fila3fichas);
-        tablero.add(fila3fichas);
+        tablero[3][0] = SolitarioEstado.FICHA;
+        tablero[3][1] = SolitarioEstado.FICHA;
+        tablero[3][2] = SolitarioEstado.FICHA;
+        tablero[3][3] = SolitarioEstado.VACIO;
+        tablero[3][4] = SolitarioEstado.FICHA;
+        tablero[3][5] = SolitarioEstado.FICHA;
+        tablero[3][6] = SolitarioEstado.FICHA;
+
+        tablero[4][0] = SolitarioEstado.FICHA;
+        tablero[4][1] = SolitarioEstado.FICHA;
+        tablero[4][2] = SolitarioEstado.FICHA;
+        tablero[4][3] = SolitarioEstado.FICHA;
+        tablero[4][4] = SolitarioEstado.FICHA;
+        tablero[4][5] = SolitarioEstado.FICHA;
+        tablero[4][6] = SolitarioEstado.FICHA;
+
+        tablero[5][0] = SolitarioEstado.NO_POS;
+        tablero[5][1] = SolitarioEstado.NO_POS;
+        tablero[5][2] = SolitarioEstado.FICHA;
+        tablero[5][3] = SolitarioEstado.FICHA;
+        tablero[5][4] = SolitarioEstado.FICHA;
+        tablero[5][5] = SolitarioEstado.NO_POS;
+        tablero[5][6] = SolitarioEstado.NO_POS;
+
+        tablero[6][0] = SolitarioEstado.NO_POS;
+        tablero[6][1] = SolitarioEstado.NO_POS;
+        tablero[6][2] = SolitarioEstado.FICHA;
+        tablero[6][3] = SolitarioEstado.FICHA;
+        tablero[6][4] = SolitarioEstado.FICHA;
+        tablero[6][5] = SolitarioEstado.NO_POS;
+        tablero[6][6] = SolitarioEstado.NO_POS;
 
         return tablero;
     }
 
     public void setEstado(SolitarioEstado estado) {
-        this._tablero = (ArrayList<ArrayList>) estado._tablero.clone();
+        this._tablero = (String[][]) estado._tablero.clone();
     }
 
-    public ArrayList<ArrayList> getTablero() {
+    public String[][] getTablero() {
         return this._tablero;
     }
 
-    public void setTablero(ArrayList<ArrayList> tablero) {
+    public void setTablero(String[][] tablero) {
         this._tablero = tablero;
     }
 
@@ -113,7 +143,7 @@ public class SolitarioEstado {
     }
 
     public void setRecorrido(ArrayList recorrido) {
-        this._recorrido = recorrido;
+        this._recorrido = (ArrayList) recorrido.clone();
     }
 
     private Point getPuntoIntervalo(Point origen, Movimiento movimiento) {
@@ -124,29 +154,29 @@ public class SolitarioEstado {
             switch (movimiento) {
 
                 case ABAJO: {
-                    if ((this._tablero.get(origen.x + 1).get(origen.y).equals(FICHA)) &&
-                            this._tablero.get(origen.x + 2).get(origen.y).equals(VACIO)) {
+                    if ((this._tablero[origen.x + 1][origen.y].equals(FICHA)) &&
+                            this._tablero[origen.x + 2][origen.y].equals(VACIO)) {
                         intervalo = new Point(origen.x + 1, origen.y);
                     }
                     break;
                 }
                 case ARRIBA: {
-                    if ((this._tablero.get(origen.x - 1).get(origen.y).equals(FICHA)) &&
-                            this._tablero.get(origen.x - 2).get(origen.y).equals(VACIO)) {
+                    if ((this._tablero[origen.x - 1][origen.y].equals(FICHA)) &&
+                            this._tablero[origen.x - 2][origen.y].equals(VACIO)) {
                         intervalo = new Point(origen.x - 1, origen.y);
                     }
                     break;
                 }
                 case IZQUIERDA: {
-                    if ((this._tablero.get(origen.x).get(origen.y - 1).equals(FICHA)) &&
-                            this._tablero.get(origen.x).get(origen.y - 2).equals(VACIO)) {
+                    if ((this._tablero[origen.x][origen.y - 1].equals(FICHA)) &&
+                            this._tablero[origen.x][origen.y - 2].equals(VACIO)) {
                         intervalo = new Point(origen.x, origen.y - 1);
                     }
                     break;
                 }
                 case DERECHA: {
-                    if ((this._tablero.get(origen.x).get(origen.y + 1).equals(FICHA)) &&
-                            this._tablero.get(origen.x).get(origen.y + 2).equals(VACIO)) {
+                    if ((this._tablero[origen.x][origen.y + 1].equals(FICHA)) &&
+                            this._tablero[origen.x][origen.y + 2].equals(VACIO)) {
                         intervalo = new Point(origen.x, origen.y + 1);
                     }
                     break;
@@ -162,42 +192,61 @@ public class SolitarioEstado {
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
     boolean controlCiclos(String[][] tablero) {
-        return !((this._controlCiclos) && (this._recorrido.contains(tablero)));
+        
+        boolean ok = true;
+        boolean iguales;
+
+        if (this._controlCiclos) {
+
+            for (int i = 0; i < this._recorrido.size(); i++) {
+                iguales = true;
+                for (int j = 0; j < 7; j++) {
+                    for (int k = 0; k < 7; k++) {
+                        iguales = iguales && (this._recorrido.get(i)[j][k].equals(tablero[j][k]));
+                    }
+                }
+                if (iguales) {
+                    ok = false;
+                    break;
+                }
+            }
+        }
+        return ok;
     }
 
     private Point getSalto(Point origen, Movimiento movimiento) {
 
         Point destino = new Point(-1, -1);
 
-        if ((this._tablero.get(origen.x).get(origen.y).equals(FICHA)) &&
+        if ((this._tablero[origen.x][origen.y].equals(FICHA)) &&
                 esPosibleSalto(origen, movimiento)) {
 
             switch (movimiento) {
 
                 case ABAJO: {
-                    if ((this._tablero.get(origen.x + 1).get(origen.y).equals(FICHA)) &&
-                            this._tablero.get(origen.x + 2).get(origen.y).equals(VACIO)) {
+                    if ((this._tablero[origen.x + 1][origen.y].equals(FICHA)) &&
+                            this._tablero[origen.x + 2][origen.y].equals(VACIO)) {
                         destino = new Point(origen.x + 2, origen.y);
                     }
                     break;
                 }
                 case ARRIBA: {
-                    if ((this._tablero.get(origen.x - 1).get(origen.y).equals(FICHA)) &&
-                            this._tablero.get(origen.x - 2).get(origen.y).equals(VACIO)) {
+                    if ((this._tablero[origen.x - 1][origen.y].equals(FICHA)) &&
+                            this._tablero[origen.x - 2][origen.y].equals(VACIO)) {
                         destino = new Point(origen.x - 2, origen.y);
                     }
                     break;
                 }
                 case IZQUIERDA: {
-                    if ((this._tablero.get(origen.x).get(origen.y - 1).equals(FICHA)) &&
-                            this._tablero.get(origen.x).get(origen.y - 2).equals(VACIO)) {
+                    if ((this._tablero[origen.x][origen.y - 1].equals(FICHA)) &&
+                            this._tablero[origen.x][origen.y - 2].equals(VACIO)) {
                         destino = new Point(origen.x, origen.y - 2);
                     }
                     break;
                 }
                 case DERECHA: {
-                    if ((this._tablero.get(origen.x).get(origen.y + 1).equals(FICHA)) &&
-                            this._tablero.get(origen.x).get(origen.y + 2).equals(VACIO)) {
+                    if ((this._tablero[origen.x][origen.y + 1].equals(FICHA)) &&
+                            this._tablero[origen.x][origen.y + 2].equals(VACIO)) {
                         destino = new Point(origen.x, origen.y + 2);
                     }
                     break;
@@ -243,27 +292,77 @@ public class SolitarioEstado {
 
         if (!destino.equals(new Point(-1, -1))) {
             intervalo = getPuntoIntervalo(origen, movimiento);
-            this._tablero.get(origen.x).set(intervalo.y, VACIO);
-            this._tablero.get(intervalo.x).set(intervalo.y, VACIO);
-            this._tablero.get(destino.x).set(destino.y, FICHA);
-            this._recorrido.add(_tablero);
-            ok = true;
+            this._tablero[origen.x][origen.y] = VACIO;
+            this._tablero[intervalo.x][intervalo.y] = VACIO;
+            this._tablero[destino.x][destino.y] = FICHA;
+            if (this.controlCiclos(_tablero)) {
+                this._recorrido.add(_tablero);
+                this.rotarTablero();
+                ok = true;
+            }
+
         }
 
         return ok;
     }
 
-    public boolean equals(Object o) {
-        return this._tablero.equals(o);
+    public void rotarTablero() {
+
+        String[][] tableroAux;
+
+        tableroAux = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                tableroAux[i][j] = _tablero[j][i];
+            }
+        }
+        this._recorrido.add(tableroAux);
+
+        tableroAux = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                tableroAux[i][j] = _tablero[6 - i][6 - j];
+            }
+        }
+        this._recorrido.add(tableroAux);
+
+        tableroAux = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                tableroAux[i][j] = _tablero[6 - j][6 - i];
+            }
+        }
+        this._recorrido.add(tableroAux);
+
     }
 
+    @Override
+    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
+    public boolean equals(Object o) {
+        return Arrays.equals(this._tablero, (String[][]) o);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + Arrays.deepHashCode(this._tablero);
+        hash = 83 * hash + (this._controlCiclos ? 1 : 0);
+        return hash;
+    }
+
+    @Override
     public SolitarioEstado clone() {
 
         SolitarioEstado otro = new SolitarioEstado();
 
         otro._controlCiclos = _controlCiclos;
         otro._recorrido = (ArrayList) _recorrido.clone();
-        otro._tablero = (ArrayList) _tablero.clone();
+        otro._tablero = new String[7][7];
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                otro._tablero[i][j] = _tablero[i][j];
+            }
+        }
 
         return otro;
 
@@ -276,7 +375,7 @@ public class SolitarioEstado {
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
-                resultado += this._tablero.get(i).get(j);
+                resultado += this._tablero[i][j];
             }
             resultado += "\n";
         }
