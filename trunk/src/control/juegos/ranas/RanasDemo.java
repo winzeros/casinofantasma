@@ -5,6 +5,8 @@
 
 package control.juegos.ranas;
 
+import aima.search.framework.TreeSearch;
+import aima.search.uninformed.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
