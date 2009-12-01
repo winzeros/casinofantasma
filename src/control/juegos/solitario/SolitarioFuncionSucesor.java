@@ -29,43 +29,47 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
                 for (int j = 2; j < 5; j++) {
                     estado = new SolitarioEstado(estadoPadre);
                     estado.setRecorrido(recorrido);
-                    ejecutarMovimientos(estado, resultado, recorrido, i, j);
+                    recorrido = ejecutarMovimientos(estado, resultado, i, j);
                 }
             } else {
                 for (int j = 0; j < 7; j++) {
                     estado = new SolitarioEstado(estadoPadre);
                     estado.setRecorrido(recorrido);
-                    ejecutarMovimientos(estado, resultado, recorrido, i, j);
+                    recorrido = ejecutarMovimientos(estado, resultado, i, j);
                 }
             }
         }
         return resultado;
     }
 
-    private void ejecutarMovimientos(SolitarioEstado estado, ArrayList resultado, ArrayList recorrido, int i, int j) {
+    private ArrayList ejecutarMovimientos(SolitarioEstado estado, ArrayList resultado, int i, int j) {
 
-        if (estado.ejecutarMovimiento(new Point(i, j), Movimiento.ABAJO)) {
+        ArrayList recorrido = estado.getRecorrido();
+
+        if (estado.ejecutarMovimiento(new Point(i, j), SolitarioEstado.Movimiento.ABAJO)) {
             recorrido = estado.getRecorrido();
             resultado.add(new Successor("                  (" + i + "," + j + ")" + estado.toString(),
                     estado));
         }
 
-        if (estado.ejecutarMovimiento(new Point(i, j), Movimiento.ARRIBA)) {
+        if (estado.ejecutarMovimiento(new Point(i, j), SolitarioEstado.Movimiento.ARRIBA)) {
             recorrido = estado.getRecorrido();
             resultado.add(new Successor("                  (" + i + "," + j + ")" + estado.toString(),
                     estado));
         }
 
-        if (estado.ejecutarMovimiento(new Point(i, j), Movimiento.IZQUIERDA)) {
+        if (estado.ejecutarMovimiento(new Point(i, j), SolitarioEstado.Movimiento.IZQUIERDA)) {
             recorrido = estado.getRecorrido();
             resultado.add(new Successor("                  (" + i + "," + j + ")" + estado.toString(),
                     estado));
         }
 
-        if (estado.ejecutarMovimiento(new Point(i, j), Movimiento.DERECHA)) {
+        if (estado.ejecutarMovimiento(new Point(i, j), SolitarioEstado.Movimiento.DERECHA)) {
             recorrido = estado.getRecorrido();
             resultado.add(new Successor("                  (" + i + "," + j + ")" + estado.toString(),
                     estado));
         }
+
+        return recorrido;
     }
 }
