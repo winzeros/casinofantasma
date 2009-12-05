@@ -14,26 +14,26 @@ public class GarrafasEstado {
      * Garrafa de 3 litros de capacidad, que indica la cantidad de litros que
      * contiene en un determinado estado
      */
-	private int garrafa3;
+    private int _garrafa3;
     /**
      * Garrafa de 4 litros de capacidad, que indica la cantidad de litros que
      * contiene en un determinado estado
      */
-    private int garrafa4;
+    private int _garrafa4;
     /**
      * Hashtable, donde la clave o key es el valor del contenido existente en la
      * garrafa de 3 de capacidad y el valor es el contenido de la garrafa de 4
      * litros de capacidad
      */
-    private Vector<Contenido> contenido;
+    private Vector<Contenido> _contenido;
     /**
      * Constructor por defecto
      * Siendo el estado inicial, ambas garrafas vacías
      */
     public GarrafasEstado() {
-        this.garrafa3 = 0;
-        this.garrafa4 = 0;
-        this.contenido = new Vector<Contenido>();
+        this._garrafa3 = 0;
+        this._garrafa4 = 0;
+        this._contenido = new Vector<Contenido>();
     }
     /**
      * Constructor parametrizado
@@ -42,33 +42,33 @@ public class GarrafasEstado {
      * @param contenido
      */
     public GarrafasEstado(int garrafa3, int garrafa4, Vector<Contenido> contenido) {
-        this.garrafa3 = garrafa3;
-        this.garrafa4 = garrafa4;
-        this.contenido = contenido;
+        this._garrafa3 = garrafa3;
+        this._garrafa4 = garrafa4;
+        this._contenido = contenido;
     }
 
     public Vector<Contenido> getContenido() {
-        return contenido;
+        return _contenido;
     }
 
     public void setContenido(Vector<Contenido> contenido) {
-        this.contenido = contenido;
+        this._contenido = contenido;
     }
 
     public int getGarrafa3() {
-        return garrafa3;
+        return _garrafa3;
     }
 
     public void setGarrafa3(int garrafa3) {
-        this.garrafa3 = garrafa3;
+        this._garrafa3 = garrafa3;
     }
 
     public int getGarrafa4() {
-        return garrafa4;
+        return _garrafa4;
     }
 
     public void setGarrafa4(int garrafa4) {
-        this.garrafa4 = garrafa4;
+        this._garrafa4 = garrafa4;
     }
 
     /**

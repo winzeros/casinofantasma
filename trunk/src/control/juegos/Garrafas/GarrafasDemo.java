@@ -31,12 +31,12 @@ public static void main(String[] args) {
         System.out.println("           BÚSQUEDA ¿ITERATIVA?");
         System.out.println("**************************************\n");
         IterativeDeepeningSearchDemo();
-        
+        /*
         System.out.println("\n\n\n**************************************");
         System.out.println("           BÚSQUEDA BIDIRECCIONAL");
         System.out.println("**************************************\n");
         BidirectionalSearch();
-        
+        */
     }
 
     private static void BreadthFirstDemo() {
@@ -65,11 +65,12 @@ public static void main(String[] args) {
         juego.ejecutar();
     }
 
-    
+  /*
     private static void BidirectionalSearch(){
         GarrafasJuego juego= new GarrafasJuego(new BidirectionalSearch());
+        //GarrafasBidireccionalProblem(Problem original, Problem reverse)
         juego.ejecutar();
     }
-    
+    */
 }
 

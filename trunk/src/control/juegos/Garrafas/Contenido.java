@@ -7,7 +7,7 @@ package control.juegos.Garrafas;
 
 /**
  *
- * @author Grupo C15
+ * @author jcarlos
  */
 public class Contenido {
 
