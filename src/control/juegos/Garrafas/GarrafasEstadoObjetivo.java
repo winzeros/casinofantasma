@@ -4,7 +4,7 @@ import aima.search.framework.GoalTest;
 
 /**
  *
- * @author GabiPC
+ * @author jcarlos
  */
 public class GarrafasEstadoObjetivo implements GoalTest {
 

@@ -1,5 +1,6 @@
 package control.juegos.Garrafas;
 
+import aima.search.framework.GoalTest;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
@@ -7,6 +8,7 @@ import aima.search.framework.SuccessorFunction;
 
 import aima.search.uninformed.BidirectionalSearch;
 import control.juegos.Juego;
+import java.util.Vector;
 
 /**
  *
@@ -21,21 +23,15 @@ public class GarrafasJuego extends Juego {
         this._busqueda = busqueda;
         this._nombre = "Garrafas de capacidades diferentes";
         this._solucion = false;
-
-        if (this._busqueda instanceof BidirectionalSearch) {
-            Problem originalProblem = _problema;
-           // Problem reverseProblem = new Problem(new GarrafasEstadoObjetivo(this), (SuccessorFunction) new GarrafaFuncionSucesor(),);
-           // this._problema = new Problem(new GarrafasEstadoObjetivo(this), (SuccessorFunction) new GarrafaFuncionSucesor(),
-             //   new GarrafasEstado());
-        }
-        
+        this._problema=new Problem(new GarrafasEstado(), new GarrafasFuncionSucesor(),
+                    new GarrafasEstadoObjetivo(this));        
     }
+
+
 
     @Override
     public boolean ejecutar() {
-        // this.busqueda = new BreadthFirstSearch(new TreeSearch());
-        //this.busqueda = new DepthFirstSearch(new TreeSearch());
-        //this._busqueda= new DepthLimitedSearch(11);
+        
         try {
             System.out.println("Garrafa 3 : " + new GarrafasEstado().getGarrafa3());
             this._agente = new SearchAgent(this._problema, this._busqueda);
