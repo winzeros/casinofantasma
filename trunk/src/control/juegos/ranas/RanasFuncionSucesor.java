@@ -24,14 +24,14 @@ public class RanasFuncionSucesor implements SuccessorFunction{
         
         ArrayList resultado = new ArrayList();
         RanasEstado estadoPadre = (RanasEstado) arg0;
-        ArrayList recorrido = estadoPadre.getRecorrido();
+        ArrayList hojas = estadoPadre.getHojas();
 
         try {
             for (int i = 0; i < 7; i++) {
                 RanasEstado estado = new RanasEstado(estadoPadre);
-                    if (estado.mover(i)) {
-                        recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  " + estado.toString(),estado));
+                if (estado.mover(i)) {
+                    hojas = estado.getHojas();
+                    resultado.add(new Successor("                  " + estado.toString(),estado));
                     }
             }
         } catch (Exception ex) {
