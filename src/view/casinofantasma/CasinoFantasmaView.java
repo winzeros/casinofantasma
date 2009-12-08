@@ -4,6 +4,20 @@
 
 package view.casinofantasma;
 
+import aima.search.demos.EightPuzzleDemo;
+import aima.search.framework.Search;
+import aima.search.framework.TreeSearch;
+import aima.search.informed.HillClimbingSearch;
+import aima.search.uninformed.BreadthFirstSearch;
+import aima.search.uninformed.DepthFirstSearch;
+import aima.search.uninformed.DepthLimitedSearch;
+import aima.search.uninformed.IterativeDeepeningSearch;
+import aima.search.uninformed.UniformCostSearch;
+import control.juegos.Garrafas.GarrafasJuego;
+import control.juegos.hermanos.HermanosJuego;
+import control.juegos.nreinas.NReinasJuego;
+import control.juegos.ochopuzzle.OchoPuzzleJuego;
+import control.juegos.ovejas_lobos.OvejasLobosJuego;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -15,6 +29,8 @@ import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  * The application's main frame.
@@ -101,6 +117,13 @@ public class CasinoFantasmaView extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -114,20 +137,79 @@ public class CasinoFantasmaView extends FrameView {
 
         mainPanel.setName("mainPanel"); // NOI18N
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ovejas y Lobos", "Hermanos a la greña", "N Reinas", "Garrafas" }));
+        jComboBox1.setName("JuegoComboBox"); // NOI18N
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(view.casinofantasma.CasinoFantasmaApp.class).getContext().getResourceMap(CasinoFantasmaView.class);
+        jLabel1.setText(resourceMap.getString("SeleccionJuegoLabel.text")); // NOI18N
+        jLabel1.setName("SeleccionJuegoLabel"); // NOI18N
+
+        jLabel2.setText(resourceMap.getString("BusquedaLabel.text")); // NOI18N
+        jLabel2.setName("BusquedaLabel"); // NOI18N
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Primero en profundidad", "Primero en profundidad limitado", "Primero en anchura", "Iterativa", "Coste uniforme", "A*", "Voraz", "Escalada" }));
+        jComboBox2.setName("BusquedaComboBox"); // NOI18N
+
+        jButton1.setText(resourceMap.getString("JugarButton.text")); // NOI18N
+        jButton1.setName("JugarButton"); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(resourceMap.getFont("jTextArea1.font")); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setName("jTextArea1"); // NOI18N
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jComboBox1, 0, 479, Short.MAX_VALUE))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, 479, Short.MAX_VALUE)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         menuBar.setName("menuBar"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(view.casinofantasma.CasinoFantasmaApp.class).getContext().getResourceMap(CasinoFantasmaView.class);
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
@@ -162,11 +244,11 @@ public class CasinoFantasmaView extends FrameView {
         statusPanel.setLayout(statusPanelLayout);
         statusPanelLayout.setHorizontalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -189,7 +271,65 @@ public class CasinoFantasmaView extends FrameView {
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        Search busqueda;
+
+        try {
+
+            jTextArea1.setText(null);
+                    
+            switch (this.jComboBox2.getSelectedIndex()) {
+                case 0:
+                    busqueda = new DepthFirstSearch(new TreeSearch());
+                    break;
+                case 1:
+                    busqueda = new DepthLimitedSearch(11);
+                    break;
+                case 2:
+                    busqueda = new BreadthFirstSearch(new TreeSearch());
+                    break;
+                case 3:
+                    busqueda = new IterativeDeepeningSearch();
+                    break;
+                case 4:
+                    busqueda = new UniformCostSearch(new TreeSearch());
+                    break;
+                default:
+                    busqueda = new HillClimbingSearch();
+                    break;
+            }
+            switch (this.jComboBox1.getSelectedIndex()) {
+                case 0:
+                    OvejasLobosJuego ovejasLobos = new OvejasLobosJuego(busqueda);
+                    ovejasLobos.ejecutarApp(jTextArea1);
+                    break;
+                case 1:
+                    HermanosJuego hermanos = new HermanosJuego(busqueda);
+                    hermanos.ejecutarApp(jTextArea1);
+                    break;
+                case 2:
+                    NReinasJuego nReinas = new NReinasJuego(busqueda);
+                    nReinas.ejecutarApp(jTextArea1);
+                    break;
+                case 3:
+                    GarrafasJuego garrafas = new GarrafasJuego(busqueda);
+                    garrafas.ejecutarApp(jTextArea1);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(CasinoFantasmaView.class.getName()).log(Level.ERROR, ex.getMessage(), ex);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;

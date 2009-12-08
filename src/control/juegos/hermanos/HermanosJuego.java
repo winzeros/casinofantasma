@@ -23,9 +23,8 @@ public class HermanosJuego extends Juego {
         try {
             this._busqueda = busqueda;
             this._nombre = "Hermanos a la greña";
-            this._solucion = false;
             this._problema = new Problem(new HermanosEstado(permiteControlCiclos()), new HermanosFuncionSucesor(),
-                    new HermanosEstadoObjetivo(this));
+                    new HermanosEstadoObjetivo());
         } catch (Exception ex) {
             Logger.getLogger(HermanosJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }

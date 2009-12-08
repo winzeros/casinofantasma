@@ -14,12 +14,6 @@ import org.apache.log4j.Logger;
  */
 public class HermanosEstadoObjetivo implements GoalTest {
 
-    private HermanosJuego _juego;
-
-    HermanosEstadoObjetivo(HermanosJuego juego) {
-        _juego = juego;
-    }
-
     public boolean isGoalState(Object arg0) {
 
         HermanosEstado estado = (HermanosEstado) arg0;
@@ -34,11 +28,7 @@ public class HermanosEstadoObjetivo implements GoalTest {
             Logger.getLogger(HermanosEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
         }
-        
-        if (i == 6) {
-            _juego.setSolucion(true);
-        }
 
-        return _juego.getSolucion();
+        return i == 6;
     }
 }

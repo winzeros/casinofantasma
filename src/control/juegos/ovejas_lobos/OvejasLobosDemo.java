@@ -4,9 +4,12 @@
  */
 package control.juegos.ovejas_lobos;
 
+import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
+import aima.search.informed.AStarSearch;
+import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.uninformed.*;
-import java.util.logging.Level;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -24,7 +27,8 @@ public class OvejasLobosDemo {
         DepthLimitedSearchDemo();
         UniformCostSearchDemo();
         IterativeDeepeningSearchDemo();
-        BidirectionalSearchDemo();
+        eightPuzzleGreedyBestFirstDemo();
+        eightPuzzleAStarDemo();
     }
 
     private static void BreadthFirstDemo() {
@@ -41,7 +45,7 @@ public class OvejasLobosDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
@@ -59,7 +63,7 @@ public class OvejasLobosDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
@@ -77,7 +81,7 @@ public class OvejasLobosDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
@@ -95,7 +99,7 @@ public class OvejasLobosDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
@@ -113,25 +117,43 @@ public class OvejasLobosDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void BidirectionalSearchDemo() {
+    private static void eightPuzzleGreedyBestFirstDemo() {
 
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new BidirectionalSearch());
+            juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
 
             log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA BIDIRECCIONAL");
+            log.info("       BÚSQUEDA VORAZ");
             log.info("**************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+    private static void eightPuzzleAStarDemo() {
+
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new AStarSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n**************************************");
+            log.info("       BÚSQUEDA A*");
+            log.info("**************************************\n");
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 }

@@ -20,10 +20,9 @@ public class SolitarioJuego extends Juego{
         try {
             this._busqueda = busqueda;
             this._nombre = "Solitario";
-            this._solucion = false;
             this._problema = new Problem(new SolitarioEstado(permiteControlCiclos()),
                     new SolitarioFuncionSucesor(),
-                    new SolitarioEstadoObjetivo(this));
+                    new SolitarioEstadoObjetivo());
 
         } catch (Exception e) {
             e.printStackTrace();
