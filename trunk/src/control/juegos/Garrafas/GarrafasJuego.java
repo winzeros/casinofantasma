@@ -22,29 +22,7 @@ public class GarrafasJuego extends Juego {
     public GarrafasJuego(Search busqueda) {
         this._busqueda = busqueda;
         this._nombre = "Garrafas de capacidades diferentes";
-        this._solucion = false;
         this._problema=new Problem(new GarrafasEstado(), new GarrafaFuncionSucesor(),
                     new GarrafasEstadoObjetivo(this));        
-    }
-
-
-
-    @Override
-    public boolean ejecutar() {
-        
-        try {
-            System.out.println("Garrafa 3 : " + new GarrafasEstado().getGarrafa3());
-            this._agente = new SearchAgent(this._problema, this._busqueda);
-            this.imprimir(this._agente.getActions());
-            this.imprimirPropiedades(this._agente.getInstrumentation());
-            if (this.getSolucion()) {
-                System.out.println("ES solucion");
-            } else {
-                System.out.println("NO es solucion");
-            }
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-        return this.getSolucion();
     }
 }

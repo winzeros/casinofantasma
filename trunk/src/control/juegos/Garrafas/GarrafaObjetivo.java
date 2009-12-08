@@ -19,9 +19,7 @@ public class GarrafaObjetivo implements GoalTest {
 
     @Override
     public boolean isGoalState(Object state){
-        if(((GarrafaEstado)state).esObjetivo())
-            this.garrafilla.setSolucion(true);
         ((GarrafaEstado)state).getContenido().add(new Contenido(((GarrafaEstado)state).getGarrafa3(),((GarrafaEstado)state).getGarrafa4()));
-        return this.garrafilla.getSolucion();
+        return ((GarrafaEstado)state).esObjetivo();
     }
 }

@@ -17,12 +17,6 @@ import java.util.logging.Logger;
  */
 public class RanasEstadoObjetivo implements GoalTest{
 
-    private RanasJuego _juego;
-
-    RanasEstadoObjetivo(RanasJuego juego) {
-        _juego = juego;
-    }
-
     public boolean isGoalState(Object arg0) {
         ArrayList estadoFinal = new ArrayList();
         boolean ok = false;
@@ -38,10 +32,6 @@ public class RanasEstadoObjetivo implements GoalTest{
 
 
             ok = arg0.equals(new RanasEstado(estadoFinal));
-
-            if (ok) {
-                this._juego.setSolucion(ok);
-            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosEstadoObjetivo.class.getName()).log(Level.SEVERE,

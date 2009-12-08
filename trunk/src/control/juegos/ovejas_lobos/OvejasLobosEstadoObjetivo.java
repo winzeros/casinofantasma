@@ -15,12 +15,6 @@ import java.util.logging.Logger;
  */
 public class OvejasLobosEstadoObjetivo implements GoalTest {
 
-    private OvejasLobosJuego _juego;
-
-    OvejasLobosEstadoObjetivo(OvejasLobosJuego juego) {
-        _juego = juego;
-    }
-
     public boolean isGoalState(Object arg0) {
         HashMap estado = new HashMap(3);
         boolean ok = false;
@@ -31,10 +25,6 @@ public class OvejasLobosEstadoObjetivo implements GoalTest {
             estado.put(OvejasLobosEstado.CANOA, 1);
 
             ok = arg0.equals(new OvejasLobosEstado(estado));
-
-            if (ok) {
-                this._juego.setSolucion(ok);
-            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosEstadoObjetivo.class.getName()).log(Level.SEVERE,
