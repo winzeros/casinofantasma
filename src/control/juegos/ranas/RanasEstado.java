@@ -67,40 +67,42 @@ public class RanasEstado {
         _orilla.put(LOBOS, estado._orilla.get(LOBOS));
         _orilla.put(OVEJAS, estado._orilla.get(OVEJAS));
         _orilla.put(CANOA, estado._orilla.get(CANOA));
-    }
-
-    public HashMap<String, Integer> getOrilla() {
-        return this._orilla;
-    }
-
-    public ArrayList getRecorrido() {
-        return this._recorrido;
-    }
-
-    public void setRecorrido(ArrayList recorrido) {
-        this._recorrido = recorrido;
     }*/
+
+    public ArrayList getHojas() {
+        return this._hojas;
+    }
+
+    public void setHojas(ArrayList hojas) {
+        this._hojas = hojas;
+    }
 
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
-    private boolean estadoValido(int pos) {
+    private int estadoValido(int pos) {
 
-        boolean enc = false;
+        int res = -1;
 
         try {
 
             if (_hojas.get(pos) == RANAS) {
-                enc = ((_hojas.get(pos+1) == RANAS) || (_hojas.get(pos+1) == NADA));
+                if (_hojas.get(pos+1) == NADA)
+                    res = pos + 1;
+                else if (_hojas.get(pos+2) == NADA)
+                    res =pos + 2;
             } else if (_hojas.get(pos) == SAPOS) {
-                enc = ((_hojas.get(pos+1) == SAPOS) || (_hojas.get(pos+1) == NADA));
+                if (_hojas.get(pos-1) == NADA)
+                    res = pos - 1;
+                else if (_hojas.get(pos-2) == NADA)
+                    res = pos - 2;
             }
         } catch (Exception ex) {
             Logger.getLogger(RanasEstado.class.getName()).log(Level.SEVERE, "Error al comprobar si es válido el movimiento desde la posicion" +
                     pos + " en el estado " + this.toString(), ex);
         }
 
-        return enc;
+        return res;
     }
 
     
@@ -111,51 +113,23 @@ public class RanasEstado {
 
 // </editor-fold>
 
-    public boolean mover(int posicion) {
+    public boolean mover(int pos) {
         int aux;
         boolean enc = false;
+        ArrayList hojas;
         
         try {
-          /*  orilla = (HashMap<String, Integer>) _orilla.clone();
+            hojas = (ArrayList) _hojas.clone();
 
-            if (estadoValido(lobos, ovejas) && !(estadoRiesgo(lobos, ovejas))) {
+            if (estadoValido(pos) != -1) {
+                /*Tengo que quitar la rana/sapao de la posicion antigua
+                y ponerla en la nueva */
 
-                if (orilla.get(CANOA) == 0) {
-
-                    aux = _orilla.get(LOBOS) - lobos;
-                    orilla.remove(LOBOS);
-                    orilla.put(LOBOS, aux);
-
-                    aux = orilla.get(OVEJAS) - ovejas;
-                    orilla.remove(OVEJAS);
-                    orilla.put(OVEJAS, aux);
-
-                    orilla.remove(CANOA);
-                    orilla.put(CANOA, 1);
-
-                } else {
-
-                    aux = orilla.get(LOBOS) + lobos;
-                    orilla.remove(LOBOS);
-                    orilla.put(LOBOS, aux);
-
-                    aux = orilla.get(OVEJAS) + ovejas;
-                    orilla.remove(OVEJAS);
-                    orilla.put(OVEJAS, aux);
-
-                    orilla.remove(CANOA);
-                    orilla.put(CANOA, 0);
-                }
-
-                if (this.controlCiclos(orilla)) {
-                    this._orilla = orilla;
-                    this._recorrido.add(orilla);
-                    ok = true;
-                }
+                //control de ciclos
             }
-*/
+
         } catch (Exception ex) {
-            Logger.getLogger(RanasEstado.class.getName()).log(Level.SEVERE, "Error al mover " + _hojas.get(posicion).toString() + " en el estado " + this.toString(), ex);
+            Logger.getLogger(RanasEstado.class.getName()).log(Level.SEVERE, "Error al mover " + _hojas.get(pos).toString() + " en el estado " + this.toString(), ex);
         }
 
         return enc;
@@ -169,7 +143,7 @@ public class RanasEstado {
         try {
             RanasEstado estado = (RanasEstado) o;
             while (!enc && i <_hojas.size())
-                enc = (_hojas.get(i) == estado.getRecorrido().get(i));
+                enc = (_hojas.get(i) == estado.getHojas().get(i));
 
         } catch (Exception ex) {
             Logger.getLogger(RanasEstado.class.getName()).log(Level.SEVERE, "Error al comparar " + this.toString() + " con " + o.toString(), ex);
@@ -190,11 +164,4 @@ public class RanasEstado {
         return resultado;
     }
 
-    ArrayList getRecorrido() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    void setRecorrido(ArrayList recorrido) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 }

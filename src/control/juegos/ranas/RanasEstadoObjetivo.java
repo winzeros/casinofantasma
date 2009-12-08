@@ -5,6 +5,7 @@
 
 package control.juegos.ranas;
 
+import aima.search.framework.GoalTest;
 import control.juegos.ovejas_lobos.OvejasLobosEstadoObjetivo;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Laura
  */
-public class RanasEstadoObjetivo {
+public class RanasEstadoObjetivo implements GoalTest{
 
     private RanasJuego _juego;
 

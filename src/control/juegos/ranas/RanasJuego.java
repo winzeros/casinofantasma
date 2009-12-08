@@ -20,17 +20,12 @@ public class RanasJuego extends Juego {
     public RanasJuego(Search busqueda) throws Exception {
 
         try {
-         /*   this._busqueda = busqueda;
-            this._nombre = "El juego de las Ranas";
+            this._busqueda = busqueda;
+            this._nombre = "Movimiento de ranas";
             this._solucion = false;
-            if (this._busqueda instanceof BidirectionalSearch) {
-                Problem originalProblem = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                        new RanasEstadoObjetivo(this));
-                Problem destiny = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                        new RanasEstadoObjetivo(this));
-            }
             this._problema = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                    new RanasEstadoObjetivo(this));*/
+                    new RanasEstadoObjetivo(this));
+
         } catch (Exception ex) {
             Logger.getLogger(RanasJuego.class.getName()).log(Level.SEVERE, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
