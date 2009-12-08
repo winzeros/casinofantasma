@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Administrador
+ * @author Laura
  */
 public class CambioFuncionSucesor implements SuccessorFunction {
 
