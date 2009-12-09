@@ -53,7 +53,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="213" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="208" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -63,11 +63,12 @@
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="5">
                 <StringItem index="0" value="Ovejas y Lobos"/>
                 <StringItem index="1" value="Hermanos a la gre&#xf1;a"/>
                 <StringItem index="2" value="N Reinas"/>
                 <StringItem index="3" value="Garrafas"/>
+                <StringItem index="4" value="Coloreado del mapa de Australia"/>
               </StringArray>
             </Property>
             <Property name="name" type="java.lang.String" value="JuegoComboBox" noResource="true"/>
