@@ -6,7 +6,7 @@
 package control.juegos.ranas;
 
 import aima.search.framework.GoalTest;
-import control.juegos.ovejas_lobos.OvejasLobosEstadoObjetivo;
+import control.juegos.ovejasLobos.OvejasLobosEstadoObjetivo;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

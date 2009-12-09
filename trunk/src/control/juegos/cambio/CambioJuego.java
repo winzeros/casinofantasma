@@ -22,7 +22,6 @@ public class CambioJuego extends Juego {
         try {
             this._busqueda = busqueda;
             this._nombre = "Problema del cambio";
-            this._solucion = false;
 
             this._problema = new Problem(new CambioEstado(permiteControlCiclos()), new CambioFuncionSucesor(),
                     new CambioEstadoObjetivo(this));

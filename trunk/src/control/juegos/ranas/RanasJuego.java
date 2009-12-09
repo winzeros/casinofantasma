@@ -22,9 +22,8 @@ public class RanasJuego extends Juego {
         try {
             this._busqueda = busqueda;
             this._nombre = "Movimiento de ranas";
-            this._solucion = false;
             this._problema = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                    new RanasEstadoObjetivo(this));
+                    new RanasEstadoObjetivo());
 
         } catch (Exception ex) {
             Logger.getLogger(RanasJuego.class.getName()).log(Level.SEVERE, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
