@@ -6,7 +6,6 @@
 package control.juegos.ranas;
 
 import aima.search.framework.GoalTest;
-import control.juegos.ovejasLobos.OvejasLobosEstadoObjetivo;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +33,7 @@ public class RanasEstadoObjetivo implements GoalTest{
             ok = arg0.equals(new RanasEstado(estadoFinal));
 
         } catch (Exception ex) {
-            Logger.getLogger(OvejasLobosEstadoObjetivo.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(RanasEstadoObjetivo.class.getName()).log(Level.SEVERE,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
         }
 
