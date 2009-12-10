@@ -113,7 +113,7 @@ public class RanasEstado {
 
 // </editor-fold>
 
-    public boolean mover(int pos) {
+    public boolean mover(int pos,char tipo) {
         int aux;
         boolean enc = false;
         ArrayList hojas;
@@ -122,8 +122,11 @@ public class RanasEstado {
             hojas = (ArrayList) _hojas.clone();
 
             if (estadoValido(pos) != -1) {
-                /*Tengo que quitar la rana/sapao de la posicion antigua
-                y ponerla en la nueva */
+                
+                switch(tipo) {
+                    case 'r' : {hojas.set(pos, RANAS); break;}
+                    case 's' : {hojas.set(pos, SAPOS); break;}
+                }
 
                 //control de ciclos
             }

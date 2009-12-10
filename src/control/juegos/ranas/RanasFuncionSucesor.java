@@ -29,7 +29,12 @@ public class RanasFuncionSucesor implements SuccessorFunction{
         try {
             for (int i = 0; i < 7; i++) {
                 RanasEstado estado = new RanasEstado(estadoPadre);
-                if (estado.mover(i)) {
+                char tipo = hojas.get(i).toString().substring(0, 1).charAt(1);
+                /*switch(tipo) { // Eleige la opcion acorde al numero de mes
+                    case 'r' : {hojas.set(pos, RANAS); break;}
+                    case 's' : {hojas.set(pos, SAPOS); break;}
+                }*/
+                if (estado.mover(i,tipo)) {
                     hojas = estado.getHojas();
                     resultado.add(new Successor("                  " + estado.toString(),estado));
                     }
