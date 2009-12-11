@@ -14,7 +14,6 @@ import aima.search.uninformed.UniformCostSearch;
 import control.juegos.Garrafas.GarrafasJuego;
 import control.juegos.coloreadoMapas.ColoreadoMapasJuego;
 import control.juegos.hermanos.HermanosJuego;
-import control.juegos.mapa.MapaJuego;
 import control.juegos.nreinas.NReinasJuego;
 import control.juegos.ovejasLobos.OvejasLobosHeuristicaDescolocados;
 import control.juegos.ovejasLobos.OvejasLobosJuego;
