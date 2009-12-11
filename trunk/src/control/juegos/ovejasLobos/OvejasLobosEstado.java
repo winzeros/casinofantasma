@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package control.juegos.ovejas_lobos;
+package control.juegos.ovejasLobos;
 
 import java.util.HashMap;
 import java.util.ArrayList;
