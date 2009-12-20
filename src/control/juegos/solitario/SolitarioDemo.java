@@ -6,6 +6,7 @@
 package control.juegos.solitario;
 
 import aima.search.framework.*;
+import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.uninformed.*;
 
 /**
@@ -19,7 +20,7 @@ public class SolitarioDemo {
         System.out.println("     BÚSQUEDA PRIMERO EN ANCHURA");
         System.out.println("**************************************\n");
         BreadthFirstDemo();*/
-        System.out.println("\n\n\n**************************************");
+        /*System.out.println("\n\n\n**************************************");
         System.out.println("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
         System.out.println("**************************************\n");
         DepthFirstSearchDemo();
@@ -35,6 +36,25 @@ public class SolitarioDemo {
         System.out.println("           BÚSQUEDA ¿ITERATIVA?");
         System.out.println("**************************************\n");
         IterativeDeepeningSearchDemo();*/
+        solitarioGreedyBestFirstDemo();
+    }
+
+        private static void solitarioGreedyBestFirstDemo() {
+
+        SolitarioJuego juego;
+
+        try {
+            juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()), new SolitarioHeuristicaEsquinas());
+
+            System.out.println("\n\n\n**************************************");
+            System.out.println("       BÚSQUEDA VORAZ");
+            System.out.println("**************************************\n");
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     private static void BreadthFirstDemo() {

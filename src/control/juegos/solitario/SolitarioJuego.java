@@ -29,6 +29,20 @@ public class SolitarioJuego extends Juego{
         }
     }
 
+        public SolitarioJuego(Search busqueda, HeuristicFunction heuristica) {
+
+        try {
+            this._busqueda = busqueda;
+            this._nombre = "Solitario";
+            this._problema = new Problem(new SolitarioEstado(permiteControlCiclos()),
+                    new SolitarioFuncionSucesor(),
+                    new SolitarioEstadoObjetivo(), heuristica);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public boolean permiteControlCiclos() {
         return !(this._busqueda instanceof IterativeDeepeningSearch);
     }

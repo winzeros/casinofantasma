@@ -371,7 +371,7 @@ public class SolitarioEstado {
     @Override
     public String toString() {
 
-        String resultado = NO_POS + NO_POS + NO_POS + NO_POS + NO_POS + NO_POS + NO_POS;
+        String resultado = NO_POS + NO_POS + NO_POS + NO_POS + NO_POS + NO_POS + NO_POS + "\n";
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
