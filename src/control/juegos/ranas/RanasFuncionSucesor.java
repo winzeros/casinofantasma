@@ -20,7 +20,7 @@ public class RanasFuncionSucesor implements SuccessorFunction{
 
     public List getSuccessors(Object arg0) {
 
-        //revisar!!!!!!!!!!!!!!!!!!!!!!!!
+        //todos los arrays estan vacios...
         
         ArrayList resultado = new ArrayList();
         RanasEstado estadoPadre = (RanasEstado) arg0;
@@ -29,12 +29,7 @@ public class RanasFuncionSucesor implements SuccessorFunction{
         try {
             for (int i = 0; i < 7; i++) {
                 RanasEstado estado = new RanasEstado(estadoPadre);
-                char tipo = hojas.get(i).toString().substring(0, 1).charAt(1);
-                /*switch(tipo) { // Eleige la opcion acorde al numero de mes
-                    case 'r' : {hojas.set(pos, RANAS); break;}
-                    case 's' : {hojas.set(pos, SAPOS); break;}
-                }*/
-                if (estado.mover(i,tipo)) {
+                if (estado.mover(i,hojas.get(i).toString())) {
                     hojas = estado.getHojas();
                     resultado.add(new Successor("                  " + estado.toString(),estado));
                     }
