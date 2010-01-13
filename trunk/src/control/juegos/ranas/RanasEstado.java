@@ -22,52 +22,59 @@ public class RanasEstado {
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public RanasEstado() {
-        _hojas = new ArrayList();
+        _hojas = new ArrayList(7);
         _controlCiclos = true;
+        _hojas.add(0,RANAS);
+        _hojas.add(1,RANAS);
+        _hojas.add(2,RANAS);
+        _hojas.add(3,NADA);
+        _hojas.add(4,SAPOS);
+        _hojas.add(5,SAPOS);
+        _hojas.add(6,SAPOS);
     }
 
     public RanasEstado(boolean controlCiclos) {
-        //Inicializar el arraylist
-        _hojas = new ArrayList();
+        _hojas = new ArrayList(7);
         _controlCiclos = controlCiclos;
+        _hojas.add(0,RANAS);
+        _hojas.add(1,RANAS);
+        _hojas.add(2,RANAS);
+        _hojas.add(3,NADA);
+        _hojas.add(4,SAPOS);
+        _hojas.add(5,SAPOS);
+        _hojas.add(6,SAPOS);
     }
 
     RanasEstado(ArrayList estadoFinal) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        _hojas = estadoFinal;
     }
 
     RanasEstado(RanasEstado estadoPadre) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        _hojas = estadoPadre._hojas;
+        _controlCiclos = estadoPadre._controlCiclos;
     }
-
-    /*public OvejasLobosEstado(HashMap<String, Integer> orilla) {
-        _orilla = orilla;
-    }
-
-    public OvejasLobosEstado(OvejasLobosEstado estado) {
-        _orilla = estado._orilla;
-        _recorrido = estado._recorrido;
-        _controlCiclos = estado._controlCiclos;
-    }*/
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
-/*    public HashMap getEstadoInicial() {
-        HashMap estadoInicial = new HashMap(3);
+    public ArrayList getEstadoInicial() {
+        ArrayList estadoInicial = new ArrayList(7);
 
-        estadoInicial.put(LOBOS, 3);
-        estadoInicial.put(OVEJAS, 3);
-        estadoInicial.put(CANOA, 0);
+        estadoInicial.add(0,RANAS);
+        estadoInicial.add(1,RANAS);
+        estadoInicial.add(2,RANAS);
+        estadoInicial.add(3,NADA);
+        estadoInicial.add(4,SAPOS);
+        estadoInicial.add(5,SAPOS);
+        estadoInicial.add(6,SAPOS);
 
         return estadoInicial;
     }
 
-    public void setEstado(OvejasLobosEstado estado) {
-        _orilla.clear();
-        _orilla.put(LOBOS, estado._orilla.get(LOBOS));
-        _orilla.put(OVEJAS, estado._orilla.get(OVEJAS));
-        _orilla.put(CANOA, estado._orilla.get(CANOA));
-    }*/
+    public void setEstado(RanasEstado estado) {
+        _hojas.clear();
+        _hojas.add(estado._hojas);
+
+    }
 
     public ArrayList getHojas() {
         return this._hojas;
@@ -113,7 +120,7 @@ public class RanasEstado {
 
 // </editor-fold>
 
-    public boolean mover(int pos,char tipo) {
+    public boolean mover(int pos,String tipo) {
         int aux;
         boolean enc = false;
         ArrayList hojas;
@@ -122,13 +129,17 @@ public class RanasEstado {
             hojas = (ArrayList) _hojas.clone();
 
             if (estadoValido(pos) != -1) {
-                
-                switch(tipo) {
-                    case 'r' : {hojas.set(pos, RANAS); break;}
-                    case 's' : {hojas.set(pos, SAPOS); break;}
+                aux = estadoValido(pos);
+                char tip = hojas.get(pos).toString().substring(0, 1).charAt(1);
+                switch(tip) {
+                    case 'r' : {hojas.set(aux, RANAS);
+                                hojas.set(pos,NADA);
+                                break;}
+                    case 's' : {hojas.set(aux, SAPOS);
+                                hojas.set(pos,NADA); 
+                                break;}
+                    default: //error
                 }
-
-                //control de ciclos
             }
 
         } catch (Exception ex) {
@@ -138,6 +149,7 @@ public class RanasEstado {
         return enc;
     }
 
+    @Override
     public boolean equals(Object o) {
 
         boolean enc = false;
