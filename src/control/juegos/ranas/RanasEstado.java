@@ -131,11 +131,13 @@ public class RanasEstado {
             if (estadoValido(pos) != -1) {
                 aux = estadoValido(pos);
                 char tip = hojas.get(pos).toString().substring(0, 1).charAt(1);
+
+                //cambiar a if
                 switch(tip) {
-                    case 'r' : {hojas.set(aux, RANAS);
+                    case '$' : {hojas.set(aux, RANAS);
                                 hojas.set(pos,NADA);
                                 break;}
-                    case 's' : {hojas.set(aux, SAPOS);
+                    case '*' : {hojas.set(aux, SAPOS);
                                 hojas.set(pos,NADA); 
                                 break;}
                     default: //error
@@ -157,8 +159,10 @@ public class RanasEstado {
 
         try {
             RanasEstado estado = (RanasEstado) o;
-            while (!enc && i <_hojas.size())
+            while (!enc && i <_hojas.size()) {
                 enc = (_hojas.get(i) == estado.getHojas().get(i));
+                i++;
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasEstado.class.getName()).log(Level.SEVERE, "Error al comparar " + this.toString() + " con " + o.toString(), ex);
