@@ -30,6 +30,7 @@ public class RanasEstadoObjetivo implements GoalTest{
             estadoFinal.add(RanasEstado.RANAS);
 
 
+
             ok = arg0.equals(new RanasEstado(estadoFinal));
 
         } catch (Exception ex) {
