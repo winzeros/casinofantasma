@@ -28,10 +28,10 @@ public class RanasEstadoObjetivo implements GoalTest{
             estadoFinal.add(RanasEstado.RANAS);
             estadoFinal.add(RanasEstado.RANAS);
             estadoFinal.add(RanasEstado.RANAS);
+            RanasEstado cosaFinal = new RanasEstado(estadoFinal);
 
 
-
-            ok = arg0.equals(new RanasEstado(estadoFinal));
+            ok = arg0.equals(cosaFinal);
 
         } catch (Exception ex) {
             Logger.getLogger(RanasEstadoObjetivo.class.getName()).log(Level.SEVERE,
