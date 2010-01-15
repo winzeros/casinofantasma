@@ -10,9 +10,7 @@ import aima.gui.applications.search.map.MapAgentFrame;
 import aima.gui.applications.search.map.MapAgentModel;
 import aima.gui.framework.AgentAppController;
 import aima.gui.framework.AgentAppFrame;
-import aima.gui.framework.AgentAppFrame.SelectionState;
 import aima.gui.framework.AgentAppModel;
-import aima.gui.framework.SimpleAgentAppDemo;
 import aima.search.framework.SearchFactory;
 import aima.search.map.AdaptableHeuristicFunction;
 import aima.search.map.ExtendableMap;
@@ -21,8 +19,7 @@ import aima.search.map.MapEnvironment;
 import aima.search.map.Point2D;
 import aima.search.map.Scenario;
 import java.util.ArrayList;
-import model.laberintos.LaberintoSalas1;
-import model.laberintos.LaberintoSalas2;
+import model.laberintos.LaberintoSalas;
 
 /**
  *
@@ -53,23 +50,25 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
 
 	/** Frame for a graphical route planning agent application. */
 	protected static class RoutePlanningAgentFrame extends MapAgentFrame {
+
+                private static String[] laberintos = LaberintoSalas.getLaberintos();
+                private static String[] destinos = new String[] {"SALA50", "SALA1", "SALA99"};
+
 		public static enum MapType {
 			LABERINTO1, LABERINTO2
 		};
 
 		private MapType usedMap = null;
-		private static String[] LABERINTO1_DESTS = new String[] {"SALIDA1", "SALIDA2", "SALIDA3", "RANDOM"};
-		private static String[] LABERINTO2_DESTS = new String[] {"SALIDA1", "SALIDA2", "SALIDA3", "RANDOM"};
-
+		
 		/** Creates a new frame. */
 		public RoutePlanningAgentFrame() {
 			setTitle("CASINO FANTASMA - the Route Planning Agent");
-			setSelectorItems(SCENARIO_SEL, new String[] {
-					"ENTRADA1- LABERINTO1", "ENTRADA2 - LABERINTO2" }, 0);
+			setSelectorItems(SCENARIO_SEL, laberintos, 0);
 			setSelectorItems(SEARCH_MODE_SEL, SearchFactory.getInstance()
 					.getSearchModeNames(), 1); // change the default!
 			setSelectorItems(HEURISTIC_SEL, new String[] { "H1 (=0)",
 					"H2 (sld to goal)" }, 1);
+			setSelectorItems(DESTINATION_SEL, destinos, 0);
 		}
 
 		/**
@@ -79,23 +78,7 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
 		 */
 		@Override
 		protected void selectionChanged() {
-			SelectionState state = getSelection();
-			int scenarioIdx = state.getValue(MapAgentFrame.SCENARIO_SEL);
-			RoutePlanningAgentFrame.MapType mtype = (scenarioIdx < 3) ? MapType.LABERINTO1
-					: MapType.LABERINTO2;
-			if (mtype != usedMap) {
-				usedMap = mtype;
-				String[] items = null;
-				switch (mtype) {
-				case LABERINTO1:
-					items = LABERINTO1_DESTS;
-					break;
-				case LABERINTO2:
-					items = LABERINTO2_DESTS;
-					break;
-				}
-				setSelectorItems(DESTINATION_SEL, items, 0);
-			}
+			//SelectionState state = getSelection();
 			super.selectionChanged();
 		}
 	}
@@ -112,46 +95,13 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
 			ExtendableMap map = new ExtendableMap();
 			MapEnvironment env = new MapEnvironment(map);
 			String agentLoc = null;
-			switch (scenarioIdx) {
-			case 0:
-				LaberintoSalas1.initMap(map);
-				agentLoc = LaberintoSalas1.SALA1;
-				break;
-			}
+			LaberintoSalas.initMap(map, scenarioIdx);
+			agentLoc = LaberintoSalas.SALA0;
 			scenario = new Scenario(env, map, agentLoc);
 
 			destinations = new ArrayList<String>();
-			if (scenarioIdx < 3) {
-				switch (destIdx) {
-				case 0:
-					destinations.add(LaberintoSalas1.SALA98);
-					break;
-				case 1:
-					destinations.add(LaberintoSalas1.SALA99);
-					break;
-				case 2:
-					destinations.add(LaberintoSalas1.SALA100);
-					break;
-				case 3:
-					destinations.add(map.randomlyGenerateDestination());
-					break;
-				}
-			} else {
-				switch (destIdx) {
-				case 0:
-					destinations.add(LaberintoSalas2.SALIDA1);
-					break;
-				case 1:
-					destinations.add(LaberintoSalas2.SALIDA2);
-					break;
-				case 2:
-					destinations.add(LaberintoSalas2.SALIDA3);
-					break;
-				case 3:
-					destinations.add(map.randomlyGenerateDestination());
-					break;
-				}
-			}
+			destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
+			
 		}
 
 		/**
@@ -234,7 +184,6 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
 
 	/** Application starter. */
 	public static void main(String args[]) {
-            CasinoFantasmaGUI gui = new CasinoFantasmaGUI();
 		new CasinoFantasmaGUI().startApplication();
 	}
 }
