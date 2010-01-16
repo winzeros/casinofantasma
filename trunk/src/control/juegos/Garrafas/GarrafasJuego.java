@@ -22,7 +22,7 @@ public class GarrafasJuego extends Juego {
     public GarrafasJuego(Search busqueda) {
         this._busqueda = busqueda;
         this._nombre = "Garrafas de capacidades diferentes";
-        this._problema=new Problem(new GarrafasEstado(), new GarrafaFuncionSucesor(),
+        this._problema=new Problem(new GarrafasEstado(), new GarrafasFuncionSucesor(),
                     new GarrafasEstadoObjetivo(this));        
     }
 }

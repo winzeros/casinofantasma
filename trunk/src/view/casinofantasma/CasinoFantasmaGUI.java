@@ -53,12 +53,6 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
         private static String[] laberintos = LaberintoSalas.getLaberintos();
         private static String[] destinos = new String[]{"SALA50", "SALA1", "SALA99"};
 
-        public static enum MapType {
-
-            LABERINTO1, LABERINTO2
-        };
-        private MapType usedMap = null;
-
         /** Creates a new frame. */
         public RoutePlanningAgentFrame() {
             setTitle("CASINO FANTASMA - the Route Planning Agent");
@@ -76,9 +70,23 @@ public class CasinoFantasmaGUI extends CasinoAppDemo {
          */
         @Override
         protected void selectionChanged() {
-            //SelectionState state = getSelection();
             super.selectionChanged();
         }
+
+     /*   @Override
+       public void paint(java.awt.Graphics g) {
+            super.paint(g);
+            MapAgentModel maModel = (MapAgentModel) model;
+            if (maModel != null && !maModel.isEmpty()) {
+                java.awt.Graphics2D g2 = (java.awt.Graphics2D) g;
+                adjustTransformation();
+                paintMap(g2);
+                paintTour(g2);
+                for (String loc : maModel.getLocations()) {
+                    paintLoc(g2, loc);
+                }
+            }
+        }*/
     }
 
     /** Controller for a graphical route planning agent application. */
