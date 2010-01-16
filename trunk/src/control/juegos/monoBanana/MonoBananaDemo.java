@@ -3,20 +3,20 @@
  * and open the template in the editor.
  */
 
-package control.juegos.ranas;
+package control.juegos.monoBanana;
 
 import aima.search.framework.TreeSearch;
 import aima.search.uninformed.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
- * @author Laura
+ * @author Administrador
  */
-public class RanasDemo {
+public class MonoBananaDemo {
 
-    private final static Logger log = Logger.getLogger(RanasDemo.class.getName());
+    private final static Logger log = Logger.getLogger(MonoBananaDemo.class.getName());
 
     public static void main(String[] args) {
 
@@ -29,10 +29,10 @@ public class RanasDemo {
 
     private static void BreadthFirstDemo() {
 
-        RanasJuego juego;
+        MonoBananaJuego juego;
 
         try {
-            juego = new RanasJuego(new BreadthFirstSearch(new TreeSearch()));
+            juego = new MonoBananaJuego(new BreadthFirstSearch(new TreeSearch()));
 
             log.info("\n\n\n**************************************");
             log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
@@ -41,16 +41,16 @@ public class RanasDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     private static void DepthFirstSearchDemo() {
 
-        RanasJuego juego;
+        MonoBananaJuego juego;
 
         try {
-            juego = new RanasJuego(new DepthFirstSearch(new TreeSearch()));
+            juego = new MonoBananaJuego(new DepthFirstSearch(new TreeSearch()));
 
             log.info("\n\n\n**************************************");
             log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
@@ -59,34 +59,34 @@ public class RanasDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     private static void DepthLimitedSearchDemo() {
 
-        RanasJuego juego;
+        MonoBananaJuego juego;
 
         try {
-            juego = new RanasJuego(new DepthLimitedSearch(11));
+            juego = new MonoBananaJuego(new DepthLimitedSearch(5));
 
             log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
+            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 5");
             log.info("**************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     private static void UniformCostSearchDemo() {
 
-        RanasJuego juego;
+        MonoBananaJuego juego;
 
         try {
-            juego = new RanasJuego(new UniformCostSearch(new TreeSearch()));
+            juego = new MonoBananaJuego(new UniformCostSearch(new TreeSearch()));
 
             log.info("\n\n\n**************************************");
             log.info("       BÚSQUEDA DE COSTE UNIFORME");
@@ -95,16 +95,16 @@ public class RanasDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     private static void IterativeDeepeningSearchDemo() {
 
-        RanasJuego juego;
+        MonoBananaJuego juego;
 
         try {
-            juego = new RanasJuego(new IterativeDeepeningSearch());
+            juego = new MonoBananaJuego(new IterativeDeepeningSearch());
 
             log.info("\n\n\n**************************************");
             log.info("           BÚSQUEDA ITERATIVA");
@@ -113,25 +113,7 @@ public class RanasDemo {
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private static void BidirectionalSearchDemo() {
-
-        RanasJuego juego;
-
-        try {
-            juego = new RanasJuego(new BidirectionalSearch());
-
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA BIDIRECCIONAL");
-            log.info("**************************************\n");
-
-            juego.ejecutar();
-
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
