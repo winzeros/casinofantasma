@@ -7,8 +7,8 @@ package control.juegos.ranas;
 
 import aima.search.framework.GoalTest;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,28 +17,27 @@ import java.util.logging.Logger;
 public class RanasEstadoObjetivo implements GoalTest{
 
     public boolean isGoalState(Object arg0) {
-        ArrayList estadoFinal = new ArrayList();
-        boolean ok = false;
+
+        RanasEstado estadoFinal = new RanasEstado();
+        boolean enc = false;
 
         try {
-            estadoFinal.add(RanasEstado.SAPOS);
-            estadoFinal.add(RanasEstado.SAPOS);
-            estadoFinal.add(RanasEstado.SAPOS);
-            estadoFinal.add(RanasEstado.NADA);
-            estadoFinal.add(RanasEstado.RANAS);
-            estadoFinal.add(RanasEstado.RANAS);
-            estadoFinal.add(RanasEstado.RANAS);
-            RanasEstado cosaFinal = new RanasEstado(estadoFinal);
-
-
-            ok = arg0.equals(cosaFinal);
+            estadoFinal.getHojas()[0] = "*";
+            estadoFinal.getHojas()[1] = "*";
+            estadoFinal.getHojas()[2] = "*";
+            estadoFinal.getHojas()[3] = "_";
+            estadoFinal.getHojas()[4] = "$";
+            estadoFinal.getHojas()[5] = "$";
+            estadoFinal.getHojas()[6] = "$";
+            
+            enc = arg0.equals(estadoFinal);
 
         } catch (Exception ex) {
-            Logger.getLogger(RanasEstadoObjetivo.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(RanasEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
         }
 
-        return ok;
+        return enc;
     }
 
 }
