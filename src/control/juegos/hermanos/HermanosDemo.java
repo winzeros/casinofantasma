@@ -16,27 +16,30 @@ import org.apache.log4j.Logger;
  */
 public class HermanosDemo {
 
-    private final static Logger log = Logger.getLogger(HermanosDemo.class.getName());
+    public final static Logger log = Logger.getLogger(HermanosDemo.class.getName());
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo();
-        DepthFirstSearchDemo();
-        DepthLimitedSearchDemo();
-        UniformCostSearchDemo();
-        IterativeDeepeningSearchDemo();
+        BreadthFirstDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo() {
+    public static void BreadthFirstDemo(String sala) {
 
         HermanosJuego juego;
 
         try {
             juego = new HermanosJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("      JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info("        Busqueda primero en anchura");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -45,16 +48,19 @@ public class HermanosDemo {
         }
     }
 
-    private static void DepthFirstSearchDemo() {
+    public static void DepthFirstSearchDemo(String sala) {
 
         HermanosJuego juego;
 
         try {
             juego = new HermanosJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("      JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info("          Busqueda en profundidad");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -63,16 +69,19 @@ public class HermanosDemo {
         }
     }
 
-    private static void DepthLimitedSearchDemo() {
+    public static void DepthLimitedSearchDemo(String sala) {
 
         HermanosJuego juego;
 
         try {
-            juego = new HermanosJuego(new DepthLimitedSearch(5));
+            juego = new HermanosJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 5");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("      JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info("      Busqueda en profundidad limitada");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -81,16 +90,19 @@ public class HermanosDemo {
         }
     }
 
-    private static void UniformCostSearchDemo() {
+    public static void UniformCostSearchDemo(String sala) {
 
         HermanosJuego juego;
 
         try {
             juego = new HermanosJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA DE COSTE UNIFORME");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("      JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info("        Busqueda de coste uniforme");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -99,16 +111,19 @@ public class HermanosDemo {
         }
     }
 
-    private static void IterativeDeepeningSearchDemo() {
+    public static void IterativeDeepeningSearchDemo(String sala) {
 
         HermanosJuego juego;
 
         try {
             juego = new HermanosJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n**************************************");
-            log.info("           BÚSQUEDA ITERATIVA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("      JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info("             Busqueda iterativa");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 

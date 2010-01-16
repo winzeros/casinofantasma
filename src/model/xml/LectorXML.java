@@ -7,7 +7,6 @@ package model.xml;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import model.Vista;
 import org.apache.log4j.Level;
@@ -23,20 +22,30 @@ import org.jdom.input.SAXBuilder;
  */
 public class LectorXML {
 
-    public ArrayList getSalas(String path) {
+    public static String path = "F:\\Alicia\\PROYECTOS\\CasinoFantasma\\test\\";
+    private int escenario;
 
-        ArrayList salas = new ArrayList();
+
+    public LectorXML(int escenario) {
+        this.escenario = escenario;
+    }
+
+    public ArrayList getSalas() {
+
+        ArrayList salas;
         HashMap atributos;
-        File fichero = new File(path);
+        File fichero;
         SAXBuilder builder;
         Document doc;
         Element root, e;
         List<Element> listaSalas;
 
         try {
+            fichero = new File(path + Vista.SALAS_XML + escenario + ".xml");
+            salas = new ArrayList();
 
             if (!fichero.exists()) {
-                 Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
             } else {
                 builder = new SAXBuilder();
                 doc = builder.build(fichero);
@@ -55,30 +64,31 @@ public class LectorXML {
                 }
 
             }
+
+            return salas;
+
         } catch (Exception ex) {
             Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return null;
         }
-
-        return salas;
 
     }
 
-    public ArrayList getRecorrido(String path) {
+    public ArrayList getRecorrido() {
 
-        ArrayList recorrido = new ArrayList();
+        ArrayList recorrido;
         HashMap atributos;
-        File fichero = new File(path);
+        File fichero;
         SAXBuilder builder;
         Document doc;
         Element root, e;
-        Content content;
-        List<Element> listaSalas;
-
 
         try {
+            recorrido = new ArrayList();
+            fichero = new File(path + Vista.RECORRIDO_XML + escenario + ".xml");
 
             if (!fichero.exists()) {
-                 Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
             } else {
                 builder = new SAXBuilder();
                 doc = builder.build(fichero);
@@ -94,13 +104,95 @@ public class LectorXML {
 
                     recorrido.add(atributos);
                 }
-
             }
+
+            return recorrido;
+
         } catch (Exception ex) {
             Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return null;
         }
+    }
 
-        return recorrido;
+    public int getJuego(String nombreSala) {
 
+        File fichero;
+        SAXBuilder builder;
+        Document doc;
+        Element root, e;
+        List<Element> listaSalas;
+        int numJuego, i;
+
+        try {
+            numJuego = -1;
+            i = 0;
+            fichero = new File(path + Vista.SALAS_XML + escenario + ".xml");
+
+            if (!fichero.exists()) {
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+            } else {
+                builder = new SAXBuilder();
+                doc = builder.build(fichero);
+                root = doc.getRootElement();
+                listaSalas = root.getChildren();
+
+                while (i < listaSalas.size() && numJuego == -1) {
+                    e = listaSalas.get(i);
+
+                    if (("SALA" + e.getAttribute(Vista.ID).getValue().toString()).equals(nombreSala)) {
+                        numJuego = Integer.parseInt(e.getAttribute(Vista.JUEGO).getValue().toString());
+                    }
+
+                    i++;
+                }
+            }
+
+            return numJuego;
+
+        } catch (Exception ex) {
+            Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return -1;
+        }
+    }
+
+        public int getEstrategia(String nombreSala) {
+
+        File fichero;
+        SAXBuilder builder;
+        Document doc;
+        Element root, e;
+        List<Element> listaSalas;
+        int numJuego, i;
+
+        try {
+            numJuego = -1;
+            i = 0;
+            fichero = new File(path + Vista.SALAS_XML + escenario + ".xml");
+
+            if (!fichero.exists()) {
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+            } else {
+                builder = new SAXBuilder();
+                doc = builder.build(fichero);
+                root = doc.getRootElement();
+                listaSalas = root.getChildren();
+
+                while (i < listaSalas.size() && numJuego == -1) {
+                    e = listaSalas.get(i);
+
+                    if (("SALA" + e.getAttribute(Vista.ID).getValue().toString()).equals(nombreSala)) {
+                        numJuego = Integer.parseInt(e.getAttribute(Vista.ESTRATEGIA).getValue().toString());
+                    }
+
+                    i++;
+                }
+            }
+
+            return numJuego;
+
+        } catch (Exception ex) {
+            Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return -1;
+        }
     }
 }

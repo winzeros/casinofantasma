@@ -18,29 +18,32 @@ import org.apache.log4j.Logger;
  */
 public class OvejasLobosDemo {
 
-    private final static Logger log = Logger.getLogger(OvejasLobosDemo.class.getName());
+    public final static Logger log = Logger.getLogger(OvejasLobosDemo.class.getName());
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo();
-        DepthFirstSearchDemo();
-        DepthLimitedSearchDemo();
-        UniformCostSearchDemo();
-        IterativeDeepeningSearchDemo();
-        eightPuzzleGreedyBestFirstDemo();
-        eightPuzzleAStarDemo();
+        BreadthFirstDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
+        eightPuzzleGreedyBestFirstDemo("SALA11");
+        eightPuzzleAStarDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo() {
+    public static void BreadthFirstDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("               Busqueda primero en anchura");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -49,16 +52,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void DepthFirstSearchDemo() {
+    public static void DepthFirstSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("                 Busqueda en profundidad");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -67,16 +73,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void DepthLimitedSearchDemo() {
+    public static void DepthLimitedSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("             Busqueda en profundidad limitada");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -85,16 +94,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void UniformCostSearchDemo() {
+    public static void UniformCostSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA DE COSTE UNIFORME");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("               Busqueda de coste uniforme");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -103,16 +115,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void IterativeDeepeningSearchDemo() {
+    public static void IterativeDeepeningSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n**************************************");
-            log.info("           BÚSQUEDA ITERATIVA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("                    Busqueda iterativa");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -121,16 +136,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void eightPuzzleGreedyBestFirstDemo() {
+    public static void eightPuzzleGreedyBestFirstDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA VORAZ");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("     JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("                      Busqueda voraz");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -139,16 +157,19 @@ public class OvejasLobosDemo {
         }
     }
 
-    private static void eightPuzzleAStarDemo() {
+    public static void eightPuzzleAStarDemo(String sala) {
 
         OvejasLobosJuego juego;
 
         try {
             juego = new OvejasLobosJuego(new AStarSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA A*");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                             " + sala);
+            log.info("     JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info("                     Busqueda A*");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 

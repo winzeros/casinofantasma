@@ -17,6 +17,9 @@ import model.xml.LectorXML;
  */
 public class LaberintoSalas extends ExtendableMap {
 
+
+    public static LectorXML lectorXML;
+
     public LaberintoSalas(int escenario) {
         initMap(this, escenario);
     }
@@ -127,9 +130,8 @@ public class LaberintoSalas extends ExtendableMap {
      */
     public static void initMap(ExtendableMap map, int escenario) {
         // mapOfRomania
-        LectorXML lectorXML = new LectorXML();
-        ArrayList recorridos = lectorXML.getRecorrido(
-                "F:\\Alicia\\PROYECTOS\\CasinoFantasma\\test\\recorrido" + (escenario + 1) + ".xml");
+        lectorXML = new LectorXML(escenario);
+        ArrayList recorridos = lectorXML.getRecorrido();
         HashMap elemento;
 
         map.clear();

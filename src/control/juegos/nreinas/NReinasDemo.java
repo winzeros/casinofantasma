@@ -1,17 +1,26 @@
-package control.juegos.Garrafas;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package control.juegos.nreinas;
 
 import aima.search.framework.TreeSearch;
-import aima.search.uninformed.*;
+import aima.search.uninformed.BreadthFirstSearch;
+import aima.search.uninformed.DepthFirstSearch;
+import aima.search.uninformed.DepthLimitedSearch;
+import aima.search.uninformed.IterativeDeepeningSearch;
+import aima.search.uninformed.UniformCostSearch;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
  *
- * @author Grupo C15
+ * @author Alicia
  */
-public class GarrafasDemo {
+public class NReinasDemo {
 
-    public final static Logger log = Logger.getLogger(GarrafasDemo.class.getName());
+    public final static Logger log = Logger.getLogger(NReinasDemo.class.getName());
 
     public static void main(String[] args) {
 
@@ -24,106 +33,106 @@ public class GarrafasDemo {
 
     public static void BreadthFirstDemo(String sala) {
 
-        GarrafasJuego juego;
+        NReinasJuego juego;
 
         try {
-            juego = new GarrafasJuego(new BreadthFirstSearch(new TreeSearch()));
+            juego = new NReinasJuego(new BreadthFirstSearch(new TreeSearch()));
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO DE LAS GARRAFAS");
+                log.info("                          " + sala);
+            log.info("           JUEGO DE LAS 8 REINAS");
             log.info("        Busqueda primero en anchura");
             log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     public static void DepthFirstSearchDemo(String sala) {
 
-        GarrafasJuego juego;
+        NReinasJuego juego;
 
         try {
-            juego = new GarrafasJuego(new DepthFirstSearch(new TreeSearch()));
+            juego = new NReinasJuego(new DepthFirstSearch(new TreeSearch()));
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO DE LAS GARRAFAS");
+                log.info("                          " + sala);
+            log.info("           JUEGO DE LAS 8 REINAS");
             log.info("          Busqueda en profundidad");
             log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     public static void DepthLimitedSearchDemo(String sala) {
 
-        GarrafasJuego juego;
+        NReinasJuego juego;
 
         try {
-            juego = new GarrafasJuego(new DepthLimitedSearch(11));
+            juego = new NReinasJuego(new DepthLimitedSearch(11));
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO DE LAS GARRAFAS");
+                log.info("                         " + sala);
+            log.info("           JUEGO DE LAS 8 REINAS");
             log.info("      Busqueda en profundidad limitada");
             log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     public static void UniformCostSearchDemo(String sala) {
 
-        GarrafasJuego juego;
+        NReinasJuego juego;
 
         try {
-            juego = new GarrafasJuego(new UniformCostSearch(new TreeSearch()));
+            juego = new NReinasJuego(new UniformCostSearch(new TreeSearch()));
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO DE LAS GARRAFAS");
-            log.info("         Busqueda de coste uniforme");
+                log.info("                          " + sala);
+            log.info("           JUEGO DE LAS 8 REINAS");
+            log.info("        Busqueda de coste uniforme");
             log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
     public static void IterativeDeepeningSearchDemo(String sala) {
 
-        GarrafasJuego juego;
+        NReinasJuego juego;
 
         try {
-            juego = new GarrafasJuego(new IterativeDeepeningSearch());
+            juego = new NReinasJuego(new IterativeDeepeningSearch());
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO DE LAS GARRAFAS");
+                log.info("                          " + sala);
+            log.info("           JUEGO DE LAS 8 REINAS");
             log.info("             Busqueda iterativa");
             log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 }
