@@ -23,12 +23,12 @@ public class GeneradorXML {
         Element root = new Element(Vista.CASINO);
         Element item;
         XMLOutputter outputter;
-        FileOutputStream stream;
 
         for (int i = 0; i < 100; i++) {
             item = new Element(Vista.SALA);
             item.setAttribute(Vista.ID, String.valueOf(i));
-            item.setAttribute(Vista.JUEGO, String.valueOf((int) (Math.random() * 12))); //Son 12 juegos
+            item.setAttribute(Vista.JUEGO, String.valueOf((int) (Math.random() * 4))); //Son 12 juegos
+             item.setAttribute(Vista.ESTRATEGIA, String.valueOf((int) (Math.random() * 5))); //Son 8 estrategias
             item.setAttribute(Vista.RECOMPENSA, String.valueOf((int) (Math.random() * 100))); //Supongo que el máximo de dias a ganar son 100
             root.addContent(item);
         }
@@ -36,7 +36,7 @@ public class GeneradorXML {
         outputter = new XMLOutputter(Format.getPrettyFormat());
 
         try {
-            outputter.output(new Document(root), new FileOutputStream(Vista.SALAS_XML));
+            outputter.output(new Document(root), new FileOutputStream(Vista.SALAS_XML + ".xml"));
         } catch (Exception e) {
             e.getMessage();
         }
@@ -54,7 +54,7 @@ public class GeneradorXML {
         outputter = new XMLOutputter(Format.getPrettyFormat());
 
         try {
-            outputter.output(new Document(root), new FileOutputStream(Vista.RECORRIDO_XML));
+            outputter.output(new Document(root), new FileOutputStream(Vista.RECORRIDO_XML + ".xml"));
         } catch (Exception e) {
             e.getMessage();
         }

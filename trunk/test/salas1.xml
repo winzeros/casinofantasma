@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <casino>
-  <sala id="0" juego="1" recompensa="85" />
-  <sala id="1" juego="10" recompensa="93" />
-  <sala id="2" juego="2" recompensa="96" />
-  <sala id="3" juego="8" recompensa="9" />
-  <sala id="4" juego="0" recompensa="11" />
-  <sala id="5" juego="1" recompensa="27" />
-  <sala id="6" juego="7" recompensa="16" />
-  <sala id="7" juego="11" recompensa="15" />
-  <sala id="8" juego="4" recompensa="78" />
-  <sala id="9" juego="0" recompensa="87" />
-  <sala id="10" juego="0" recompensa="41" />
-  <sala id="11" juego="7" recompensa="36" />
-  <sala id="12" juego="5" recompensa="72" />
-  <sala id="13" juego="10" recompensa="87" />
-  <sala id="14" juego="2" recompensa="42" />
-  <sala id="15" juego="8" recompensa="59" />
-  <sala id="16" juego="10" recompensa="55" />
-  <sala id="17" juego="5" recompensa="87" />
-  <sala id="18" juego="1" recompensa="67" />
-  <sala id="19" juego="2" recompensa="71" />
-  <sala id="20" juego="10" recompensa="9" />
-  <sala id="21" juego="8" recompensa="29" />
-  <sala id="22" juego="10" recompensa="41" />
-  <sala id="23" juego="11" recompensa="60" />
-  <sala id="24" juego="3" recompensa="41" />
-  <sala id="25" juego="3" recompensa="79" />
-  <sala id="26" juego="5" recompensa="86" />
-  <sala id="27" juego="10" recompensa="7" />
-  <sala id="28" juego="3" recompensa="17" />
-  <sala id="29" juego="11" recompensa="89" />
-  <sala id="30" juego="0" recompensa="66" />
-  <sala id="31" juego="1" recompensa="77" />
-  <sala id="32" juego="4" recompensa="75" />
-  <sala id="33" juego="8" recompensa="9" />
-  <sala id="34" juego="11" recompensa="98" />
-  <sala id="35" juego="10" recompensa="63" />
-  <sala id="36" juego="11" recompensa="57" />
-  <sala id="37" juego="11" recompensa="1" />
-  <sala id="38" juego="8" recompensa="96" />
-  <sala id="39" juego="0" recompensa="41" />
-  <sala id="40" juego="3" recompensa="34" />
-  <sala id="41" juego="1" recompensa="45" />
-  <sala id="42" juego="3" recompensa="31" />
-  <sala id="43" juego="11" recompensa="52" />
-  <sala id="44" juego="1" recompensa="27" />
-  <sala id="45" juego="11" recompensa="36" />
-  <sala id="46" juego="0" recompensa="23" />
-  <sala id="47" juego="1" recompensa="0" />
-  <sala id="48" juego="8" recompensa="56" />
-  <sala id="49" juego="1" recompensa="3" />
-  <sala id="50" juego="7" recompensa="0" />
-  <sala id="51" juego="2" recompensa="31" />
-  <sala id="52" juego="6" recompensa="49" />
-  <sala id="53" juego="5" recompensa="19" />
-  <sala id="54" juego="0" recompensa="88" />
-  <sala id="55" juego="9" recompensa="65" />
-  <sala id="56" juego="0" recompensa="13" />
-  <sala id="57" juego="5" recompensa="67" />
-  <sala id="58" juego="4" recompensa="23" />
-  <sala id="59" juego="8" recompensa="53" />
-  <sala id="60" juego="4" recompensa="37" />
-  <sala id="61" juego="7" recompensa="77" />
-  <sala id="62" juego="5" recompensa="91" />
-  <sala id="63" juego="1" recompensa="0" />
-  <sala id="64" juego="1" recompensa="81" />
-  <sala id="65" juego="6" recompensa="70" />
-  <sala id="66" juego="4" recompensa="44" />
-  <sala id="67" juego="0" recompensa="92" />
-  <sala id="68" juego="4" recompensa="80" />
-  <sala id="69" juego="6" recompensa="57" />
-  <sala id="70" juego="5" recompensa="42" />
-  <sala id="71" juego="4" recompensa="90" />
-  <sala id="72" juego="9" recompensa="52" />
-  <sala id="73" juego="4" recompensa="76" />
-  <sala id="74" juego="7" recompensa="22" />
-  <sala id="75" juego="5" recompensa="89" />
-  <sala id="76" juego="1" recompensa="2" />
-  <sala id="77" juego="0" recompensa="82" />
-  <sala id="78" juego="1" recompensa="97" />
-  <sala id="79" juego="7" recompensa="65" />
-  <sala id="80" juego="10" recompensa="51" />
-  <sala id="81" juego="9" recompensa="11" />
-  <sala id="82" juego="10" recompensa="26" />
-  <sala id="83" juego="2" recompensa="50" />
-  <sala id="84" juego="11" recompensa="42" />
-  <sala id="85" juego="4" recompensa="81" />
-  <sala id="86" juego="9" recompensa="23" />
-  <sala id="87" juego="1" recompensa="2" />
-  <sala id="88" juego="6" recompensa="94" />
-  <sala id="89" juego="11" recompensa="8" />
-  <sala id="90" juego="7" recompensa="85" />
-  <sala id="91" juego="6" recompensa="74" />
-  <sala id="92" juego="3" recompensa="7" />
-  <sala id="93" juego="3" recompensa="48" />
-  <sala id="94" juego="4" recompensa="56" />
-  <sala id="95" juego="0" recompensa="81" />
-  <sala id="96" juego="0" recompensa="46" />
-  <sala id="97" juego="5" recompensa="92" />
-  <sala id="98" juego="6" recompensa="61" />
-  <sala id="99" juego="2" recompensa="40" />
+  <sala id="0" juego="0" estrategia="0" recompensa="45" />
+  <sala id="1" juego="3" estrategia="2" recompensa="28" />
+  <sala id="2" juego="1" estrategia="1" recompensa="49" />
+  <sala id="3" juego="0" estrategia="4" recompensa="86" />
+  <sala id="4" juego="3" estrategia="4" recompensa="75" />
+  <sala id="5" juego="0" estrategia="3" recompensa="11" />
+  <sala id="6" juego="0" estrategia="0" recompensa="89" />
+  <sala id="7" juego="2" estrategia="0" recompensa="96" />
+  <sala id="8" juego="1" estrategia="3" recompensa="14" />
+  <sala id="9" juego="0" estrategia="4" recompensa="16" />
+  <sala id="10" juego="3" estrategia="1" recompensa="35" />
+  <sala id="11" juego="0" estrategia="3" recompensa="35" />
+  <sala id="12" juego="3" estrategia="1" recompensa="40" />
+  <sala id="13" juego="3" estrategia="4" recompensa="62" />
+  <sala id="14" juego="3" estrategia="0" recompensa="11" />
+  <sala id="15" juego="0" estrategia="3" recompensa="34" />
+  <sala id="16" juego="0" estrategia="2" recompensa="95" />
+  <sala id="17" juego="0" estrategia="3" recompensa="74" />
+  <sala id="18" juego="0" estrategia="3" recompensa="12" />
+  <sala id="19" juego="3" estrategia="4" recompensa="20" />
+  <sala id="20" juego="0" estrategia="4" recompensa="1" />
+  <sala id="21" juego="3" estrategia="0" recompensa="23" />
+  <sala id="22" juego="0" estrategia="2" recompensa="98" />
+  <sala id="23" juego="1" estrategia="1" recompensa="1" />
+  <sala id="24" juego="2" estrategia="3" recompensa="59" />
+  <sala id="25" juego="0" estrategia="0" recompensa="12" />
+  <sala id="26" juego="1" estrategia="4" recompensa="91" />
+  <sala id="27" juego="1" estrategia="4" recompensa="82" />
+  <sala id="28" juego="0" estrategia="3" recompensa="77" />
+  <sala id="29" juego="3" estrategia="3" recompensa="96" />
+  <sala id="30" juego="1" estrategia="1" recompensa="75" />
+  <sala id="31" juego="0" estrategia="0" recompensa="2" />
+  <sala id="32" juego="2" estrategia="2" recompensa="78" />
+  <sala id="33" juego="2" estrategia="1" recompensa="38" />
+  <sala id="34" juego="0" estrategia="2" recompensa="90" />
+  <sala id="35" juego="3" estrategia="0" recompensa="9" />
+  <sala id="36" juego="2" estrategia="3" recompensa="62" />
+  <sala id="37" juego="0" estrategia="1" recompensa="39" />
+  <sala id="38" juego="2" estrategia="1" recompensa="76" />
+  <sala id="39" juego="3" estrategia="0" recompensa="15" />
+  <sala id="40" juego="1" estrategia="1" recompensa="53" />
+  <sala id="41" juego="2" estrategia="2" recompensa="51" />
+  <sala id="42" juego="0" estrategia="2" recompensa="86" />
+  <sala id="43" juego="1" estrategia="4" recompensa="15" />
+  <sala id="44" juego="0" estrategia="2" recompensa="11" />
+  <sala id="45" juego="0" estrategia="1" recompensa="22" />
+  <sala id="46" juego="0" estrategia="3" recompensa="32" />
+  <sala id="47" juego="0" estrategia="1" recompensa="28" />
+  <sala id="48" juego="3" estrategia="4" recompensa="88" />
+  <sala id="49" juego="3" estrategia="0" recompensa="11" />
+  <sala id="50" juego="1" estrategia="1" recompensa="46" />
+  <sala id="51" juego="1" estrategia="2" recompensa="57" />
+  <sala id="52" juego="0" estrategia="4" recompensa="64" />
+  <sala id="53" juego="1" estrategia="0" recompensa="88" />
+  <sala id="54" juego="1" estrategia="3" recompensa="57" />
+  <sala id="55" juego="2" estrategia="0" recompensa="48" />
+  <sala id="56" juego="0" estrategia="1" recompensa="93" />
+  <sala id="57" juego="1" estrategia="4" recompensa="7" />
+  <sala id="58" juego="3" estrategia="3" recompensa="82" />
+  <sala id="59" juego="1" estrategia="4" recompensa="26" />
+  <sala id="60" juego="0" estrategia="1" recompensa="17" />
+  <sala id="61" juego="2" estrategia="1" recompensa="76" />
+  <sala id="62" juego="0" estrategia="3" recompensa="93" />
+  <sala id="63" juego="3" estrategia="0" recompensa="37" />
+  <sala id="64" juego="1" estrategia="0" recompensa="50" />
+  <sala id="65" juego="2" estrategia="4" recompensa="0" />
+  <sala id="66" juego="0" estrategia="3" recompensa="11" />
+  <sala id="67" juego="1" estrategia="3" recompensa="77" />
+  <sala id="68" juego="3" estrategia="1" recompensa="65" />
+  <sala id="69" juego="2" estrategia="2" recompensa="71" />
+  <sala id="70" juego="3" estrategia="2" recompensa="5" />
+  <sala id="71" juego="1" estrategia="1" recompensa="58" />
+  <sala id="72" juego="3" estrategia="0" recompensa="78" />
+  <sala id="73" juego="1" estrategia="1" recompensa="6" />
+  <sala id="74" juego="1" estrategia="0" recompensa="18" />
+  <sala id="75" juego="3" estrategia="4" recompensa="95" />
+  <sala id="76" juego="3" estrategia="1" recompensa="82" />
+  <sala id="77" juego="3" estrategia="0" recompensa="82" />
+  <sala id="78" juego="2" estrategia="0" recompensa="51" />
+  <sala id="79" juego="3" estrategia="4" recompensa="40" />
+  <sala id="80" juego="1" estrategia="4" recompensa="69" />
+  <sala id="81" juego="0" estrategia="0" recompensa="49" />
+  <sala id="82" juego="1" estrategia="4" recompensa="54" />
+  <sala id="83" juego="0" estrategia="0" recompensa="4" />
+  <sala id="84" juego="3" estrategia="3" recompensa="14" />
+  <sala id="85" juego="2" estrategia="4" recompensa="73" />
+  <sala id="86" juego="3" estrategia="1" recompensa="38" />
+  <sala id="87" juego="0" estrategia="2" recompensa="75" />
+  <sala id="88" juego="1" estrategia="3" recompensa="88" />
+  <sala id="89" juego="1" estrategia="4" recompensa="10" />
+  <sala id="90" juego="3" estrategia="3" recompensa="7" />
+  <sala id="91" juego="1" estrategia="2" recompensa="77" />
+  <sala id="92" juego="0" estrategia="1" recompensa="96" />
+  <sala id="93" juego="2" estrategia="4" recompensa="95" />
+  <sala id="94" juego="2" estrategia="1" recompensa="57" />
+  <sala id="95" juego="2" estrategia="0" recompensa="18" />
+  <sala id="96" juego="2" estrategia="4" recompensa="72" />
+  <sala id="97" juego="2" estrategia="0" recompensa="27" />
+  <sala id="98" juego="1" estrategia="3" recompensa="37" />
+  <sala id="99" juego="0" estrategia="0" recompensa="94" />
 </casino>
 
