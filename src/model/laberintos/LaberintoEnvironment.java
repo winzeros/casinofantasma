@@ -8,11 +8,11 @@ import aima.basic.Agent;
 import aima.search.map.DynAttributeNames;
 import aima.search.map.Map;
 import aima.search.map.MapEnvironment;
-import control.juegos.Garrafas.Garrafas;
 import control.juegos.Garrafas.GarrafasDemo;
 import control.juegos.hermanos.HermanosDemo;
 import control.juegos.nreinas.NReinasDemo;
 import control.juegos.ovejasLobos.OvejasLobosDemo;
+import control.juegos.ranas.RanasDemo;
 
 /**
  *
@@ -138,6 +138,31 @@ public class LaberintoEnvironment extends MapEnvironment {
                     //Busqueda iterativa
                     case 4:
                         NReinasDemo.IterativeDeepeningSearchDemo(sala);
+                        break;
+                }
+                break;
+            //Juego de las Ranas
+            case 4:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        RanasDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        RanasDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        RanasDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        RanasDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        RanasDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;

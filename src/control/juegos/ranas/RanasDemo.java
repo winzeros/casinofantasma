@@ -7,8 +7,8 @@ package control.juegos.ranas;
 
 import aima.search.framework.TreeSearch;
 import aima.search.uninformed.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -16,123 +16,119 @@ import java.util.logging.Logger;
  */
 public class RanasDemo {
 
-    private final static Logger log = Logger.getLogger(RanasDemo.class.getName());
+    public final static Logger log = Logger.getLogger(RanasDemo.class.getName());
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo();
-        DepthFirstSearchDemo();
-        DepthLimitedSearchDemo();
-        UniformCostSearchDemo();
-        IterativeDeepeningSearchDemo();
+        BreadthFirstDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo() {
+    public static void BreadthFirstDemo(String sala) {
 
         RanasJuego juego;
 
         try {
             juego = new RanasJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("             JUEGO DE LAS RANAS");
+            log.info("        Busqueda primero en anchura");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void DepthFirstSearchDemo() {
+    public static void DepthFirstSearchDemo(String sala) {
 
         RanasJuego juego;
 
         try {
             juego = new RanasJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("             JUEGO DE LAS RANAS");
+            log.info("          Busqueda en profundidad");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void DepthLimitedSearchDemo() {
+    public static void DepthLimitedSearchDemo(String sala) {
 
         RanasJuego juego;
 
         try {
             juego = new RanasJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("             JUEGO DE LAS RANAS");
+            log.info("      Busqueda en profundidad limitada");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void UniformCostSearchDemo() {
+    public static void UniformCostSearchDemo(String sala) {
 
         RanasJuego juego;
 
         try {
             juego = new RanasJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA DE COSTE UNIFORME");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("             JUEGO DE LAS RANAS");
+            log.info("        Busqueda de coste uniforme");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void IterativeDeepeningSearchDemo() {
+    public static void IterativeDeepeningSearchDemo(String sala) {
 
         RanasJuego juego;
 
         try {
             juego = new RanasJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n**************************************");
-            log.info("           BÚSQUEDA ITERATIVA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("             JUEGO DE LAS RANAS");
+            log.info("             Busqueda iterativa");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
-
-    private static void BidirectionalSearchDemo() {
-
-        RanasJuego juego;
-
-        try {
-            juego = new RanasJuego(new BidirectionalSearch());
-
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA BIDIRECCIONAL");
-            log.info("**************************************\n");
-
-            juego.ejecutar();
-
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(RanasDemo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
 }

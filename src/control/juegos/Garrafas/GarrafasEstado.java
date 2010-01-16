@@ -25,7 +25,7 @@ public class GarrafasEstado {
      * garrafa de 3 de capacidad y el valor es el contenido de la garrafa de 4
      * litros de capacidad
      */
-    private Vector<Contenido> _contenido;
+    private Vector<GarrafasContenido> _contenido;
     /**
      * Constructor por defecto
      * Siendo el estado inicial, ambas garrafas vacías
@@ -33,25 +33,25 @@ public class GarrafasEstado {
     public GarrafasEstado() {
         this._garrafa3 = 0;
         this._garrafa4 = 0;
-        this._contenido = new Vector<Contenido>();
+        this._contenido = new Vector<GarrafasContenido>();
     }
     /**
      * Constructor parametrizado
-     * @param garrafa3 Contenido de la garrafa de 3 litros de capacidad
-     * @param garrafa4 Contenido de la garrafa de 4 litros de capacidad
+     * @param garrafa3 GarrafasContenido de la garrafa de 3 litros de capacidad
+     * @param garrafa4 GarrafasContenido de la garrafa de 4 litros de capacidad
      * @param contenido
      */
-    public GarrafasEstado(int garrafa3, int garrafa4, Vector<Contenido> contenido) {
+    public GarrafasEstado(int garrafa3, int garrafa4, Vector<GarrafasContenido> contenido) {
         this._garrafa3 = garrafa3;
         this._garrafa4 = garrafa4;
         this._contenido = contenido;
     }
 
-    public Vector<Contenido> getContenido() {
+    public Vector<GarrafasContenido> getContenido() {
         return _contenido;
     }
 
-    public void setContenido(Vector<Contenido> contenido) {
+    public void setContenido(Vector<GarrafasContenido> contenido) {
         this._contenido = contenido;
     }
 
