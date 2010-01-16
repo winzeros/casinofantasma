@@ -261,7 +261,7 @@ public class LaberintoSalas extends ExtendableMap {
         int numLab;
 
         try {
-            ruta = new File("F:\\Alicia\\PROYECTOS\\CasinoFantasma\\test");
+            ruta = new File("C:\\IngInformatica\\IAIC\\practica\\casinofantasma\\test");
             numLab = 0;
 
             if (ruta.isDirectory()) {
