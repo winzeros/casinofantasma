@@ -21,7 +21,7 @@ public class MonoBananaDemo {
     public static void main(String[] args) {
 
         BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
+        //DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
