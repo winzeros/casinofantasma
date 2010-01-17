@@ -125,11 +125,8 @@ public class MonoBananaEstado {
     public boolean puedeMoverse(int operacion, int[] habitacion) {
 
         boolean res = true;
-        int[] comprob = habitacion;
-        int i = 0;
 
         try {
-
             switch (operacion) {
                 case 1: //Andar
                     andar(habitacion);
@@ -148,13 +145,6 @@ public class MonoBananaEstado {
                     break;
             }
 
-            //Compruebo si ya estaba en esa situacion
-            while ((res == true) && (i < 4)) {
-                if (_habitacion[i] == comprob[i]) {
-                    res = false;
-                }
-                i++;
-            }
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaEstado.class.getName()).log(Level.ERROR, 
                     "Error al comprobar si es válida la operacion " + operacion, ex);

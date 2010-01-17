@@ -17,20 +17,23 @@ public class LinternaEstadoObjetivo implements GoalTest {
 
     public boolean isGoalState(Object arg0) {
 
-        LinternaEstado estado = (LinternaEstado) arg0;
-        int i = 0;
-//((estAux[0] == 0)&&(estAux[1] == 0)&&(estAux[2] == 0)&&(estAux[3] == 0)
- //               &&(estAux[4] == 0)&&(estAux[5] == 0)&&(estAux[6] >= 0));
+        LinternaEstado estadoFinal =  (LinternaEstado) arg0;
+        boolean enc = false;
+
         try {
-            while ((i < 6) && (estado.getMesa()[i] != 0)) {
-                i++;
-            }
+
+            enc = ((estadoFinal.getCalzada()[0] == 0) &&
+                   (estadoFinal.getCalzada()[1] == 0) &&
+                   (estadoFinal.getCalzada()[2] == 0) &&
+                   (estadoFinal.getCalzada()[3] == 0) &&
+                   (estadoFinal.getCalzada()[4] == 0) &&
+                   (estadoFinal.getCalzada()[6] >= 0));
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
         }
 
-        return i == 6;
+        return enc;
     }
 }

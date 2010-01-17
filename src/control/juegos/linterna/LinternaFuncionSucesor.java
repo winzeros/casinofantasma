@@ -25,12 +25,12 @@ public class LinternaFuncionSucesor implements SuccessorFunction {
         ArrayList recorrido = estadoPadre.getRecorrido();
 
         try {
-            for (int i = 1; i < 15; i++) { //Pensar bien el limite
+            for (int i = 0; i < 15; i++) { 
                 LinternaEstado estado = new LinternaEstado(estadoPadre);
                 estado.setRecorrido(recorrido);
                 if (estado.pasar(i)) {
                     recorrido = estado.getRecorrido();
-                    resultado.add(new Successor("                  (" + i + "," + ")\n" + estado.toString(),
+                    resultado.add(new Successor("                  (" + i + ")\n" + estado.toString(),
                                 estado));
                 }
             }

@@ -6,7 +6,6 @@
 package control.juegos.linterna;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -102,7 +101,7 @@ public class LinternaEstado {
         }
     }
 
-    public int[] getMesa() {
+    public int[] getCalzada() {
         return this._calzada;
     }
 
@@ -120,8 +119,6 @@ public class LinternaEstado {
     public boolean estadoValido(int operacion, int[] calzada) {
 
         boolean res = true;
-        int[] comprob = calzada;
-        int i = 0;
 
         try {
 
@@ -172,21 +169,11 @@ public class LinternaEstado {
                     P8P12();
                     break;
             }
-
-            //Compruebo si ya estaba en esa situacion
-            while (res && (i < 4)) {
-                if (_calzada[i] == comprob[i]) {
-                    res = false;
-                }
-                i++;
-            }
-
         } catch (Exception ex) {
             Logger.getLogger(LinternaEstado.class.getName()).log(Level.ERROR, 
                     "Error al comprobar si es válido mover la persona " +
                     operacion, ex);
         }
-
         return res;
     }
 
@@ -214,13 +201,13 @@ public class LinternaEstado {
         return res;
     }
 
-    public boolean equals(Object o) {
-        return Arrays.equals((int[]) o, _calzada);
-    }
 
     @Override
     public String toString() {
-
+/*
+ * tengo q mirarlo
+ *
+ */
         String resultado;
 
         resultado = "   " + _calzada[0] + "\n";
