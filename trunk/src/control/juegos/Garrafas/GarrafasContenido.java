@@ -9,7 +9,7 @@ package control.juegos.Garrafas;
  *
  * @author jcarlos
  */
-public class Contenido {
+public class GarrafasContenido {
 
     private int contG3;
     private int contG4;
@@ -19,7 +19,7 @@ public class Contenido {
      * @param contG3
      * @param contG4
      */
-    public Contenido(int contG3, int contG4) {
+    public GarrafasContenido(int contG3, int contG4) {
         this.contG3 = contG3;
         this.contG4 = contG4;
     }

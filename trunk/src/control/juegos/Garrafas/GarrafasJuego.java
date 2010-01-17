@@ -1,14 +1,9 @@
 package control.juegos.Garrafas;
 
-import aima.search.framework.GoalTest;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
-import aima.search.framework.SearchAgent;
-import aima.search.framework.SuccessorFunction;
 
-import aima.search.uninformed.BidirectionalSearch;
 import control.juegos.Juego;
-import java.util.Vector;
 
 /**
  *
