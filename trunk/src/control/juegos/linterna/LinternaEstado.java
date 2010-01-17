@@ -118,55 +118,55 @@ public class LinternaEstado {
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
     public boolean estadoValido(int operacion, int[] calzada) {
 
-        boolean res = true;
+        boolean res = false;
 
         try {
 
             switch (operacion) {
                 case 0://"Pasar Persona de 1 seg"
-                    P1();
+                    res = P1();
                     break;
                 case 1://"Pasar Persona de 3 seg"
-                    P3();
+                    res = P3();
                     break;
                 case 2://"Pasar Persona de 6 seg"
-                    P6();
+                    res = P6();
                     break;
                 case 3://"Pasar Persona de 8 seg"
-                    P8();
+                    res = P8();
                     break;
                 case 4://"Pasar Persona de 12 seg"
-                    P12();
+                    res = P12();
                     break;
                 case 5://"Pasar Persona de 1 seg y pasar Persona de 3 seg"
-                    P1P3();
+                    res = P1P3();
                     break;
                 case 6://"Pasar Persona de 1 seg y pasar Pde ersona 6 seg"
-                    P1P6();
+                    res = P1P6();
                     break;
                 case 7://"Pasar Persona de 1 seg y pasar Persona de 8 seg"
-                    P1P8();
+                    res = P1P8();
                     break;
                 case 8://"Pasar Persona de 1 seg y pasar Persona de 12 seg"
-                    P1P12();
+                    res = P1P12();
                     break;
                 case 9://"Pasar Persona de 3 seg y pasar Persona de 6 seg"
-                    P3P6();
+                    res = P3P6();
                     break;
                 case 10://"Pasar Persona de 3 seg y pasar Persona de 8 seg"
-                    P3P8();
+                    res = P3P8();
                     break;
                 case 11://"Pasar Persona de 3 seg y pasar Persona de 12 seg"
-                    P3P12();
+                    res = P3P12();
                     break;
                 case 12://"Pasar Persona de 6 seg y pasar Persona de 8 seg"
-                    P6P8();
+                    res = P6P8();
                     break;
                 case 13://"Pasar Persona de 6 seg y pasar Persona de 12 seg"
-                    P6P12();
+                    res = P6P12();
                     break;
                 case 14://"Pasar Persona de 8 seg y pasar Persona de 12 seg"
-                    P8P12();
+                    res = P8P12();
                     break;
             }
         } catch (Exception ex) {
@@ -218,8 +218,8 @@ public class LinternaEstado {
         return resultado;
     }
 
+// <editor-fold defaultstate="collapsed" desc="OPCIONES DE PASO">
 
-    //Operadores
     public boolean P1() {
         if((_calzada[0] == 1)&&((_calzada[6]-1)>=0)){
             _calzada[0] = 0;
@@ -379,5 +379,6 @@ public class LinternaEstado {
         }
         return false;
     }
+// </editor-fold>
 
 }
