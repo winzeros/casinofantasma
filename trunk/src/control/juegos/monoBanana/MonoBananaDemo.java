@@ -20,23 +20,26 @@ public class MonoBananaDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo();
-        DepthFirstSearchDemo();
-        DepthLimitedSearchDemo();
-        UniformCostSearchDemo();
-        IterativeDeepeningSearchDemo();
+        BreadthFirstDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo() {
+    private static void BreadthFirstDemo(String sala) {
 
         MonoBananaJuego juego;
 
         try {
             juego = new MonoBananaJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("            JUEGO DEL MONO Y LA BANANA");
+            log.info("        Busqueda primero en anchura");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -45,16 +48,19 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void DepthFirstSearchDemo() {
+    private static void DepthFirstSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
         try {
             juego = new MonoBananaJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("            JUEGO DEL MONO Y LA BANANA");
+            log.info("          Busqueda en profundidad");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -63,16 +69,19 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void DepthLimitedSearchDemo() {
+    private static void DepthLimitedSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
         try {
             juego = new MonoBananaJuego(new DepthLimitedSearch(5));
 
-            log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 5");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("            JUEGO DEL MONO Y LA BANANA");
+            log.info("      Busqueda en profundidad limitada");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -81,16 +90,19 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void UniformCostSearchDemo() {
+    private static void UniformCostSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
         try {
             juego = new MonoBananaJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA DE COSTE UNIFORME");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("            JUEGO DEL MONO Y LA BANANA");
+            log.info("        Busqueda de coste uniforme");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
@@ -99,16 +111,19 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void IterativeDeepeningSearchDemo() {
+    private static void IterativeDeepeningSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
         try {
             juego = new MonoBananaJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n**************************************");
-            log.info("           BÚSQUEDA ITERATIVA");
-            log.info("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info("                          " + sala);
+            log.info("            JUEGO DEL MONO Y LA BANANA");
+            log.info("             Busqueda iterativa");
+            log.info("*******************************************\n");
 
             juego.ejecutar();
 
