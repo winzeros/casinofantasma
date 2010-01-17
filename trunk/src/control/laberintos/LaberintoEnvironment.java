@@ -10,6 +10,8 @@ import aima.search.map.Map;
 import aima.search.map.MapEnvironment;
 import control.juegos.Garrafas.GarrafasDemo;
 import control.juegos.hermanos.HermanosDemo;
+import control.juegos.linterna.LinternaDemo;
+import control.juegos.monoBanana.MonoBananaDemo;
 import control.juegos.nreinas.NReinasDemo;
 import control.juegos.ovejasLobos.OvejasLobosDemo;
 import control.juegos.ranas.RanasDemo;
@@ -197,6 +199,57 @@ public class LaberintoEnvironment extends MapEnvironment {
                         break;
                 }
                 break;
+            //Juego de la linterna
+            case 5:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        LinternaDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        LinternaDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        LinternaDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        LinternaDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        LinternaDemo.IterativeDeepeningSearchDemo(sala);
+                        break;
+                }
+                break;
+            //Juego de el mono y la banana
+            case 6:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        MonoBananaDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        MonoBananaDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        MonoBananaDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        MonoBananaDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        MonoBananaDemo.IterativeDeepeningSearchDemo(sala);
+                        break;
+                }
+                break;
+            
         }
     }
 }

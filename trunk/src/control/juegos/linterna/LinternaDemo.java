@@ -15,10 +15,10 @@ import org.apache.log4j.Logger;
  * @author Laura
  */
 public class LinternaDemo {
+
     public final static Logger log = Logger.getLogger(LinternaDemo.class.getName());
 
     public static void main(String[] args) {
-
         BreadthFirstDemo("SALA11");
         DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");

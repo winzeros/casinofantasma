@@ -8,9 +8,6 @@ package control.juegos.nreinas;
 import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
-import aima.search.nqueens.NQueensBoard;
-import aima.search.nqueens.NQueensGoalTest;
-import aima.search.nqueens.NQueensSuccessorFunction;
 import aima.search.uninformed.IterativeDeepeningSearch;
 import control.juegos.Juego;
 import org.apache.log4j.Level;
@@ -27,8 +24,8 @@ public class NReinasJuego extends Juego {
         try {
             this._busqueda = busqueda;
             this._nombre = "N Reinas";
-            this._problema = new Problem(new NQueensBoard(8), new NQueensSuccessorFunction(),
-                    new NQueensGoalTest());
+            this._problema = new Problem(new NReinasEstado(8), new NReinasFuncionSucesor(),
+                    new NReinasEstadoObjetivo());
         } catch (Exception ex) {
             Logger.getLogger(NReinasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
@@ -39,8 +36,8 @@ public class NReinasJuego extends Juego {
         try {
             this._busqueda = busqueda;
             this._nombre = "N Reinas";
-            this._problema = new Problem(new NQueensBoard(8), new NQueensSuccessorFunction(),
-                    new NQueensGoalTest(), heuristica);
+            this._problema = new Problem(new NReinasEstado(8), new NReinasFuncionSucesor(),
+                    new NReinasEstadoObjetivo(), heuristica);
         } catch (Exception ex) {
             Logger.getLogger(NReinasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
