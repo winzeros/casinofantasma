@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.laberintos;
+package control.laberintos;
 
 import aima.search.map.ExtendableMap;
 import java.io.File;
@@ -261,7 +261,7 @@ public class LaberintoSalas extends ExtendableMap {
         int numLab;
 
         try {
-            ruta = new File("C:\\IngInformatica\\IAIC\\practica\\casinofantasma\\test");
+            ruta = new File(LectorXML.path);
             numLab = 0;
 
             if (ruta.isDirectory()) {

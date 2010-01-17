@@ -11,7 +11,6 @@ import java.util.List;
 import model.Vista;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.jdom.Content;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -22,7 +21,7 @@ import org.jdom.input.SAXBuilder;
  */
 public class LectorXML {
 
-    public static String path = "C:\\IngInformatica\\IAIC\\practica\\casinofantasma\\test\\";
+    public static String path = "F:\\Alicia\\PROYECTOS\\CasinoFantasma\\test\\";
     private int escenario;
 
 
@@ -189,6 +188,47 @@ public class LectorXML {
             }
 
             return numJuego;
+
+        } catch (Exception ex) {
+            Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return -1;
+        }
+    }
+
+    public int getRecompensa(String nombreSala) {
+
+        File fichero;
+        SAXBuilder builder;
+        Document doc;
+        Element root, e;
+        List<Element> listaSalas;
+        int recompensa, i;
+
+        try {
+            recompensa = -1;
+            i = 0;
+            fichero = new File(path + Vista.SALAS_XML + escenario + ".xml");
+
+            if (!fichero.exists()) {
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+            } else {
+                builder = new SAXBuilder();
+                doc = builder.build(fichero);
+                root = doc.getRootElement();
+                listaSalas = root.getChildren();
+
+                while (i < listaSalas.size() && recompensa == -1) {
+                    e = listaSalas.get(i);
+
+                    if (("SALA" + e.getAttribute(Vista.ID).getValue().toString()).equals(nombreSala)) {
+                        recompensa = Integer.parseInt(e.getAttribute(Vista.RECOMPENSA).getValue().toString());
+                    }
+
+                    i++;
+                }
+            }
+
+            return recompensa;
 
         } catch (Exception ex) {
             Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);

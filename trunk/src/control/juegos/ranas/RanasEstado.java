@@ -189,10 +189,19 @@ public class RanasEstado {
 
     @Override
     public String toString() {
-        String resultado = "\n\n\n";
+        String resultado = "";
         for (int i = 0; i < 7; i++) {
-            resultado += " " + _hojas[i].toString() + " ";
+            //resultado += " " + _hojas[i].toString() + " ";
+            if (_hojas[i].equals(SAPO)) {
+                resultado += " >o)";
+            }
+            else if (_hojas[i].equals(RANA)) {
+                resultado += " (o<";
+            } else {
+                resultado += "        ";
+            }
         }
+        resultado += "\n ----  ----  ----  ----  ----  ----  ---- \n";
         return resultado;
     }
 }
