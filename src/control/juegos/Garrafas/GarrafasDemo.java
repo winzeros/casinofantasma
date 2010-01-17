@@ -31,7 +31,7 @@ public class GarrafasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
+                log.info("              " + sala);
             log.info("           JUEGO DE LAS GARRAFAS");
             log.info("        Busqueda primero en anchura");
             log.info("*******************************************\n");
@@ -52,7 +52,7 @@ public class GarrafasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
+                log.info("              " + sala);
             log.info("           JUEGO DE LAS GARRAFAS");
             log.info("          Busqueda en profundidad");
             log.info("*******************************************\n");
@@ -73,7 +73,7 @@ public class GarrafasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
+                log.info("              " + sala);
             log.info("           JUEGO DE LAS GARRAFAS");
             log.info("      Busqueda en profundidad limitada");
             log.info("*******************************************\n");
@@ -94,7 +94,7 @@ public class GarrafasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
+                log.info("              " + sala);
             log.info("           JUEGO DE LAS GARRAFAS");
             log.info("         Busqueda de coste uniforme");
             log.info("*******************************************\n");
@@ -115,7 +115,7 @@ public class GarrafasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
+                log.info("              " + sala);
             log.info("           JUEGO DE LAS GARRAFAS");
             log.info("             Busqueda iterativa");
             log.info("*******************************************\n");

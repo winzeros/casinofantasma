@@ -209,12 +209,12 @@ public class OvejasLobosEstado {
     public String toString() {
         String resultado = "";
         String canoa = "";
-        String rio = " |                    | ";
+        String rio = " |         | ";
 
         if (_orilla.get(CANOA) == 0) {
-            canoa = "                    |<__>           |\n";
+            canoa = "            |<__>     |\n";
         } else {
-            canoa = "                    |           <__>|\n";
+            canoa = "            |     <__>|\n";
         }
 
         resultado += "\n";

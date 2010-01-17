@@ -245,11 +245,9 @@ public class NReinasEstado {
 				if (existeReina(col, row)) {
 					buf.append(' ');
 					buf.append('R');
-					buf.append(' ');
 				} else {
 					buf.append(' ');
 					buf.append('_');
-					buf.append(' ');
 				}
 			}
 			buf.append("\n");

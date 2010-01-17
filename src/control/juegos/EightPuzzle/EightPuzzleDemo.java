@@ -51,12 +51,12 @@ public class EightPuzzleDemo {
         try{
 
         EightPuzzleJuego juego = new EightPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()));
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n**********************************************************************");
             if (sala != null)
             log.info("                          " + sala);
-            log.info("      JUEGO 8PUZZLE");
+            log.info("                       JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
-            log.info("*******************************************\n");
+            log.info("**********************************************************************\n");
 
         juego.ejecutar();
         } catch (Exception ex) {
@@ -67,12 +67,12 @@ public class EightPuzzleDemo {
     private static void eightPuzzleDLSDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new DepthLimitedSearch(9));
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n*********************************");
             if (sala != null)
-            log.info("                          " + sala);
+            log.info("          " + sala);
             log.info("      JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA RECURSIVA DLS");
-            log.info("*******************************************\n");
+            log.info("*********************************\n");
         juego.ejecutar();
         } catch (Exception ex) {
             Logger.getLogger(EightPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -83,12 +83,12 @@ public class EightPuzzleDemo {
     private static void eightPuzzleIDLSDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new IterativeDeepeningSearch());
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n********************************");
             if (sala != null)
-            log.info("                          " + sala);
+            log.info("          " + sala);
             log.info("      JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA ITERATIVA IDLS");
-            log.info("*******************************************\n");
+            log.info("*********************************\n");
 
         juego.ejecutar();
         } catch (Exception ex) {
@@ -101,12 +101,12 @@ public class EightPuzzleDemo {
     private static void eightPuzzleGreedyBestFirstDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()));
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n***************************************");
             if (sala != null)
-            log.info("                          " + sala);
+            log.info("          " + sala);
             log.info("      JUEGO 8PUZZLE");
             log.info("BÚSQUEDA GreedyBestFirstSearch");
-            log.info("*******************************************\n");
+            log.info("***************************************\n");
         juego.ejecutar();
         }catch (Exception ex) {
             Logger.getLogger(EightPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -117,12 +117,12 @@ public class EightPuzzleDemo {
     private static void eightPuzzleAStarManhattanDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new AStarSearch(new GraphSearch()));
-         log.info("\n\n\n*******************************************");
+      log.info("\n\n\n*************************************************************");
             if (sala != null)
-            log.info("                          " + sala);
-            log.info("      JUEGO 8PUZZLE");
+            log.info("                        " + sala);
+            log.info("                    JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA A ESTRELLA CON FUNCION HEURISTICA DE MANHATTAN");
-            log.info("*******************************************\n");
+            log.info("**************************************************************\n");
         juego.ejecutar();
         }
         catch (Exception ex) {
@@ -133,12 +133,12 @@ public class EightPuzzleDemo {
     private static void eightPuzzleSimulatedAnnealingDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new SimulatedAnnealingSearch());
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n************************************");
             if (sala != null)
-            log.info("                          " + sala);
-            log.info("      JUEGO 8PUZZLE");
+            log.info("             " + sala);
+            log.info("         JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA RECORRIDO SIMULADO ");
-            log.info("*******************************************\n");
+            log.info("************************************\n");
         juego.ejecutar();
          }
         catch (Exception ex) {
@@ -149,12 +149,12 @@ public class EightPuzzleDemo {
     private static void BreadthFirstDemo(String sala) {
         try{
         EightPuzzleJuego juego = new EightPuzzleJuego(new BreadthFirstSearch(new TreeSearch()));
-        log.info("\n\n\n*******************************************");
+      log.info("\n\n\n*****************************************");
             if (sala != null)
-            log.info("                          " + sala);
-            log.info("      JUEGO 8PUZZLE");
+            log.info("                 " + sala);
+            log.info("            JUEGO 8PUZZLE");
             log.info("  BÚSQUEDA BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("*******************************************\n");
+            log.info("******************************************\n");
         juego.ejecutar();
         }
         catch (Exception ex) {

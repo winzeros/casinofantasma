@@ -29,7 +29,7 @@ public class OvejasLobosFuncionSucesor implements SuccessorFunction {
                     estado.setRecorrido(recorrido);
                     if (estado.mover(i, j)) {
                         recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + "," + j + ")" + estado.toString(),
+                        resultado.add(new Successor("               (" + i + "," + j + ")" + estado.toString(),
                                 estado));
                     }
                 }

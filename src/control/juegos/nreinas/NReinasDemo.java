@@ -40,9 +40,9 @@ public class NReinasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("           JUEGO DE LAS 8 REINAS");
-            log.info("        Busqueda primero en anchura");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -61,9 +61,9 @@ public class NReinasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("           JUEGO DE LAS 8 REINAS");
-            log.info("          Busqueda en profundidad");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -82,9 +82,9 @@ public class NReinasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                         " + sala);
-            log.info("           JUEGO DE LAS 8 REINAS");
-            log.info("      Busqueda en profundidad limitada");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -103,9 +103,9 @@ public class NReinasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("           JUEGO DE LAS 8 REINAS");
-            log.info("        Busqueda de coste uniforme");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -124,10 +124,10 @@ public class NReinasDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("           JUEGO DE LAS 8 REINAS");
-            log.info("             Busqueda iterativa");
-            log.info("*******************************************\n");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda iterativa");
+            log.info("*******************************************\n\n");
 
             juego.ejecutar();
 
