@@ -30,8 +30,8 @@ public class RanasFuncionSucesor implements SuccessorFunction{
                     estado.setRecorrido(recorrido);
                     if (estado.mover(i)) {
                         recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + ")\n" 
-                                + estado.toString(), estado));
+                        resultado.add(new Successor("Salta la " + (i + 1) + "\n" +
+                                estado.toString(), estado));
                     }
             }
         } catch (Exception ex) {

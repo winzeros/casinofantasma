@@ -145,7 +145,6 @@ public class LaberintoAgentView extends AgentView {
     private void paintLoc(java.awt.Graphics2D g2, String loc) {
         MapAgentModel maModel = (MapAgentModel) model;
         Point2D pt = maModel.getLocCoords(loc);
-        int ancho = 50;
         if (pt != null) {
             int x = x(pt);
             int y = y(pt);
@@ -163,6 +162,8 @@ public class LaberintoAgentView extends AgentView {
             if (maModel.hasObjects(loc)) {
                 g2.setColor(Color.green);
                 g2.fillOval(x - 5, y - 5, 10, 10);
+                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
+                g2.drawImage(img, x, y, null);
             }
             /*if (!history.isEmpty() && loc.equals(history.get(history.size() - 1))) {
             g2.setColor(Color.red);
@@ -170,29 +171,33 @@ public class LaberintoAgentView extends AgentView {
             }*/
             if (maModel.hasInfos(loc)) {
                 g2.setColor(Color.blue);
-                g2.drawString("i", x, y + 12);
+                //g2.drawString("i", x, y + 12);
+                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
+                g2.drawImage(img, x - 15, y - 16, null);
             }
             if (maModel.isStart(loc)) {
                 g2.setColor(Color.red);
-                ancho += 10;
+                //ancho += 10;
                 Image img = Toolkit.getDefaultToolkit().getImage("llave.gif");
-                g2.drawImage(img, x, y, null);
+                g2.drawImage(img, x - 15, y - 16, null);
             } else if (maModel.isDestination(loc)) {
                 g2.setColor(Color.green);
-                ancho += 10;
+                //ancho += 10;
                 Image img = Toolkit.getDefaultToolkit().getImage("dinero.gif");
-                g2.drawImage(img, x, y, null);
+                g2.drawImage(img, x - 15, y - 16, null);
             } else if (history.contains(loc)) {
                 g2.setColor(Color.black);
                 Image img = Toolkit.getDefaultToolkit().getImage("trebol.gif");
-                g2.drawImage(img, x, y, null);
-                ancho += 10;
+                g2.drawImage(img, x - 15, y - 16, null);
+                //ancho += 10;
             } else {
                 g2.setColor(Color.lightGray);
+                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
+                g2.drawImage(img, x - 15, y - 16, null);
             }
-            g2.fillRect(x - 3, y - 16, ancho, 20);
-            g2.setColor(Color.white);
-            g2.drawString(loc + info, x, y);
+            //g2.fillRect(x - 3, y - 16, ancho, 20);
+           // g2.setColor(Color.lightGray);
+            //g2.drawString(loc + info, x, y);
         }
     }
 

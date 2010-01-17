@@ -16,8 +16,8 @@ import aima.search.map.MapEnvironment;
 import aima.search.map.Point2D;
 import aima.search.map.Scenario;
 import java.util.ArrayList;
-import model.laberintos.LaberintoEnvironment;
-import model.laberintos.LaberintoSalas;
+import control.laberintos.LaberintoEnvironment;
+import control.laberintos.LaberintoSalas;
 
 /**
  *
@@ -31,7 +31,7 @@ public class RoutePlanningAgent {
     protected static class RoutePlanningAgentFrame extends MapAgentFrame {
 
         private static String[] laberintos = LaberintoSalas.getLaberintos();
-        private static String[] destinos = new String[]{"SALA50", "SALA1", "SALA99"};
+        private static String[] destinos = new String[]{"SALA18", "SALA19", "SALA20"};
 
         /** Creates a new frame. */
         public RoutePlanningAgentFrame() {
