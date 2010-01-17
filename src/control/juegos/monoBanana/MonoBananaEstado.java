@@ -122,26 +122,26 @@ public class MonoBananaEstado {
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
-    public boolean puedeMoverse(int operacion, int[] habitacion) {
+    public boolean puedeMoverse(int operacion) {
 
         boolean res = true;
 
         try {
             switch (operacion) {
                 case 1: //Andar
-                    andar(habitacion);
+                    andar();
                     break;
                 case 2: //Empujar_caja
-                    empujarCaja(habitacion);
+                    empujarCaja();
                     break;
                 case 3: //Subir_caja
-                    SubirCaja(habitacion);
+                    SubirCaja();
                     break;
                 case 4: //Bajar_caja
-                    BajarCaja(habitacion);
+                    BajarCaja();
                     break;
                 case 5: //Coger_platano
-                    CogerPlatano(habitacion);
+                    CogerPlatano();
                     break;
             }
 
@@ -163,7 +163,7 @@ public class MonoBananaEstado {
         boolean res = false;
 
         try {
-            if (puedeMoverse(operacion, _habitacion)) {
+            if (puedeMoverse(operacion)) {
                 if (this.controlCiclos(_habitacion)) {
                     _recorrido.add(_habitacion);
                     res = true;
@@ -176,96 +176,89 @@ public class MonoBananaEstado {
     }
 
 
-    /*
-     * OPERACIONES DEL MONO
-     */
+
+// <editor-fold defaultstate="collapsed" desc="OPERACIONES DEL MONO">
+
     //Operacion 1, ANDAR
-    public int[] andar(int[] estado) {
+    public boolean andar() {
         //Si el mono esta en la puerta
-        if (estado[0] == 0) {
-            int[] respuesta = estado.clone();
+        if (_habitacion[0] == 0) {
             //Se mueve al centro
-            respuesta[0] = 1;
-            return respuesta;
+            _habitacion[0] = 1;
+            return true;
         }
         //Si el mono esta en el centro
-        if (estado[0] == 1) {
-            int[] respuesta = estado.clone();
+        if (_habitacion[0] == 1) {
             //Se mueve a la ventana
-            respuesta[0] = 2;
-            return respuesta;
+            _habitacion[0] = 2;
+            return true;
         }
         //Si el mono esta en la ventana
-        if (estado[0] == 2) {
-            int[] respuesta = estado.clone();
+        if (_habitacion[0] == 2) {
             //Se mueve al centro
-            respuesta[0] = 1;
-            return respuesta;
+            _habitacion[0] = 1;
+            return true;
         }
-        return null;
+        return false;
     }
 
     //Operacion 2, EMPUJAR CAJA
-    public int[] empujarCaja(int[] estado) {
+    public boolean empujarCaja() {
         //Si el mono y la caja estan en la puerta
-        if ((estado[0] == 0) && (estado[2] == 0)) {
-            int[] respuesta = estado.clone();
+        if ((_habitacion[0] == 0) && (_habitacion[2] == 0)) {
             //Al centro
-            respuesta[0] = 1;
-            respuesta[2] = 1;
-            return respuesta;
+            _habitacion[0] = 1;
+            _habitacion[2] = 1;
+            return true;
         }
         //Si el mono y la caja estan en la ventana
-        if ((estado[0] == 2) && (estado[2] == 2)) {
-            int[] respuesta = estado.clone();
+        if ((_habitacion[0] == 2) && (_habitacion[2] == 2)) {
             //Al centro
-            respuesta[0] = 1;
-            respuesta[2] = 1;
-            return respuesta;
+            _habitacion[0] = 1;
+            _habitacion[2] = 1;
+            return true;
         }
         //Si el mono y la caja estan en el centro
-        if ((estado[0] == 1) && (estado[2] == 1)) {
-            int[] respuesta = estado.clone();
+        if ((_habitacion[0] == 1) && (_habitacion[2] == 1)) {
             //A la ventana
-            respuesta[0] = 2;
-            respuesta[2] = 2;
-            return respuesta;
+            _habitacion[0] = 2;
+            _habitacion[2] = 2;
+            return true;
         }
-        return null;
+        return false;
     }
 
     //Operacion 3, SUBIR CAJA
-    public int[] SubirCaja(int[] estado) {
-        if ((estado[0] == estado[2]) && (estado[0] == 1)) {
-            int[] respuesta = estado.clone();
-            respuesta[1] = 1;//caja
-            return respuesta;
+    public boolean SubirCaja() {
+        if ((_habitacion[0] == _habitacion[2]) && (_habitacion[0] == 1)) {
+            _habitacion[1] = 1;//caja
+            return true;
         }
-        return null;
+        return false;
     }
 
-    //Operacion 3, BAJAR CAJA
-    public int[] BajarCaja(int[] estado) {
-        if ((estado[0] == estado[2])&& (estado[0] == 1)) {
-            int[] respuesta = estado.clone();
-            respuesta[1] = 0;//suelo
-            return respuesta;
+    //Operacion 4, BAJAR CAJA
+    public boolean BajarCaja() {
+        if ((_habitacion[0] == _habitacion[2])&& (_habitacion[0] == 1)) {
+            _habitacion[1] = 0;//suelo
+            return true;
         }
-        return null;
+        return false;
     }
 
-    //Operacion 3, COGER PLANATANO
-    public int[] CogerPlatano(int[] estado) {
-        if ((estado[0] == estado[2]) && (estado[1] == 1)) {
-            int[] respuesta = estado.clone();
-            respuesta[0] = 1;
-            respuesta[1] = 1;
-            respuesta[2] = 1;
-            respuesta[3] = 0;
-            return respuesta;
+    //Operacion 5, COGER PLANATANO
+    public boolean CogerPlatano() {
+        if ((_habitacion[0] == _habitacion[2]) && (_habitacion[1] == 1)) {
+            _habitacion[0] = 1;
+            _habitacion[1] = 1;
+            _habitacion[2] = 1;
+            _habitacion[3] = 0;
+            return true;
         }
-        return null;
+        return false;
     }
+
+ // </editor-fold>
 
     @Override
     public boolean equals(Object o) {
