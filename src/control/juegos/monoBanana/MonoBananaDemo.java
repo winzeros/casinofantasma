@@ -16,18 +16,17 @@ import org.apache.log4j.Logger;
  */
 public class MonoBananaDemo {
 
-    private final static Logger log = Logger.getLogger(MonoBananaDemo.class.getName());
+    public final static Logger log = Logger.getLogger(MonoBananaDemo.class.getName());
 
     public static void main(String[] args) {
-
         BreadthFirstDemo("SALA11");
-        //DepthFirstSearchDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo(String sala) {
+    public static void BreadthFirstDemo(String sala) {
 
         MonoBananaJuego juego;
 
@@ -48,7 +47,7 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void DepthFirstSearchDemo(String sala) {
+    public static void DepthFirstSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
@@ -69,7 +68,7 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void DepthLimitedSearchDemo(String sala) {
+    public static void DepthLimitedSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
@@ -90,7 +89,7 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void UniformCostSearchDemo(String sala) {
+    public static void UniformCostSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 
@@ -111,7 +110,7 @@ public class MonoBananaDemo {
         }
     }
 
-    private static void IterativeDeepeningSearchDemo(String sala) {
+    public static void IterativeDeepeningSearchDemo(String sala) {
 
         MonoBananaJuego juego;
 

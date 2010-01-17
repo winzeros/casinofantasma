@@ -21,7 +21,7 @@ import org.jdom.input.SAXBuilder;
  */
 public class LectorXML {
 
-    public static String path = "C:\\IngInformatica\\IAIC\\practica\\casinofantasma\\test\\";
+    public static String path = "F:\\Alicia\\PROYECTOS\\CasinoFantasma\\test\\";
     private int escenario;
 
 
