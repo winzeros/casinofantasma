@@ -31,8 +31,7 @@ public class HermanosFuncionSucesor  implements SuccessorFunction {
                     estado.setRecorrido(recorrido);
                     if (estado.sentar(i, j)) {
                         recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + "," + j + ")\n" + estado.toString(),
-                                estado));
+                        resultado.add(new Successor(estado.toString(), estado));
                     }
                 }
             }

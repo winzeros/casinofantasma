@@ -110,27 +110,27 @@ public class GarrafasEstado {
             case 0:
                 switch (g3) {
                     case 0:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |          |\n";
-                        resultado += " |          |      |          |\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 1:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |          |\n";
-                        resultado += " |____|      |          |\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |____|      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 2:
-                        resultado += "                   |          |\n";
-                        resultado += " |____|      |          |\n";
-                        resultado += " |____|      |          |\n";
+                        resultado += "             |    |\n";
+                        resultado += " |____|      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 3:
-                        resultado += "  ____       |          |\n";
-                        resultado += " |____|      |          |\n";
-                        resultado += " |____|      |          |\n";
+                        resultado += "  ____       |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                 }
@@ -138,27 +138,27 @@ public class GarrafasEstado {
             case 1:
                 switch (g3) {
                     case 0:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |          |\n";
-                        resultado += " |          |      |____|\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |____|\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 1:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |          |\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 2:
-                        resultado += "                   |          |\n";
-                        resultado += " |____|      |          |\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "             |    |\n";
+                        resultado += " |____|      |    |\n";
+                        resultado += " |    |      |____|\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 3:
-                        resultado += "  ____       |          |\n";
-                        resultado += " |____|      |          |\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "  ____       |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |____|\n";
                         resultado += " |____|      |____|\n";
                         break;
                 }
@@ -166,27 +166,27 @@ public class GarrafasEstado {
             case 2:
                 switch (g3) {
                     case 0:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |          |      |____|\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |____|\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 1:
-                        resultado += "                   |          |\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |____|\n";
+                        resultado += " |____|      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 2:
-                        resultado += "                   |          |\n";
+                        resultado += "             |    |\n";
                         resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 3:
-                        resultado += "  ____       |          |\n";
-                        resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "  ____       |    |\n";
+                        resultado += " |    |      |____|\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                 }
@@ -194,27 +194,27 @@ public class GarrafasEstado {
             case 3:
                 switch (g3) {
                     case 0:
-                        resultado += "                   |____|\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |          |      |____|\n";
+                        resultado += "             |____|\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 1:
-                        resultado += "                   |____|\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "             |____|\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |____|      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 2:
-                        resultado += "                         |____|\n";
-                        resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "             |____|\n";
+                        resultado += " |____|      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 3:
                         resultado += "  ____       |____|\n";
-                        resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                 }
@@ -222,31 +222,31 @@ public class GarrafasEstado {
             case 4:
                 switch (g3) {
                     case 0:
-                        resultado += "                    ____\n";
-                        resultado += "                   |____|\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |          |      |____|\n";
+                        resultado += "              ____\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 1:
-                        resultado += "                    ____\n";
-                        resultado += "                   |____|\n";
-                        resultado += " |          |      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "              ____\n";
+                        resultado += "             |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |____|      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 2:
-                        resultado += "                    ____\n";
-                        resultado += "                   |____|\n";
-                        resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "              ____\n";
+                        resultado += "             |    |\n";
+                        resultado += " |____|      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                     case 3:
-                        resultado += "                    ____\n";
-                        resultado += "  ____       |____|\n";
-                        resultado += " |____|      |____|\n";
-                        resultado += " |____|      |____|\n";
+                        resultado += "              ____\n";
+                        resultado += "  ____       |    |\n";
+                        resultado += " |    |      |    |\n";
+                        resultado += " |    |      |    |\n";
                         resultado += " |____|      |____|\n";
                         break;
                 }

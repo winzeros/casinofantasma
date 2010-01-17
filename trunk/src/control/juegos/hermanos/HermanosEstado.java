@@ -196,10 +196,10 @@ public class HermanosEstado {
 
         String resultado;
 
-        resultado = "   " + _mesa[0] + "\n";
-        resultado += _mesa[5] + " / \\ " + _mesa[1] + "\n";
-        resultado += _mesa[4] + " \\ / " + _mesa[2] + "\n";
-        resultado += "   " + _mesa[3] + "\n";
+        resultado = "    " + _mesa[0] + "\n";
+        resultado += " " + _mesa[5] + " / \\ " + _mesa[1] + "\n";
+        resultado += " " + _mesa[4] + " \\ / " + _mesa[2] + "\n";
+        resultado += "    " + _mesa[3] + "\n";
 
         return resultado;
     }

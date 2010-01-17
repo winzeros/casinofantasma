@@ -198,10 +198,10 @@ public class RanasEstado {
             else if (_hojas[i].equals(RANA)) {
                 resultado += " (o<";
             } else {
-                resultado += "        ";
+                resultado += "    ";
             }
         }
-        resultado += "\n ----  ----  ----  ----  ----  ----  ---- \n";
+        resultado += "\n --- --- --- --- --- --- --- \n";
         return resultado;
     }
 }

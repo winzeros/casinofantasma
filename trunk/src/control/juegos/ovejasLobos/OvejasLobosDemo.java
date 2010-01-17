@@ -40,9 +40,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("               Busqueda primero en anchura");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -61,9 +61,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("                 Busqueda en profundidad");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -82,9 +82,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("             Busqueda en profundidad limitada");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -103,9 +103,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("               Busqueda de coste uniforme");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -124,9 +124,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("      JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("                    Busqueda iterativa");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -145,9 +145,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("     JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("                      Busqueda voraz");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda voraz");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -166,9 +166,9 @@ public class OvejasLobosDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                             " + sala);
-            log.info("     JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info("                     Busqueda A*");
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda A*");
             log.info("*******************************************\n");
 
             juego.ejecutar();
