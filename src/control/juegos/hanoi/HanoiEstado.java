@@ -96,31 +96,31 @@ public class HanoiEstado {
 
         switch (operacion) {
             case 0:
-                enc = mueve(0,3,1,2);
-                break;
-            case 1:
-                enc = mueve(1,3,0,2);
-                break;
-            case 2:
-                enc = mueve(2,3,0,1);
-                break;
-            case 3:
                 enc = mueve(0,1,1,2);
                 break;
-            case 4:
+            case 1:
                 enc = mueve(1,1,0,2);
                 break;
-            case 5:
+            case 2:
                 enc = mueve(2,1,0,1);
                 break;
-            case 6:
+            case 3:
                 enc = mueve(0,2,1,2);
                 break;
-            case 7:
+            case 4:
                 enc = mueve(1,2,0,2);
                 break;
-            case 8:
+            case 5:
                 enc = mueve(2,2,0,1);
+                break;
+            case 6:
+                enc = mueve(0,3,1,2);
+                break;
+            case 7:
+                enc = mueve(1,3,0,2);
+                break;
+            case 8:
+                enc = mueve(2,3,0,1);
                 break;
         }
 

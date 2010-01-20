@@ -270,27 +270,27 @@ public class MonoBananaEstado {
 
         String resultado;
         
-        resultado = "     -Puerta-          -Centro-          -Ventana-     \n";
+        resultado = "-Puerta-   -Centro-   -Ventana-\n";
         switch (_habitacion[0]){
             case 0:
-                resultado += "      -MONO-\n";
+                resultado += " -MONO-\n";
                 break;
             case 1:
-                resultado += "                        -MONO-\n";
+                resultado += "            -MONO-\n";
                 break;
             case 2:
-                resultado += "                                          -MONO-\n";
+                resultado += "                       -MONO-\n";
                 break;
         }
         switch (_habitacion[2]){
             case 0:
-                resultado += "      -CAJA-\n";
+                resultado += " -CAJA-\n";
                 break;
             case 1:
-                resultado += "                        -CAJA-\n";
+                resultado += "            -CAJA-\n";
                 break;
             case 2:
-                resultado += "                                          -CAJA-\n";
+                resultado += "                       -CAJA-\n";
                 break;
         }
         switch (_habitacion[3]){

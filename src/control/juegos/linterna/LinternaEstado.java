@@ -210,10 +210,33 @@ public class LinternaEstado {
  */
         String resultado;
 
-        resultado = "   " + _calzada[0] + "\n";
-        resultado += _calzada[5] + " / \\ " + _calzada[1] + "\n";
-        resultado += _calzada[4] + " \\ / " + _calzada[2] + "\n";
-        resultado += "   " + _calzada[3] + "\n";
+        resultado = "       |    |\n";
+        resultado += "Pers.1seg:";
+        if (_calzada[0] == 1)
+            resultado += "  x  |     |\n";
+        else
+            resultado += "     |     |   x\n";
+        resultado += "Pers.3seg:";
+        if (_calzada[1] == 1)
+            resultado += "  x  |     |\n";
+        else
+            resultado += "     |     |   x\n";
+        resultado += "Pers.6seg:";
+        if (_calzada[2] == 1)
+            resultado += "  x  |     |\n";
+        else
+            resultado += "     |     |   x\n";
+        resultado += "Pers.8seg:";
+        if (_calzada[3] == 1)
+            resultado += "  x  |     |\n";
+        else
+            resultado += "     |     |   x\n";
+        resultado += "Pers.12seg:";
+        if (_calzada[4] == 1)
+            resultado += " x  |     |\n";
+        else
+            resultado += "    |     |   x\n";
+        resultado += "       |    |\n";
 
         return resultado;
     }
