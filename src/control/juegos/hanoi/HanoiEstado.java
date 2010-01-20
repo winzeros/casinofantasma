@@ -49,19 +49,26 @@ public class HanoiEstado {
     public int[][] getEstadoInicial() {
 
         int[][] estadoInicial = new int[3][3];
-        estadoInicial[0][0] = 1;// B1
-        estadoInicial[0][1] = 1;// P1
-        estadoInicial[1][0] = 1;// B2
-        estadoInicial[1][1] = 2;// P2
-        estadoInicial[2][0] = 1;// B3
-        estadoInicial[2][1] = 3;// P3
+        //Palo 1
+        estadoInicial[0][0] = 3;// Disco abajo ESTA EL DISCO 3
+        estadoInicial[0][1] = 2;// Disco medio ESTA EL DISCO 2
+        estadoInicial[0][2] = 1;// Disco arriba ESTA EL DISCO 1
+        //Palo 2
+        estadoInicial[1][0] = 0;// Disco abajo NO HAY DISCO
+        estadoInicial[1][1] = 0;// Disco medio NO HAY DISCO
+        estadoInicial[1][2] = 0;// Disco arriba NO HAY DISCO
+        //Palo 3
+        estadoInicial[2][0] = 0;// Disco abajo NO HAY DISCO
+        estadoInicial[2][1] = 0;// Disco medio NO HAY DISCO
+        estadoInicial[2][2] = 0;// Disco arriba NO HAY DISCO
         return estadoInicial;
     }
 
     public void setEstado(HanoiEstado estado) {
         try {
-            for (int i = 0; i < estado._tablero.length; i++) {
-                _tablero[i] = estado._tablero[i];
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++)
+                _tablero[i][j] = estado._tablero[i][j];
             }
         } catch (Exception ex) {
             Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al crear un nuevo estado", ex);
@@ -89,31 +96,31 @@ public class HanoiEstado {
 
         switch (operacion) {
             case 0:
-                enc = mueveD3aB1();
+                enc = mueve(0,3,1,2);
                 break;
             case 1:
-                enc = mueveD3aB2();
+                enc = mueve(1,3,0,2);
                 break;
             case 2:
-                enc = mueveD3aB3();
+                enc = mueve(2,3,0,1);
                 break;
             case 3:
-                enc = mueveD1aB1();
+                enc = mueve(0,1,1,2);
                 break;
             case 4:
-                enc = mueveD1aB2();
+                enc = mueve(1,1,0,2);
                 break;
             case 5:
-                enc = mueveD1aB3();
+                enc = mueve(2,1,0,1);
                 break;
             case 6:
-                enc = mueveD2aB1();
+                enc = mueve(0,2,1,2);
                 break;
             case 7:
-                enc = mueveD2aB2();
+                enc = mueve(1,2,0,2);
                 break;
             case 8:
-                enc = mueveD2aB3();
+                enc = mueve(2,2,0,1);
                 break;
         }
 
@@ -135,6 +142,7 @@ public class HanoiEstado {
                     _recorrido.add(_tablero);
                     res = true;
                 }
+                
             }
         } catch (Exception ex) {
             Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al ejecutar la operacion " + operacion, ex);
@@ -146,24 +154,107 @@ public class HanoiEstado {
 
     @Override
     public String toString() {
-        String resultado = "hola";
+        String resultado = "·%%/(·!·$\n\n\n";
         
         return resultado;
     }
 
-// <editor-fold defaultstate="collapsed" desc="OPERACIONES">
-    private boolean mueveD1aB1() {
-        if ((_tablero[0][0] != 1) && (_tablero[1][0] != 1) && (_tablero[2][0] != 1) &&
-                ((_tablero[0][0]) != (_tablero[1][0])) && ((_tablero[0][0]) != (_tablero[2][0]))) {
-            _tablero[0][0] = 1;
-            _tablero[0][1] = 1;
-            return true;
-        } else {
-            return false;
+// <editor-fold defaultstate="collapsed" desc="MOVIMIENTOS">
+    private boolean mueve(int paloFin, int disco, int paloA, int paloB) {
+        if (_tablero[paloA][2] == disco){
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloA][2] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloA][2] = 0;
+                return true;
+            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloA][2] = 0;
+                return true;
         }
+        }
+        if (_tablero[paloB][2] == disco) {
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloB][2] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloB][2] = 0;
+                return true;
+            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloB][2] = 0;
+                return true;
+            }
+        }
+        if (_tablero[paloA][2] == 0 && _tablero[paloA][1] == disco) {
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloA][1] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloA][1] = 0;
+                return true;
+            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloA][1] = 0;
+                return true;
+            }
+        }
+        if (_tablero[paloB][2] == 0 && _tablero[paloB][1] == disco){
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloB][1] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloB][1] = 0;
+                return true;
+            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloB][1] = 0;
+                return true;
+            }
+        }
+        if(_tablero[paloA][2] == 0 && _tablero[paloA][1] == 0 && _tablero[paloA][0] == disco) {
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloA][0] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloA][0] = 0;
+                return true;
+                }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloA][0] = 0;
+                return true;
+        }
+        }
+        if (_tablero[paloB][2] == 0 && _tablero[paloB][1] == 0 && _tablero[paloB][0] == disco){
+            if (_tablero[paloFin][0] == 0){
+                _tablero[paloFin][0] = disco;
+                _tablero[paloB][0] = 0;
+                return true;
+            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
+                _tablero[paloFin][1] = disco;
+                _tablero[paloB][0] = 0;
+                return true;
+                }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
+                _tablero[paloFin][2] = disco;
+                _tablero[paloB][0] = 0;
+                return true;
+            }
+        }
+        return false;
     }
-
-    private boolean mueveD1aB2() {
+/*
+    private boolean mueveD1aP2() {
         if ((_tablero[0][0] != 2) && (_tablero[1][0] != 2) && (_tablero[2][0] != 2) &&
                 ((_tablero[0][0]) != (_tablero[1][0])) && ((_tablero[0][0]) != (_tablero[2][0]))) {
             _tablero[0][0] = 2;
@@ -174,7 +265,7 @@ public class HanoiEstado {
         }
     }
 
-    private boolean mueveD1aB3() {
+    private boolean mueveD1aP3() {
         if ((_tablero[0][0] != 3) && (_tablero[1][0] != 3) && (_tablero[2][0] != 3) &&
                 ((_tablero[0][0]) != (_tablero[1][0])) && ((_tablero[0][0]) != (_tablero[2][0]))) {
             _tablero[0][0] = 3;
@@ -185,7 +276,7 @@ public class HanoiEstado {
         }
     }
 
-    private boolean mueveD2aB1() {
+    private boolean mueveD2aP1() {
         if ((_tablero[1][0] != 1) && (_tablero[2][0] != 1) && ((_tablero[2][0]) != (_tablero[1][0]))) {
             if (_tablero[0][0] == 1) {
                 _tablero[1][0] = 1;
@@ -200,7 +291,7 @@ public class HanoiEstado {
         }
     }
 
-    private boolean mueveD2aB2() {
+    private boolean mueveD2aP2() {
         if ((_tablero[1][0] != 2) && (_tablero[2][0] != 2) && ((_tablero[2][0]) != (_tablero[1][0]))) {
             if (_tablero[0][0] == 2) {
                 _tablero[1][0] = 2;
@@ -215,7 +306,7 @@ public class HanoiEstado {
         }
     }
 
-    private boolean mueveD2aB3() {
+    private boolean mueveD2aP3() {
         if ((_tablero[1][0] != 3) && (_tablero[2][0] != 3) && ((_tablero[2][0]) != (_tablero[1][0]))) {
             if (_tablero[0][0] == 3) {
                 _tablero[1][0] = 3;
@@ -230,7 +321,7 @@ public class HanoiEstado {
         }
     }
 
-    private boolean mueveD3aB1() {
+    private boolean mueveD3aP1() {
         if (_tablero[2][0] != 1) {
             _tablero[2][0] = 1;
             if ((_tablero[0][0] == 1) && ((_tablero[0][0]) != (_tablero[1][0]))) {
@@ -251,7 +342,7 @@ public class HanoiEstado {
         return false;
     }
 
-    private boolean mueveD3aB2() {
+    private boolean mueveD3aP2() {
         if (_tablero[2][0] != 2) {
             _tablero[2][0] = 2;
             if ((_tablero[0][0] == 2) && ((_tablero[0][0]) != (_tablero[1][0]))) {
@@ -272,7 +363,7 @@ public class HanoiEstado {
         return false;
     }
 
-    private boolean mueveD3aB3() {
+    private boolean mueveD3aP3() {
         if (_tablero[2][0] != 3) {
             _tablero[2][0] = 3;
             if ((_tablero[0][0] == 3) && ((_tablero[0][0]) != (_tablero[1][0]))) {
@@ -291,7 +382,7 @@ public class HanoiEstado {
             return true;
         }
         return false;
-    }
+    }*/
     // </editor-fold>
     
 }

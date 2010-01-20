@@ -6,7 +6,6 @@
 package control.juegos.hanoi;
 
 import aima.search.framework.GoalTest;
-import java.util.HashMap;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -23,9 +22,8 @@ public class HanoiEstadoObjetivo implements GoalTest {
         boolean sol = false;
 
         try {
-            sol = ((estado.getTablero()[0][0] == 3)&&(estado.getTablero()[0][1] == 1)&&
-                    (estado.getTablero()[1][0] == 3)&&(estado.getTablero()[1][1] == 2) &&
-                    (estado.getTablero()[2][0] == 3)&&(estado.getTablero()[2][1] == 3));
+            sol = ((estado.getTablero()[2][0] == 3)&&(estado.getTablero()[2][1] == 2)&&
+                    (estado.getTablero()[2][2] == 1));
 
 
         } catch (Exception ex) {

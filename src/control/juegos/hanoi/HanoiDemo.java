@@ -24,7 +24,7 @@ public class HanoiDemo {
         DepthFirstSearchDemo();
         DepthLimitedSearchDemo();
         UniformCostSearchDemo();
-        //IterativeDeepeningSearchDemo();
+        IterativeDeepeningSearchDemo();
         BidirectionalSearchDemo();
     }
 
