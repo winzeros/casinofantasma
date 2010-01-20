@@ -25,8 +25,8 @@ public class HanoiEstado {
         _tablero = getEstadoInicial();
         _posible = new HashMap();
         _posible.put(0,1);
-        _posible.put(1,0);
-        _posible.put(2,0);
+        _posible.put(1,10);
+        _posible.put(2,10);
         _recorrido = new ArrayList();
         _recorrido.add(_tablero);
         _controlCiclos = true;
@@ -37,8 +37,8 @@ public class HanoiEstado {
         _recorrido = new ArrayList();
         _posible = new HashMap();
         _posible.put(0,1);
-        _posible.put(1,0);
-        _posible.put(2,0);
+        _posible.put(1,10);
+        _posible.put(2,10);
         _recorrido.add(_tablero);
         _controlCiclos = controlCiclos;
     }
@@ -105,12 +105,15 @@ public class HanoiEstado {
 
         if (_tablero[origen][2] == disco){
             _tablero[origen][2] = 0;
+            _posible.put(origen, _tablero[origen][1]);
             res1 = true;
         }else if (_tablero[origen][1] == disco) {
             _tablero[origen][1] = 0;
+            _posible.put(origen, _tablero[origen][0]);
             res1 = true;
         } else {
             _tablero[origen][0] = 0;
+            _posible.put(origen, 10);
             res1 = true;
         }
 
@@ -126,7 +129,7 @@ public class HanoiEstado {
         }
 
         _posible.put(destino, disco);
-        _posible.put(origen, 0);
+        
 
         return res1 && res2;
     }
@@ -141,26 +144,27 @@ public class HanoiEstado {
         if (_posible.get(0) == disco) {
             if (palo == 0)
                 enc = false;
-            else //Muevo disco de 0 a palo
+            else if (disco < _posible.get(palo))//Muevo disco de 0 a palo
                 enc = mueveDisco(disco, 0, palo);
         }
         else if (_posible.get(1) == disco) {
             if (palo == 1)
                 enc = false;
-            else //Muevo disco de 0 a palo
+            else if (disco < _posible.get(palo)) //Muevo disco de 0 a palo
                 enc = mueveDisco(disco, 1, palo);
         }
         else if (_posible.get(2) == disco) {
             if (palo == 2)
                 enc = false;
-            else //Muevo disco de 0 a palo
+            else if (disco < _posible.get(palo)) //Muevo disco de 0 a palo
                 enc = mueveDisco(disco, 2, palo);
         }
         return enc;
     }
 
     boolean controlCiclos(int[][] tablero) {
-        return !((this._controlCiclos) && (this._recorrido.contains(tablero)));
+        //devuelve true si el tablero esta en recorrido
+        return _recorrido.contains(tablero);
     }
 
 // </editor-fold>
@@ -172,9 +176,8 @@ public class HanoiEstado {
             if (puedeMoverse(disco,palo)) {
                 if (!this.controlCiclos(_tablero)) {
                     _recorrido.add(_tablero);
-                    res = true;
                 }
-                
+                res = true;
             }
         } catch (Exception ex) {
             Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al ejecutar la operacion " + disco, ex);
