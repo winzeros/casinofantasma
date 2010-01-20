@@ -2,16 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.laberintos.juego;
 
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
+import aima.search.map.Map;
+import aima.search.uninformed.BreadthFirstSearch;
 import aima.search.uninformed.IterativeDeepeningSearch;
-import control.juegos.ranas.RanasEstado;
-import control.juegos.ranas.RanasEstadoObjetivo;
-import control.juegos.ranas.RanasFuncionSucesor;
 import control.juegos.ranas.RanasJuego;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,31 +22,29 @@ import org.apache.log4j.Logger;
  */
 public class LaberintoJuego {
 
-
     protected SearchAgent _agente;
     protected Search _busqueda;
     protected Problem _problema;
 
-    public LaberintoJuego(Search busqueda) throws Exception {
-
+    public LaberintoJuego(Search busqueda, Map map) {
         try {
             this._busqueda = busqueda;
-            this._problema = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                    new RanasEstadoObjetivo());
+            this._problema = new Problem(new LaberintoEstado("SALA0"),
+                    new LaberintoFuncionSucesor(map),
+                    new LaberintoEstadoObjetivo(new String[]{"SALA17", "SALA18", "SALA19"}));
 
         } catch (Exception ex) {
             Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
     }
 
-        public void setBusqueda(Search s) {
+    public void setBusqueda(Search s) {
         this._busqueda = s;
     }
 
     public boolean permiteControlCiclos() {
         return !(this._busqueda instanceof IterativeDeepeningSearch);
     }
-
 
     public List ejecutar() {
 
@@ -57,7 +53,7 @@ public class LaberintoJuego {
 
             this._agente = new SearchAgent(this._problema, this._busqueda);
             this._problema.getInitialState().toString();
-           resultado = this._agente.getActions();
+            resultado = this._agente.getActions();
             //this.imprimirPropiedades(this._agente.getInstrumentation());
         } catch (Exception ex) {
             System.out.println(ex);
@@ -65,7 +61,5 @@ public class LaberintoJuego {
 
         return resultado;
     }
-
-
 }
 

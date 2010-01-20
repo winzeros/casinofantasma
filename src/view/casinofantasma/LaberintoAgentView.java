@@ -8,6 +8,7 @@ import aima.gui.applications.search.map.MapAgentModel;
 import aima.gui.framework.AgentView;
 import aima.search.map.Map;
 import aima.search.map.Point2D;
+import control.laberintos.LaberintoEnvironment;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -113,7 +114,7 @@ public class LaberintoAgentView extends AgentView {
         MapAgentModel maModel = (MapAgentModel) model;
         Point2D lastPt = null;
         g2.setColor(Color.red);
-        for (String loc : maModel.getTourHistory()) {
+        for (String loc : LaberintoEnvironment.historico) {
             Point2D pt = maModel.getLocCoords(loc);
             if (pt != null && lastPt != null) {
                 g2.drawLine(x(pt), y(pt), x(lastPt), y(lastPt));
@@ -149,7 +150,7 @@ public class LaberintoAgentView extends AgentView {
             int x = x(pt);
             int y = y(pt);
             String info = "";
-            List<String> history = maModel.getTourHistory();
+            List<String> history = LaberintoEnvironment.historico;
             ArrayList<Integer> list = new ArrayList<Integer>();
             for (int i = 0; i < history.size(); i++) {
                 if (history.get(i).equals(loc)) {

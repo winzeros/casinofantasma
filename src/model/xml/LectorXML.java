@@ -154,7 +154,7 @@ public class LectorXML {
         }
     }
 
-        public int getEstrategia(String nombreSala) {
+    public int getEstrategia(String nombreSala) {
 
         File fichero;
         SAXBuilder builder;
@@ -229,6 +229,50 @@ public class LectorXML {
             }
 
             return recompensa;
+
+        } catch (Exception ex) {
+            Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);
+            return -1;
+        }
+    }
+
+        public int getDistancia(String origen, String destino) {
+
+        File fichero;
+        SAXBuilder builder;
+        Document doc;
+        Element root, e;
+        List<Element> listaSalas;
+        int distancia, i;
+
+        try {
+            distancia = -1;
+            i = 0;
+            fichero = new File(path + Vista.RECORRIDO_XML + escenario + ".xml");
+
+            if (!fichero.exists()) {
+                Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML");
+            } else {
+                builder = new SAXBuilder();
+                doc = builder.build(fichero);
+                root = doc.getRootElement();
+                listaSalas = root.getChildren();
+
+                while (i < listaSalas.size() && distancia == -1) {
+                    e = listaSalas.get(i);
+
+                    if ((("SALA" + e.getAttribute(Vista.ORIGEN).getValue().toString()).equals(origen)
+                            && ("SALA" + e.getAttribute(Vista.DESTINO).getValue().toString()).equals(destino)) 
+                            ||(("SALA" + e.getAttribute(Vista.DESTINO).getValue().toString()).equals(origen)
+                            && ("SALA" + e.getAttribute(Vista.ORIGEN).getValue().toString()).equals(destino)) ) {
+                        distancia = Integer.parseInt(e.getAttribute(Vista.APUESTA).getValue().toString());
+                    }
+
+                    i++;
+                }
+            }
+
+            return distancia;
 
         } catch (Exception ex) {
             Logger.getLogger(LectorXML.class.getName()).log(Level.ERROR, "Error al leer el fichero XML", ex);

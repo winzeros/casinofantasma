@@ -21,4 +21,9 @@ public class LaberintoEstado {
         return this.sala;
     }
 
+    @Override
+    public String toString() {
+        return this.sala;
+    }
+
 }
