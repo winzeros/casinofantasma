@@ -13,10 +13,10 @@ import aima.search.map.AdaptableHeuristicFunction;
 import aima.search.map.ExtendableMap;
 import aima.search.map.MapAgent;
 import aima.search.map.MapEnvironment;
-import aima.search.map.Point2D;
 import aima.search.map.Scenario;
 import java.util.ArrayList;
 import control.laberintos.LaberintoEnvironment;
+import control.laberintos.LaberintoMapAgent;
 import control.laberintos.LaberintoSalas;
 
 /**
@@ -72,7 +72,14 @@ public class RoutePlanningAgent {
             scenario = new Scenario(env, map, agentLoc);
 
             destinations = new ArrayList<String>();
-            destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
+            destinations.add("SALA17");
+                    destinations.add("SALA18");
+                    destinations.add("SALA19");
+           // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
+
+       // }
+            //destinations = new ArrayList<String>();
+           // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
 
         }
 
@@ -84,6 +91,19 @@ public class RoutePlanningAgent {
         protected void prepareModel() {
             ((MapAgentModel) model).prepare(scenario, destinations);
         }
+
+        @Override
+	public void prepareAgent() {
+		MapAgentFrame.SelectionState state = frame.getSelection();
+		selectScenarioAndDest(state.getValue(MapAgentFrame.SCENARIO_SEL), state
+				.getValue(MapAgentFrame.DESTINATION_SEL));
+		prepareModel();
+		search = SearchFactory.getInstance().createSearch(
+				state.getValue(MapAgentFrame.SEARCH_SEL),
+				state.getValue(MapAgentFrame.SEARCH_MODE_SEL));
+		heuristic = createHeuristic(state.getValue(MapAgentFrame.HEURISTIC_SEL));
+		scenario.getEnv().registerView(model);
+	}
 
         /**
          * Returns the trivial zero function or a simple heuristic which is
@@ -105,15 +125,18 @@ public class RoutePlanningAgent {
          */
         @Override
         protected void startAgent() {
-            if (destinations.size() != 1) {
+            /*if (destinations.size() != 1) {
                 frame.logMessage("Error: This agent requires exact one destination.");
                 return;
-            }
+            }*/
             frame.logMessage("<route-planning-simulation-protocol>");
             frame.logMessage("search: " + search.getClass().getName());
             MapEnvironment env = scenario.getEnv();
-            String goal = destinations.get(0);
-            MapAgent agent = new MapAgent(env, search, new String[]{goal});
+            String[] goal = new String[destinations.size()];
+            for (int i = 0; i < destinations.size(); i++) {
+                goal[i] = destinations.get(i);
+            }
+            LaberintoMapAgent agent = new LaberintoMapAgent(env, search, goal);
             if (heuristic != null) {
                 frame.logMessage("heuristic: " + heuristic.getClass().getName());
                 agent.setHeuristicFunction(heuristic.getAdaptation(goal, scenario.getAgentMap()));
@@ -142,13 +165,14 @@ public class RoutePlanningAgent {
     static class H2 extends AdaptableHeuristicFunction {
 
         public double getHeuristicValue(Object state) {
-            double result = 0.0;
+           /* double result = 0.0;
             Point2D pt1 = map.getPosition((String) state);
-            Point2D pt2 = map.getPosition((String) goal);
+            Point2D pt2 = map.getPosition((String) goal[1]);
             if (pt1 != null && pt2 != null) {
                 result = pt1.distance(pt2);
             }
-            return result;
+            return result;*/
+            return 0;
         }
     }
 
