@@ -136,7 +136,7 @@ public class RoutePlanningAgent {
             for (int i = 0; i < destinations.size(); i++) {
                 goal[i] = destinations.get(i);
             }
-            LaberintoMapAgent agent = new LaberintoMapAgent(env, search, goal);
+            MapAgent agent = new MapAgent(env, search, goal);
             if (heuristic != null) {
                 frame.logMessage("heuristic: " + heuristic.getClass().getName());
                 agent.setHeuristicFunction(heuristic.getAdaptation(goal, scenario.getAgentMap()));
