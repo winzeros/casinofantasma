@@ -5,6 +5,7 @@
 package control.juegos.hanoi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -15,12 +16,17 @@ import org.apache.log4j.Logger;
 public class HanoiEstado {
 
     private int[][] _tablero;
+    private HashMap<Integer,Integer> _posible;
     private ArrayList _recorrido;
     private boolean _controlCiclos;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public HanoiEstado() {
         _tablero = getEstadoInicial();
+        _posible = new HashMap();
+        _posible.put(0,1);
+        _posible.put(1,0);
+        _posible.put(2,0);
         _recorrido = new ArrayList();
         _recorrido.add(_tablero);
         _controlCiclos = true;
@@ -29,6 +35,10 @@ public class HanoiEstado {
     public HanoiEstado(boolean controlCiclos) {
         _tablero = getEstadoInicial();
         _recorrido = new ArrayList();
+        _posible = new HashMap();
+        _posible.put(0,1);
+        _posible.put(1,0);
+        _posible.put(2,0);
         _recorrido.add(_tablero);
         _controlCiclos = controlCiclos;
     }
@@ -39,6 +49,7 @@ public class HanoiEstado {
 
     public HanoiEstado(HanoiEstado estado) {
         _tablero = estado._tablero;
+        _posible = estado._posible;
         _recorrido = estado._recorrido;
         _controlCiclos = estado._controlCiclos;
     }
@@ -87,43 +98,64 @@ public class HanoiEstado {
         this._recorrido = recorrido;
     }
 
+    private boolean mueveDisco(int disco, int origen, int destino) {
+
+        boolean res1 = false;
+        boolean res2 = false;
+
+        if (_tablero[origen][2] == disco){
+            _tablero[origen][2] = 0;
+            res1 = true;
+        }else if (_tablero[origen][1] == disco) {
+            _tablero[origen][1] = 0;
+            res1 = true;
+        } else {
+            _tablero[origen][0] = 0;
+            res1 = true;
+        }
+
+        if (_tablero[destino][0] == 0){
+            _tablero[destino][0] = disco;
+            res2 = true;
+        }else if (_tablero[destino][1] == 0){
+            _tablero[destino][1] = disco;
+            res2 = true;
+        }else {
+            _tablero[destino][2] = disco;
+            res2 = true;
+        }
+
+        _posible.put(destino, disco);
+        _posible.put(origen, 0);
+
+        return res1 && res2;
+    }
+
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
-    private boolean puedeMoverse(int operacion) {
+    private boolean puedeMoverse(int disco, int palo) {
 
         boolean enc = false;
 
-        switch (operacion) {
-            case 0:
-                enc = mueve(0,1,1,2);
-                break;
-            case 1:
-                enc = mueve(1,1,0,2);
-                break;
-            case 2:
-                enc = mueve(2,1,0,1);
-                break;
-            case 3:
-                enc = mueve(0,2,1,2);
-                break;
-            case 4:
-                enc = mueve(1,2,0,2);
-                break;
-            case 5:
-                enc = mueve(2,2,0,1);
-                break;
-            case 6:
-                enc = mueve(0,3,1,2);
-                break;
-            case 7:
-                enc = mueve(1,3,0,2);
-                break;
-            case 8:
-                enc = mueve(2,3,0,1);
-                break;
+        if (_posible.get(0) == disco) {
+            if (palo == 0)
+                enc = false;
+            else //Muevo disco de 0 a palo
+                enc = mueveDisco(disco, 0, palo);
         }
-
+        else if (_posible.get(1) == disco) {
+            if (palo == 1)
+                enc = false;
+            else //Muevo disco de 0 a palo
+                enc = mueveDisco(disco, 1, palo);
+        }
+        else if (_posible.get(2) == disco) {
+            if (palo == 2)
+                enc = false;
+            else //Muevo disco de 0 a palo
+                enc = mueveDisco(disco, 2, palo);
+        }
         return enc;
     }
 
@@ -133,19 +165,19 @@ public class HanoiEstado {
 
 // </editor-fold>
 
-    public boolean mover(int operacion) {
+    public boolean mover(int disco, int palo) {
         boolean res = false;
 
         try {
-            if (puedeMoverse(operacion)) {
-                if (this.controlCiclos(_tablero)) {
+            if (puedeMoverse(disco,palo)) {
+                if (!this.controlCiclos(_tablero)) {
                     _recorrido.add(_tablero);
                     res = true;
                 }
                 
             }
         } catch (Exception ex) {
-            Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al ejecutar la operacion " + operacion, ex);
+            Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al ejecutar la operacion " + disco, ex);
         }
         return res;
     }

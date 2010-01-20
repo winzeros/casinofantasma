@@ -24,13 +24,16 @@ public class HanoiFuncionSucesor implements SuccessorFunction {
         ArrayList recorrido = estadoPadre.getRecorrido();
 
         try {
-            for (int i = 0; i < 9; i++) { //Operaciones
-                HanoiEstado estado = new HanoiEstado(estadoPadre);
-                estado.setRecorrido(recorrido);
-                if (estado.mover(i)) {
-                    recorrido = estado.getRecorrido();
-                    resultado.add(new Successor("                  (" + i + ")\n"
+            for (int i = 1; i < 4; i++) { //Disco 1,2,3
+                for(int j = 0; j < 3; j++) { //Palo 0,1,2
+                    HanoiEstado estado = new HanoiEstado(estadoPadre);
+                    estado.setRecorrido(recorrido);
+                    if (estado.mover(i,j)) {
+                        recorrido = estado.getRecorrido();
+                        resultado.add(new Successor("                  (" + i + ")\n"
                             + estado.toString(),estado));
+                
+                    }
                 }
             }
         }
