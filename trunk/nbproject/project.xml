@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>CasinoFantasma</name>
+            <name>DesktopApplication1</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <source-roots>
                 <root id="src.dir"/>
@@ -22,5 +22,8 @@
                 <id>jar</id>
             </reference>
         </references>
+        <swingapp xmlns="http://www.netbeans.org/ns/form-swingapp/1">
+            <application-class name="view.casinofantasma.CasinoInicio"/>
+        </swingapp>
     </configuration>
 </project>
