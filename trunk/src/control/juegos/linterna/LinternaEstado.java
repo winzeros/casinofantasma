@@ -210,7 +210,7 @@ public class LinternaEstado {
  */
         String resultado;
 
-        resultado = "       |    |\n";
+        resultado = "               |     |\n";
         resultado += "Pers.1seg:";
         if (_calzada[0] == 1)
             resultado += "  x  |     |\n";
@@ -236,7 +236,7 @@ public class LinternaEstado {
             resultado += " x  |     |\n";
         else
             resultado += "    |     |   x\n";
-        resultado += "       |    |\n";
+        resultado += "               |     |\n";
 
         return resultado;
     }

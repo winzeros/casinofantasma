@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view.casinofantasma;
 
 import aima.gui.applications.search.map.AbstractMapAgentController;
@@ -16,7 +15,6 @@ import aima.search.map.MapEnvironment;
 import aima.search.map.Scenario;
 import java.util.ArrayList;
 import control.laberintos.LaberintoEnvironment;
-import control.laberintos.LaberintoMapAgent;
 import control.laberintos.LaberintoSalas;
 
 /**
@@ -25,21 +23,20 @@ import control.laberintos.LaberintoSalas;
  */
 public class RoutePlanningAgent {
 
-        // //////////////////////////////////////////////////////////
+    // //////////////////////////////////////////////////////////
     // local classes
     /** Frame for a graphical route planning agent application. */
     protected static class RoutePlanningAgentFrame extends MapAgentFrame {
 
         private static String[] laberintos = LaberintoSalas.getLaberintos();
-        private static String[] destinos = new String[]{"SALA18", "SALA19", "SALA20"};
+        private static String[] destinos = new String[]{};
 
         /** Creates a new frame. */
         public RoutePlanningAgentFrame() {
             setTitle("CASINO FANTASMA - the Route Planning Agent");
             setSelectorItems(SCENARIO_SEL, laberintos, 0);
             setSelectorItems(SEARCH_MODE_SEL, SearchFactory.getInstance().getSearchModeNames(), 1); // change the default!
-            setSelectorItems(HEURISTIC_SEL, new String[]{"H1 (=0)",
-                        "H2 (sld to goal)"}, 1);
+            setSelectorItems(HEURISTIC_SEL, new String[]{"Distancia geográfica"}, 0);
             setSelectorItems(DESTINATION_SEL, destinos, 0);
             setAgentView(new LaberintoAgentView());
         }
@@ -72,14 +69,14 @@ public class RoutePlanningAgent {
             scenario = new Scenario(env, map, agentLoc);
 
             destinations = new ArrayList<String>();
-            destinations.add("SALA17");
-                    destinations.add("SALA18");
-                    destinations.add("SALA19");
-           // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
+            destinations.add("SALA18");
+            destinations.add("SALA19");
+            destinations.add("SALA20");
+            // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
 
-       // }
+            // }
             //destinations = new ArrayList<String>();
-           // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
+            // destinations.add(RoutePlanningAgentFrame.destinos[destIdx]);
 
         }
 
@@ -93,17 +90,16 @@ public class RoutePlanningAgent {
         }
 
         @Override
-	public void prepareAgent() {
-		MapAgentFrame.SelectionState state = frame.getSelection();
-		selectScenarioAndDest(state.getValue(MapAgentFrame.SCENARIO_SEL), state
-				.getValue(MapAgentFrame.DESTINATION_SEL));
-		prepareModel();
-		search = SearchFactory.getInstance().createSearch(
-				state.getValue(MapAgentFrame.SEARCH_SEL),
-				state.getValue(MapAgentFrame.SEARCH_MODE_SEL));
-		heuristic = createHeuristic(state.getValue(MapAgentFrame.HEURISTIC_SEL));
-		scenario.getEnv().registerView(model);
-	}
+        public void prepareAgent() {
+            MapAgentFrame.SelectionState state = frame.getSelection();
+            selectScenarioAndDest(state.getValue(MapAgentFrame.SCENARIO_SEL), state.getValue(MapAgentFrame.DESTINATION_SEL));
+            prepareModel();
+            search = SearchFactory.getInstance().createSearch(
+                    state.getValue(MapAgentFrame.SEARCH_SEL),
+                    state.getValue(MapAgentFrame.SEARCH_MODE_SEL));
+            heuristic = createHeuristic(state.getValue(MapAgentFrame.HEURISTIC_SEL));
+            scenario.getEnv().registerView(model);
+        }
 
         /**
          * Returns the trivial zero function or a simple heuristic which is
@@ -126,8 +122,8 @@ public class RoutePlanningAgent {
         @Override
         protected void startAgent() {
             /*if (destinations.size() != 1) {
-                frame.logMessage("Error: This agent requires exact one destination.");
-                return;
+            frame.logMessage("Error: This agent requires exact one destination.");
+            return;
             }*/
             frame.logMessage("<route-planning-simulation-protocol>");
             frame.logMessage("search: " + search.getClass().getName());
@@ -141,6 +137,7 @@ public class RoutePlanningAgent {
                 frame.logMessage("heuristic: " + heuristic.getClass().getName());
                 agent.setHeuristicFunction(heuristic.getAdaptation(goal, scenario.getAgentMap()));
             }
+
             env.addAgent(agent, scenario.getInitAgentLocation());
             env.stepUntilDone();
             frame.logMessage("</route-planning-simulation-protocol>\n");
@@ -165,15 +162,14 @@ public class RoutePlanningAgent {
     static class H2 extends AdaptableHeuristicFunction {
 
         public double getHeuristicValue(Object state) {
-           /* double result = 0.0;
+            /* double result = 0.0;
             Point2D pt1 = map.getPosition((String) state);
             Point2D pt2 = map.getPosition((String) goal[1]);
             if (pt1 != null && pt2 != null) {
-                result = pt1.distance(pt2);
+            result = pt1.distance(pt2);
             }
             return result;*/
             return 0;
         }
     }
-
 }

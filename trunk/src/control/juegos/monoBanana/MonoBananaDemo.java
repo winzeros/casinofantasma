@@ -35,9 +35,9 @@ public class MonoBananaDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("            JUEGO DEL MONO Y LA BANANA");
-            log.info("        Busqueda primero en anchura");
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -56,9 +56,9 @@ public class MonoBananaDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("            JUEGO DEL MONO Y LA BANANA");
-            log.info("          Busqueda en profundidad");
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -77,9 +77,9 @@ public class MonoBananaDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("            JUEGO DEL MONO Y LA BANANA");
-            log.info("      Busqueda en profundidad limitada");
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -98,9 +98,9 @@ public class MonoBananaDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("            JUEGO DEL MONO Y LA BANANA");
-            log.info("        Busqueda de coste uniforme");
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -119,9 +119,9 @@ public class MonoBananaDemo {
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                          " + sala);
-            log.info("            JUEGO DEL MONO Y LA BANANA");
-            log.info("             Busqueda iterativa");
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
 
             juego.ejecutar();

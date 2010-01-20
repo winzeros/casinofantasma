@@ -38,16 +38,16 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
     }
 
 
-    private static void RejillaRojoAzulGreedyBestFirstSearch(String sala) {
+    public static void RejillaRojoAzulGreedyBestFirstSearch(String sala) {
 
         try{
 
         RejillaRojoAzulJuego juego = new RejillaRojoAzulJuego(new GreedyBestFirstSearch(new GraphSearch()));
         log.info("\n\n\n*******************************************");
             if (sala != null)
-            log.info("                          " + sala);
-            log.info("      JUEGO REJILLA ROJO AZUL");
-            log.info("  BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
+            log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
             log.info("*******************************************\n");
 
         juego.ejecutar();
@@ -57,14 +57,14 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
     }
 
 
-    private static void BreadthFirstDemo(String sala) {
+    public static void BreadthFirstDemo(String sala) {
         try{
         RejillaRojoAzulJuego juego = new RejillaRojoAzulJuego(new BreadthFirstSearch(new TreeSearch()));
         log.info("\n\n\n*******************************************");
             if (sala != null)
-            log.info("                          " + sala);
-            log.info("      JUEGO REJILLA ROJO AZUL");
-            log.info("   BÚSQUEDA PRIMERO EN ANCHURA");
+            log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
             log.info("*******************************************\n");
         juego.ejecutar();
         }
@@ -81,9 +81,9 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO REJILLA ROJO AZUL");
-            log.info("          Busqueda en profundidad");
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -102,9 +102,9 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO REJILLA ROJO AZUL");
-            log.info("      Busqueda en profundidad limitada");
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -123,9 +123,9 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO REJILLA ROJO AZUL");
-            log.info("         Busqueda de coste uniforme");
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
 
             juego.ejecutar();
@@ -144,9 +144,9 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
-                log.info("                           " + sala);
-            log.info("           JUEGO REJILLA ROJO AZUL");
-            log.info("             Busqueda iterativa");
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
 
             juego.ejecutar();
