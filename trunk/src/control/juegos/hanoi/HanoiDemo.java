@@ -25,7 +25,6 @@ public class HanoiDemo {
         DepthLimitedSearchDemo();
         UniformCostSearchDemo();
         IterativeDeepeningSearchDemo();
-        BidirectionalSearchDemo();
     }
 
     private static void BreadthFirstDemo() {
@@ -118,21 +117,4 @@ public class HanoiDemo {
         }
     }
 
-    private static void BidirectionalSearchDemo() {
-
-        HanoiJuego juego;
-
-        try {
-            juego = new HanoiJuego(new BidirectionalSearch());
-
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA BIDIRECCIONAL");
-            log.info("**************************************\n");
-
-            juego.ejecutar();
-
-        } catch (Exception ex) {
-            Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
-        }
-    }
 }
