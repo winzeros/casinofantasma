@@ -25,6 +25,7 @@ public class RanasFuncionSucesor implements SuccessorFunction{
         ArrayList recorrido = estadoPadre.getRecorrido();
 
         try {
+            
             for (int i = 0; i < 7; i++) {
                 RanasEstado estado = new RanasEstado(estadoPadre);
                     estado.setRecorrido(recorrido);

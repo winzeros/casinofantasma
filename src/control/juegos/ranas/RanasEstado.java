@@ -114,16 +114,16 @@ public class RanasEstado {
 
         try {
 
-            if (_hojas[pos] == RANA) {
-                if (pos <= 5 && _hojas[pos + 1] == NADA) {
+            if (_hojas[pos].equals(RANA)) {
+                if (pos <= 5 && _hojas[pos + 1].equals(NADA)) {
                     res = pos + 1;
-                } else if (pos <= 4 && _hojas[pos + 2] == NADA) {
+                } else if (pos <= 4 && _hojas[pos + 2].equals(NADA)) {
                     res = pos + 2;
                 }
-            } else if (_hojas[pos] == SAPO) {
-                if (pos >= 1 && _hojas[pos - 1] == NADA) {
+            } else if (_hojas[pos].equals(SAPO)) {
+                if (pos >= 1 && _hojas[pos - 1].equals(NADA)) {
                     res = pos - 1;
-                } else if (pos >= 2 && _hojas[pos - 2] == NADA) {
+                } else if (pos >= 2 && _hojas[pos - 2].equals(NADA)) {
                     res = pos - 2;
                 }
             }
@@ -148,11 +148,11 @@ public class RanasEstado {
            
             if (estadoValido(pos) != -1) {
                 aux = estadoValido(pos);
-                if (this.getHojas()[pos] == "$") {
+                if (this.getHojas()[pos].equals("$")) {
                     this._hojas[aux] =RANA;
                     this._hojas[pos] = NADA;
                     enc = true;
-                } else if (this.getHojas()[pos] == "*") {
+                } else if (this.getHojas()[pos].equals("*")) {
                     this._hojas[aux] = SAPO;
                     this._hojas[pos] = NADA;
                     enc = true;
@@ -176,7 +176,7 @@ public class RanasEstado {
         try {
             RanasEstado estado = (RanasEstado) o;
             while (enc && i < 7) {
-                enc = (_hojas[i] == estado.getHojas()[i]);
+                enc = (_hojas[i].equals(estado.getHojas()[i]));
                 i++;
             }
 

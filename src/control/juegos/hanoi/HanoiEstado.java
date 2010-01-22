@@ -5,6 +5,7 @@
 package control.juegos.hanoi;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -48,9 +49,14 @@ public class HanoiEstado {
     }
 
     public HanoiEstado(HanoiEstado estado) {
-        _tablero = estado._tablero;
-        _posible = estado._posible;
-        _recorrido = estado._recorrido;
+        _tablero = new int[][] {
+            estado._tablero[0].clone(),
+            estado._tablero[1].clone(),
+            estado._tablero[2].clone(),
+        };
+        
+        _posible = (HashMap<Integer, Integer>) estado._posible.clone();
+        _recorrido = (ArrayList) estado._recorrido;
         _controlCiclos = estado._controlCiclos;
     }
 
@@ -162,10 +168,48 @@ public class HanoiEstado {
         return enc;
     }
 
-    boolean controlCiclos(int[][] tablero) {
+    boolean esta (int[][] tablero) {
         //devuelve true si el tablero esta en recorrido
-        return _recorrido.contains(tablero);
+        for(int i = 0; i < _recorrido.size(); i++) {
+            int[][] tableroAntiguo = (int[][]) _recorrido.get(i);
+            boolean iguales = true;
+            for(int f = 0; f < 3; f++)
+                for(int c = 0; c < 3; c++)
+                    if(tableroAntiguo[f][c] != _tablero[f][c])
+                        iguales = false;
+            if(iguales)
+                return true;
+        }
+        return false;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final HanoiEstado other = (HanoiEstado) obj;
+        if (this._tablero != other._tablero && (this._tablero == null || !Arrays.deepEquals(_tablero, other._tablero) )) {
+            return false;
+        }
+        /*if (this._posible != other._posible && (this._posible == null || !this._posible.equals(other._posible))) {
+            return false;
+        }*/
+        return true;
+    }
+
+/*
+    @Override
+        public boolean equals(Object o) {
+        if ((HanoiEstado) o == this) return true;
+        if(o.getClass() == HanoiEstado.class){
+            return Arrays.equals(((HanoiEstado)o)._tablero,this._tablero);
+        } else return false;
+        }
+*/
 
 // </editor-fold>
 
@@ -174,10 +218,10 @@ public class HanoiEstado {
 
         try {
             if (puedeMoverse(disco,palo)) {
-                if (!this.controlCiclos(_tablero)) {
+                if (!esta(_tablero)) {
                     _recorrido.add(_tablero);
+                    res = true;
                 }
-                res = true;
             }
         } catch (Exception ex) {
             Logger.getLogger(HanoiEstado.class.getName()).log(Level.ERROR, "Error al ejecutar la operacion " + disco, ex);
