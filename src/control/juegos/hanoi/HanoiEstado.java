@@ -100,45 +100,15 @@ public class HanoiEstado {
         return this._recorrido;
     }
 
+    HashMap<Integer,Integer> getPosibles() {
+        return _posible;
+    }
+
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }
 
-    private boolean mueveDisco(int disco, int origen, int destino) {
-
-        boolean res1 = false;
-        boolean res2 = false;
-
-        if (_tablero[origen][2] == disco){
-            _tablero[origen][2] = 0;
-            _posible.put(origen, _tablero[origen][1]);
-            res1 = true;
-        }else if (_tablero[origen][1] == disco) {
-            _tablero[origen][1] = 0;
-            _posible.put(origen, _tablero[origen][0]);
-            res1 = true;
-        } else {
-            _tablero[origen][0] = 0;
-            _posible.put(origen, 10);
-            res1 = true;
-        }
-
-        if (_tablero[destino][0] == 0){
-            _tablero[destino][0] = disco;
-            res2 = true;
-        }else if (_tablero[destino][1] == 0){
-            _tablero[destino][1] = disco;
-            res2 = true;
-        }else {
-            _tablero[destino][2] = disco;
-            res2 = true;
-        }
-
-        _posible.put(destino, disco);
-        
-
-        return res1 && res2;
-    }
+    
 
 // </editor-fold>
 
@@ -229,6 +199,40 @@ public class HanoiEstado {
         return res;
     }
 
+    private boolean mueveDisco(int disco, int origen, int destino) {
+
+        boolean res1 = false;
+        boolean res2 = false;
+
+        if (_tablero[origen][2] == disco){
+            _tablero[origen][2] = 0;
+            _posible.put(origen, _tablero[origen][1]);
+            res1 = true;
+        }else if (_tablero[origen][1] == disco) {
+            _tablero[origen][1] = 0;
+            _posible.put(origen, _tablero[origen][0]);
+            res1 = true;
+        } else {
+            _tablero[origen][0] = 0;
+            _posible.put(origen, 10);
+            res1 = true;
+        }
+
+        if (_tablero[destino][0] == 0){
+            _tablero[destino][0] = disco;
+            res2 = true;
+        }else if (_tablero[destino][1] == 0){
+            _tablero[destino][1] = disco;
+            res2 = true;
+        }else {
+            _tablero[destino][2] = disco;
+            res2 = true;
+        }
+
+        _posible.put(destino, disco);
+
+        return res1 && res2;
+    }
 
 
     @Override
@@ -238,230 +242,6 @@ public class HanoiEstado {
         return resultado;
     }
 
-// <editor-fold defaultstate="collapsed" desc="MOVIMIENTOS">
-    private boolean mueve(int paloFin, int disco, int paloA, int paloB) {
-        if (_tablero[paloA][2] == disco){
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloA][2] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloA][2] = 0;
-                return true;
-            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloA][2] = 0;
-                return true;
-        }
-        }
-        if (_tablero[paloB][2] == disco) {
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloB][2] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloB][2] = 0;
-                return true;
-            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloB][2] = 0;
-                return true;
-            }
-        }
-        if (_tablero[paloA][2] == 0 && _tablero[paloA][1] == disco) {
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloA][1] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloA][1] = 0;
-                return true;
-            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloA][1] = 0;
-                return true;
-            }
-        }
-        if (_tablero[paloB][2] == 0 && _tablero[paloB][1] == disco){
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloB][1] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloB][1] = 0;
-                return true;
-            }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloB][1] = 0;
-                return true;
-            }
-        }
-        if(_tablero[paloA][2] == 0 && _tablero[paloA][1] == 0 && _tablero[paloA][0] == disco) {
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloA][0] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloA][0] = 0;
-                return true;
-                }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloA][0] = 0;
-                return true;
-        }
-        }
-        if (_tablero[paloB][2] == 0 && _tablero[paloB][1] == 0 && _tablero[paloB][0] == disco){
-            if (_tablero[paloFin][0] == 0){
-                _tablero[paloFin][0] = disco;
-                _tablero[paloB][0] = 0;
-                return true;
-            }else if (_tablero[paloFin][1] == 0 && _tablero[paloFin][0] > disco){
-                _tablero[paloFin][1] = disco;
-                _tablero[paloB][0] = 0;
-                return true;
-                }else if (_tablero[paloFin][2] == 0 && _tablero[paloFin][1] > disco){
-                _tablero[paloFin][2] = disco;
-                _tablero[paloB][0] = 0;
-                return true;
-            }
-        }
-        return false;
-    }
-/*
-    private boolean mueveD1aP2() {
-        if ((_tablero[0][0] != 2) && (_tablero[1][0] != 2) && (_tablero[2][0] != 2) &&
-                ((_tablero[0][0]) != (_tablero[1][0])) && ((_tablero[0][0]) != (_tablero[2][0]))) {
-            _tablero[0][0] = 2;
-            _tablero[0][1] = 1;
-            return true;
-        } else {
-            return false;
-        }
-    }
 
-    private boolean mueveD1aP3() {
-        if ((_tablero[0][0] != 3) && (_tablero[1][0] != 3) && (_tablero[2][0] != 3) &&
-                ((_tablero[0][0]) != (_tablero[1][0])) && ((_tablero[0][0]) != (_tablero[2][0]))) {
-            _tablero[0][0] = 3;
-            _tablero[0][1] = 1;
-            return true;
-        } else {
-            return false;
-        }
-    }
 
-    private boolean mueveD2aP1() {
-        if ((_tablero[1][0] != 1) && (_tablero[2][0] != 1) && ((_tablero[2][0]) != (_tablero[1][0]))) {
-            if (_tablero[0][0] == 1) {
-                _tablero[1][0] = 1;
-                _tablero[1][1] = 2;
-            } else if (_tablero[0][0] != 1) {
-                _tablero[1][0] = 1;
-                _tablero[1][1] = 1;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean mueveD2aP2() {
-        if ((_tablero[1][0] != 2) && (_tablero[2][0] != 2) && ((_tablero[2][0]) != (_tablero[1][0]))) {
-            if (_tablero[0][0] == 2) {
-                _tablero[1][0] = 2;
-                _tablero[1][1] = 2;
-            } else if (_tablero[0][0] != 2) {
-                _tablero[1][0] = 2;
-                _tablero[1][1] = 1;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean mueveD2aP3() {
-        if ((_tablero[1][0] != 3) && (_tablero[2][0] != 3) && ((_tablero[2][0]) != (_tablero[1][0]))) {
-            if (_tablero[0][0] == 3) {
-                _tablero[1][0] = 3;
-                _tablero[1][1] = 2;
-            } else if (_tablero[0][0] != 3) {
-                _tablero[1][0] = 3;
-                _tablero[1][1] = 1;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean mueveD3aP1() {
-        if (_tablero[2][0] != 1) {
-            _tablero[2][0] = 1;
-            if ((_tablero[0][0] == 1) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                _tablero[2][1] = 2;
-            } else {
-                if ((_tablero[1][0] == 1) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                    _tablero[2][1] = 2;
-                } else {
-                    if ((_tablero[1][0] == 1) && (_tablero[0][0] == 1)) {
-                        _tablero[2][1] = 3;
-                    } else {
-                        _tablero[2][1] = 1;
-                    }
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private boolean mueveD3aP2() {
-        if (_tablero[2][0] != 2) {
-            _tablero[2][0] = 2;
-            if ((_tablero[0][0] == 2) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                _tablero[2][1] = 2;
-            } else {
-                if ((_tablero[1][0] == 2) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                    _tablero[2][1] = 2;
-                } else {
-                    if ((_tablero[1][0] == 2) && (_tablero[0][0] == 2)) {
-                        _tablero[2][1] = 3;
-                    } else {
-                        _tablero[2][1] = 1;
-                    }
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private boolean mueveD3aP3() {
-        if (_tablero[2][0] != 3) {
-            _tablero[2][0] = 3;
-            if ((_tablero[0][0] == 3) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                _tablero[2][1] = 2;
-            } else {
-                if ((_tablero[1][0] == 3) && ((_tablero[0][0]) != (_tablero[1][0]))) {
-                    _tablero[2][1] = 2;
-                } else {
-                    if ((_tablero[1][0] == 3) && (_tablero[0][0] == 3)) {
-                        _tablero[2][1] = 3;
-                    } else {
-                        _tablero[2][1] = 1;
-                    }
-                }
-            }
-            return true;
-        }
-        return false;
-    }*/
-    // </editor-fold>
-    
 }
