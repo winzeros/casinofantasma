@@ -1,4 +1,4 @@
-package control.juegos.Mariposas;
+package control.juegos.mariposas;
 
 import aima.search.framework.GoalTest;
 

@@ -10,8 +10,10 @@ import aima.search.map.DynAttributeNames;
 import aima.search.map.Map;
 import aima.search.map.MapEnvironment;
 import aima.search.uninformed.BreadthFirstSearch;
-import control.juegos.EightPuzzle.EightPuzzleDemo;
+import control.juegos.ochoPuzzle.OchoPuzzleDemo;
 import control.juegos.Garrafas.GarrafasDemo;
+import control.juegos.hanoi.HanoiDemo;
+import control.juegos.mariposas.MariposasDemo;
 import control.juegos.hermanos.HermanosDemo;
 import control.juegos.linterna.LinternaDemo;
 import control.juegos.monoBanana.MonoBananaDemo;
@@ -19,6 +21,7 @@ import control.juegos.nreinas.NReinasDemo;
 import control.juegos.ovejasLobos.OvejasLobosDemo;
 import control.juegos.ranas.RanasDemo;
 import control.juegos.rejillaRojoAzul.RejillaRojoAzulDemo;
+import control.juegos.solitario.SolitarioDemo;
 import control.laberintos.juego.LaberintoJuego;
 import java.util.ArrayList;
 import java.util.List;
@@ -326,34 +329,106 @@ public class LaberintoEnvironment extends MapEnvironment {
                         break;
                 }
                 break;
-
-
-            //Juego de la rejilla
+            //Juego del 8 puzzle
             case 8:
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        EightPuzzleDemo.BreadthFirstDemo(sala);
+                        OchoPuzzleDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        EightPuzzleDemo.DepthFirstSearchDemo(sala);
+                        OchoPuzzleDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        EightPuzzleDemo.DepthLimitedSearchDemo(sala);
+                        OchoPuzzleDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        EightPuzzleDemo.UniformCostSearchDemo(sala);
+                        OchoPuzzleDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        EightPuzzleDemo.IterativeDeepeningSearchDemo(sala);
+                        OchoPuzzleDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
-
+            //Juego de las mariposas
+            case 9:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        MariposasDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        MariposasDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        MariposasDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        MariposasDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        MariposasDemo.RejillaRojoAzulGreedyBestFirstSearch(sala);
+                        break;
+                }
+                break;
+            //Juego de las torres de Hanoi
+            case 10:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        HanoiDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        HanoiDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        HanoiDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        HanoiDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        HanoiDemo.IterativeDeepeningSearchDemo(sala);
+                        break;
+                }
+                break;
+            //Juego del solitario
+            case 11:
+                switch (estrategia) {
+                    //Primero en anchura
+                    case 0:
+                        SolitarioDemo.BreadthFirstDemo(sala);
+                        break;
+                    //Primero en profundidad
+                    case 1:
+                        SolitarioDemo.DepthFirstSearchDemo(sala);
+                        break;
+                    //Primero en profundidad limitada
+                    case 2:
+                        SolitarioDemo.DepthLimitedSearchDemo(sala);
+                        break;
+                    //Coste uniforme
+                    case 3:
+                        SolitarioDemo.UniformCostSearchDemo(sala);
+                        break;
+                    //Busqueda iterativa
+                    case 4:
+                        SolitarioDemo.IterativeDeepeningSearchDemo(sala);
+                        break;
+                }
+                break;
         }
     }
 }

@@ -7,6 +7,8 @@ package control.juegos.monoBanana;
 import aima.search.framework.Successor;
 import aima.search.framework.SuccessorFunction;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -17,29 +19,35 @@ import org.apache.log4j.Logger;
  */
 public class MonoBananaFuncionSucesor implements SuccessorFunction {
 
+    public final static Logger log = Logger.getLogger(MonoBananaFuncionSucesor.class.getName());
+
     public List getSuccessors(Object arg0) {
 
         ArrayList resultado = new ArrayList();
-        MonoBananaEstado estadoPadre = (MonoBananaEstado) arg0;
-        ArrayList recorrido = estadoPadre.getRecorrido();
+        Calendar calendario = new GregorianCalendar();
+        long horaActual = calendario.getTimeInMillis();
 
-        try {
-            for (int i = 1; i < 6; i++) { //Operaciones
-                MonoBananaEstado estado = new MonoBananaEstado(estadoPadre);
-                estado.setRecorrido(recorrido);
-                if (estado.mover(i)) {
-                    recorrido = estado.getRecorrido();
-                    resultado.add(new Successor("                  (" + i + ")\n"
-                            + estado.toString(),estado));
+        if ((horaActual - MonoBananaEstado.horaInicial) < 5000) {
+            MonoBananaEstado estadoPadre = (MonoBananaEstado) arg0;
+            ArrayList recorrido = estadoPadre.getRecorrido();
+
+            try {
+                for (int i = 1; i < 6; i++) { //Operaciones
+                    MonoBananaEstado estado = new MonoBananaEstado(estadoPadre);
+                    estado.setRecorrido(recorrido);
+                    if (estado.mover(i)) {
+                        recorrido = estado.getRecorrido();
+                        resultado.add(new Successor("                  (" + i + ")\n"
+                                + estado.toString(), estado));
+                    }
                 }
+            } catch (Exception ex) {
+                Logger.getLogger(MonoBananaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de "
+                        + arg0.toString(), ex);
             }
+        } else {
+            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
-        catch (Exception ex) {
-            Logger.getLogger(MonoBananaFuncionSucesor.class.getName())
-                    .log(Level.ERROR, "Error al obtener los sucesores de "
-                    + arg0.toString(), ex);
+        return resultado;
     }
-    return resultado ;
-}
-
 }

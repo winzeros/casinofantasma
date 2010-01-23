@@ -44,6 +44,7 @@ public class NReinasDemo {
             log.info(" JUEGO DE LAS 8 REINAS");
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
+            log.info(new NReinasEstado(8).toString());
 
             juego.ejecutar();
 
@@ -65,6 +66,7 @@ public class NReinasDemo {
             log.info(" JUEGO DE LAS 8 REINAS");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new NReinasEstado(8).toString());
 
             juego.ejecutar();
 
@@ -86,6 +88,7 @@ public class NReinasDemo {
             log.info(" JUEGO DE LAS 8 REINAS");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new NReinasEstado(8).toString());
 
             juego.ejecutar();
 
@@ -107,6 +110,7 @@ public class NReinasDemo {
             log.info(" JUEGO DE LAS 8 REINAS");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new NReinasEstado(8).toString());
 
             juego.ejecutar();
 
@@ -128,6 +132,7 @@ public class NReinasDemo {
             log.info(" JUEGO DE LAS 8 REINAS");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n\n");
+            log.info(new NReinasEstado(8).toString());
 
             juego.ejecutar();
 

@@ -1,15 +1,15 @@
 
-package control.juegos.EightPuzzle;
+package control.juegos.ochoPuzzle;
 
 import aima.basic.XYLocation;
 import aima.search.framework.HeuristicFunction;
 
 
 
-public class ManhattanHeuristicFunction implements HeuristicFunction {
+public class OchoPuzzleFuncionManhattan implements HeuristicFunction {
 
 	public double getHeuristicValue(Object state) {
-		EightPuzzleEstados board = (EightPuzzleEstados) state;
+		OchoPuzzleEstados board = (OchoPuzzleEstados) state;
 		int retVal = 0;
 		for (int i = 1; i < 9; i++) {
 			XYLocation loc = board.getLocationOf(i);

@@ -1,9 +1,12 @@
-package control.juegos.Mariposas;
+package control.juegos.mariposas;
 
 import aima.search.framework.Successor;
 import aima.search.framework.SuccessorFunction;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -11,7 +14,9 @@ import java.util.List;
  * @author JOSECARLOSE
  */
 public class MariposasFuncionSucesora implements SuccessorFunction{
-    
+
+    public final static Logger log = Logger.getLogger(MariposasFuncionSucesora.class.getName());
+
     final int coordenadaX = 2;
     final int coordenadaY = 5;
     
@@ -30,7 +35,12 @@ public class MariposasFuncionSucesora implements SuccessorFunction{
     
     @Override
     public List getSuccessors(Object state) {
+
         List<Successor> siguientes = new ArrayList<Successor>();
+        Calendar calendario = new GregorianCalendar();
+        long horaActual = calendario.getTimeInMillis();
+
+        if ((horaActual - MariposasEstado.horaInicial) < 10000) {
         MariposasEstado estado = (MariposasEstado)state;
         MariposasEstado posible = null;
 
@@ -47,6 +57,9 @@ public class MariposasFuncionSucesora implements SuccessorFunction{
                 posible = null;
 
             }
+        } else {
+            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+        }
 
 
         return siguientes;

@@ -6,6 +6,8 @@ package control.juegos.hermanos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -18,6 +20,7 @@ public class HermanosEstado {
     private int[] _mesa;
     private ArrayList _recorrido;
     private boolean _controlCiclos;
+    public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public HermanosEstado() {
@@ -25,6 +28,8 @@ public class HermanosEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_mesa);
         _controlCiclos = true;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public HermanosEstado(boolean controlCiclos) {
@@ -32,6 +37,8 @@ public class HermanosEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_mesa);
         _controlCiclos = controlCiclos;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public HermanosEstado(int[] mesa) throws Exception {
@@ -66,7 +73,6 @@ public class HermanosEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
     public int[] getEstadoInicial() {
         int[] estadoInicial = new int[6];
@@ -105,7 +111,6 @@ public class HermanosEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
     public boolean estadoValido(int hermano, int posicion) {
 
@@ -140,10 +145,10 @@ public class HermanosEstado {
                 //si no hay nadie sentado en ese sitio...
                 if (_mesa[posicion] == 0) {
                     //si no tengo a un hermano inválido a los lados...
-                    if ((_mesa[posicionIzq] != (hermano - 1)) && (_mesa[posicionDer] != (hermano - 1)) &&
-                            (_mesa[posicionIzq] != (hermano + 1)) && (_mesa[posicionDer] != (hermano + 1))) {
-                        if (!((hermano == 3) && ((_mesa[posicionIzq] == 5) || (_mesa[posicionDer] == 5))) &&
-                                !((hermano == 5) && ((_mesa[posicionIzq] == 3) || (_mesa[posicionDer] == 3)))) {
+                    if ((_mesa[posicionIzq] != (hermano - 1)) && (_mesa[posicionDer] != (hermano - 1))
+                            && (_mesa[posicionIzq] != (hermano + 1)) && (_mesa[posicionDer] != (hermano + 1))) {
+                        if (!((hermano == 3) && ((_mesa[posicionIzq] == 5) || (_mesa[posicionDer] == 5)))
+                                && !((hermano == 5) && ((_mesa[posicionIzq] == 3) || (_mesa[posicionDer] == 3)))) {
                             ok = true;
                         }
                     }
@@ -151,8 +156,8 @@ public class HermanosEstado {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(HermanosEstado.class.getName()).log(Level.ERROR, "Error al comprobar si es válido sentar al hermano " +
-                    hermano + " en la posicion " + posicion, ex);
+            Logger.getLogger(HermanosEstado.class.getName()).log(Level.ERROR, "Error al comprobar si es válido sentar al hermano "
+                    + hermano + " en la posicion " + posicion, ex);
         }
 
         return ok;
@@ -163,7 +168,6 @@ public class HermanosEstado {
     }
 
 // </editor-fold>
-    
     public boolean sentar(int hermano, int posicion) {
 
         boolean ok = false;
@@ -180,8 +184,8 @@ public class HermanosEstado {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(HermanosEstado.class.getName()).log(Level.ERROR, "Error al sentar al hermano " + hermano +
-                    " en la posición " + posicion, ex);
+            Logger.getLogger(HermanosEstado.class.getName()).log(Level.ERROR, "Error al sentar al hermano " + hermano
+                    + " en la posición " + posicion, ex);
         }
 
         return ok;

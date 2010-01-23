@@ -40,6 +40,7 @@ public class RanasDemo {
             log.info(" JUEGO DE LAS RANAS");
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
+            log.info(new RanasEstado().toString());
 
             juego.ejecutar();
 
@@ -61,6 +62,7 @@ public class RanasDemo {
             log.info(" JUEGO DE LAS RANAS");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new RanasEstado().toString());
 
             juego.ejecutar();
 
@@ -82,6 +84,7 @@ public class RanasDemo {
             log.info(" JUEGO DE LAS RANAS");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new RanasEstado().toString());
 
             juego.ejecutar();
 
@@ -103,6 +106,7 @@ public class RanasDemo {
             log.info(" JUEGO DE LAS RANAS");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new RanasEstado().toString());
 
             juego.ejecutar();
 
@@ -124,6 +128,7 @@ public class RanasDemo {
             log.info(" JUEGO DE LAS RANAS");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
+            log.info(new RanasEstado().toString());
 
             juego.ejecutar();
 

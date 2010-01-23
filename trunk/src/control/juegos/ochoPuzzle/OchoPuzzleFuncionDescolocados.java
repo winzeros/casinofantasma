@@ -2,7 +2,7 @@
  * Created on Sep 12, 2004
  *
  */
-package control.juegos.EightPuzzle;
+package control.juegos.ochoPuzzle;
 
 import aima.basic.XYLocation;
 import aima.search.framework.HeuristicFunction;
@@ -12,15 +12,15 @@ import aima.search.framework.HeuristicFunction;
  * 
  */
 
-public class MisplacedTilleHeuristicFunction implements HeuristicFunction {
+public class OchoPuzzleFuncionDescolocados implements HeuristicFunction {
 
 	public double getHeuristicValue(Object state) {
-		EightPuzzleEstados board = (EightPuzzleEstados) state;
+		OchoPuzzleEstados board = (OchoPuzzleEstados) state;
 		return getNumberOfMisplacedTiles(board);
 
 	}
 
-	private int getNumberOfMisplacedTiles(EightPuzzleEstados board) {
+	private int getNumberOfMisplacedTiles(OchoPuzzleEstados board) {
 		int numberOfMisplacedTiles = 0;
 		if (!(board.getLocationOf(0).equals(new XYLocation(0, 0)))) {
 			numberOfMisplacedTiles++;

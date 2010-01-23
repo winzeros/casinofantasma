@@ -1,5 +1,7 @@
 package control.juegos.Garrafas;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Vector;
 
 /**
@@ -27,6 +29,7 @@ public class GarrafasEstado {
      * litros de capacidad
      */
     private Vector<GarrafasContenido> _contenido;
+    public static long horaInicial;
 
     /**
      * Constructor por defecto
@@ -36,6 +39,9 @@ public class GarrafasEstado {
         this._garrafa3 = 0;
         this._garrafa4 = 0;
         this._contenido = new Vector<GarrafasContenido>();
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
+
     }
 
     /**
@@ -105,7 +111,7 @@ public class GarrafasEstado {
     }
 
     public String toString(int g3, int g4) {
-        String resultado = "\n\n";
+        String resultado = "";
         switch (g4) {
             case 0:
                 switch (g3) {
@@ -253,7 +259,8 @@ public class GarrafasEstado {
                 break;
         }
 
+        resultado += "\n";
+
         return resultado;
     }
-
 }
