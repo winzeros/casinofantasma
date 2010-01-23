@@ -109,6 +109,18 @@ public class LinternaEstado {
         return this._recorrido;
     }
 
+    public int getTiempo(int index) {
+
+        switch (index) {
+            case 0: return 1;
+            case 1: return 3;
+            case 2: return 6;
+            case 3: return 8;
+            case 4: return 12;
+        }
+        return 0;
+    }
+
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }

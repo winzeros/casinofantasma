@@ -15,39 +15,7 @@ import org.apache.log4j.Logger;
  *
  * @author Laura
  */
-/*
-public class HanoiFuncionSucesor implements SuccessorFunction {
 
-    public List getSuccessors(Object arg0) {
-
-        ArrayList resultado = new ArrayList();
-        HanoiEstado estadoPadre = (HanoiEstado) arg0;
-        //ArrayList recorrido = estadoPadre.getRecorrido();
-        ArrayList recorrido = new ArrayList();
-        try {
-            for (int i = 1; i < 4; i++) { //Disco 1,2,3
-                for(int j = 0; j < 3; j++) { //Palo 0,1,2
-                    HanoiEstado estado = new HanoiEstado(estadoPadre);
-                    //estado.setRecorrido(recorrido);
-                    if (estado.mover(i,j)) {
-                        recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + ")\n"
-                            + estado.toString(),estado));
-                
-                    }
-                }
-            }
-        }
-        catch (Exception ex) {
-            Logger.getLogger(HanoiFuncionSucesor.class.getName())
-                    .log(Level.ERROR, "Error al obtener los sucesores de "
-                    + arg0.toString(), ex);
-    }
-    return resultado ;
-    }
-
-}
- * */
 public class HanoiFuncionSucesor  implements SuccessorFunction {
 
     public List getSuccessors(Object arg0) {
