@@ -39,6 +39,7 @@ public class LinternaDemo {
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
 
             juego.ejecutar();
 
@@ -60,6 +61,7 @@ public class LinternaDemo {
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
 
             juego.ejecutar();
 
@@ -81,6 +83,7 @@ public class LinternaDemo {
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
 
             juego.ejecutar();
 
@@ -102,6 +105,7 @@ public class LinternaDemo {
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
 
             juego.ejecutar();
 
@@ -123,6 +127,7 @@ public class LinternaDemo {
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
 
             juego.ejecutar();
 

@@ -1,5 +1,7 @@
-package control.juegos.Mariposas;
+package control.juegos.mariposas;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Vector;
 
 /**
@@ -10,6 +12,7 @@ public class MariposasEstado {
 
     private Tablero instante;  
     private Vector<Tablero> contenido;  //Recorrido de la busqueda.
+    public static long horaInicial;
     /**
      * Constructor por defecto
      */
@@ -17,6 +20,8 @@ public class MariposasEstado {
         this.instante = new Tablero();
         this.contenido = new Vector<Tablero>();
         this.contenido.add(this.instante);
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
     
     /**

@@ -16,27 +16,31 @@ import org.apache.log4j.Logger;
  */
 public class HanoiDemo {
 
-    private final static Logger log = Logger.getLogger(HanoiDemo.class.getName());
+    public final static Logger log = Logger.getLogger(HanoiDemo.class.getName());
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo();
-        DepthFirstSearchDemo();
-        DepthLimitedSearchDemo();
-        UniformCostSearchDemo();
-        IterativeDeepeningSearchDemo();
+        BreadthFirstDemo("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
     }
 
-    private static void BreadthFirstDemo() {
+    public static void BreadthFirstDemo(String sala) {
 
         HanoiJuego juego;
 
         try {
             juego = new HanoiJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("     BÚSQUEDA PRIMERO EN ANCHURA");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS TORRES DE HANOI");
+            log.info(" Busqueda primero en anchura");
             log.info("**************************************\n");
+            log.info(new HanoiEstado().toString());
 
             juego.ejecutar();
 
@@ -45,16 +49,20 @@ public class HanoiDemo {
         }
     }
 
-    private static void DepthFirstSearchDemo() {
+    public static void DepthFirstSearchDemo(String sala) {
 
         HanoiJuego juego;
 
         try {
             juego = new HanoiJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS TORRES DE HANOI");
+            log.info(" Busqueda primero en profundidad");
             log.info("**************************************\n");
+            log.info(new HanoiEstado().toString());
 
             juego.ejecutar();
 
@@ -63,16 +71,20 @@ public class HanoiDemo {
         }
     }
 
-    private static void DepthLimitedSearchDemo() {
+    public static void DepthLimitedSearchDemo(String sala) {
 
         HanoiJuego juego;
 
         try {
             juego = new HanoiJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n**************************************");
-            log.info(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS TORRES DE HANOI");
+            log.info(" Busqueda primero en profundidad limitada a  11");
             log.info("**************************************\n");
+            log.info(new HanoiEstado().toString());
 
             juego.ejecutar();
 
@@ -81,16 +93,20 @@ public class HanoiDemo {
         }
     }
 
-    private static void UniformCostSearchDemo() {
+    public static void UniformCostSearchDemo(String sala) {
 
         HanoiJuego juego;
 
         try {
             juego = new HanoiJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n**************************************");
-            log.info("       BÚSQUEDA DE COSTE UNIFORME");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS TORRES DE HANOI");
+            log.info(" Busqueda de coste uniforme");
             log.info("**************************************\n");
+            log.info(new HanoiEstado().toString());
 
             juego.ejecutar();
 
@@ -99,16 +115,20 @@ public class HanoiDemo {
         }
     }
 
-    private static void IterativeDeepeningSearchDemo() {
+    public static void IterativeDeepeningSearchDemo(String sala) {
 
         HanoiJuego juego;
 
         try {
             juego = new HanoiJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n**************************************");
-            log.info("           BÚSQUEDA ITERATIVA");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS TORRES DE HANOI");
+            log.info(" Busqueda iterativa");
             log.info("**************************************\n");
+            log.info(new HanoiEstado().toString());
 
             juego.ejecutar();
 

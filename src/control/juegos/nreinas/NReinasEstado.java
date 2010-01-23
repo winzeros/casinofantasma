@@ -7,6 +7,8 @@ package control.juegos.nreinas;
 
 import aima.basic.XYLocation;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -22,6 +24,7 @@ public class NReinasEstado {
 	int[][] tablero;
 
 	int n;
+    public static long horaInicial;
 
 	public NReinasEstado(int n) {
 
@@ -32,6 +35,8 @@ public class NReinasEstado {
 				tablero[i][j] = 0;
 			}
 		}
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
 	}
 
 	public void añadirReina(XYLocation l) {

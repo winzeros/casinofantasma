@@ -5,6 +5,8 @@
 package control.juegos.ranas;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -20,6 +22,7 @@ public class RanasEstado {
     public static final String RANA = "$";
     public static final String SAPO = "*";
     public static final String NADA = "_";
+    public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public RanasEstado() {
@@ -27,6 +30,8 @@ public class RanasEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_hojas);
         _controlCiclos = true;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public RanasEstado(boolean controlCiclos) {
@@ -34,6 +39,8 @@ public class RanasEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_hojas);
         _controlCiclos = controlCiclos;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public RanasEstado(String[] hojas) throws Exception {
@@ -67,7 +74,6 @@ public class RanasEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
     public String[] getEstadoInicial() {
         String[] estadoInicial = new String[7];
@@ -106,7 +112,6 @@ public class RanasEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
     private int estadoValido(int pos) {
 
@@ -114,22 +119,22 @@ public class RanasEstado {
 
         try {
 
-            if (_hojas[pos].equals(RANA)) {
-                if (pos <= 5 && _hojas[pos + 1].equals(NADA)) {
+            if (_hojas[pos] == RANA) {
+                if (pos <= 5 && _hojas[pos + 1] == NADA) {
                     res = pos + 1;
-                } else if (pos <= 4 && _hojas[pos + 2].equals(NADA)) {
+                } else if (pos <= 4 && _hojas[pos + 2] == NADA) {
                     res = pos + 2;
                 }
-            } else if (_hojas[pos].equals(SAPO)) {
-                if (pos >= 1 && _hojas[pos - 1].equals(NADA)) {
+            } else if (_hojas[pos] == SAPO) {
+                if (pos >= 1 && _hojas[pos - 1] == NADA) {
                     res = pos - 1;
-                } else if (pos >= 2 && _hojas[pos - 2].equals(NADA)) {
+                } else if (pos >= 2 && _hojas[pos - 2] == NADA) {
                     res = pos - 2;
                 }
             }
         } catch (Exception ex) {
-            Logger.getLogger(RanasEstado.class.getName()).log(Level.ERROR, "Error al comprobar si es válido el movimiento desde la posicion" +
-                    pos + " en el estado " + this.toString(), ex);
+            Logger.getLogger(RanasEstado.class.getName()).log(Level.ERROR, "Error al comprobar si es válido el movimiento desde la posicion"
+                    + pos + " en el estado " + this.toString(), ex);
         }
 
         return res;
@@ -145,14 +150,14 @@ public class RanasEstado {
         boolean enc = false;
 
         try {
-           
+
             if (estadoValido(pos) != -1) {
                 aux = estadoValido(pos);
-                if (this.getHojas()[pos].equals("$")) {
-                    this._hojas[aux] =RANA;
+                if (this.getHojas()[pos] == "$") {
+                    this._hojas[aux] = RANA;
                     this._hojas[pos] = NADA;
                     enc = true;
-                } else if (this.getHojas()[pos].equals("*")) {
+                } else if (this.getHojas()[pos] == "*") {
                     this._hojas[aux] = SAPO;
                     this._hojas[pos] = NADA;
                     enc = true;
@@ -160,7 +165,7 @@ public class RanasEstado {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(RanasEstado.class.getName()).log(Level.ERROR, 
+            Logger.getLogger(RanasEstado.class.getName()).log(Level.ERROR,
                     "Error al mover " + _hojas[pos].toString() + " en el estado " + this.toString(), ex);
         }
 
@@ -169,14 +174,14 @@ public class RanasEstado {
 
     @Override
     public boolean equals(Object o) {
-        
+
         boolean enc = true;
         int i = 0;
 
         try {
             RanasEstado estado = (RanasEstado) o;
             while (enc && i < 7) {
-                enc = (_hojas[i].equals(estado.getHojas()[i]));
+                enc = (_hojas[i] == estado.getHojas()[i]);
                 i++;
             }
 
@@ -194,8 +199,7 @@ public class RanasEstado {
             //resultado += " " + _hojas[i].toString() + " ";
             if (_hojas[i].equals(SAPO)) {
                 resultado += " >o)";
-            }
-            else if (_hojas[i].equals(RANA)) {
+            } else if (_hojas[i].equals(RANA)) {
                 resultado += " (o<";
             } else {
                 resultado += "    ";

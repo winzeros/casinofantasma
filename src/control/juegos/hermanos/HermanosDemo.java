@@ -37,9 +37,10 @@ public class HermanosDemo {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info(" JUEGO DE LOS HERMANOS");
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
+            log.info(new HermanosEstado().toString());
 
             juego.ejecutar();
 
@@ -58,9 +59,10 @@ public class HermanosDemo {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info(" JUEGO DE LOS HERMANOS");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new HermanosEstado().toString());
 
             juego.ejecutar();
 
@@ -79,9 +81,10 @@ public class HermanosDemo {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info(" JUEGO DE LOS HERMANOS");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new HermanosEstado().toString());
 
             juego.ejecutar();
 
@@ -100,9 +103,10 @@ public class HermanosDemo {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info(" JUEGO DE LOS HERMANOS");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new HermanosEstado().toString());
 
             juego.ejecutar();
 
@@ -121,9 +125,10 @@ public class HermanosDemo {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LOS HERMANOS A LA GREÑA");
+            log.info(" JUEGO DE LOS HERMANOS");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
+            log.info(new HermanosEstado().toString());
 
             juego.ejecutar();
 

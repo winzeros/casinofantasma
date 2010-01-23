@@ -49,6 +49,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
 
         juego.ejecutar();
         } catch (Exception ex) {
@@ -66,6 +67,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
         juego.ejecutar();
         }
         catch (Exception ex) {
@@ -85,6 +87,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
 
             juego.ejecutar();
 
@@ -106,6 +109,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
 
             juego.ejecutar();
 
@@ -127,6 +131,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
 
             juego.ejecutar();
 
@@ -148,6 +153,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" JUEGO REJILLA ROJO AZUL");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
+            log.info(new RejillaRojoAzulEstado().toString());
 
             juego.ejecutar();
 

@@ -7,6 +7,9 @@ package control.juegos.solitario;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -20,6 +23,8 @@ public class SolitarioEstado {
     public static final String FICHA = "*";
     public static final String VACIO = "_";
     public static final String NO_POS = "#";
+    public static long horaInicial;
+
 
     public static enum Movimiento {
 
@@ -32,6 +37,10 @@ public class SolitarioEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_tablero);
         _controlCiclos = true;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
+
+
     }
 
     public SolitarioEstado(boolean ciclos) {

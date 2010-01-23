@@ -44,6 +44,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -65,6 +66,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -86,6 +88,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -107,6 +110,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -128,6 +132,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -149,6 +154,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda voraz");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 
@@ -170,6 +176,7 @@ public class OvejasLobosDemo {
             log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
             log.info(" Busqueda A*");
             log.info("*******************************************\n");
+            log.info(new OvejasLobosEstado().toString());
 
             juego.ejecutar();
 

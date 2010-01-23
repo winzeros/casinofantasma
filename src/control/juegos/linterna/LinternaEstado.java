@@ -2,10 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.juegos.linterna;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -14,6 +15,7 @@ import org.apache.log4j.Logger;
  * @author Laura
  */
 public class LinternaEstado {
+
     private int[] _calzada;
     /*
      * POS 0 -> Persona 1 segundo
@@ -26,6 +28,7 @@ public class LinternaEstado {
      */
     private ArrayList _recorrido;
     private boolean _controlCiclos;
+    public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public LinternaEstado() {
@@ -33,6 +36,8 @@ public class LinternaEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_calzada);
         _controlCiclos = true;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public LinternaEstado(boolean controlCiclos) {
@@ -40,6 +45,8 @@ public class LinternaEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_calzada);
         _controlCiclos = controlCiclos;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     public LinternaEstado(int[] linterna) throws Exception {
@@ -74,7 +81,6 @@ public class LinternaEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
     public int[] getEstadoInicial() {
         int[] estadoInicial = new int[7];
@@ -82,7 +88,7 @@ public class LinternaEstado {
         estadoInicial[0] = 1; // pos 0 - 4
         estadoInicial[1] = 1; // 0 -> dcha
         estadoInicial[2] = 1; // 1 -> izq
-        estadoInicial[3] = 1; 
+        estadoInicial[3] = 1;
         estadoInicial[4] = 1;
         estadoInicial[5] = 0;
         estadoInicial[6] = 30;
@@ -126,7 +132,6 @@ public class LinternaEstado {
     }
 
 // </editor-fold>
-
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
     public boolean estadoValido(int operacion, int[] calzada) {
 
@@ -182,9 +187,9 @@ public class LinternaEstado {
                     break;
             }
         } catch (Exception ex) {
-            Logger.getLogger(LinternaEstado.class.getName()).log(Level.ERROR, 
-                    "Error al comprobar si es válido mover la persona " +
-                    operacion, ex);
+            Logger.getLogger(LinternaEstado.class.getName()).log(Level.ERROR,
+                    "Error al comprobar si es válido mover la persona "
+                    + operacion, ex);
         }
         return res;
     }
@@ -194,17 +199,17 @@ public class LinternaEstado {
     }
 
 // </editor-fold>
-
     public boolean pasar(int operacion) {
 
         boolean res = false;
 
         try {
-            if (estadoValido(operacion,_calzada))
+            if (estadoValido(operacion, _calzada)) {
                 if (this.controlCiclos(_calzada)) {
                     _recorrido.add(_calzada);
                     res = true;
-                } 
+                }
+            }
         } catch (Exception ex) {
             Logger.getLogger(LinternaEstado.class.getName()).log(Level.ERROR,
                     "Error al ejecutar " + operacion, ex);
@@ -213,50 +218,53 @@ public class LinternaEstado {
         return res;
     }
 
-
     @Override
     public String toString() {
-/*
- * tengo q mirarlo
- *
- */
+        /*
+         * tengo q mirarlo
+         *
+         */
         String resultado;
 
         resultado = "               |     |\n";
         resultado += "Pers.1seg:";
-        if (_calzada[0] == 1)
+        if (_calzada[0] == 1) {
             resultado += "  x  |     |\n";
-        else
+        } else {
             resultado += "     |     |   x\n";
+        }
         resultado += "Pers.3seg:";
-        if (_calzada[1] == 1)
+        if (_calzada[1] == 1) {
             resultado += "  x  |     |\n";
-        else
+        } else {
             resultado += "     |     |   x\n";
+        }
         resultado += "Pers.6seg:";
-        if (_calzada[2] == 1)
+        if (_calzada[2] == 1) {
             resultado += "  x  |     |\n";
-        else
+        } else {
             resultado += "     |     |   x\n";
+        }
         resultado += "Pers.8seg:";
-        if (_calzada[3] == 1)
+        if (_calzada[3] == 1) {
             resultado += "  x  |     |\n";
-        else
+        } else {
             resultado += "     |     |   x\n";
+        }
         resultado += "Pers.12seg:";
-        if (_calzada[4] == 1)
+        if (_calzada[4] == 1) {
             resultado += " x  |     |\n";
-        else
+        } else {
             resultado += "    |     |   x\n";
+        }
         resultado += "               |     |\n";
 
         return resultado;
     }
 
 // <editor-fold defaultstate="collapsed" desc="OPCIONES DE PASO">
-
     public boolean P1() {
-        if((_calzada[0] == 1)&&((_calzada[6]-1)>=0)){
+        if ((_calzada[0] == 1) && ((_calzada[6] - 1) >= 0)) {
             _calzada[0] = 0;
             _calzada[5] = _calzada[5] + 1;
             _calzada[6] = _calzada[6] - 1;
@@ -264,9 +272,9 @@ public class LinternaEstado {
         }
         return false;
     }
-    
+
     public boolean P3() {
-        if((_calzada[1] == 1)&&((_calzada[6]-3) >= 0)){
+        if ((_calzada[1] == 1) && ((_calzada[6] - 3) >= 0)) {
             _calzada[1] = 0;
             _calzada[5] = _calzada[5] + 3;
             _calzada[6] = _calzada[6] - 3;
@@ -276,7 +284,7 @@ public class LinternaEstado {
     }
 
     public boolean P6() {
-        if((_calzada[2] == 1)&&((_calzada[6]-6) >= 0)){
+        if ((_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[2] = 0;
             _calzada[5] = _calzada[5] + 6;
             _calzada[6] = _calzada[6] - 6;
@@ -286,7 +294,7 @@ public class LinternaEstado {
     }
 
     public boolean P8() {
-        if((_calzada[3] == 1)&&((_calzada[6]-8) >= 0)){
+        if ((_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[3] = 0;
             _calzada[5] = _calzada[5] + 8;
             _calzada[6] = _calzada[6] - 8;
@@ -296,7 +304,7 @@ public class LinternaEstado {
     }
 
     public boolean P12() {
-        if((_calzada[4] == 1)&&((_calzada[6]-12) >= 0)){
+        if ((_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[4] = 0;
             _calzada[5] = _calzada[5] + 12;
             _calzada[6] = _calzada[6] - 12;
@@ -306,7 +314,7 @@ public class LinternaEstado {
     }
 
     public boolean P1P3() {
-        if((_calzada[0] == 1) && (_calzada[1] == 1) && ((_calzada[6]-3) >= 0)){           
+        if ((_calzada[0] == 1) && (_calzada[1] == 1) && ((_calzada[6] - 3) >= 0)) {
             _calzada[0] = 0;
             _calzada[1] = 0;
             _calzada[5] = _calzada[5] + 3;
@@ -317,7 +325,7 @@ public class LinternaEstado {
     }
 
     public boolean P1P6() {
-        if((_calzada[0] == 1) && (_calzada[2] == 1) && ((_calzada[6]-6) >= 0)){
+        if ((_calzada[0] == 1) && (_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[0] = 0;
             _calzada[2] = 0;
             _calzada[5] = _calzada[5] + 6;
@@ -328,7 +336,7 @@ public class LinternaEstado {
     }
 
     public boolean P1P8() {
-        if((_calzada[0] == 1) && (_calzada[3] == 1) && ((_calzada[6]-8) >= 0)){
+        if ((_calzada[0] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[0] = 0;
             _calzada[3] = 0;
             _calzada[5] = _calzada[5] + 8;
@@ -339,7 +347,7 @@ public class LinternaEstado {
     }
 
     public boolean P1P12() {
-        if((_calzada[0] == 1) && (_calzada[4] == 1) && ((_calzada[6]-12) >= 0)){
+        if ((_calzada[0] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[0] = 0;
             _calzada[4] = 0;
             _calzada[5] = _calzada[5] + 12;
@@ -350,7 +358,7 @@ public class LinternaEstado {
     }
 
     public boolean P3P6() {
-        if((_calzada[1] == 1) && (_calzada[2] == 1) && ((_calzada[6]-6) >= 0)){
+        if ((_calzada[1] == 1) && (_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[1] = 0;
             _calzada[2] = 0;
             _calzada[5] = _calzada[5] + 6;
@@ -361,7 +369,7 @@ public class LinternaEstado {
     }
 
     public boolean P3P8() {
-        if((_calzada[1] == 1) && (_calzada[3] == 1) && ((_calzada[6]-8) >= 0)){
+        if ((_calzada[1] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[1] = 0;
             _calzada[3] = 0;
             _calzada[5] = _calzada[5] + 8;
@@ -372,7 +380,7 @@ public class LinternaEstado {
     }
 
     public boolean P3P12() {
-        if((_calzada[1] == 1) && (_calzada[4] == 1) && ((_calzada[6]-12) >= 0)){
+        if ((_calzada[1] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[1] = 0;
             _calzada[4] = 0;
             _calzada[5] = _calzada[5] + 12;
@@ -383,7 +391,7 @@ public class LinternaEstado {
     }
 
     public boolean P6P8() {
-        if((_calzada[2] == 1) && (_calzada[3] == 1) && ((_calzada[6]-8) >= 0)){
+        if ((_calzada[2] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[2] = 0;
             _calzada[3] = 0;
             _calzada[5] = _calzada[5] + 8;
@@ -394,7 +402,7 @@ public class LinternaEstado {
     }
 
     public boolean P6P12() {
-        if((_calzada[2] == 1) && (_calzada[4] == 1) && ((_calzada[6]-12) >= 0)){
+        if ((_calzada[2] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[2] = 0;
             _calzada[4] = 0;
             _calzada[5] = _calzada[5] + 12;
@@ -405,7 +413,7 @@ public class LinternaEstado {
     }
 
     public boolean P8P12() {
-        if((_calzada[3] == 1) && (_calzada[4] == 1) && ((_calzada[6]-12) >= 0)){
+        if ((_calzada[3] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[3] = 0;
             _calzada[4] = 0;
             _calzada[5] = _calzada[5] + 12;
@@ -415,5 +423,4 @@ public class LinternaEstado {
         return false;
     }
 // </editor-fold>
-
 }

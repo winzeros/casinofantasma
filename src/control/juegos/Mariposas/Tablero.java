@@ -1,4 +1,4 @@
-package control.juegos.Mariposas;
+package control.juegos.mariposas;
 
 /**
  *
@@ -76,13 +76,13 @@ public class Tablero {
 
         switch (valor){
 
-            case Huevo: forma = "   ()  ";
+            case Huevo: forma = "  (_) ";
                         break;
-            case Larva: forma = " Larva ";
+            case Larva: forma = " ~~~~0";
                         break;
-            case Gusano: forma = "Gusano ";
+            case Gusano: forma = " ====0";
                         break;
-            case Mariposa: forma = "  ƸӁƷ  ";
+            case Mariposa: forma = " (>i<)";//"  ƸӁƷ  ";
                         break;
         }
         return forma;

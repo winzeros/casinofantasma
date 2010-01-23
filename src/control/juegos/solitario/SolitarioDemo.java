@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.juegos.solitario;
 
 import aima.search.framework.*;
 import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.uninformed.*;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -15,70 +16,144 @@ import aima.search.uninformed.*;
  */
 public class SolitarioDemo {
 
+
+public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName());
+
     public static void main(String[] args) {
-        /*System.out.println("\n\n\n**************************************");
-        System.out.println("     BÚSQUEDA PRIMERO EN ANCHURA");
-        System.out.println("**************************************\n");
-        BreadthFirstDemo();*/
-        /*System.out.println("\n\n\n**************************************");
-        System.out.println("    BÚSQUEDA PRIMERO EN PROFUNDIDAD");
-        System.out.println("**************************************\n");
-        DepthFirstSearchDemo();
-        /*System.out.println("\n\n\n**************************************");
-        System.out.println(" BÚSQUEDA EN PROFUNDIDAD LIMITADA A 11");
-        System.out.println("**************************************\n");
-        DepthLimitedSearchDemo();
-        System.out.println("\n\n\n**************************************");
-        System.out.println("       BÚSQUEDA DE COSTE UNIFORME");
-        System.out.println("**************************************\n");
-        UniformCostSearchDemo();
-        System.out.println("\n\n\n**************************************");
-        System.out.println("           BÚSQUEDA ¿ITERATIVA?");
-        System.out.println("**************************************\n");
-        IterativeDeepeningSearchDemo();*/
-        solitarioGreedyBestFirstDemo();
+
+        BreadthFirstDemo("SALA11");
+       // SolitarioGreedyBestFirstSearch("SALA11");
+        DepthFirstSearchDemo("SALA11");
+        DepthLimitedSearchDemo("SALA11");
+        UniformCostSearchDemo("SALA11");
+        IterativeDeepeningSearchDemo("SALA11");
+
     }
 
-        private static void solitarioGreedyBestFirstDemo() {
+
+    public static void SolitarioGreedyBestFirstSearch(String sala) {
+
+        try{
+
+        SolitarioJuego juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()));
+        log.info("\n\n\n*******************************************");
+            if (sala != null)
+            log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
+
+        juego.ejecutar();
+        } catch (Exception ex) {
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+
+    public static void BreadthFirstDemo(String sala) {
+        try{
+        SolitarioJuego juego = new SolitarioJuego(new BreadthFirstSearch(new TreeSearch()));
+        log.info("\n\n\n*******************************************");
+            if (sala != null)
+            log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
+        juego.ejecutar();
+        }
+        catch (Exception ex) {
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+        public static void DepthFirstSearchDemo(String sala) {
 
         SolitarioJuego juego;
 
         try {
-            juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()), new SolitarioHeuristicaEsquinas());
+            juego = new SolitarioJuego(new DepthFirstSearch(new TreeSearch()));
 
-            System.out.println("\n\n\n**************************************");
-            System.out.println("       BÚSQUEDA VORAZ");
-            System.out.println("**************************************\n");
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" Busqueda en profundidad");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
 
             juego.ejecutar();
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 
-    private static void BreadthFirstDemo() {
-        SolitarioJuego juego = new SolitarioJuego(new BreadthFirstSearch(new TreeSearch()));
-        juego.ejecutar();
+    public static void DepthLimitedSearchDemo(String sala) {
+
+        SolitarioJuego juego;
+
+        try {
+            juego = new SolitarioJuego(new DepthLimitedSearch(11));
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" Busqueda en profundidad limitada");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
     }
 
-    private static void DepthFirstSearchDemo() {
-        SolitarioJuego juego = new SolitarioJuego(new DepthFirstSearch(new TreeSearch()));
-        juego.ejecutar();
+    public static void UniformCostSearchDemo(String sala) {
+
+        SolitarioJuego juego;
+
+        try {
+            juego = new SolitarioJuego(new UniformCostSearch(new TreeSearch()));
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" Busqueda de coste uniforme");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
     }
 
-   private static void DepthLimitedSearchDemo() {
-        SolitarioJuego juego = new SolitarioJuego(new DepthLimitedSearch(11));
-        juego.ejecutar();
+    public static void IterativeDeepeningSearchDemo(String sala) {
+
+        SolitarioJuego juego;
+
+        try {
+            juego = new SolitarioJuego(new IterativeDeepeningSearch());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO SOLITARIO");
+            log.info(" Busqueda iterativa");
+            log.info("*******************************************\n");
+            log.info(new SolitarioEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
     }
 
-      private static void UniformCostSearchDemo() {
-        SolitarioJuego juego = new SolitarioJuego(new UniformCostSearch(new TreeSearch()));
-        juego.ejecutar();
-    }
+ }
 
-    private static void IterativeDeepeningSearchDemo() {
-        SolitarioJuego juego = new SolitarioJuego(new IterativeDeepeningSearch());
-        juego.ejecutar();
-    }
-}
