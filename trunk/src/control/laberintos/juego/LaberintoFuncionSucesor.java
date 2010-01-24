@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.laberintos.juego;
 
 import aima.basic.Percept;
@@ -12,6 +11,7 @@ import aima.search.map.DynAttributeNames;
 import aima.search.map.Map;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -19,26 +19,32 @@ import java.util.List;
  */
 public class LaberintoFuncionSucesor implements SuccessorFunction {
 
-	private Map map = null;
+    public final static Logger log = Logger.getLogger(LaberintoFuncionSucesor.class.getName());
+    private Map map = null;
 
-	public LaberintoFuncionSucesor(Map aMap) {
-		this.map = aMap;
-	}
+    public LaberintoFuncionSucesor(Map aMap) {
+        this.map = aMap;
+    }
 
-	public List getSuccessors(Object currentState) {
-		List<Successor> successors = new ArrayList<Successor>();
+    public List getSuccessors(Object currentState) {
 
-		String location = currentState.toString();
-		if (currentState instanceof Percept) {
-			location = (String) ((Percept) currentState)
-					.getAttribute(DynAttributeNames.PERCEPT_IN);
-		}
+        List<Successor> successors = new ArrayList<Successor>();
 
-		List<String> linkedLocations = map.getLocationsLinkedTo(location);
-		for (String linkLoc : linkedLocations) {
-			successors.add(new Successor(linkLoc, linkLoc));
-		}
+            LaberintoEstado estadoPadre = (LaberintoEstado) currentState;
 
-		return successors;
-	}
+            String location = currentState.toString();
+            if (currentState instanceof Percept) {
+                location = (String) ((Percept) currentState).getAttribute(DynAttributeNames.PERCEPT_IN);
+            }
+
+            List<String> linkedLocations = map.getLocationsLinkedTo(location);
+            for (String linkLoc : linkedLocations) {
+                LaberintoEstado estado = new LaberintoEstado(estadoPadre);
+                if (estado.puedoMover(linkLoc)) {
+                    successors.add(new Successor(linkLoc, estado));
+                }
+            }
+
+        return successors;
+    }
 }

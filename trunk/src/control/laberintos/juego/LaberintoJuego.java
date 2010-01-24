@@ -4,11 +4,11 @@
  */
 package control.laberintos.juego;
 
+import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
 import aima.search.map.Map;
-import aima.search.uninformed.BreadthFirstSearch;
 import aima.search.uninformed.IterativeDeepeningSearch;
 import control.juegos.ranas.RanasJuego;
 import java.util.ArrayList;
@@ -34,7 +34,20 @@ public class LaberintoJuego {
                     new LaberintoEstadoObjetivo(new String[]{"SALA17", "SALA18", "SALA19"}));
 
         } catch (Exception ex) {
-            Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+            Logger.getLogger(LaberintoJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+        }
+    }
+
+    public LaberintoJuego(Search busqueda, Map map, HeuristicFunction heuristica) {
+        try {
+            this._busqueda = busqueda;
+            this._problema = new Problem(new LaberintoEstado("SALA0"),
+                    new LaberintoFuncionSucesor(map),
+                    new LaberintoEstadoObjetivo(new String[]{"SALA17", "SALA18", "SALA19"}),
+                    heuristica);
+
+        } catch (Exception ex) {
+            Logger.getLogger(LaberintoJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
     }
 
