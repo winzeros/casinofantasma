@@ -5,14 +5,25 @@ import java.util.GregorianCalendar;
 import java.util.Vector;
 
 /**
- *
- * @author JOSECARLOSE
+ * Clase que representa las propiedades del juego.
+ * @author jcarlos
  */
 public class MariposasEstado {
 
-    private Tablero instante;  
-    private Vector<Tablero> contenido;  //Recorrido de la busqueda.
+    /**
+     * Tablero del juego.
+     */
+    private Tablero instante;
+    /**
+     * Recorrido de la busqueda.
+     */
+    private Vector<Tablero> contenido;
+    /**
+     * Hora de inicio del juego.
+     */
     public static long horaInicial;
+
+
     /**
      * Constructor por defecto
      */
@@ -35,18 +46,34 @@ public class MariposasEstado {
         this.contenido.add(actual);
     }
 
+    /**
+     * Metodo que devuelve el vector que represena el recorrido de la busqueda.
+     * @return contenido
+     */
     public Vector<Tablero> getContenido() {
         return contenido;
     }
 
+    /**
+     * Metodo que actualiza el recorrido de la busqueda.
+     * @param contenido
+     */
     public void setContenido(Vector<Tablero> contenido) {
         this.contenido = contenido;
     }
 
+    /**
+     * Metodo que devuelve el tablero.
+     * @return instante
+     */
     public Tablero getInstante() {
         return instante;
     }
 
+    /**
+     * Metodo que actualiza el valor del tablero.
+     * @param instante
+     */
     public void setInstante(Tablero instante) {
         this.instante = instante;
     }

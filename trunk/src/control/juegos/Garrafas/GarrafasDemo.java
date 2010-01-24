@@ -6,8 +6,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
- * @author Grupo C15
+ * Clase para ejecutar el juego Garrafas.
+ * @author jcarlos
  */
 public class GarrafasDemo {
 
@@ -22,6 +22,10 @@ public class GarrafasDemo {
         IterativeDeepeningSearchDemo("SALA11");
     }
 
+    /**
+     * Busqueda primero en anchura.
+     * @param sala
+     */
     public static void BreadthFirstDemo(String sala) {
 
         GarrafasJuego juego;
@@ -44,6 +48,10 @@ public class GarrafasDemo {
         }
     }
 
+    /**
+     * Busqueda en profundidad.
+     * @param sala
+     */
     public static void DepthFirstSearchDemo(String sala) {
 
         GarrafasJuego juego;
@@ -66,6 +74,10 @@ public class GarrafasDemo {
         }
     }
 
+    /**
+     * Busqueda con profundidad limitada.
+     * @param sala
+     */
     public static void DepthLimitedSearchDemo(String sala) {
 
         GarrafasJuego juego;
@@ -88,6 +100,10 @@ public class GarrafasDemo {
         }
     }
 
+    /**
+     * Busqueda de coste uniforme.
+     * @param sala
+     */
     public static void UniformCostSearchDemo(String sala) {
 
         GarrafasJuego juego;
@@ -110,6 +126,10 @@ public class GarrafasDemo {
         }
     }
 
+    /**
+     * Busqueda iterativa.
+     * @param sala
+     */
     public static void IterativeDeepeningSearchDemo(String sala) {
 
         GarrafasJuego juego;

@@ -8,7 +8,8 @@ package control.juegos.hanoi;
 import aima.search.framework.HeuristicFunction;
 
 /**
- *
+ * Clase que representa la heuristica de los discos que se encuentran
+ * mal colocados en el juego.
  * @author Laura
  */
 public class HanoiHeuristicaMalColocados implements HeuristicFunction {

@@ -13,13 +13,19 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que implementa la formacion de los sucesores a partir de un estado
+ * del juego.
  * @author Alicia
  */
 public class OvejasLobosFuncionSucesor implements SuccessorFunction {
 
     public final static Logger log = Logger.getLogger(OvejasLobosFuncionSucesor.class.getName());
 
+    /**
+     * Metodo que almacena en una lista todos los sucesores de un nodo
+     * @param arg0
+     * @return resultado
+     */
     public List getSuccessors(Object arg0) {
 
         ArrayList resultado = new ArrayList();
@@ -37,13 +43,15 @@ public class OvejasLobosFuncionSucesor implements SuccessorFunction {
                         estado.setRecorrido(recorrido);
                         if (estado.mover(i, j)) {
                             recorrido = estado.getRecorrido();
-                            resultado.add(new Successor("          (" + i + "," + j + ")" + estado.toString(),
+                            resultado.add(new Successor("          (" + i +
+                                    "," + j + ")" + estado.toString(),
                                     estado));
                         }
                     }
                 }
             } catch (Exception ex) {
-                Logger.getLogger(OvejasLobosFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
+                Logger.getLogger(OvejasLobosFuncionSucesor.class.getName()).log(Level.ERROR,
+                        "Error al obtener los sucesores de " + arg0.toString(), ex);
             }
         } else {
             log.info("\nTIEMPO DE ESPERA SUPERADO\n");

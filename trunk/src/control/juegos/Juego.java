@@ -18,20 +18,45 @@ import org.apache.log4j.Logger;
  *
  * @author Alicia
  */
-public class Juego{
 
+/**
+ * Clase que representa el juego.
+ *
+ */
+public class Juego {
+
+    /**
+     * Nombre del juego a representar.
+     */
     protected String _nombre;
+    /**
+     * Agente utilizado.
+     */
     protected SearchAgent _agente;
+    /**
+     * Busqueda a utilizar para la resolucion del juego.
+     */
     protected Search _busqueda;
+    /**
+     * Problema a resolver.
+     */
     protected Problem _problema;
 
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
-
+    
+    /**
+     * Actualiza el valor de la busqueda.
+     * @param s
+     */
     public void setBusqueda(Search s) {
         this._busqueda = s;
     }
 
-        public String getNombre() {
+    /**
+     * Metodo que devuelve el nombre del juego que se va a representar
+     * @return _nombre
+     */
+    public String getNombre() {
         return this._nombre;
     }
 
@@ -39,7 +64,12 @@ public class Juego{
 
 // <editor-fold defaultstate="collapsed" desc="IMPRIMIR">
 
-   public String imprimir(List eventos) {
+    /**
+     * Metodo que escribe los eventos del juego en el Log.
+     * @param eventos
+     * @return impresion
+     */
+    public String imprimir(List eventos) {
 
         String impresion = "";
         for (int i = 0; i < eventos.size(); i++) {
@@ -50,6 +80,12 @@ public class Juego{
         return impresion;
     }
 
+    /**
+     * Metodo que escribe los eventos del juego en el area de texto.
+     * @param textArea
+     * @param eventos
+     * @return impresion
+     */
     public String imprimirApp(JTextArea textArea, List eventos) {
 
         String impresion = "";
@@ -61,6 +97,11 @@ public class Juego{
         return impresion;
     }
 
+    /**
+     * Metodo que escribe las propiedades del juego el el Log.
+     * @param propiedades
+     * @return impresion
+     */
     public String imprimirPropiedades(Properties propiedades) {
 
         String impresion = "";
@@ -74,7 +115,13 @@ public class Juego{
         return impresion;
     }
 
-        public String imprimirPropiedadesApp(JTextArea textArea, Properties propiedades) {
+    /**
+     * Metodo que escribe las propiedades del juego en el area de texto.
+     * @param textArea
+     * @param propiedades
+     * @return impresion
+     */
+    public String imprimirPropiedadesApp(JTextArea textArea, Properties propiedades) {
 
         String impresion = "";
         textArea.append("\n");
@@ -90,6 +137,10 @@ public class Juego{
 
 // </editor-fold>
 
+    /**
+     * Metodo que ejecuta el juego que luego se va a implementar en las
+     * clases heredadas.
+     */
     public void ejecutar() {
 
         try {
@@ -103,7 +154,11 @@ public class Juego{
         }
     }
 
-        public void ejecutarApp(JTextArea textArea) {
+    /**
+     * Metodo que ejecuta el juego sobre el area de texto.
+     * @param textArea
+     */
+    public void ejecutarApp(JTextArea textArea) {
 
         try {
 
@@ -116,6 +171,4 @@ public class Juego{
             System.out.println(ex);
         }
     }
-
-
 }

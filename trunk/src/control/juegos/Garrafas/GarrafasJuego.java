@@ -6,13 +6,15 @@ import aima.search.framework.Search;
 import control.juegos.Juego;
 
 /**
- *
+ * Clase que representa el juego de las Garrafas.
  * @author jcarlos
  */
 public class GarrafasJuego extends Juego {
 
     /**
-     * Constructor por defecto
+     * Constructor del juego.
+     * @param busqueda
+     * @throws Exception
      */
     public GarrafasJuego(Search busqueda) {
         this._busqueda = busqueda;

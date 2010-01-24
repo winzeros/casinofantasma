@@ -5,7 +5,8 @@ import java.util.GregorianCalendar;
 import java.util.Vector;
 
 /**
- * @author Grupo C15
+ * Clase que representa las propiedades del juego.
+ * @author jcarlos
  */
 public class GarrafasEstado {
 
@@ -29,6 +30,9 @@ public class GarrafasEstado {
      * litros de capacidad
      */
     private Vector<GarrafasContenido> _contenido;
+    /**
+     * Hora inicial del juego.
+     */
     public static long horaInicial;
 
     /**
@@ -56,26 +60,50 @@ public class GarrafasEstado {
         this._contenido = contenido;
     }
 
+    /**
+     * Metodo que devuelve el vector del contenido de las garrafas.
+     * @return _contenido
+     */
     public Vector<GarrafasContenido> getContenido() {
         return _contenido;
     }
 
+    /**
+     * Metodo que actualiza el vector del contenido de las garrafas.
+     * @param contenido
+     */
     public void setContenido(Vector<GarrafasContenido> contenido) {
         this._contenido = contenido;
     }
 
+    /**
+     * Metodo que devuelve el contenido de la garrafa de 3 litros.
+     * @return _garrafa3
+     */
     public int getGarrafa3() {
         return _garrafa3;
     }
 
+    /**
+     * Metodo que actualiza el contenido de la garrafa de 3 litros.
+     * @param garrafa3
+     */
     public void setGarrafa3(int garrafa3) {
         this._garrafa3 = garrafa3;
     }
 
+    /**
+     * Metodo que devuelve el contenido de la garrafa de 4 litros.
+     * @return
+     */
     public int getGarrafa4() {
         return _garrafa4;
     }
 
+    /**
+     * Metodo que actualiza el contenido de la garrafa de 4 litros.
+     * @param garrafa4
+     */
     public void setGarrafa4(int garrafa4) {
         this._garrafa4 = garrafa4;
     }
@@ -110,6 +138,12 @@ public class GarrafasEstado {
         return posible;
     }
 
+    /**
+     * Metodo que dibuja el estado de las garrafas.
+     * @param g3
+     * @param g4
+     * @return
+     */
     public String toString(int g3, int g4) {
         String resultado = "";
         switch (g4) {
