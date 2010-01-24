@@ -1,26 +1,34 @@
 package control.juegos.mariposas;
 
 /**
- *
- * @author JOSECARLOS
+ * Clase que representa el tablero del juego de las Mariposas.
+ * @author jcarlos
  */
 public class Tablero {
 
+    /**
+     * Coordenada X del tablero.
+     */
     final int coordenadaX = 2;
+    /**
+     * Coordenada Y del tablero.
+     */
     final int coordenadaY = 5;
-
-    //Fases de transformacion Huevo->Larva->Gusano->Mariposa.
+    /**
+     * Enumerado que representa las fases de transformacion
+     * Huevo->Larva->Gusano->Mariposa.
+     */
     public enum Fases {Mariposa,Gusano,Larva,Huevo}
-
-
-    //array bidimensional donde se encontraran todos los pollitos---> es nuestro tablero
+    /**
+     * Array bidimensional donde se encontraran todos
+     * los animalillos---> es nuestro tablero
+     */
     private Fases [][] valor;
     
     /**
      * Constructor por defecto
      */
     public Tablero(){
-
         //inicializamos todos los pollitos.
         this.valor = new Fases[coordenadaX][coordenadaY];
         for(int i = 0; i < coordenadaX; i++)
@@ -29,7 +37,6 @@ public class Tablero {
     }
 
     /**
-    
      * Constructor parametrizado
      * @param padre Tablero anterior
      * @param x Nuevo valor de la coordenada X
@@ -51,15 +58,28 @@ public class Tablero {
             this.valor[x][y+1] = this.obtenerSucesor(padre.getValor(x, y + 1));
     }
 
-
+    /**
+     * Metodo que devuelve el tablero.
+     * @return valor
+     */
     public Fases[][] getValor() {
         return valor;
     }
 
+    /**
+     * Metodo que actualiza el valor del tablero.
+     * @param valor
+     */
     public void setValor(Fases[][] valor) {
         this.valor = valor;
     }
-    
+
+    /**
+     * Metodo que devuelve la fase de una posicion concreta del tablero.
+     * @param x
+     * @param y
+     * @return
+     */
     public Fases getValor(int x, int y){
         return this.valor[x][y];
     }
@@ -89,6 +109,11 @@ public class Tablero {
 
     }
 
+    /**
+     * Devuelve el String para poder dibujar el tablero del juego.
+     * @param obj
+     * @return resultado
+     */
     public String imprimirTablero(Object obj){
 
         String resultado="";
@@ -123,10 +148,8 @@ public class Tablero {
      * Genera el coste de ir desde el momento actual a otro pasado por parametro.
      * Se utiliza la distancia manhattan
      * @param instante Tablero destino
-     * @return
+     * @return coste
      */
-
-    //recorro todo el tablero y miro cuantas casillas son distintas.
     public double generarCoste(Tablero instante) {
         double coste = 0.0;
         for(int i = 0; i < coordenadaX; i++)
@@ -141,7 +164,7 @@ public class Tablero {
      * Devuelve el valor heuristico, segun la evolucion del huevo la heuristica aumenta
      * o disminuye. 
      * El orden de mayor a menor es: Huevo --> Larva --> Larva --> Huevo (0)
-     * @return
+     * @return heuristica
      */
     public double generarHeuristica() {
         double heuristica = 0.0;
@@ -158,7 +181,11 @@ public class Tablero {
     }
 
 
-    //Siguiente evolucion del pollito
+    /**
+     * Metodo que devuelve la sigueinte fase del animalillo.
+     * @param valor
+     * @return siguiente
+     */
     public Fases obtenerSucesor(Fases valor) {
      Fases siguiente = null;
         if(valor == Fases.Huevo)

@@ -2,14 +2,8 @@ package control.juegos.mariposas;
 
 import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
-import aima.search.informed.AStarSearch;
-import aima.search.informed.GreedyBestFirstSearch;
-import aima.search.uninformed.BreadthFirstSearch;
-import aima.search.uninformed.DepthFirstSearch;
-import aima.search.uninformed.DepthLimitedSearch;
-import aima.search.uninformed.IterativeDeepeningSearch;
-import aima.search.uninformed.UniformCostSearch;
-import control.juegos.rejillaRojoAzul.RejillaRojoAzulDemo;
+import aima.search.informed.*;
+import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -19,7 +13,11 @@ import org.apache.log4j.Logger;
  */
 public class MariposasDemo {
 
-    public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getName());
+    /**
+     * Log del juego.
+     */
+    public final static Logger log = Logger.getLogger(MariposasDemo.class.getName());
+
 
     public static void main(String[] args) {
 
@@ -31,6 +29,10 @@ public class MariposasDemo {
         AStarSearch("SALA11");
     }
 
+    /**
+     * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
+     * @param sala
+     */
     public static void RejillaRojoAzulGreedyBestFirstSearch(String sala) {
 
         try {
@@ -53,6 +55,10 @@ public class MariposasDemo {
         }
     }
 
+    /**
+     * Busqueda primero en anchura.
+     * @param sala
+     */
     public static void BreadthFirstDemo(String sala) {
         try {
             MariposasJuego juego = new MariposasJuego(new BreadthFirstSearch(new TreeSearch()));
@@ -73,10 +79,12 @@ public class MariposasDemo {
         }
     }
 
+
+    /**
+     * Busqueda en profundidad.
+     * @param sala
+     */
     public static void DepthFirstSearchDemo(String sala) {
-
-
-
         try {
             MariposasJuego juego = new MariposasJuego(new DepthFirstSearch(new TreeSearch()));
 
@@ -99,6 +107,10 @@ public class MariposasDemo {
         }
     }
 
+    /**
+     * Busqueda con profuncidad limitada.
+     * @param sala
+     */
     public static void DepthLimitedSearchDemo(String sala) {
 
         MariposasJuego juego;
@@ -111,7 +123,7 @@ public class MariposasDemo {
                 log.info(" " + sala);
             }
             log.info(" JUEGO MARIPOSA");
-            log.info(" Busq en profundidad limitada");
+            log.info(" Busq con profundidad limitada");
             log.info("*******************************************\n");
 
             log.info(" \n\n***********************************\n"
@@ -125,6 +137,10 @@ public class MariposasDemo {
         }
     }
 
+    /**
+     * Busqueda coste uniforme.
+     * @param sala
+     */
     public static void UniformCostSearchDemo(String sala) {
 
         MariposasJuego juego;
@@ -151,6 +167,10 @@ public class MariposasDemo {
         }
     }
 
+    /**
+     * Busqueda A*.
+     * @param sala
+     */
     public static void AStarSearch(String sala) {
 
         MariposasJuego juego;
@@ -163,7 +183,7 @@ public class MariposasDemo {
                 log.info(" " + sala);
             }
             log.info(" JUEGO MARIPOSA");
-            log.info(" Busqueda AEstrella");
+            log.info(" Busqueda A*");
             log.info("*******************************************\n");
 
             log.info(" \n\n***********************************\n"

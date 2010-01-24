@@ -9,7 +9,8 @@ import aima.search.framework.HeuristicFunction;
 import java.util.HashMap;
 
 /**
- *
+ * Clase que representa la heuristica de los discos que se pueden mover en
+ * cada instante del juego.
  * @author Laura
  */
 public class HanoiHeuristicaPosibles implements HeuristicFunction {

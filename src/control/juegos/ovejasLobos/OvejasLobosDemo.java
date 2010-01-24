@@ -13,11 +13,14 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase para ejecutar el juego OvejasLobos.
  * @author Alicia
  */
 public class OvejasLobosDemo {
 
+    /**
+     * Log del juego.
+     */
     public final static Logger log = Logger.getLogger(OvejasLobosDemo.class.getName());
 
     public static void main(String[] args) {
@@ -31,6 +34,10 @@ public class OvejasLobosDemo {
         eightPuzzleAStarDemo("SALA11");
     }
 
+    /**
+     * Busqueda Primero en Anchura.
+     * @param sala
+     */
     public static void BreadthFirstDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -53,6 +60,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda en profundidad.
+     * @param sala
+     */
     public static void DepthFirstSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -75,6 +86,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda con profundida limitada.
+     * @param sala
+     */
     public static void DepthLimitedSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -97,6 +112,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda de coste uniforme.
+     * @param sala
+     */
     public static void UniformCostSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -119,6 +138,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda iterativa.
+     * @param sala
+     */
     public static void IterativeDeepeningSearchDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -141,6 +164,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda voraz.
+     * @param sala
+     */
     public static void eightPuzzleGreedyBestFirstDemo(String sala) {
 
         OvejasLobosJuego juego;
@@ -163,6 +190,10 @@ public class OvejasLobosDemo {
         }
     }
 
+    /**
+     * Busqueda A*
+     * @param sala
+     */
     public static void eightPuzzleAStarDemo(String sala) {
 
         OvejasLobosJuego juego;

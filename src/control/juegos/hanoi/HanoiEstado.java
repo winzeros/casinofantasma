@@ -11,17 +11,35 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa las propiedades del juego.
  * @author Laura
  */
 public class HanoiEstado {
 
+    /**
+     * Matriz bidimensional que representa el tablero del
+     * juego que representa los palos.
+     */
     private int[][] _tablero;
+    /**
+     * HashMap donde almaceno los discos que puedo mover de cada palo.
+     */
     private HashMap<Integer, Integer> _posible;
+    /**
+     * ArrayList donde vamos a ir guardando el recorrido por el arbol
+     * de busqueda.
+     */
     private ArrayList _recorrido;
+    /**
+     * Booleano que usaremos para no permitir los ciclos.
+     */
     private boolean _controlCiclos;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
+
+    /**
+     * Constructor por defecto.
+     */
     public HanoiEstado() {
         _tablero = getEstadoInicial();
         _posible = new HashMap();
@@ -33,6 +51,10 @@ public class HanoiEstado {
         _controlCiclos = true;
     }
 
+    /**
+     * Constructor.
+     * @param controlCiclos
+     */
     public HanoiEstado(boolean controlCiclos) {
         _tablero = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -44,10 +66,18 @@ public class HanoiEstado {
         _controlCiclos = controlCiclos;
     }
 
+    /**
+     * Constructor.
+     * @param tablero
+     */
     public HanoiEstado(int[][] tablero) {
         _tablero = tablero;
     }
 
+    /**
+     * Constructor de copia.
+     * @param estado
+     */
     public HanoiEstado(HanoiEstado estado) {
         _tablero = new int[][]{
                     estado._tablero[0].clone(),
@@ -60,7 +90,14 @@ public class HanoiEstado {
     }
 
 // </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
+    /**
+     * Metodo que inicializa el tablero y los discos susceptibles
+     * de movimiento.
+     * @return
+     */
     public int[][] getEstadoInicial() {
 
         int[][] estadoInicial = new int[3][3];
@@ -79,6 +116,10 @@ public class HanoiEstado {
         return estadoInicial;
     }
 
+    /**
+     * Metodo que actualiza el estado del juego.
+     * @param estado
+     */
     public void setEstado(HanoiEstado estado) {
         try {
             for (int i = 0; i < 3; i++) {
@@ -91,24 +132,49 @@ public class HanoiEstado {
         }
     }
 
+    /**
+     * Metodo que devuelve la matriz que representa el tablero.
+     * @return _tablero
+     */
     public int[][] getTablero() {
         return this._tablero;
     }
 
+    /**
+     * Metodo que devuelve el ArrayList que representa el recorrido.
+     * @return _recorrido
+     */
     public ArrayList getRecorrido() {
         return this._recorrido;
     }
 
+    /**
+     * Metodo que devuelve el HashMap que representa las posibilidades
+     * de movimiento.
+     * @return _posibles
+     */
     HashMap<Integer, Integer> getPosibles() {
         return _posible;
     }
 
+    /**
+     * Metodo que actualiza el recorrido.
+     * @param recorrido
+     */
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }
 
 // </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
+
+    /**
+     * Metodo que devuelve si el disco puede moverse al palo.
+     * @param disco
+     * @param palo
+     * @return enc
+     */
     private boolean puedeMoverse(int disco, int palo) {
 
         boolean enc = false;
@@ -138,8 +204,12 @@ public class HanoiEstado {
         return enc;
     }
 
+    /**
+     * Metodo que devuelve si el tablero esta en el recorrido.
+     * @param tablero
+     * @return
+     */
     boolean esta(int[][] tablero) {
-        //devuelve true si el tablero esta en recorrido
         for (int i = 0; i < _recorrido.size(); i++) {
             int[][] tableroAntiguo = (int[][]) _recorrido.get(i);
             boolean iguales = true;
@@ -175,16 +245,14 @@ public class HanoiEstado {
         return true;
     }
 
-    /*
-    @Override
-    public boolean equals(Object o) {
-    if ((HanoiEstado) o == this) return true;
-    if(o.getClass() == HanoiEstado.class){
-    return Arrays.equals(((HanoiEstado)o)._tablero,this._tablero);
-    } else return false;
-    }
-     */
 // </editor-fold>
+
+    /**
+     * Devuelve si el disco se ha movido al palo.
+     * @param disco
+     * @param palo
+     * @return res
+     */
     public boolean mover(int disco, int palo) {
         boolean res = false;
 
@@ -201,6 +269,14 @@ public class HanoiEstado {
         return res;
     }
 
+    /**
+     * Metodo que ejecuta el movimiento del disco entre el palo origen
+     * y el palo destino.
+     * @param disco
+     * @param origen
+     * @param destino
+     * @return res1 && res2
+     */
     private boolean mueveDisco(int disco, int origen, int destino) {
 
         boolean res1 = false;

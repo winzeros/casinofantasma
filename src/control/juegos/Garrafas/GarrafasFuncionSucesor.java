@@ -9,8 +9,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- *
- * @author GabiPC
+ * Clase que implementa la formacion de los sucesores a partir de un estado
+ * del juego.
+ * @author jcarlos
  */
 public class GarrafasFuncionSucesor implements SuccessorFunction {
 
@@ -31,7 +32,11 @@ public class GarrafasFuncionSucesor implements SuccessorFunction {
         return next;
     }
 
-    @Override
+    /**
+     * Metodo que almacena en una lista todos los sucesores de un nodo
+     * @param arg0
+     * @return siguientes
+     */
     public List getSuccessors(Object state) {
 
         List<Successor> siguientes = new ArrayList<Successor>();

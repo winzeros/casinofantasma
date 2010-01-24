@@ -14,8 +14,9 @@ import java.util.GregorianCalendar;
 import org.apache.log4j.Logger;
 
 /**
- * @author JOSECARLOS
- * 
+ * Clase que implementa la formacion de los sucesores a partir de un estado
+ * del juego.
+ * @author jcarlos
  */
 public class OchoPuzzleFuncionSucesor implements SuccessorFunction {
 

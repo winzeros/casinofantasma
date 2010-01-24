@@ -14,7 +14,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que implementa la formacion de los sucesores a partir de un estado
+ * del juego.
  * @author Alicia
  */
 public class NReinasFuncionSucesor implements SuccessorFunction {

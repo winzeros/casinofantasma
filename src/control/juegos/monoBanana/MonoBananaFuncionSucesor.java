@@ -14,7 +14,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que implementa la formacion de los sucesores a partir de un estado
+ * del juego.
  * @author Laura
  */
 public class MonoBananaFuncionSucesor implements SuccessorFunction {
