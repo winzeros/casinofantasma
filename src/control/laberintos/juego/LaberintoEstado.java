@@ -5,8 +5,9 @@
 
 package control.laberintos.juego;
 
-import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -16,11 +17,19 @@ public class LaberintoEstado {
 
     private String sala;
     private ArrayList recorridos;
+    public static long horaInicial;
 
     public LaberintoEstado(String sala) {
         this.recorridos = new ArrayList();
         this.recorridos.add(sala);
         this.sala = sala;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
+    }
+
+    public LaberintoEstado(LaberintoEstado estado) {
+            sala = estado.getSala();
+            recorridos = estado.getRecorridos();
     }
 
     public String getSala() {
@@ -41,6 +50,20 @@ public class LaberintoEstado {
         for (int i = 0; i < rec.size(); i++) {
             this.recorridos.add(rec.get(i));
         }
+    }
+
+    public boolean puedoMover(String destino) {
+        boolean ok = true;
+        int i = 0;
+        while ((i < recorridos.size()) && (ok)) {
+            ok = ok && !recorridos.get(i).equals(destino);
+            i++;
+        }
+        if (ok) {
+            recorridos.add(destino);
+            sala = destino;
+        }
+        return ok;
     }
 
     @Override

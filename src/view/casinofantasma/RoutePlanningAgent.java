@@ -12,6 +12,7 @@ import aima.search.map.AdaptableHeuristicFunction;
 import aima.search.map.ExtendableMap;
 import aima.search.map.MapAgent;
 import aima.search.map.MapEnvironment;
+import aima.search.map.Point2D;
 import aima.search.map.Scenario;
 import java.util.ArrayList;
 import control.laberintos.LaberintoEnvironment;
@@ -55,6 +56,8 @@ public class RoutePlanningAgent {
     /** Controller for a graphical route planning agent application. */
     protected static class RoutePlanningAgentController extends AbstractMapAgentController {
 
+        private LaberintoEnvironment env;
+
         /**
          * Configures a scenario and a list of destinations. Note that for route
          * planning problems, the size of the list needs to be 1.
@@ -62,7 +65,7 @@ public class RoutePlanningAgent {
         @Override
         protected void selectScenarioAndDest(int scenarioIdx, int destIdx) {
             ExtendableMap map = new ExtendableMap();
-            LaberintoEnvironment env = new LaberintoEnvironment(map);
+            env = new LaberintoEnvironment(map);
             String agentLoc = null;
             LaberintoSalas.initMap(map, scenarioIdx + 1);
             agentLoc = LaberintoSalas.SALA0;
@@ -99,6 +102,7 @@ public class RoutePlanningAgent {
                     state.getValue(MapAgentFrame.SEARCH_MODE_SEL));
             heuristic = createHeuristic(state.getValue(MapAgentFrame.HEURISTIC_SEL));
             scenario.getEnv().registerView(model);
+            env.setSearch(search);
         }
 
         /**
@@ -162,14 +166,30 @@ public class RoutePlanningAgent {
     static class H2 extends AdaptableHeuristicFunction {
 
         public double getHeuristicValue(Object state) {
-            /* double result = 0.0;
-            Point2D pt1 = map.getPosition((String) state);
-            Point2D pt2 = map.getPosition((String) goal[1]);
-            if (pt1 != null && pt2 != null) {
-            result = pt1.distance(pt2);
+            double result = 999999.9;
+            double aux = 0.0;
+            Point2D pt1;
+            Point2D pt2;
+            
+            pt1 = map.getPosition((String) state);
+            pt2 = map.getPosition("SALA18");
+            aux = pt1.distance(pt2);
+            if (aux < result) {
+                result = aux;
             }
-            return result;*/
-            return 0;
+            pt1 = map.getPosition((String) state);
+            pt2 = map.getPosition("SALA19");
+            aux = pt1.distance(pt2);
+            if (aux < result) {
+                result = aux;
+            }
+            pt1 = map.getPosition((String) state);
+            pt2 = map.getPosition("SALA20");
+            aux = pt1.distance(pt2);
+            if (aux < result) {
+                result = aux;
+            }
+            return result;
         }
     }
 }
