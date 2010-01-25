@@ -12,17 +12,34 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa las propiedades del juego.
  * @author Alicia
  */
 public class HermanosEstado {
 
+    /**
+     * Array que representa la mesa donde se sentaran los hermanos a comer.
+     */
     private int[] _mesa;
+    /**
+     * ArrayList donde vamos a ir guardando el recorrido por el arbol
+     * de busqueda.
+     */
     private ArrayList _recorrido;
+    /**
+     * Booleano que usaremos para no permitir los ciclos.
+     */
     private boolean _controlCiclos;
+    /**
+     * Hora inicial del juego.
+     */
     public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
+
+    /**
+     * Constructor por defecto.
+     */
     public HermanosEstado() {
         _mesa = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -32,6 +49,10 @@ public class HermanosEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param controlCiclos
+     */
     public HermanosEstado(boolean controlCiclos) {
         _mesa = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -41,6 +62,11 @@ public class HermanosEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param mesa
+     * @throws Exception
+     */
     public HermanosEstado(int[] mesa) throws Exception {
 
         if (mesa.length == 6) {
@@ -58,6 +84,10 @@ public class HermanosEstado {
 
     }
 
+    /**
+     * Constructor de copia.
+     * @param estado
+     */
     public HermanosEstado(HermanosEstado estado) {
 
         try {
@@ -73,7 +103,13 @@ public class HermanosEstado {
     }
 
 // </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
+    /**
+     * Metodo que inicializa la mesa.
+     * @return
+     */
     public int[] getEstadoInicial() {
         int[] estadoInicial = new int[6];
 
@@ -87,6 +123,10 @@ public class HermanosEstado {
         return estadoInicial;
     }
 
+    /**
+     * Metodo que actualiza el estado del juego.
+     * @param estado
+     */
     public void setEstado(HermanosEstado estado) {
 
         try {
@@ -98,20 +138,40 @@ public class HermanosEstado {
         }
     }
 
+    /**
+     * Metodo que devuelve el array que representa la mesa.
+     * @return
+     */
     public int[] getMesa() {
         return this._mesa;
     }
 
+    /**
+     * Metodo que devuelve el ArrayList que representa el recorrido.
+     * @return _recorrido
+     */
     public ArrayList getRecorrido() {
         return this._recorrido;
     }
 
+    /**
+     * Metodo que actualiza el recorrido.
+     * @param recorrido
+     */
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }
 
 // </editor-fold>
+    
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
+
+    /**
+     * MEtodo que devuelve si un hermano puede sentarse en esa posicion.
+     * @param hermano
+     * @param posicion
+     * @return ok
+     */
     public boolean estadoValido(int hermano, int posicion) {
 
         boolean ok = true;
@@ -163,11 +223,23 @@ public class HermanosEstado {
         return ok;
     }
 
+    /**
+     * Metodo que devuelve si la mesa esta en el recorrido.
+     * @param mesa
+     * @return
+     */
     boolean controlCiclos(int[] mesa) {
         return !((this._controlCiclos) && (this._recorrido.contains(mesa)));
     }
 
 // </editor-fold>
+
+    /**
+     * Devuelve si el hermano se ha sentado en la posicion.
+     * @param hermano
+     * @param posicion
+     * @return ok
+     */
     public boolean sentar(int hermano, int posicion) {
 
         boolean ok = false;
@@ -191,6 +263,7 @@ public class HermanosEstado {
         return ok;
     }
 
+    @Override
     public boolean equals(Object o) {
         return Arrays.equals((int[]) o, _mesa);
     }

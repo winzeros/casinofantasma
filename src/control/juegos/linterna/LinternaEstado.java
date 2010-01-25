@@ -11,26 +11,35 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa las propiedades del juego.
  * @author Laura
  */
 public class LinternaEstado {
 
+    /**
+     * Array que representa las personas situadas en la calzada
+     * del lado izquierdo del puente.
+     */
     private int[] _calzada;
-    /*
-     * POS 0 -> Persona 1 segundo
-     * POS 1 -> Persona 3 segundos
-     * POS 2 -> Persona 6 segundos
-     * POS 3 -> Persona 8 segundos
-     * POS 4 -> Persona 12 segundos
-     * POS 5 -> Segundos transcurridos
-     * POS 6 -> Segundos que me quedan
+    /**
+     * ArrayList donde vamos a ir guardando el recorrido por el arbol
+     * de busqueda.
      */
     private ArrayList _recorrido;
+    /**
+     * Booleano que usaremos para no permitir los ciclos.
+     */
     private boolean _controlCiclos;
+    /**
+     * Hora inicial del juego.
+     */
     public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
+
+    /**
+     * Constructor por defecto.
+     */
     public LinternaEstado() {
         _calzada = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -40,6 +49,10 @@ public class LinternaEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param controlCiclos
+     */
     public LinternaEstado(boolean controlCiclos) {
         _calzada = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -49,6 +62,11 @@ public class LinternaEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param linterna
+     * @throws Exception
+     */
     public LinternaEstado(int[] linterna) throws Exception {
 
         if (linterna.length == 7) {
@@ -66,6 +84,10 @@ public class LinternaEstado {
 
     }
 
+    /**
+     * Cosntructor de copia.
+     * @param estado
+     */
     public LinternaEstado(LinternaEstado estado) {
 
         try {
@@ -81,7 +103,13 @@ public class LinternaEstado {
     }
 
 // </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
+    /**
+     * Metodo que inicializa la calzada de la izquierda.
+     * @return estadoInicial
+     */
     public int[] getEstadoInicial() {
         int[] estadoInicial = new int[7];
 
@@ -92,10 +120,23 @@ public class LinternaEstado {
         estadoInicial[4] = 1;
         estadoInicial[5] = 0;
         estadoInicial[6] = 30;
+        /*
+     * POS 0 -> Persona 1 segundo
+     * POS 1 -> Persona 3 segundos
+     * POS 2 -> Persona 6 segundos
+     * POS 3 -> Persona 8 segundos
+     * POS 4 -> Persona 12 segundos
+     * POS 5 -> Segundos transcurridos
+     * POS 6 -> Segundos que me quedan
+     */
 
         return estadoInicial;
     }
 
+    /**
+     * Metodo que actualiza el estado del juego.
+     * @param estado
+     */
     public void setEstado(LinternaEstado estado) {
 
         try {
@@ -107,14 +148,28 @@ public class LinternaEstado {
         }
     }
 
+    /**
+     * MEtodo que devuelve la calzada izquierda.
+     * @return _calzada
+     */
     public int[] getCalzada() {
         return this._calzada;
     }
 
+    /**
+     * Metodo que devuelve el ArrayList que representa el recorrido.
+     * @return _recorrido
+     */
     public ArrayList getRecorrido() {
         return this._recorrido;
     }
 
+    /**
+     * Metodo que devuelve el tiempo que tarda en cruzar el puente la poesona
+     * situada en index en el array de la calzada.
+     * @param index
+     * @return
+     */
     public int getTiempo(int index) {
 
         switch (index) {
@@ -127,12 +182,24 @@ public class LinternaEstado {
         return 0;
     }
 
+    /**
+     * Metodo que actualiza el recorrido.
+     * @param recorrido
+     */
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }
 
 // </editor-fold>
+    
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
+
+    /**
+     * Metodo que devuelve si se puede ejecutar la operacion sobre la calzada.
+     * @param operacion
+     * @param calzada
+     * @return res
+     */
     public boolean estadoValido(int operacion, int[] calzada) {
 
         boolean res = false;
@@ -194,11 +261,22 @@ public class LinternaEstado {
         return res;
     }
 
-    boolean controlCiclos(int[] mesa) {
-        return !((this._controlCiclos) && (this._recorrido.contains(mesa)));
+    /**
+     * Metodo que devuelve si la calzada esta en el recorrido.
+     * @param mesa
+     * @return
+     */
+    boolean controlCiclos(int[] calzada) {
+        return !((this._controlCiclos) && (this._recorrido.contains(calzada)));
     }
 
 // </editor-fold>
+
+    /**
+     * Devuelve si se ha ejecutado la operacion.
+     * @param operacion
+     * @return
+     */
     public boolean pasar(int operacion) {
 
         boolean res = false;
@@ -220,10 +298,7 @@ public class LinternaEstado {
 
     @Override
     public String toString() {
-        /*
-         * tengo q mirarlo
-         *
-         */
+ 
         String resultado;
 
         resultado = "               |     |\n";
@@ -263,6 +338,11 @@ public class LinternaEstado {
     }
 
 // <editor-fold defaultstate="collapsed" desc="OPCIONES DE PASO">
+
+    /**
+     * La persona de 1 segundo cruza al otro lado del puente.
+     * @return
+     */
     public boolean P1() {
         if ((_calzada[0] == 1) && ((_calzada[6] - 1) >= 0)) {
             _calzada[0] = 0;
@@ -273,6 +353,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 3 segundos cruza al otro lado del puente.
+     * @return
+     */
     public boolean P3() {
         if ((_calzada[1] == 1) && ((_calzada[6] - 3) >= 0)) {
             _calzada[1] = 0;
@@ -283,6 +367,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 6 segundos cruza al otro lado del puente.
+     * @return
+     */
     public boolean P6() {
         if ((_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[2] = 0;
@@ -293,6 +381,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 8 segundos cruza al otro lado del puente.
+     * @return
+     */
     public boolean P8() {
         if ((_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[3] = 0;
@@ -303,6 +395,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 12 segundos cruza al otro lado del puente.
+     * @return
+     */
     public boolean P12() {
         if ((_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[4] = 0;
@@ -313,6 +409,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 1 segundo y la de 3 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P1P3() {
         if ((_calzada[0] == 1) && (_calzada[1] == 1) && ((_calzada[6] - 3) >= 0)) {
             _calzada[0] = 0;
@@ -324,6 +424,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 1 segundo y la de 6 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P1P6() {
         if ((_calzada[0] == 1) && (_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[0] = 0;
@@ -335,6 +439,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 1 segundo y la de 8 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P1P8() {
         if ((_calzada[0] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[0] = 0;
@@ -346,6 +454,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 1 segundo y la de 12 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P1P12() {
         if ((_calzada[0] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[0] = 0;
@@ -357,6 +469,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 3 segundos y la de 6 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P3P6() {
         if ((_calzada[1] == 1) && (_calzada[2] == 1) && ((_calzada[6] - 6) >= 0)) {
             _calzada[1] = 0;
@@ -368,6 +484,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 3 segundos y la de 8 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P3P8() {
         if ((_calzada[1] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[1] = 0;
@@ -379,6 +499,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 3 segundos y la de 12 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P3P12() {
         if ((_calzada[1] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[1] = 0;
@@ -390,6 +514,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 6 segundos y la de 8 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P6P8() {
         if ((_calzada[2] == 1) && (_calzada[3] == 1) && ((_calzada[6] - 8) >= 0)) {
             _calzada[2] = 0;
@@ -401,6 +529,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 6 segundos y la de 12 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P6P12() {
         if ((_calzada[2] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[2] = 0;
@@ -412,6 +544,10 @@ public class LinternaEstado {
         return false;
     }
 
+    /**
+     * La persona de 8 segundos y la de 12 cruzan al otro lado del puente.
+     * @return
+     */
     public boolean P8P12() {
         if ((_calzada[3] == 1) && (_calzada[4] == 1) && ((_calzada[6] - 12) >= 0)) {
             _calzada[3] = 0;

@@ -8,7 +8,8 @@ package control.juegos.linterna;
 import aima.search.framework.HeuristicFunction;
 
 /**
- *
+ * Clase que representa la heuristica del tiempo restante del que
+ * disponen las personas para cruzar el puente del juego.
  * @author Laura
  */
 public class LinternaHeuristicaRestante implements HeuristicFunction {

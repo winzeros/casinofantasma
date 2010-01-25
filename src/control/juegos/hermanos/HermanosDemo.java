@@ -11,11 +11,14 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase para ejecutar el juego los Hermanos a la Greña.
  * @author Alicia
  */
 public class HermanosDemo {
 
+    /**
+     * Log del juego.
+     */
     public final static Logger log = Logger.getLogger(HermanosDemo.class.getName());
 
     public static void main(String[] args) {
@@ -27,6 +30,10 @@ public class HermanosDemo {
         IterativeDeepeningSearchDemo("SALA11");
     }
 
+    /**
+     * Busqueda Primero en Anchura.
+     * @param sala
+     */
     public static void BreadthFirstDemo(String sala) {
 
         HermanosJuego juego;
@@ -49,6 +56,10 @@ public class HermanosDemo {
         }
     }
 
+    /**
+     * Busqueda en profundidad.
+     * @param sala
+     */
     public static void DepthFirstSearchDemo(String sala) {
 
         HermanosJuego juego;
@@ -71,6 +82,10 @@ public class HermanosDemo {
         }
     }
 
+    /**
+     * Busqueda con profundida limitada.
+     * @param sala
+     */
     public static void DepthLimitedSearchDemo(String sala) {
 
         HermanosJuego juego;
@@ -93,6 +108,10 @@ public class HermanosDemo {
         }
     }
 
+    /**
+     * Busqueda de coste uniforme.
+     * @param sala
+     */
     public static void UniformCostSearchDemo(String sala) {
 
         HermanosJuego juego;
@@ -115,6 +134,10 @@ public class HermanosDemo {
         }
     }
 
+    /**
+     * Busqueda iterativa.
+     * @param sala
+     */
     public static void IterativeDeepeningSearchDemo(String sala) {
 
         HermanosJuego juego;
