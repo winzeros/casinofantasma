@@ -5,17 +5,23 @@
 
 package control.juegos.linterna;
 
+import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
+import aima.search.informed.AStarSearch;
+import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase para ejecutar el juego de la Linterna.
  * @author Laura
  */
 public class LinternaDemo {
 
+    /**
+     * Log del juego.
+     */
     public final static Logger log = Logger.getLogger(LinternaDemo.class.getName());
 
     public static void main(String[] args) {
@@ -26,6 +32,10 @@ public class LinternaDemo {
         IterativeDeepeningSearchDemo("SALA11");
     }
 
+    /**
+     * Busqueda Primero en Anchura.
+     * @param sala
+     */
     public static void BreadthFirstDemo(String sala) {
 
         LinternaJuego juego;
@@ -48,6 +58,10 @@ public class LinternaDemo {
         }
     }
 
+    /**
+     * Busqueda en profundidad.
+     * @param sala
+     */
     public static void DepthFirstSearchDemo(String sala) {
 
         LinternaJuego juego;
@@ -70,6 +84,10 @@ public class LinternaDemo {
         }
     }
 
+    /**
+     * Busqueda con profuncidad limitada.
+     * @param sala
+     */
     public static void DepthLimitedSearchDemo(String sala) {
 
         LinternaJuego juego;
@@ -92,6 +110,10 @@ public class LinternaDemo {
         }
     }
 
+    /**
+     * Busqueda de coste uniforme.
+     * @param sala
+     */
     public static void UniformCostSearchDemo(String sala) {
 
         LinternaJuego juego;
@@ -114,6 +136,10 @@ public class LinternaDemo {
         }
     }
 
+    /**
+     * Busqueda iterativa.
+     * @param sala
+     */
     public static void IterativeDeepeningSearchDemo(String sala) {
 
         LinternaJuego juego;
@@ -126,6 +152,58 @@ public class LinternaDemo {
                 log.info(" " + sala);
             log.info(" JUEGO DE LA LINTERNA");
             log.info(" Busqueda iterativa");
+            log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+    /**
+     * Busqueda voraz.
+     * @param sala
+     */
+    public static void eightPuzzleGreedyBestFirstDemo(String sala) {
+
+        LinternaJuego juego;
+
+        try {
+            juego = new LinternaJuego(new GreedyBestFirstSearch(new GraphSearch()), new LinternaHeuristicaPersonas());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LA LINTERNA");
+            log.info(" Busqueda voraz");
+            log.info("*******************************************\n");
+            log.info(new LinternaEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+            Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+    /**
+     * Busqueda A*
+     * @param sala
+     */
+    public static void eightPuzzleAStarDemo(String sala) {
+
+        LinternaJuego juego;
+
+        try {
+            juego = new LinternaJuego(new AStarSearch(new GraphSearch()), new LinternaHeuristicaRestante());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LA LINTERNA");
+            log.info(" Busqueda A*");
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 

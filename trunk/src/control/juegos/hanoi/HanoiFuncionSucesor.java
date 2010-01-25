@@ -22,8 +22,16 @@ import org.apache.log4j.Logger;
 
 public class HanoiFuncionSucesor  implements SuccessorFunction {
 
-        public final static Logger log = Logger.getLogger(HanoiFuncionSucesor.class.getName());
+    /**
+     * Log del juego
+     */
+    public final static Logger log = Logger.getLogger(HanoiFuncionSucesor.class.getName());
 
+    /**
+     * Metodo que devuelve una lista de los sucesores de un nodo.
+     * @param arg0
+     * @return resultado
+     */
     public List getSuccessors(Object arg0) {
 
         ArrayList resultado = new ArrayList();

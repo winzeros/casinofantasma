@@ -9,11 +9,17 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa el Estado Objetivo del juego de los Hermanos a la Greña.
  * @author Alicia
  */
 public class HermanosEstadoObjetivo implements GoalTest {
 
+    /**
+     * Metodo que determina si el estado corresponde al estado ojetivo
+     * del juego.
+     * @param arg0
+     * @return
+     */
     public boolean isGoalState(Object arg0) {
 
         HermanosEstado estado = (HermanosEstado) arg0;

@@ -34,6 +34,10 @@ public class HanoiEstado {
      * Booleano que usaremos para no permitir los ciclos.
      */
     private boolean _controlCiclos;
+    /**
+     * Hora inicial del juego.
+     */
+    public static long horaInicial;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
 
@@ -239,9 +243,6 @@ public class HanoiEstado {
         if (this._tablero != other._tablero && (this._tablero == null || !Arrays.deepEquals(_tablero, other._tablero))) {
             return false;
         }
-        /*if (this._posible != other._posible && (this._posible == null || !this._posible.equals(other._posible))) {
-        return false;
-        }*/
         return true;
     }
 

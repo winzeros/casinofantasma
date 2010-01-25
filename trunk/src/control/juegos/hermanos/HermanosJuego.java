@@ -13,11 +13,16 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa el juego de los Hermanos a la Greña.
  * @author Alicia
  */
 public class HermanosJuego extends Juego {
 
+    /**
+     * Constructor del juego.
+     * @param busqueda
+     * @throws Exception
+     */
     public HermanosJuego(Search busqueda) throws Exception {
 
         try {

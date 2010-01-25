@@ -8,13 +8,14 @@ package control.juegos.linterna;
 import aima.search.framework.HeuristicFunction;
 
 /**
- *
+ * Clase que representa la heuristica de las personas que aun no han
+ * cruzado el puente del juego.
  * @author Laura
  */
 public class LinternaHeuristicaPersonas implements HeuristicFunction {
 
     /**
-     * Hallamos la heuristica en funcion del numero de personas que
+     * Calculamos la heuristica en funcion del numero de personas que
      * quedan por pasar al otro lado del puente.
      * @return heuristica
      */

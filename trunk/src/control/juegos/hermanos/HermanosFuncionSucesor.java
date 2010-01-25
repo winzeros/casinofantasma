@@ -20,8 +20,16 @@ import org.apache.log4j.Logger;
  */
 public class HermanosFuncionSucesor implements SuccessorFunction {
 
+    /**
+     * Log del juego
+     */
     public final static Logger log = Logger.getLogger(HermanosFuncionSucesor.class.getName());
 
+    /**
+     * Metodo que devuelve una lista de los sucesores de un nodo.
+     * @param arg0
+     * @return
+     */
     public List getSuccessors(Object arg0) {
 
         ArrayList resultado = new ArrayList();
