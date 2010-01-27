@@ -30,6 +30,7 @@ public class HanoiDemo {
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
+        AStarSearch("SALA11");
     }
 
     /**
@@ -211,6 +212,28 @@ public class HanoiDemo {
 
         } catch (Exception ex) {
             Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+     public static void AStarSearch(String sala) {
+
+        HanoiJuego juego;
+
+        try {
+            juego = new HanoiJuego(new AStarSearch(new TreeSearch()),new HanoiHeuristicaPosibles());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS HANOI ");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
+            log.info(new HanoiEstado().toString());
+
+            juego.ejecutar();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 

@@ -22,27 +22,17 @@ import org.apache.log4j.Logger;
  */
 public class OchoPuzzleDemo {
 
-    /*
-    //proponemos tres tipos de estado inicial ya que hay algunas busquedas que tardarian mucho.
-    static EightPuzzleBoard boardWithThreeMoveSolution = new EightPuzzleBoard(
-    new int[] { 1, 2, 5, 3, 4, 0, 6, 7, 8 });;
 
-    static EightPuzzleBoard random1 = new EightPuzzleBoard(new int[] { 1, 4, 2,
-    7, 5, 8, 3, 0, 6 });
 
-    static EightPuzzleBoard extreme = new EightPuzzleBoard(new int[] { 0, 8, 7,
-    6, 5, 4, 3, 2, 1 });
-     */
-
-     public final static Logger log = Logger.getLogger(OchoPuzzleDemo.class.getName());
+    public final static Logger log = Logger.getLogger(OchoPuzzleDemo.class.getName());
 
     public static void main(String[] args) {
 
         BreadthFirstDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
-        //eightPuzzleGreedyBestFirstDemo("SALA11");
-        eightPuzzleGreedyBestFirstManhattanDemo("SALA11");
+       // eightPuzzleGreedyBestFirstDemo("SALA11");
+       // eightPuzzleGreedyBestFirstManhattanDemo("SALA11");
         //eightPuzzleAStarManhattanDemo("SALA11");
         eightPuzzleSimulatedAnnealingDemo("SALA11");
     }
@@ -143,7 +133,7 @@ public class OchoPuzzleDemo {
             if (sala != null)
             log.info(" " + sala);
             log.info(" JUEGO 8PUZZLE");
-            log.info(" BÚSQUEDA GreedyBestFirstSearch");
+            log.info(" BÚSQUEDA GreedyBestFirstSearch con función Descolocados");
             log.info("***************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
         juego.ejecutar();
