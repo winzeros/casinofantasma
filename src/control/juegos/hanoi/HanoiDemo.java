@@ -13,7 +13,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *  Clase para ejecutar el juego las Torres de Hanoi.
+ *  Clase para ejecutar el juego de las Torres de Hanoi.
  * @author Laura
  */
 public class HanoiDemo {

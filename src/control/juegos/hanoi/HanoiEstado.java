@@ -56,7 +56,7 @@ public class HanoiEstado {
     }
 
     /**
-     * Constructor.
+     * Constructor parametrizado.
      * @param controlCiclos
      */
     public HanoiEstado(boolean controlCiclos) {
@@ -71,7 +71,7 @@ public class HanoiEstado {
     }
 
     /**
-     * Constructor.
+     * Constructor parametrizado.
      * @param tablero
      */
     public HanoiEstado(int[][] tablero) {
