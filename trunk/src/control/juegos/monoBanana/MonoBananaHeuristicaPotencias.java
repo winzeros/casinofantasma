@@ -8,7 +8,8 @@ package control.juegos.monoBanana;
 import aima.search.framework.HeuristicFunction;
 
 /**
- *
+ * Clase que representa la heuristica para determinar el movimiento en
+ * cada instante del juego.
  * @author Laura
  */
 public class MonoBananaHeuristicaPotencias implements HeuristicFunction {

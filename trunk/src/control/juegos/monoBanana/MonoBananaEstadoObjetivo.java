@@ -10,11 +10,17 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
- * @author Administrador
+ * Clase que representa el Estado Objetivo del juego del Mono y la Banana.
+ * @author laura
  */
 public class MonoBananaEstadoObjetivo implements GoalTest {
 
+    /**
+     * Metodo que determina si el estado corresponde al estado ojetivo
+     * del juego.
+     * @param arg0
+     * @return sol
+     */
     public boolean isGoalState(Object arg0) {
 
 

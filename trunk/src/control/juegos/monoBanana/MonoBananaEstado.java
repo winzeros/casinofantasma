@@ -12,34 +12,36 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase que representa las propiedades del juego.
  * @author Laura
  */
 public class MonoBananaEstado {
 
+    /**
+     * Array que representa las posiciones en la habitacion
+     * y la posesion del platano.
+     */
     private int[] _habitacion;
-    public static long horaInicial;
-    /*
-     * POSICION DEL MONO EN LA HABITACION
-     *     0: puerta
-     *     1: centro
-     *     2: ventana
-     * POSICION DEL MONO RESPECTO A LA CAJA
-     *     0: suelo
-     *     1: caja
-     * POSICION DE LA CAJA EN LA HABITACION
-     *     0: puerta
-     *     1: centro
-     *     2: ventana
-     * POSESION DEL PLATANO
-     *     0: lo_tiene
-     *     1: no_lo_tiene
+    /**
+     * ArrayList donde vamos a ir guardando el recorrido por el arbol
+     * de busqueda.
      */
     private ArrayList _recorrido;
+    /**
+     * Booleano que usaremos para no permitir los ciclos.
+     */
     private boolean _controlCiclos;
+    /**
+     * Hora inicial del juego.
+     */
+    public static long horaInicial;
 
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
+
+    /**
+     * Constructor por defecto.
+     */
     public MonoBananaEstado() {
         _habitacion = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -49,6 +51,10 @@ public class MonoBananaEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param controlCiclos
+     */
     public MonoBananaEstado(boolean controlCiclos) {
         _habitacion = getEstadoInicial();
         _recorrido = new ArrayList();
@@ -58,6 +64,11 @@ public class MonoBananaEstado {
         horaInicial = calendario.getTimeInMillis();
     }
 
+    /**
+     * Constructor parametrizado.
+     * @param habitacion
+     * @throws Exception
+     */
     public MonoBananaEstado(int[] habitacion) throws Exception {
 
         if (habitacion.length == 4) {
@@ -75,6 +86,10 @@ public class MonoBananaEstado {
 
     }
 
+    /**
+     * Constructor de copia.
+     * @param estado
+     */
     public MonoBananaEstado(MonoBananaEstado estado) {
 
         try {
@@ -92,17 +107,40 @@ public class MonoBananaEstado {
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
+
+    /**
+     * Metodo que inicializa la habitacion.
+     * @return
+     */
     public int[] getEstadoInicial() {
         int[] habitacion = new int[4];
-
         habitacion[0] = 0; //Mono en la puerta
         habitacion[1] = 0; //Caja en el suelo
         habitacion[2] = 2; //Caja en la ventana
         habitacion[3] = 1; //No tiene el platano
-
+        /*
+         * POSICION DEL MONO EN LA HABITACION
+         *     0: puerta
+         *     1: centro
+         *     2: ventana
+         * POSICION DEL MONO RESPECTO A LA CAJA
+         *     0: suelo
+         *     1: caja
+         * POSICION DE LA CAJA EN LA HABITACION
+         *     0: puerta
+         *     1: centro
+         *     2: ventana
+         * POSESION DEL PLATANO
+         *     0: lo_tiene
+         *     1: no_lo_tiene
+         */
         return habitacion;
     }
 
+    /**
+     * Metodo que actualiza el estado del juego.
+     * @param estado
+     */
     public void setEstado(MonoBananaEstado estado) {
 
         try {
@@ -114,14 +152,26 @@ public class MonoBananaEstado {
         }
     }
 
+    /**
+     * Metodo que devuelve el array que representa la habitacion.
+     * @return _habitacion
+     */
     public int[] getHabitacion() {
         return this._habitacion;
     }
 
+    /**
+     * Metodo que devuelve el ArrayList que representa el recorrido.
+     * @return _recorrido
+     */
     public ArrayList getRecorrido() {
         return this._recorrido;
     }
 
+    /**
+     * Metodo que actualiza el recorrido.
+     * @param recorrido
+     */
     public void setRecorrido(ArrayList recorrido) {
         this._recorrido = recorrido;
     }
@@ -129,26 +179,32 @@ public class MonoBananaEstado {
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="CONTROL DE ESTADOS">
+
+    /**
+     * Metodo que devuelve si el mono puede realizar la operacion.
+     * @param operacion
+     * @return res
+     */
     public boolean puedeMoverse(int operacion) {
 
-        boolean res = true;
+        boolean res = false;
 
         try {
             switch (operacion) {
                 case 1: //Andar
-                    andar();
+                    res = andar();
                     break;
                 case 2: //Empujar_caja
-                    empujarCaja();
+                    res = empujarCaja();
                     break;
                 case 3: //Subir_caja
-                    SubirCaja();
+                    res = SubirCaja();
                     break;
                 case 4: //Bajar_caja
-                    BajarCaja();
+                    res = BajarCaja();
                     break;
                 case 5: //Coger_platano
-                    CogerPlatano();
+                    res = CogerPlatano();
                     break;
             }
 
@@ -160,12 +216,22 @@ public class MonoBananaEstado {
         return res;
     }
 
+    /**
+     * Metodo que devuelve si la habitacion esta en el recorrido.
+     * @param mesa
+     * @return
+     */
     boolean controlCiclos(int[] habitacion) {
         return !((this._controlCiclos) && (this._recorrido.contains(habitacion)));
     }
 
 // </editor-fold>
 
+    /**
+     * Metodo que devuelve si el mono ha realizado la operacion.
+     * @param operacion
+     * @return res
+     */
     public boolean mover(int operacion) {
         boolean res = false;
 
@@ -186,7 +252,10 @@ public class MonoBananaEstado {
 
 // <editor-fold defaultstate="collapsed" desc="OPERACIONES DEL MONO">
 
-    //Operacion 1, ANDAR
+    /**
+     * Metodo que ejecuta la operacion ANDAR.
+     * @return
+     */
     public boolean andar() {
         //Si el mono esta en la puerta
         if (_habitacion[0] == 0) {
@@ -209,7 +278,10 @@ public class MonoBananaEstado {
         return false;
     }
 
-    //Operacion 2, EMPUJAR CAJA
+    /**
+     * Metodo que ejecuta la operacion EMPUJAR CAJA
+     * @return
+     */
     public boolean empujarCaja() {
         //Si el mono y la caja estan en la puerta
         if ((_habitacion[0] == 0) && (_habitacion[2] == 0)) {
@@ -235,7 +307,10 @@ public class MonoBananaEstado {
         return false;
     }
 
-    //Operacion 3, SUBIR CAJA
+    /**
+     * Metodo que ejecuta la operacion SUBIR CAJA
+     * @return
+     */
     public boolean SubirCaja() {
         if ((_habitacion[0] == _habitacion[2]) && (_habitacion[0] == 1)) {
             _habitacion[1] = 1;//caja
@@ -244,7 +319,10 @@ public class MonoBananaEstado {
         return false;
     }
 
-    //Operacion 4, BAJAR CAJA
+    /**
+     * Metodo que ejecuta la operacion BAJAR CAJA
+     * @return
+     */
     public boolean BajarCaja() {
         if ((_habitacion[0] == _habitacion[2])&& (_habitacion[0] == 1)) {
             _habitacion[1] = 0;//suelo
@@ -253,7 +331,10 @@ public class MonoBananaEstado {
         return false;
     }
 
-    //Operacion 5, COGER PLANATANO
+    /**
+     * Metodo que ejecuta la operacion COGER_PLATANO
+     * @return
+     */
     public boolean CogerPlatano() {
         if ((_habitacion[0] == _habitacion[2]) && (_habitacion[1] == 1)) {
             _habitacion[0] = 1;
