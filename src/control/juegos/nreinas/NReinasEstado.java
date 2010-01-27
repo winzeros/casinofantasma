@@ -24,7 +24,7 @@ public class NReinasEstado {
 	int[][] tablero;
 
 	int n;
-    public static long horaInicial;
+        public static long horaInicial;
 
 	public NReinasEstado(int n) {
 
@@ -38,6 +38,19 @@ public class NReinasEstado {
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
 	}
+
+        public int getNumeroReinas(){
+            int numReinas=0;
+            for (int i = 0; i < this.n; i++)
+			for (int j = 0; j < this.n; j++) {
+				if (tablero[i][j] == 1) numReinas++;
+			}
+             return numReinas;
+        }
+
+        public int getTamanoTablero(){
+            return this.n;
+        }
 
 	public void añadirReina(XYLocation l) {
 

@@ -6,6 +6,7 @@
 package control.juegos.nreinas;
 
 import aima.search.framework.TreeSearch;
+import aima.search.informed.AStarSearch;
 import aima.search.uninformed.BreadthFirstSearch;
 import aima.search.uninformed.DepthFirstSearch;
 import aima.search.uninformed.DepthLimitedSearch;
@@ -29,6 +30,8 @@ public class NReinasDemo {
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
+        AStarSearch("SALA11");
+
     }
 
     public static void BreadthFirstDemo(String sala) {
@@ -138,6 +141,29 @@ public class NReinasDemo {
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+    }
+
+
+        public static void AStarSearch(String sala) {
+
+        NReinasJuego juego;
+
+        try {
+            juego = new NReinasJuego(new AStarSearch(new TreeSearch()),new NReinasFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS 8 REINAS");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
+            log.info(new NReinasEstado(8).toString());
+
+            juego.ejecutar();
+            
+        } catch (Exception ex) {
+             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
     }
 }

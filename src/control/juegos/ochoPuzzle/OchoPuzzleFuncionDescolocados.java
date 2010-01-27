@@ -8,7 +8,7 @@ import aima.basic.XYLocation;
 import aima.search.framework.HeuristicFunction;
 
 /**
- * @author Ravi Mohan
+ * @author JOSECARLOS
  * 
  */
 

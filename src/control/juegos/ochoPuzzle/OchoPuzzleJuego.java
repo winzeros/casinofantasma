@@ -59,6 +59,7 @@ public class OchoPuzzleJuego extends Juego {
                     new OchoPuzzleFuncionSucesor(),
                     new OchoPuzzleFuncionObjetivo(),
                     new OchoPuzzleFuncionDescolocados());
+                   
         } else if (this.busqueda instanceof AStarSearch) {
             problema = new Problem(new OchoPuzzleEstados(),
                     new OchoPuzzleFuncionSucesor(),
