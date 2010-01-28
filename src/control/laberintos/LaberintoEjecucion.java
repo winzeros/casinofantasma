@@ -51,6 +51,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = OvejasLobosDemo.IterativeDeepeningSearchDemo(sala, consola);
                         break;
+                    //Busqueda A*
+                    case 5:
+                        ok = OvejasLobosDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First
+                    case 6:
+                        ok = OvejasLobosDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva
+                    case 7:
+                        ok = OvejasLobosDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing
+                    case 8:
+                        ok = OvejasLobosDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada
+                    case 9:
+                        ok = OvejasLobosDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First
+                    case 10:
+                        ok = OvejasLobosDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada
+                    case 11:
+                        ok = OvejasLobosDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda A*
+                    case 12:
+                        ok = OvejasLobosDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Primero en profundidad
+                    case 13:
+                        ok = OvejasLobosDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Coste uniforme
+                    case 14:
+                        ok = OvejasLobosDemo.UniformCostSearchDemo(sala, consola);
+                        break;
                 }
                 break;
             //Juego de las garrafas
@@ -76,6 +116,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = GarrafasDemo.IterativeDeepeningSearchDemo(sala, consola);
                         break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = GarrafasDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = GarrafasDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = GarrafasDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = GarrafasDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = GarrafasDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = GarrafasDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = GarrafasDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = GarrafasDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = GarrafasDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = GarrafasDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
                 }
                 break;
             //Juego de los Hermanos a la greña
@@ -99,7 +179,47 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda iterativa
                     case 4:
-                        ok = HermanosDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        ok = HermanosDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = HermanosDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = HermanosDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = HermanosDemo.UniformCostSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = HermanosDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = HermanosDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = HermanosDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = HermanosDemo.UniformCostSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = HermanosDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = HermanosDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = HermanosDemo.UniformCostSearchDemo(sala, consola);
                         break;
                 }
                 break;
@@ -126,6 +246,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = NReinasDemo.IterativeDeepeningSearchDemo(sala, consola);
                         break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = NReinasDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = NReinasDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = NReinasDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = NReinasDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = NReinasDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = NReinasDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = NReinasDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = NReinasDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = NReinasDemo.UniformCostSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = NReinasDemo.BreadthFirstDemo(sala, consola);
+                        break;
                 }
                 break;
             //Juego de las Ranas
@@ -151,6 +311,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = RanasDemo.IterativeDeepeningSearchDemo(sala, consola);
                         break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = RanasDemo.AStarSearchRanas(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = RanasDemo.GreedyBestFirstSearchRanas(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = RanasDemo.RecursiveBestFirstSearchRanas(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = RanasDemo.SimulatedAnnealingSearchRanas(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = RanasDemo.HillClimbingSearchRanas(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = RanasDemo.AStarSearchDescolocadas(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = RanasDemo.GreedyBestFirstSearchDescolocadas(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = RanasDemo.RecursiveBestFirstSearchDescolocadas(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = RanasDemo.SimulatedAnnealingSearchDescolocadas(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = RanasDemo.HillClimbingSearchDescolocadas(sala, consola);
+                        break;
                 }
                 break;
             //Juego de la linterna
@@ -174,7 +374,47 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda iterativa
                     case 4:
-                        ok = LinternaDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        ok = LinternaDemo.DepthFirstSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = LinternaDemo.AStarSearchPersonas(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = LinternaDemo.GreedyBestFirstSearchPersonas(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = LinternaDemo.RecursiveBestFirstSearchPersonas(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = LinternaDemo.SimulatedAnnealingSearchPersonas(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = LinternaDemo.HillClimbingSearchPersonas(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = LinternaDemo.AStarSearchRestante(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = LinternaDemo.GreedyBestFirstSearchRestante(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = LinternaDemo.RecursiveBestFirstSearchRestante(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = LinternaDemo.SimulatedAnnealingSearchRestante(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = LinternaDemo.HillClimbingSearchRestante(sala, consola);
                         break;
                 }
                 break;
@@ -200,6 +440,46 @@ public class LaberintoEjecucion {
                     //Busqueda iterativa
                     case 4:
                         ok = MonoBananaDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = MonoBananaDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = MonoBananaDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = MonoBananaDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = MonoBananaDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = MonoBananaDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = MonoBananaDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = MonoBananaDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = MonoBananaDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = MonoBananaDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = MonoBananaDemo.HillClimbingSearch(sala, consola);
                         break;
                 }
                 break;
@@ -227,6 +507,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = RejillaRojoAzulDemo.IterativeDeepeningSearchDemo(sala, consola);
                         break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = RejillaRojoAzulDemo.RejillaRojoAzulGreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = RejillaRojoAzulDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = RejillaRojoAzulDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = RejillaRojoAzulDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = RejillaRojoAzulDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = RejillaRojoAzulDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = RejillaRojoAzulDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = RejillaRojoAzulDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = RejillaRojoAzulDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = RejillaRojoAzulDemo.HillClimbingSearch(sala, consola);
+                        break;
                 }
                 break;
             //Juego del 8 puzzle
@@ -238,7 +558,7 @@ public class LaberintoEjecucion {
                         break;
                     //Primero en profundidad
                     case 1:
-                        ok = OchoPuzzleDemo.DepthFirstSearchDemo(sala, consola);
+                        ok = OchoPuzzleDemo.AStarSearch(sala, consola);
                         break;
                     //Primero en profundidad limitada
                     case 2:
@@ -246,11 +566,51 @@ public class LaberintoEjecucion {
                         break;
                     //Coste uniforme
                     case 3:
-                        ok = OchoPuzzleDemo.UniformCostSearchDemo(sala, consola);
+                        ok = OchoPuzzleDemo.HillClimbingSearch(sala, consola);
                         break;
                     //Busqueda iterativa
                     case 4:
                         ok = OchoPuzzleDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = OchoPuzzleDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = OchoPuzzleDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = OchoPuzzleDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = OchoPuzzleDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = OchoPuzzleDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = OchoPuzzleDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = OchoPuzzleDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = OchoPuzzleDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = OchoPuzzleDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = OchoPuzzleDemo.HillClimbingSearch(sala, consola);
                         break;
                 }
                 break;
@@ -277,6 +637,46 @@ public class LaberintoEjecucion {
                     case 4:
                         ok = MariposasDemo.GreedyBestFirstSearch(sala, consola);
                         break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = MariposasDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = MariposasDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = MariposasDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = MariposasDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = MariposasDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = MariposasDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = MariposasDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = MariposasDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = MariposasDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = MariposasDemo.HillClimbingSearch(sala, consola);
+                        break;
                 }
                 break;
             //Juego de las torres de Hanoi
@@ -300,7 +700,47 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda iterativa
                     case 4:
+                        ok = HanoiDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = HanoiDemo.AStarSearchMalColocados(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = HanoiDemo.GreedyBestFirstSearchMalColocados(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = HanoiDemo.GreedyBestFirstSearchPosibles(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = HanoiDemo.SimulatedAnnealingSearchMalColocados(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = HanoiDemo.HillClimbingSearchMalColocados(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = HanoiDemo.AStarSearchPosibles(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = HanoiDemo.GreedyBestFirstSearchPosibles(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
                         ok = HanoiDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = HanoiDemo.SimulatedAnnealingSearchPosibles(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = HanoiDemo.HillClimbingSearchMalColocados(sala, consola);
                         break;
                 }
                 break;
@@ -326,6 +766,46 @@ public class LaberintoEjecucion {
                     //Busqueda iterativa
                     case 4:
                         ok = SolitarioDemo.IterativeDeepeningSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica ranas
+                    case 5:
+                        ok = SolitarioDemo.BreadthFirstDemo(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica ranas
+                    case 6:
+                        ok = SolitarioDemo.HillClimbingSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica ranas
+                    case 7:
+                        ok = SolitarioDemo.DepthLimitedSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica ranas
+                    case 8:
+                        ok = SolitarioDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica ranas
+                    case 9:
+                        ok = SolitarioDemo.UniformCostSearchDemo(sala, consola);
+                        break;
+                    //Busqueda Busqueda A* heuristica descolocadas
+                    case 10:
+                        ok = SolitarioDemo.AStarSearch(sala, consola);
+                        break;
+                    //Busqueda Greedy Best-First heuristica descolocadas
+                    case 11:
+                        ok = SolitarioDemo.GreedyBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Mejor Recursiva heuristica descolocadas
+                    case 12:
+                        ok = SolitarioDemo.RecursiveBestFirstSearch(sala, consola);
+                        break;
+                    //Busqueda Simulated Annealing heuristica descolocadas
+                    case 13:
+                        ok = SolitarioDemo.SimulatedAnnealingSearch(sala, consola);
+                        break;
+                    //Busqueda Escalada heuristica descolocadas
+                    case 14:
+                        ok = SolitarioDemo.HillClimbingSearch(sala, consola);
                         break;
                 }
                 break;
