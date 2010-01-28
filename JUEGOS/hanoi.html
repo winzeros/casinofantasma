@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Hanoi</title>
+<style type="text/css">
+<!--
+.Estilo2 {color: #990099}
+-->
+</style>
+</head>
+
+<body>
+
+
+		<div id="left" align="left">
+		
+			
+			<a alt="photo"><img src="images/hanoi2.png" alt="hanoi" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo de este juego es mover desde el palo de la izquierda hasta el de la derecha teniedno en cuenta que soo podemos mover un disco a la vez y que éste puede ser colocado encima de un disco de mayor diámetro o en un palo vacío</p>
+			<h1>Operadores</h1>
+			<p>Como operador del juego de hanoi tenemos:</p>
+			<ul>
+			  <li>mueveDisco(int disco, int origen, int destino).</li>
+	      </ul>
+			<p>Origen y Destino representan a las varillas origen y destino del disco que se quiere mover. </p>
+			<h1>Algoritmo heuristico</h1>
+			<p>Para dicho problema hemos implementado dos tipos de heuristicas:</p>
+			<ul>
+			  <li><strong>Heuristica MalColocados </strong><br />
+			   Calculamos la heuristica en funci&oacute;n de los discos que estan colocados<br />
+ en su lugar correcto.</li>
+          </ul>
+			<p>&nbsp;</p>
+			<ul>
+			  <li><strong>Heuristica Posibles<br />
+			  </strong>Calculamos la heuristica en funci&oacute;n de los discos que tienen la<br />
+posibilidad de ejecutar un movimiento.<strong><br />
+      <br />
+      </strong></li>
+	      </ul>
+			<h1>Espacio de estados</h1>
+			<p>El espacio de estados esta representado por las tres varillas con los tres discos (peque&ntilde;o (1), mediano (2), grande (3)).<br />
+		    Dicho estado se ha implementado con un array bidimensional (3x3) donde las columnas representas las diferentes varillas, y las columnas la altura dentro de cada varilla.</p>
+			<p><strong><em>Estado inicial:</em></strong></p>
+			<blockquote>
+              <p>Varilla1 con los tres discos colocados de mayor a menor tama&ntilde;o.</p>
+              <p>Tablero (3,2,1,0,0,0,0,0,0);  </p>
+			</blockquote>
+			<p>&nbsp; </p>
+			<p><em><strong>Estado filal: (soluci&oacute;n)</strong></em></p>
+			<blockquote>
+			  <p>Varilla3 con los tres discos colocados de mayor a menor tama&ntilde;o.</p>
+			  <p>Tablero (0,0,0,0,0,0,3,2,1);</p>
+			  <p>&nbsp;</p>
+		    </blockquote>
+			<p><em><strong>Estados inalcanzables: </strong></em></p>
+			<blockquote>
+			  <p>Son aquellos que no cumplen con las siguientes premisas:</p>
+		      <ul>
+		        <li>No se puede colocar un disco encima de otro de tama&ntilde;o menor.<br />
+	            Ejemplo de estado inalcanzable:</li>
+	            <blockquote>
+	              <p>Tablero(0,0,0,1,3,2,0,0,0)  </p>
+                </blockquote>
+	            <li>No se puede mover m&aacute;s de un disco a la vez. 	</li>
+		      </ul>
+			</blockquote>
+			<p>&nbsp; </p>
+			<h1>Estrategia de busqueda</h1>
+			<p>Hemos realizado varias pruebas con numerosas busquedas tanto informadas como no informadas.<br />
+		      Y los mejores resultados han sido:</p>
+			<ul>
+			  <li><strong>Busquedas informadas</strong><br /> 
+			    La estrategia A* con ambas heuristicas (con coste 7 y 26 nodos expandidos), seguido de la voraz (Greedy Best First Search) con 
+		      coste 9 y 18 nodos expandidos.<br />
+		      <br />
+		      <br />
+              </li>
+          </ul>
+			<ul>
+			  <li><strong>Busquedas no informadas<br />
+			  </strong>La estrategias no infomadas que mejor resultados muestran son Primero en Anchura (coste: 7, Nodos Exp: 24).</li>
+          </ul>
+			<p>Las busquedas que no encuentran soluci&oacute;n es la Busqueda en escalada (HillClimbingSearch).<br />
+		    Para el resto si que encuentran soluci&oacute;n auqnue son menos eficientes.		    </p>
+			<blockquote>
+			  <p><br />
+			    <br />
+			    <span class="Estilo2"></span></p>
+		  </blockquote>
+		</div>
+</body>
+</html>

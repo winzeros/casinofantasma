@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>LobosPollos</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/lobospollos.png" alt="LobosPollos" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo del juego es pasar los pollitos y los lobos a la otra orilla del río, teniendo en cuenta que en la balsa deben viajar 2 animales como máximo y uno como mínimo, y que si el número de lobos en una orilla es mayor que el de pollos, éstos se comerán a los pobres pollos...</p>
+			<h1>Operadores</h1>
+			<p>Como operador del juego de lobospollos tenemos:</p>
+			<ul>
+              <li>mover(int lobos, int ovejas).</li>
+		  </ul>
+			<p>lobos:n&uacute;mero de lobos a mover a la orilla derecha.<br />
+			ovejas:n&uacute;mero de ovejas a mover a la orilla derecha. </p>
+			<h1>Algoritmo heuristico</h1>
+			<p>Para dicho problema hemos implementado la siguiente heuristica: </p>
+			<ul>
+              <li><strong>Heuristica Descolocados: </strong><br />
+                Calculamos la heuristica en funci&oacute;n de las ovejas y lobos que estan colocados<br />
+                en su lugar correcto, es decir en la orilla derecha del rio. </li>
+		  </ul>
+			<h1>Espacio de estados</h1>
+		  <p>El espacio de estados representa el n&uacute;mero de lobos y ovejas que hay en la orilla izquierda del rio asi como la posici&oacute;n de la canoa.Dicha representaci&oacute;n la implementaremos mediante un HashMap. <br />
+		  </p>
+		  <p><strong><em>Estado inicial:</em></strong></p>
+			<blockquote>
+			  <p>Estado(3,3,0)</p>
+			  <p>&nbsp;</p>
+			  <p>N&uacute;mero de lobos en la orilla izq: 3.</p>
+			  <p>N&uacute;mero de   pollos en la orilla izq: 3.</p>
+			  <p>Posici&oacute;n de la canoa: Izq.  </p>
+		  </blockquote>
+			<p>&nbsp; </p>
+			<p><em><strong>Estado filal: (soluci&oacute;n)</strong></em></p>
+		  <blockquote>
+            <p>Estado(0,0,1)</p>
+              <p>&nbsp;</p>
+              <p>N&uacute;mero de lobos en la orilla izq: 3.</p>
+              <p>N&uacute;mero de   pollos en la orilla izq: 3.</p>
+              <p>Posici&oacute;n de la canoa: Izq.</p>
+            <p>&nbsp;</p>
+          </blockquote>
+			<p><em><strong>Estados inalcanzables: </strong></em></p>
+			<blockquote>
+              <p>Son aquellos que no cumplen con las siguientes premisas:</p>
+			  <ul>
+                <li>No pueden haber un n&uacute;mero mayor de lobos que de pollos en alguna de las orillas.<br />
+                  Ejemplo de estado:
+                    <blockquote>
+                      <p>Estado(1,2,_) ya que en el lado derecho hay dos lobos y un solo pollo. </p>
+                    </blockquote>
+                </li>
+              </ul>
+	        </blockquote>
+			<h1>Estrategia de busqueda</h1>
+			<p>Hemos realizado varias pruebas con numerosas busquedas tanto informadas como no informadas.<br />
+Y los mejores resultados han sido:</p>
+	
+			
+  		    <ul>
+              <li><strong>Busquedas informadas</strong><br />
+                La estrategia Voraz (Greedy Best First) cosecha los mejores resultados con un coste de 11 y 12 nodos expandidos, seguido de A* con el mismo coste y 13 nodos expandidos. <br />
+                <br />
+              </li>
+	      </ul>
+  		    <ul>
+              <li><strong>Busquedas no informadas<br />
+              </strong>La estrategias no infomadas que mejor resultados muestran son Busqueda en profundidad ( coste: 11 y Nodos Exp: 11), Profundidad Limintada y Primero en Anchura (coste: 11, Nodos Exp: 14).</li>
+	      </ul>
+  		    <p>Las busquedas que no encuentran soluci&oacute;n son la Busqueda en escalada (HillClimbingSearch) y Enfriamiento Simulado. <br />
+	      Para el resto si que encuentran soluci&oacute;n auqnue son menos eficientes. </p>
+		</div>
+	</div>
+</body>
+</html>
+

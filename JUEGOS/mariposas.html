@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Mariposas</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/mariposas2.png" alt="Mariposas" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo es sacar a todas las mariposas de los huevos.Los huevos pueden ser seleccionados uno a uno.Al ser seleccionar una larva se convierte en gusano, y al seleccionar un gusano se convierte en mariposa...Pero, si seleccionas una mariposav vuelve a convertirse en huevo, tambien cambian los huevos que esten a su derecha e izquierda, arriba y abajo</p>
+			<h1>Operadores</h1>
+			<p>Existen los siguientes operadores:
+			<blockquote>
+			  <p>Evolucion de las distintas fases de un huevo que se encuentran dentro de una caja de 2x4.Es decir en total se puede aplicar dicho operador en 8 casillas diferentes.</p>
+			  <p>Al relizar la evoluci&oacute;n en la casilla[i,i], tambien se realiza (si no sale del tablero) en las casilla[i-1,i],casilla[i+1,i],casilla[i,i+1] y casilla[i,i-1]. </p>
+			</blockquote>
+			<h1>Algoritmo heuristico</h1>
+			<blockquote>
+			  <p>Se ha implementado una funci&oacute;n heuristica que tiene en cuenta el grado de evolucion de cada huevo dandole un valor al mismo, el cual representa el numero de evoluciones que tiene que dar para llegar a ser una Mariposa. <br />
+		      Por tanto estos valores son:</p>
+			  <blockquote>
+			    <p>Huevo: +3 </p>
+			    <p>Larva: +2</p>
+			    <p>Gusano: +1</p>
+			    <p>Mariposa: +0</p>
+		      </blockquote>
+			  <p>Por tanto esta heuristica lo que intenta es minimizar este coste.Siendo por tanto el estado objetivo aquel que posee un coste=0.</p>
+			  <blockquote>
+			    <p>&nbsp;</p>
+		      </blockquote>
+			</blockquote>
+			<h1>Espacio de estados</h1>
+			<blockquote>
+			  <p>Representamos los estados de la evolucion de los huevos a traves de una matriz[2][4]. En ella estara definido el grado de evolucion (Huevo,Larva,Gusano,Mariposa).</p>
+			  <p><em><strong>Estado inicial:</strong></em></p>
+			  <ul>
+                <li> Estado(Huevo,Huevo,Huevo,Huevo,Huevo,Huevo,Huevo,Huevo,) </li>
+		      </ul>
+			  <p> </p>
+			  <p><em><strong>Estado filal: (solucion)</strong></em></p>
+			  <ul>
+                <li>Estado(Mariposa,Mariposa,Mariposa,Mariposa,Mariposa,Mariposa,Mariposa,Mariposa)</li>
+		      </ul>
+			</blockquote>
+			<h1>Estrategia de busqueda</h1>
+			<p>La unica busqueda que resuelve dicho problema con un coste aceptable es A* con coste 13 pero 4510 nodos expandidos.</p>
+			<p>Las demas busquedas no encuentran solucion, o tardan mucho.</p>
+			<p><br />
+</p>
+		</div>
+	</div>
+</body>
+</html>
+
