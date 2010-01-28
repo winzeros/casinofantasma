@@ -15,6 +15,11 @@ import org.apache.log4j.Logger;
  */
 public class HanoiEstadoObjetivo implements GoalTest {
 
+    private HanoiJuego juego;
+
+    public HanoiEstadoObjetivo(HanoiJuego hanoi) {
+        this.juego = hanoi;
+    }
 
     /**
      * Metodo que determina si el estado corresponde al estado ojetivo
@@ -30,6 +35,10 @@ public class HanoiEstadoObjetivo implements GoalTest {
         try {
             sol = ((estado.getTablero()[2][0] == 3)&&(estado.getTablero()[2][1] == 2)&&
                     (estado.getTablero()[2][2] == 1));
+
+            if (sol) {
+                juego.setSolucion(sol);
+            }
 
 
         } catch (Exception ex) {

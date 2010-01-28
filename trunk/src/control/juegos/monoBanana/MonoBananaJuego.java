@@ -31,7 +31,7 @@ public class MonoBananaJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "El juego del mono y la banana";
             this._problema = new Problem(new MonoBananaEstado(permiteControlCiclos()), new MonoBananaFuncionSucesor(),
-                    new MonoBananaEstadoObjetivo());
+                    new MonoBananaEstadoObjetivo(this));
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
@@ -50,7 +50,7 @@ public class MonoBananaJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Torres de Hanoi";
             this._problema = new Problem(new MonoBananaEstado(permiteControlCiclos()),
-                    new MonoBananaFuncionSucesor(),new MonoBananaEstadoObjetivo(),
+                    new MonoBananaFuncionSucesor(),new MonoBananaEstadoObjetivo(this),
                     heuristica);
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaJuego.class.getName()).log(Level.ERROR,

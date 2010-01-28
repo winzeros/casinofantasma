@@ -14,11 +14,21 @@ import java.util.List;
  * @author Alicia
  */
 public class NReinasEstadoObjetivo  implements GoalTest {
+
 	NReinasEstado tablero;
+    NReinasJuego juego;
+
+    public NReinasEstadoObjetivo(NReinasJuego nreinas){
+        this.juego = nreinas;
+    }
 
 	public boolean isGoalState(Object state) {
 
 		tablero = (NReinasEstado) state;
+        if (estanTodasColocadas() && estanTodasSeguras(tablero
+				.getPosiciones())) {
+            juego.setSolucion(true);
+        }
 		return (estanTodasColocadas() && estanTodasSeguras(tablero
 				.getPosiciones()));
 	}

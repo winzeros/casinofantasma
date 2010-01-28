@@ -19,12 +19,7 @@ public class OchoPuzzleDemo {
 
         BreadthFirstDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");
-        // eightPuzzleGreedyBestFirstDemo("SALA11");
-        // eightPuzzleGreedyBestFirstManhattanDemo("SALA11");
-        //eightPuzzleAStarManhattanDemo("SALA11");
-        eightPuzzleSimulatedAnnealingDemo("SALA11");
-        
+        IterativeDeepeningSearchDemo("SALA11");        
         AStarSearch("SALA11");
         GreedyBestFirstSearch("SALA11");
         RecursiveBestFirstSearch("SALA11");

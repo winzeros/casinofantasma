@@ -7,9 +7,10 @@ package control.juegos.ochoPuzzle;
 import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
-import aima.search.framework.SearchAgent;
 
 import control.juegos.Juego;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,26 +18,32 @@ import control.juegos.Juego;
  */
 public class OchoPuzzleJuego extends Juego {
 
-    private String nombre;
-    private boolean solucion;
-    private Search busqueda = null;
-    private SearchAgent agente = null;
-    private Problem problema = null;
-    private OchoPuzzleEstados estado = null;
-    private OchoPuzzleFuncionObjetivo objetivo = null;
+ /*   private OchoPuzzleEstados estado = null;
+    private OchoPuzzleFuncionObjetivo objetivo = null;*/
 
     OchoPuzzleJuego(Search busqueda) {
-        this.busqueda = busqueda;
-        this.nombre = "Problema 8Puzzle";
-        this.solucion = false;
-        this.estado = new OchoPuzzleEstados();
-        this.objetivo = new OchoPuzzleFuncionObjetivo();
-
+ 
+        try {
+            this._busqueda = busqueda;
+            this._nombre = "Problema 8Puzzle";
+            this._problema = new Problem(new OchoPuzzleEstados(), new OchoPuzzleFuncionSucesor(),
+                    new OchoPuzzleFuncionObjetivo(this));
+        } catch (Exception ex) {
+            Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+        }
 
     }
 
     OchoPuzzleJuego(Search busqueda, HeuristicFunction heuristica) {
-        throw new UnsupportedOperationException("Not yet implemented");
+         try {
+            this._busqueda = busqueda;
+            this._nombre = "Problema 8Puzzle";
+            this._problema = new Problem(new OchoPuzzleEstados(), new OchoPuzzleFuncionSucesor(),
+                    new OchoPuzzleFuncionObjetivo(this), heuristica);
+        } catch (Exception ex) {
+            Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+        }
+    
     }
 
 

@@ -16,6 +16,12 @@ import org.apache.log4j.Logger;
  */
 public class RanasEstadoObjetivo implements GoalTest{
 
+    private RanasJuego juego;
+
+    public RanasEstadoObjetivo(RanasJuego ranas) {
+        juego = ranas;
+    }
+
     public boolean isGoalState(Object arg0) {
 
         RanasEstado estadoFinal = new RanasEstado();
@@ -32,6 +38,9 @@ public class RanasEstadoObjetivo implements GoalTest{
             
             enc = arg0.equals(estadoFinal);
 
+            if (enc) {
+                juego.setSolucion(enc);
+            }
         } catch (Exception ex) {
             Logger.getLogger(RanasEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);

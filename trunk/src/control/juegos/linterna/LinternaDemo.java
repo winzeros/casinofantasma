@@ -203,10 +203,7 @@ public class LinternaDemo {
             log.info(" Busqueda A* \n" +
                     " Heuristica Personas");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -233,9 +230,7 @@ public class LinternaDemo {
                     " Heuristica Personas");
             log.info("*******************************************\n");
 
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -261,10 +256,7 @@ public class LinternaDemo {
             log.info(" Busqueda SimulatedAnnealingSearch \n" +
                     " Heuristica Personas");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -290,10 +282,7 @@ public class LinternaDemo {
             log.info(" Busqueda HillClimbingSearch \n" +
                     " Heuristica Personas");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -322,9 +311,7 @@ public class LinternaDemo {
                     " Heuristica Personas");
             log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Personas");
             log.info("*******************************************\n");
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
         } catch (Exception ex) {
@@ -355,10 +342,7 @@ public class LinternaDemo {
             log.info(" Busqueda A* \n" +
                     " Heuristica Restante");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -384,10 +368,7 @@ public class LinternaDemo {
             log.info(" Busqueda RecursiveBestFirstSearch \n" +
                     " Heuristica Restante");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -413,10 +394,7 @@ public class LinternaDemo {
             log.info(" Busqueda SimulatedAnnealingSearch \n" +
                     " Heuristica Restante");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -442,10 +420,7 @@ public class LinternaDemo {
             log.info(" Busqueda HillClimbingSearch \n" +
                     " Heuristica Restante");
             log.info("*******************************************\n");
-
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
 
@@ -474,9 +449,7 @@ public class LinternaDemo {
             log.info(" Busqueda GreedyBestFirstSearch \n" +
                     " Heuristica Restante");
             log.info("*******************************************\n");
-            log.info(" \n\n***********************************\n"
-                    + juego.toString()
-                    + "***********************************\n");
+            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             ok = juego.ejecutarConsola();
         } catch (Exception ex) {

@@ -30,7 +30,7 @@ public class LinternaJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "El juego de la linterna";
             this._problema = new Problem(new LinternaEstado(permiteControlCiclos()), new LinternaFuncionSucesor(),
-                    new LinternaEstadoObjetivo());
+                    new LinternaEstadoObjetivo(this));
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
@@ -49,7 +49,7 @@ public class LinternaJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Torres de Hanoi";
             this._problema = new Problem(new LinternaEstado(permiteControlCiclos()),
-                    new LinternaFuncionSucesor(),new LinternaEstadoObjetivo(),
+                    new LinternaFuncionSucesor(),new LinternaEstadoObjetivo(this),
                     heuristica);
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR,

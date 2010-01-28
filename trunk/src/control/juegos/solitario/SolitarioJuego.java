@@ -22,7 +22,7 @@ public class SolitarioJuego extends Juego{
             this._nombre = "Solitario";
             this._problema = new Problem(new SolitarioEstado(permiteControlCiclos()),
                     new SolitarioFuncionSucesor(),
-                    new SolitarioEstadoObjetivo());
+                    new SolitarioEstadoObjetivo(this));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class SolitarioJuego extends Juego{
             this._nombre = "Solitario";
             this._problema = new Problem(new SolitarioEstado(permiteControlCiclos()),
                     new SolitarioFuncionSucesor(),
-                    new SolitarioEstadoObjetivo(), heuristica);
+                    new SolitarioEstadoObjetivo(this), heuristica);
 
         } catch (Exception e) {
             e.printStackTrace();

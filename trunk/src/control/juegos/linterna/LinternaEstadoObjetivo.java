@@ -15,6 +15,12 @@ import org.apache.log4j.Logger;
  */
 public class LinternaEstadoObjetivo implements GoalTest {
 
+    private LinternaJuego juego;
+
+    public LinternaEstadoObjetivo(LinternaJuego linterna) {
+        this.juego = linterna;
+    }
+
     /**
      * Metodo que determina si el estado corresponde al estado ojetivo
      * del juego.
@@ -38,6 +44,10 @@ public class LinternaEstadoObjetivo implements GoalTest {
         } catch (Exception ex) {
             Logger.getLogger(LinternaEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
+        }
+
+        if (enc) {
+            juego.setSolucion(enc);
         }
 
         return enc;

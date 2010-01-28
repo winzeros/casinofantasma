@@ -92,7 +92,7 @@ public class RanasDemo {
         RanasJuego juego;
 
         try {
-            juego = new RanasJuego(new DepthLimitedSearch(11));
+            juego = new RanasJuego(new DepthLimitedSearch(20));
 
             log.info("\n\n\n*******************************************");
             if (sala != null)

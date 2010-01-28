@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
  *
  * @author Alicia
  */
-
 /**
  * Clase que representa el juego.
  *
@@ -41,9 +40,12 @@ public class Juego {
      * Problema a resolver.
      */
     protected Problem _problema;
+    /**
+     * Indica si el juego se ha ejecutado correctamente
+     */
+    protected boolean _esSolucion;
 
 // <editor-fold defaultstate="collapsed" desc="GETS - SETS">
-    
     /**
      * Actualiza el valor de la busqueda.
      * @param s
@@ -60,10 +62,25 @@ public class Juego {
         return this._nombre;
     }
 
+    /**
+     * Metodo que devuelve si el juego se ha ejecutado con éxito o no
+     * @return
+     */
+    public boolean getEsSolucion() {
+        return this._esSolucion;
+    }
+
+    /**
+     * Metodo que devuelve el nombre del juego que se va a representar
+     * @return _nombre
+     */
+    public void setSolucion(boolean sol) {
+        this._esSolucion = sol;
+    }
+
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="IMPRIMIR">
-
     /**
      * Metodo que escribe los eventos del juego en el Log.
      * @param eventos
@@ -136,14 +153,11 @@ public class Juego {
     }
 
 // </editor-fold>
-
     /**
      * Metodo que ejecuta el juego que luego se va a implementar en las
      * clases heredadas.
      */
     public boolean ejecutarConsola() {
-
-        boolean salida = true;
 
         try {
 
@@ -151,14 +165,20 @@ public class Juego {
             this._problema.getInitialState().toString();
             this.imprimir(this._agente.getActions());
             this.imprimirPropiedades(this._agente.getInstrumentation());
+            if (_esSolucion) {
+                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "¡SOLUCIONADO!");
+                return true;
+            } else {
+                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "No lo he podido solucionar...");
+                return false;
+            }
         } catch (Exception ex) {
             System.out.println(ex);
+            return false;
         }
-
-        return salida;
     }
 
-        /**
+    /**
      * Metodo que ejecuta el juego que luego se va a implementar en las
      * clases heredadas y lo muestra por la salida estandar.
      */
@@ -170,6 +190,11 @@ public class Juego {
             this._problema.getInitialState().toString();
             this.imprimir(this._agente.getActions());
             this.imprimirPropiedades(this._agente.getInstrumentation());
+            if (_esSolucion) {
+                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "\n\n¡SOLUCIONADO!");
+            } else {
+                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "\n\nNo lo he podido solucionar...");
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
