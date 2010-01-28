@@ -386,15 +386,15 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = LinternaDemo.RecursiveBestFirstSearchPersonas(sala, consola);
+                        ok = LinternaDemo.DepthFirstSearchDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
-                        ok = LinternaDemo.SimulatedAnnealingSearchPersonas(sala, consola);
+                        ok = LinternaDemo.AStarSearchRestante(sala, consola);
                         break;
                     //Busqueda Escalada heuristica ranas
                     case 9:
-                        ok = LinternaDemo.HillClimbingSearchPersonas(sala, consola);
+                        ok = LinternaDemo.GreedyBestFirstSearchRestante(sala, consola);
                         break;
                     //Busqueda Busqueda A* heuristica descolocadas
                     case 10:
@@ -406,15 +406,15 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = LinternaDemo.RecursiveBestFirstSearchRestante(sala, consola);
+                        ok = LinternaDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
-                        ok = LinternaDemo.SimulatedAnnealingSearchRestante(sala, consola);
+                        ok = LinternaDemo.DepthLimitedSearchDemo(sala, consola);
                         break;
                     //Busqueda Escalada heuristica descolocadas
                     case 14:
-                        ok = LinternaDemo.HillClimbingSearchRestante(sala, consola);
+                        ok = LinternaDemo.UniformCostSearchDemo(sala, consola);
                         break;
                 }
                 break;
