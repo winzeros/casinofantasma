@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.juegos.nreinas;
 
 import aima.search.framework.TreeSearch;
@@ -41,16 +40,17 @@ public class NReinasDemo {
 
         try {
             juego = new NReinasJuego(new BreadthFirstSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda primero en anchura");
-            log.info("*******************************************\n");
-            log.info(new NReinasEstado(8).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda primero en anchura");
+                log.info("*******************************************\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -69,16 +69,17 @@ public class NReinasDemo {
 
         try {
             juego = new NReinasJuego(new DepthFirstSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda en profundidad");
-            log.info("*******************************************\n");
-            log.info(new NReinasEstado(8).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda en profundidad");
+                log.info("*******************************************\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -97,16 +98,17 @@ public class NReinasDemo {
 
         try {
             juego = new NReinasJuego(new DepthLimitedSearch(11));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda en profundidad limitada");
-            log.info("*******************************************\n");
-            log.info(new NReinasEstado(8).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda en profundidad limitada");
+                log.info("*******************************************\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -125,16 +127,17 @@ public class NReinasDemo {
 
         try {
             juego = new NReinasJuego(new UniformCostSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda de coste uniforme");
-            log.info("*******************************************\n");
-            log.info(new NReinasEstado(8).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda de coste uniforme");
+                log.info("*******************************************\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -153,16 +156,17 @@ public class NReinasDemo {
 
         try {
             juego = new NReinasJuego(new IterativeDeepeningSearch());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda iterativa");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado(8).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda iterativa");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -174,31 +178,31 @@ public class NReinasDemo {
         return ok;
     }
 
-
-        public static boolean AStarSearch(String sala, boolean consola) {
+    public static boolean AStarSearch(String sala, boolean consola) {
 
         boolean ok = true;
         NReinasJuego juego;
 
         try {
-            juego = new NReinasJuego(new AStarSearch(new TreeSearch()),new NReinasFuncionHeuristica());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda A*");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado(8).toString());
-
+            juego = new NReinasJuego(new AStarSearch(new TreeSearch()), new NReinasFuncionHeuristica());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda A*");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado(8).toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
-            
+
         } catch (Exception ex) {
-             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
@@ -209,24 +213,25 @@ public class NReinasDemo {
         NReinasJuego juego;
 
         try {
-            juego = new NReinasJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new NReinasFuncionHeuristica());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda GreedyBestFirstSearch");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado().toString());
-
+            juego = new NReinasJuego(new GreedyBestFirstSearch(new TreeSearch()), new NReinasFuncionHeuristica());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda GreedyBestFirstSearch");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
@@ -237,28 +242,28 @@ public class NReinasDemo {
         NReinasJuego juego;
 
         try {
-            juego = new NReinasJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new NReinasFuncionHeuristica());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda RecursiveBestFirstSearch");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado().toString());
-
+            juego = new NReinasJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()), new NReinasFuncionHeuristica());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda RecursiveBestFirstSearch");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
-
 
     public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
@@ -266,24 +271,25 @@ public class NReinasDemo {
         NReinasJuego juego;
 
         try {
-            juego = new NReinasJuego(new SimulatedAnnealingSearch() ,new NReinasFuncionHeuristica());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda SimulatedAnnealingSearch");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado().toString());
-
+            juego = new NReinasJuego(new SimulatedAnnealingSearch(), new NReinasFuncionHeuristica());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda SimulatedAnnealingSearch");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
@@ -294,24 +300,25 @@ public class NReinasDemo {
         NReinasJuego juego;
 
         try {
-            juego = new NReinasJuego(new HillClimbingSearch() ,new NReinasFuncionHeuristica());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS 8 REINAS");
-            log.info(" Busqueda HillClimbingSearch");
-            log.info("*******************************************\n\n");
-            log.info(new NReinasEstado().toString());
-
+            juego = new NReinasJuego(new HillClimbingSearch(), new NReinasFuncionHeuristica());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS 8 REINAS");
+                log.info(" Busqueda HillClimbingSearch");
+                log.info("*******************************************\n\n");
+                log.info(new NReinasEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
