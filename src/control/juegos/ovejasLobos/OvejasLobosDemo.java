@@ -24,28 +24,28 @@ public class OvejasLobosDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");
-        eightPuzzleGreedyBestFirstDemo("SALA11");
-        eightPuzzleAStarDemo("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
+        IterativeDeepeningSearchDemo("SALA11", true);
+        eightPuzzleGreedyBestFirstDemo("SALA11", true);
+        eightPuzzleAStarDemo("SALA11", true);
 
-        AStarSearch("SALA11");
-        GreedyBestFirstSearch("SALA11");
-        RecursiveBestFirstSearch("SALA11");
-        SimulatedAnnealingSearch("SALA11");
-        HillClimbingSearch("SALA11");
+        AStarSearch("SALA11", true);
+        GreedyBestFirstSearch("SALA11", true);
+        RecursiveBestFirstSearch("SALA11", true);
+        SimulatedAnnealingSearch("SALA11", true);
+        HillClimbingSearch("SALA11", true);
     }
 
     /**
      * Busqueda Primero en Anchura.
      * @param sala
      */
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -59,7 +59,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -71,9 +75,9 @@ public class OvejasLobosDemo {
      * Busqueda en profundidad.
      * @param sala
      */
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -87,7 +91,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -99,9 +107,9 @@ public class OvejasLobosDemo {
      * Busqueda con profundida limitada.
      * @param sala
      */
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -115,7 +123,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -127,9 +139,9 @@ public class OvejasLobosDemo {
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -143,7 +155,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -155,9 +171,9 @@ public class OvejasLobosDemo {
      * Busqueda iterativa.
      * @param sala
      */
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -171,7 +187,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -183,9 +203,9 @@ public class OvejasLobosDemo {
      * Busqueda voraz.
      * @param sala
      */
-    public static boolean eightPuzzleGreedyBestFirstDemo(String sala) {
+    public static boolean eightPuzzleGreedyBestFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -199,7 +219,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -211,9 +235,9 @@ public class OvejasLobosDemo {
      * Busqueda A*
      * @param sala
      */
-    public static boolean eightPuzzleAStarDemo(String sala) {
+    public static boolean eightPuzzleAStarDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -227,7 +251,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -235,9 +263,9 @@ public class OvejasLobosDemo {
         return ok;
     }
 
-    public static boolean AStarSearch(String sala) {
+    public static boolean AStarSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -251,7 +279,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -260,9 +292,9 @@ public class OvejasLobosDemo {
     }
 
 
-     public static boolean GreedyBestFirstSearch(String sala) {
+     public static boolean GreedyBestFirstSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -276,7 +308,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -284,9 +320,9 @@ public class OvejasLobosDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearch(String sala) {
+    public static boolean RecursiveBestFirstSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -300,7 +336,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -309,9 +349,9 @@ public class OvejasLobosDemo {
     }
 
 
-    public static boolean SimulatedAnnealingSearch(String sala) {
+    public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -325,7 +365,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -333,9 +377,9 @@ public class OvejasLobosDemo {
         return ok;
     }
 
-    public static boolean HillClimbingSearch(String sala) {
+    public static boolean HillClimbingSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
@@ -349,7 +393,11 @@ public class OvejasLobosDemo {
             log.info("*******************************************\n\n");
             log.info(new OvejasLobosEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);

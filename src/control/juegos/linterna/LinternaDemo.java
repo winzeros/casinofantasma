@@ -25,20 +25,20 @@ public class LinternaDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
-        AStarSearchPersonas("SALA11");
-        GreedyBestFirstSearchPersonas("SALA11");
-        RecursiveBestFirstSearchPersonas("SALA11");
-        SimulatedAnnealingSearchPersonas("SALA11");
-        HillClimbingSearchPersonas("SALA11");
-        AStarSearchRestante("SALA11");
-        GreedyBestFirstSearchRestante("SALA11");
-        RecursiveBestFirstSearchRestante("SALA11");
-        SimulatedAnnealingSearchRestante("SALA11");
-        HillClimbingSearchRestante("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
+        AStarSearchPersonas("SALA11", true);
+        GreedyBestFirstSearchPersonas("SALA11", true);
+        RecursiveBestFirstSearchPersonas("SALA11", true);
+        SimulatedAnnealingSearchPersonas("SALA11", true);
+        HillClimbingSearchPersonas("SALA11", true);
+        AStarSearchRestante("SALA11", true);
+        GreedyBestFirstSearchRestante("SALA11", true);
+        RecursiveBestFirstSearchRestante("SALA11", true);
+        SimulatedAnnealingSearchRestante("SALA11", true);
+        HillClimbingSearchRestante("SALA11", true);
 
     }
 
@@ -46,9 +46,9 @@ public class LinternaDemo {
      * Busqueda Primero en Anchura.
      * @param sala
      */
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -62,7 +62,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -74,9 +78,9 @@ public class LinternaDemo {
      * Busqueda en profundidad.
      * @param sala
      */
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -90,7 +94,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -102,9 +110,9 @@ public class LinternaDemo {
      * Busqueda con profuncidad limitada.
      * @param sala
      */
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -118,7 +126,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -130,9 +142,9 @@ public class LinternaDemo {
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -146,7 +158,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -158,9 +174,9 @@ public class LinternaDemo {
      * Busqueda iterativa.
      * @param sala
      */
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -174,7 +190,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(new LinternaEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -187,9 +207,9 @@ public class LinternaDemo {
      * Busqueda A*.
      * @param sala
      */
-    public static boolean AStarSearchPersonas(String sala) {
+    public static boolean AStarSearchPersonas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -205,7 +225,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -213,9 +237,9 @@ public class LinternaDemo {
         return ok;
     }
 
-    private static boolean RecursiveBestFirstSearchPersonas(String sala) {
+    private static boolean RecursiveBestFirstSearchPersonas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -232,7 +256,11 @@ public class LinternaDemo {
 
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -240,9 +268,9 @@ public class LinternaDemo {
         return ok;
     }
 
-    private static boolean SimulatedAnnealingSearchPersonas(String sala) {
+    private static boolean SimulatedAnnealingSearchPersonas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -258,7 +286,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -266,9 +298,9 @@ public class LinternaDemo {
         return ok;
     }
 
-        private static boolean HillClimbingSearchPersonas(String sala) {
+        private static boolean HillClimbingSearchPersonas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -284,7 +316,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -296,9 +332,9 @@ public class LinternaDemo {
      * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
      * @param sala
      */
-    public static boolean GreedyBestFirstSearchPersonas(String sala) {
+    public static boolean GreedyBestFirstSearchPersonas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
 
@@ -313,7 +349,12 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
         }
@@ -326,9 +367,9 @@ public class LinternaDemo {
      * Busqueda A*.
      * @param sala
      */
-    public static boolean AStarSearchRestante(String sala) {
+    public static boolean AStarSearchRestante(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -344,7 +385,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -352,9 +397,9 @@ public class LinternaDemo {
         return ok;
     }
 
-    private static boolean RecursiveBestFirstSearchRestante(String sala) {
+    private static boolean RecursiveBestFirstSearchRestante(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -370,7 +415,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -378,9 +427,9 @@ public class LinternaDemo {
         return ok;
     }
 
-    private static boolean SimulatedAnnealingSearchRestante(String sala) {
+    private static boolean SimulatedAnnealingSearchRestante(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -396,7 +445,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -404,9 +457,9 @@ public class LinternaDemo {
         return ok;
     }
 
-        private static boolean HillClimbingSearchRestante(String sala) {
+        private static boolean HillClimbingSearchRestante(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         LinternaJuego juego;
 
         try {
@@ -422,7 +475,11 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -434,9 +491,9 @@ public class LinternaDemo {
      * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
      * @param sala
      */
-    public static boolean GreedyBestFirstSearchRestante(String sala) {
+    public static boolean GreedyBestFirstSearchRestante(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
 
@@ -451,7 +508,12 @@ public class LinternaDemo {
             log.info("*******************************************\n");
             log.info(" \n\n" + (new LinternaEstado()).toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(LinternaJuego.class.getName()).log(Level.ERROR, null, ex);
         }

@@ -9,7 +9,7 @@ import aima.search.framework.Successor;
 import aima.search.framework.SuccessorFunction;
 import aima.search.map.DynAttributeNames;
 import aima.search.map.Map;
-import control.laberintos.LaberintoEnvironment;
+import control.laberintos.LaberintoEjecucion;
 import control.laberintos.LaberintoSalas;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +48,9 @@ public class LaberintoFuncionSucesor implements SuccessorFunction {
                 int juego = LaberintoSalas.lectorXML.getJuego(linkLoc);
                 int estrategia = LaberintoSalas.lectorXML.getEstrategia(linkLoc);
 
-                if (LaberintoEnvironment.ejecutarJuego(juego, estrategia, linkLoc)) {
+           //     if (LaberintoEjecucion.ejecutarJuego(juego, estrategia, linkLoc, false)) {
                     successors.add(new Successor(linkLoc, estado));
-                }
+              //  }
             }
         }
 
