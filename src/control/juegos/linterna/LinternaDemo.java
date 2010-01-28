@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control.juegos.linterna;
 
 import aima.search.framework.GraphSearch;
@@ -54,15 +53,16 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda primero en anchura");
-            log.info("*******************************************\n");
-            log.info(new LinternaEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda primero en anchura");
+                log.info("*******************************************\n");
+                log.info(new LinternaEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -86,15 +86,16 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda en profundidad");
-            log.info("*******************************************\n");
-            log.info(new LinternaEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda en profundidad");
+                log.info("*******************************************\n");
+                log.info(new LinternaEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -118,15 +119,16 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda en profundidad limitada");
-            log.info("*******************************************\n");
-            log.info(new LinternaEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda en profundidad limitada");
+                log.info("*******************************************\n");
+                log.info(new LinternaEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -150,15 +152,16 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda de coste uniforme");
-            log.info("*******************************************\n");
-            log.info(new LinternaEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda de coste uniforme");
+                log.info("*******************************************\n");
+                log.info(new LinternaEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -182,15 +185,16 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda iterativa");
-            log.info("*******************************************\n");
-            log.info(new LinternaEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda iterativa");
+                log.info("*******************************************\n");
+                log.info(new LinternaEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -202,8 +206,7 @@ public class LinternaDemo {
         return ok;
     }
 
- 
-     /**
+    /**
      * Busqueda A*.
      * @param sala
      */
@@ -215,17 +218,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new AStarSearch(new TreeSearch()), new LinternaHeuristicaPersonas());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda A* \n" +
-                    " Heuristica Personas");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda A* \n" +
+                        " Heuristica Personas");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -245,18 +248,18 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()), new LinternaHeuristicaPersonas());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda RecursiveBestFirstSearch \n" +
-                    " Heuristica Personas");
-            log.info("*******************************************\n");
-
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda RecursiveBestFirstSearch \n" +
+                        " Heuristica Personas");
+                log.info("*******************************************\n");
+
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -276,17 +279,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new SimulatedAnnealingSearch(), new LinternaHeuristicaPersonas());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda SimulatedAnnealingSearch \n" +
-                    " Heuristica Personas");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda SimulatedAnnealingSearch \n" +
+                        " Heuristica Personas");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -298,7 +301,7 @@ public class LinternaDemo {
         return ok;
     }
 
-        private static boolean HillClimbingSearchPersonas(String sala, boolean consola) {
+    private static boolean HillClimbingSearchPersonas(String sala, boolean consola) {
 
         boolean ok = true;
         LinternaJuego juego;
@@ -306,17 +309,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new HillClimbingSearch(), new LinternaHeuristicaPersonas());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda HillClimbingSearch \n" +
-                    " Heuristica Personas");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda HillClimbingSearch \n" +
+                        " Heuristica Personas");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -328,7 +331,7 @@ public class LinternaDemo {
         return ok;
     }
 
-     /**
+    /**
      * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
      * @param sala
      */
@@ -339,17 +342,18 @@ public class LinternaDemo {
         try {
 
             LinternaJuego juego = new LinternaJuego(new GreedyBestFirstSearch(new GraphSearch()), new LinternaHeuristicaPersonas());
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA \n" +
-                    " Heuristica Personas");
-            log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Personas");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA \n" +
+                        " Heuristica Personas");
+                log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Personas");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -362,8 +366,7 @@ public class LinternaDemo {
 
     }
 
-
-     /**
+    /**
      * Busqueda A*.
      * @param sala
      */
@@ -375,17 +378,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new AStarSearch(new TreeSearch()), new LinternaHeuristicaRestante());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda A* \n" +
-                    " Heuristica Restante");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda A* \n" +
+                        " Heuristica Restante");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -435,17 +438,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new SimulatedAnnealingSearch(), new LinternaHeuristicaRestante());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda SimulatedAnnealingSearch \n" +
-                    " Heuristica Restante");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda SimulatedAnnealingSearch \n" +
+                        " Heuristica Restante");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -457,7 +460,7 @@ public class LinternaDemo {
         return ok;
     }
 
-        private static boolean HillClimbingSearchRestante(String sala, boolean consola) {
+    private static boolean HillClimbingSearchRestante(String sala, boolean consola) {
 
         boolean ok = true;
         LinternaJuego juego;
@@ -465,17 +468,17 @@ public class LinternaDemo {
         try {
             juego = new LinternaJuego(new HillClimbingSearch(), new LinternaHeuristicaRestante());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda HillClimbingSearch \n" +
-                    " Heuristica Restante");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda HillClimbingSearch \n" +
+                        " Heuristica Restante");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -487,7 +490,7 @@ public class LinternaDemo {
         return ok;
     }
 
-     /**
+    /**
      * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
      * @param sala
      */
@@ -498,17 +501,18 @@ public class LinternaDemo {
         try {
 
             LinternaJuego juego = new LinternaJuego(new GreedyBestFirstSearch(new GraphSearch()), new LinternaHeuristicaRestante());
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LA LINTERNA");
-            log.info(" Busqueda GreedyBestFirstSearch \n" +
-                    " Heuristica Restante");
-            log.info("*******************************************\n");
-            log.info(" \n\n" + (new LinternaEstado()).toString());
 
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LA LINTERNA");
+                log.info(" Busqueda GreedyBestFirstSearch \n" +
+                        " Heuristica Restante");
+                log.info("*******************************************\n");
+                log.info(" \n\n" + (new LinternaEstado()).toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();

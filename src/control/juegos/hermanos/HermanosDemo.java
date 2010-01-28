@@ -40,7 +40,7 @@ public class HermanosDemo {
 
         try {
             juego = new HermanosJuego(new BreadthFirstSearch(new TreeSearch()));
-
+          if (consola) {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
@@ -48,7 +48,7 @@ public class HermanosDemo {
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-            if (consola) {
+  
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -71,7 +71,7 @@ public class HermanosDemo {
 
         try {
             juego = new HermanosJuego(new DepthFirstSearch(new TreeSearch()));
-
+            if (consola) {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
@@ -79,7 +79,7 @@ public class HermanosDemo {
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-            if (consola) {
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -102,7 +102,7 @@ public class HermanosDemo {
 
         try {
             juego = new HermanosJuego(new DepthLimitedSearch(11));
-
+            if (consola) {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
@@ -110,7 +110,7 @@ public class HermanosDemo {
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-            if (consola) {
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -133,7 +133,7 @@ public class HermanosDemo {
 
         try {
             juego = new HermanosJuego(new UniformCostSearch(new TreeSearch()));
-
+            if (consola) {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
@@ -141,7 +141,7 @@ public class HermanosDemo {
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-            if (consola) {
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -164,7 +164,7 @@ public class HermanosDemo {
 
         try {
             juego = new HermanosJuego(new IterativeDeepeningSearch());
-
+            if (consola) {
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
@@ -172,7 +172,7 @@ public class HermanosDemo {
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-            if (consola) {
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();

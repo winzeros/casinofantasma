@@ -41,15 +41,16 @@ public class SolitarioDemo {
         try {
 
             SolitarioJuego juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()));
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Manhattan");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -66,15 +67,16 @@ public class SolitarioDemo {
 
         try {
             SolitarioJuego juego = new SolitarioJuego(new BreadthFirstSearch(new TreeSearch()));
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -93,16 +95,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new DepthFirstSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda en profundidad");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda en profundidad");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -121,16 +123,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new DepthLimitedSearch(11));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda en profundidad limitada");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda en profundidad limitada");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -149,16 +151,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new UniformCostSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda de coste uniforme");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda de coste uniforme");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -177,16 +179,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new IterativeDeepeningSearch());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda iterativa");
-            log.info("*******************************************\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda iterativa");
+                log.info("*******************************************\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -205,16 +207,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new AStarSearch(new TreeSearch()), new SolitarioHeuristicaEsquinas());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda A*");
-            log.info("*******************************************\n\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda A*");
+                log.info("*******************************************\n\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -233,16 +235,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new GreedyBestFirstSearch(new TreeSearch()), new SolitarioHeuristicaEsquinas());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda Greedy Best-First");
-            log.info("*******************************************\n\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda Greedy Best-First");
+                log.info("*******************************************\n\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -261,16 +263,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()), new SolitarioHeuristicaEsquinas());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Busqueda Mejor Recursiva");
-            log.info("*******************************************\n\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Busqueda Mejor Recursiva");
+                log.info("*******************************************\n\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -289,16 +291,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new SimulatedAnnealingSearch(), new SolitarioHeuristicaEsquinas());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Simulated Annealing Search");
-            log.info("*******************************************\n\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Simulated Annealing Search");
+                log.info("*******************************************\n\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -317,16 +319,16 @@ public class SolitarioDemo {
 
         try {
             juego = new SolitarioJuego(new HillClimbingSearch(), new SolitarioHeuristicaEsquinas());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO SOLITARIO");
-            log.info(" Escalada");
-            log.info("*******************************************\n\n");
-            log.info(new SolitarioEstado().toString());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO SOLITARIO");
+                log.info(" Escalada");
+                log.info("*******************************************\n\n");
+                log.info(new SolitarioEstado().toString());
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();

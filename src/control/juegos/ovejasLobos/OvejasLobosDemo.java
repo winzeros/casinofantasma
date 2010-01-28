@@ -29,8 +29,6 @@ public class OvejasLobosDemo {
         DepthLimitedSearchDemo("SALA11", true);
         UniformCostSearchDemo("SALA11", true);
         IterativeDeepeningSearchDemo("SALA11", true);
-        eightPuzzleGreedyBestFirstDemo("SALA11", true);
-        eightPuzzleAStarDemo("SALA11", true);
 
         AStarSearch("SALA11", true);
         GreedyBestFirstSearch("SALA11", true);
@@ -50,16 +48,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new BreadthFirstSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda primero en anchura");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda primero en anchura");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -82,16 +81,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new DepthFirstSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda en profundidad");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda en profundidad");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -114,16 +114,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new DepthLimitedSearch(11));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda en profundidad limitada");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda en profundidad limitada");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -146,16 +147,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new UniformCostSearch(new TreeSearch()));
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda de coste uniforme");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda de coste uniforme");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -178,16 +180,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new IterativeDeepeningSearch());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda iterativa");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda iterativa");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -210,16 +213,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda voraz");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda voraz");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -242,16 +246,17 @@ public class OvejasLobosDemo {
 
         try {
             juego = new OvejasLobosJuego(new AStarSearch(new GraphSearch()), new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda A*");
-            log.info("*******************************************\n");
-            log.info(new OvejasLobosEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda A*");
+                log.info("*******************************************\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -269,53 +274,54 @@ public class OvejasLobosDemo {
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new AStarSearch(new TreeSearch()),new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda A*");
-            log.info("*******************************************\n\n");
-            log.info(new OvejasLobosEstado().toString());
-
+            juego = new OvejasLobosJuego(new AStarSearch(new TreeSearch()), new OvejasLobosHeuristicaDescolocados());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda A*");
+                log.info("*******************************************\n\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-
-     public static boolean GreedyBestFirstSearch(String sala, boolean consola) {
+    public static boolean GreedyBestFirstSearch(String sala, boolean consola) {
 
         boolean ok = true;
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda Greedy Best-First");
-            log.info("*******************************************\n\n");
-            log.info(new OvejasLobosEstado().toString());
-
+            juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new TreeSearch()), new OvejasLobosHeuristicaDescolocados());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda Greedy Best-First");
+                log.info("*******************************************\n\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
@@ -326,28 +332,28 @@ public class OvejasLobosDemo {
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Busqueda Mejor Recursiva");
-            log.info("*******************************************\n\n");
-            log.info(new OvejasLobosEstado().toString());
-
+            juego = new OvejasLobosJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()), new OvejasLobosHeuristicaDescolocados());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Busqueda Mejor Recursiva");
+                log.info("*******************************************\n\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
-
 
     public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
@@ -355,24 +361,25 @@ public class OvejasLobosDemo {
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new SimulatedAnnealingSearch() ,new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Simulated Annealing Search");
-            log.info("*******************************************\n\n");
-            log.info(new OvejasLobosEstado().toString());
-
+            juego = new OvejasLobosJuego(new SimulatedAnnealingSearch(), new OvejasLobosHeuristicaDescolocados());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Simulated Annealing Search");
+                log.info("*******************************************\n\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
@@ -383,24 +390,25 @@ public class OvejasLobosDemo {
         OvejasLobosJuego juego;
 
         try {
-            juego = new OvejasLobosJuego(new HillClimbingSearch() ,new OvejasLobosHeuristicaDescolocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
-            log.info(" Escalada");
-            log.info("*******************************************\n\n");
-            log.info(new OvejasLobosEstado().toString());
-
+            juego = new OvejasLobosJuego(new HillClimbingSearch(), new OvejasLobosHeuristicaDescolocados());
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+                log.info(" Escalada");
+                log.info("*******************************************\n\n");
+                log.info(new OvejasLobosEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
             }
 
         } catch (Exception ex) {
-             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+            Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
