@@ -26,8 +26,9 @@ public class GarrafasDemo {
      * Busqueda primero en anchura.
      * @param sala
      */
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
 
+        boolean ok = false;
         GarrafasJuego juego;
 
         try {
@@ -41,19 +42,21 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda en profundidad.
      * @param sala
      */
-    public static void DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala) {
 
+        boolean ok = false;
         GarrafasJuego juego;
 
         try {
@@ -67,19 +70,21 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutar();
+            juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda con profundidad limitada.
      * @param sala
      */
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
+        boolean ok = false;
         GarrafasJuego juego;
 
         try {
@@ -93,19 +98,21 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutar();
+            juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         GarrafasJuego juego;
 
         try {
@@ -119,19 +126,21 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutar();
+            juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda iterativa.
      * @param sala
      */
-    public static void IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala) {
 
+        boolean ok = false;
         GarrafasJuego juego;
 
         try {
@@ -145,10 +154,12 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutar();
+            juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+
+        return ok;
     }
 }

@@ -168,30 +168,33 @@ public class LaberintoEnvironment extends MapEnvironment {
         }
     }
 
-    private void ejecutarJuego(int juego, int estrategia, String sala) {
+    public static boolean ejecutarJuego(int juego, int estrategia, String sala) {
+
+        boolean ok = true;
+
         switch (juego) {
             //Juego de las ovejas y lobos
             case 0:
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        OvejasLobosDemo.BreadthFirstDemo(sala);
+                        ok = OvejasLobosDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        OvejasLobosDemo.DepthFirstSearchDemo(sala);
+                        ok = OvejasLobosDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        OvejasLobosDemo.DepthLimitedSearchDemo(sala);
+                        ok = OvejasLobosDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        OvejasLobosDemo.UniformCostSearchDemo(sala);
+                        ok = OvejasLobosDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        OvejasLobosDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = OvejasLobosDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -200,23 +203,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        GarrafasDemo.BreadthFirstDemo(sala);
+                        ok = GarrafasDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        GarrafasDemo.DepthFirstSearchDemo(sala);
+                        ok = GarrafasDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        GarrafasDemo.DepthLimitedSearchDemo(sala);
+                        ok = GarrafasDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        GarrafasDemo.UniformCostSearchDemo(sala);
+                        ok = GarrafasDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        GarrafasDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = GarrafasDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -225,23 +228,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        HermanosDemo.BreadthFirstDemo(sala);
+                        ok = HermanosDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        HermanosDemo.DepthFirstSearchDemo(sala);
+                        ok = HermanosDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        HermanosDemo.DepthLimitedSearchDemo(sala);
+                        ok = HermanosDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        HermanosDemo.UniformCostSearchDemo(sala);
+                        ok = HermanosDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        HermanosDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = HermanosDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -250,23 +253,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        NReinasDemo.BreadthFirstDemo(sala);
+                        ok = NReinasDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        NReinasDemo.DepthFirstSearchDemo(sala);
+                        ok = NReinasDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        NReinasDemo.DepthLimitedSearchDemo(sala);
+                        ok = NReinasDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        NReinasDemo.UniformCostSearchDemo(sala);
+                        ok = NReinasDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        NReinasDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = NReinasDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -275,23 +278,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        RanasDemo.BreadthFirstDemo(sala);
+                        ok = RanasDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        RanasDemo.DepthFirstSearchDemo(sala);
+                        ok = RanasDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        RanasDemo.DepthLimitedSearchDemo(sala);
+                        ok = RanasDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        RanasDemo.UniformCostSearchDemo(sala);
+                        ok = RanasDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        RanasDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = RanasDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -300,23 +303,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        LinternaDemo.BreadthFirstDemo(sala);
+                        ok = LinternaDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        LinternaDemo.DepthFirstSearchDemo(sala);
+                        ok = LinternaDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        LinternaDemo.DepthLimitedSearchDemo(sala);
+                        ok = LinternaDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        LinternaDemo.UniformCostSearchDemo(sala);
+                        ok = LinternaDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        LinternaDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = LinternaDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -325,23 +328,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        MonoBananaDemo.BreadthFirstDemo(sala);
+                        ok = MonoBananaDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        MonoBananaDemo.DepthFirstSearchDemo(sala);
+                        ok = MonoBananaDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        MonoBananaDemo.DepthLimitedSearchDemo(sala);
+                        ok = MonoBananaDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        MonoBananaDemo.UniformCostSearchDemo(sala);
+                        ok = MonoBananaDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        MonoBananaDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = MonoBananaDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -351,23 +354,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        RejillaRojoAzulDemo.BreadthFirstDemo(sala);
+                        ok = RejillaRojoAzulDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        RejillaRojoAzulDemo.DepthFirstSearchDemo(sala);
+                        ok = RejillaRojoAzulDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        RejillaRojoAzulDemo.DepthLimitedSearchDemo(sala);
+                        ok = RejillaRojoAzulDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        RejillaRojoAzulDemo.UniformCostSearchDemo(sala);
+                        ok = RejillaRojoAzulDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        RejillaRojoAzulDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = RejillaRojoAzulDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -376,23 +379,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        OchoPuzzleDemo.BreadthFirstDemo(sala);
+                        ok = OchoPuzzleDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        OchoPuzzleDemo.DepthFirstSearchDemo(sala);
+                        ok = OchoPuzzleDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        OchoPuzzleDemo.DepthLimitedSearchDemo(sala);
+                        ok = OchoPuzzleDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        OchoPuzzleDemo.UniformCostSearchDemo(sala);
+                        ok = OchoPuzzleDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        OchoPuzzleDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = OchoPuzzleDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -401,23 +404,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        MariposasDemo.BreadthFirstDemo(sala);
+                        ok = MariposasDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        MariposasDemo.DepthFirstSearchDemo(sala);
+                        ok = MariposasDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        MariposasDemo.DepthLimitedSearchDemo(sala);
+                        ok = MariposasDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        MariposasDemo.UniformCostSearchDemo(sala);
+                        ok = MariposasDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        MariposasDemo.RejillaRojoAzulGreedyBestFirstSearch(sala);
+                        ok = MariposasDemo.RejillaRojoAzulGreedyBestFirstSearch(sala);
                         break;
                 }
                 break;
@@ -426,23 +429,23 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        HanoiDemo.BreadthFirstDemo(sala);
+                        ok = HanoiDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        HanoiDemo.DepthFirstSearchDemo(sala);
+                        ok = HanoiDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        HanoiDemo.DepthLimitedSearchDemo(sala);
+                        ok = HanoiDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        HanoiDemo.UniformCostSearchDemo(sala);
+                        ok = HanoiDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        HanoiDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = HanoiDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
@@ -451,26 +454,27 @@ public class LaberintoEnvironment extends MapEnvironment {
                 switch (estrategia) {
                     //Primero en anchura
                     case 0:
-                        SolitarioDemo.BreadthFirstDemo(sala);
+                        ok = SolitarioDemo.BreadthFirstDemo(sala);
                         break;
                     //Primero en profundidad
                     case 1:
-                        SolitarioDemo.DepthFirstSearchDemo(sala);
+                        ok = SolitarioDemo.DepthFirstSearchDemo(sala);
                         break;
                     //Primero en profundidad limitada
                     case 2:
-                        SolitarioDemo.DepthLimitedSearchDemo(sala);
+                        ok = SolitarioDemo.DepthLimitedSearchDemo(sala);
                         break;
                     //Coste uniforme
                     case 3:
-                        SolitarioDemo.UniformCostSearchDemo(sala);
+                        ok = SolitarioDemo.UniformCostSearchDemo(sala);
                         break;
                     //Busqueda iterativa
                     case 4:
-                        SolitarioDemo.IterativeDeepeningSearchDemo(sala);
+                        ok = SolitarioDemo.IterativeDeepeningSearchDemo(sala);
                         break;
                 }
                 break;
         }
+        return ok;
     }
 }

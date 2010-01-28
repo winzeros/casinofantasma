@@ -141,6 +141,27 @@ public class Juego {
      * Metodo que ejecuta el juego que luego se va a implementar en las
      * clases heredadas.
      */
+    public boolean ejecutarConsola() {
+
+        boolean salida = true;
+
+        try {
+
+            this._agente = new SearchAgent(this._problema, this._busqueda);
+            this._problema.getInitialState().toString();
+            this.imprimir(this._agente.getActions());
+            this.imprimirPropiedades(this._agente.getInstrumentation());
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+        return salida;
+    }
+
+        /**
+     * Metodo que ejecuta el juego que luego se va a implementar en las
+     * clases heredadas y lo muestra por la salida estandar.
+     */
     public void ejecutar() {
 
         try {

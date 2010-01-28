@@ -22,18 +22,23 @@ public class MariposasDemo {
     public static void main(String[] args) {
 
         BreadthFirstDemo("SALA11");
-        RejillaRojoAzulGreedyBestFirstSearch("SALA11");
         DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         AStarSearch("SALA11");
+        GreedyBestFirstSearch("SALA11");
+        RecursiveBestFirstSearch("SALA11");
+        SimulatedAnnealingSearch("SALA11");
+        HillClimbingSearch("SALA11");
     }
 
     /**
      * Busqueda GreedyBestFirstSearch con Funcion Heuristica Manhattan.
      * @param sala
      */
-    public static void RejillaRojoAzulGreedyBestFirstSearch(String sala) {
+    public static boolean GreedyBestFirstSearch(String sala) {
+
+        boolean ok = false;
 
         try {
 
@@ -49,17 +54,22 @@ public class MariposasDemo {
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
+
     }
 
     /**
      * Busqueda primero en anchura.
      * @param sala
      */
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
+
+        boolean ok = false;
+
         try {
             MariposasJuego juego = new MariposasJuego(new BreadthFirstSearch(new TreeSearch()));
             log.info("\n\n\n*******************************************");
@@ -73,10 +83,11 @@ public class MariposasDemo {
             log.info(" \n\n***********************************\n"
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
 
@@ -84,8 +95,11 @@ public class MariposasDemo {
      * Busqueda en profundidad.
      * @param sala
      */
-    public static void DepthFirstSearchDemo(String sala) {
-        try {
+    public static boolean DepthFirstSearchDemo(String sala) {
+
+        boolean ok = false;
+
+                try {
             MariposasJuego juego = new MariposasJuego(new DepthFirstSearch(new TreeSearch()));
 
             log.info("\n\n\n*******************************************");
@@ -100,20 +114,22 @@ public class MariposasDemo {
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda con profuncidad limitada.
      * @param sala
      */
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
-        MariposasJuego juego;
+        boolean ok = false;
+       MariposasJuego juego;
 
         try {
             juego = new MariposasJuego(new DepthLimitedSearch(11));
@@ -130,19 +146,21 @@ public class MariposasDemo {
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda coste uniforme.
      * @param sala
      */
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         MariposasJuego juego;
 
         try {
@@ -160,19 +178,21 @@ public class MariposasDemo {
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda A*.
      * @param sala
      */
-    public static void AStarSearch(String sala) {
+    public static boolean AStarSearch(String sala) {
 
+        boolean ok = false;
         MariposasJuego juego;
 
         try {
@@ -190,10 +210,96 @@ public class MariposasDemo {
                     + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
                     + "***********************************\n");
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
+
+    private static boolean RecursiveBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        MariposasJuego juego;
+
+        try {
+            juego = new MariposasJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()), new MariposasFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null) {
+                log.info(" " + sala);
+            }
+            log.info(" JUEGO MARIPOSA");
+            log.info(" Busqueda RecursiveBestFirstSearch*");
+            log.info("*******************************************\n");
+
+            log.info(" \n\n***********************************\n"
+                    + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
+                    + "***********************************\n");
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+            Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    private static boolean SimulatedAnnealingSearch(String sala) {
+
+        boolean ok = false;
+        MariposasJuego juego;
+
+        try {
+            juego = new MariposasJuego(new SimulatedAnnealingSearch(), new MariposasFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null) {
+                log.info(" " + sala);
+            }
+            log.info(" JUEGO MARIPOSA");
+            log.info(" Busqueda SimulatedAnnealingSearch");
+            log.info("*******************************************\n");
+
+            log.info(" \n\n***********************************\n"
+                    + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
+                    + "***********************************\n");
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+            Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+        private static boolean HillClimbingSearch(String sala) {
+
+        boolean ok = false;
+        MariposasJuego juego;
+
+        try {
+            juego = new MariposasJuego(new HillClimbingSearch(), new MariposasFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null) {
+                log.info(" " + sala);
+            }
+            log.info(" JUEGO MARIPOSA");
+            log.info(" Busqueda HillClimbingSearch");
+            log.info("*******************************************\n");
+
+            log.info(" \n\n***********************************\n"
+                    + new MariposasEstado().getInstante().imprimirTablero(new MariposasEstado().getInstante())
+                    + "***********************************\n");
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+            Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
 }

@@ -31,7 +31,9 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
     }
 
 
-    public static void SolitarioGreedyBestFirstSearch(String sala) {
+    public static boolean SolitarioGreedyBestFirstSearch(String sala) {
+
+        boolean ok = false;
 
         try{
 
@@ -44,14 +46,18 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
 
-        juego.ejecutar();
+       ok = juego.ejecutarConsola();
         } catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
 
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
+
+        boolean ok = false;
+
         try{
         SolitarioJuego juego = new SolitarioJuego(new BreadthFirstSearch(new TreeSearch()));
         log.info("\n\n\n*******************************************");
@@ -61,13 +67,16 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
-        juego.ejecutar();
+       ok = juego.ejecutarConsola();
         }
         catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
-        public static void DepthFirstSearchDemo(String sala) {
+        public static boolean DepthFirstSearchDemo(String sala) {
+
+        boolean ok = false;
 
         SolitarioJuego juego;
 
@@ -82,15 +91,17 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
 
-            juego.ejecutar();
+           ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
+        boolean ok = false;
         SolitarioJuego juego;
 
         try {
@@ -104,15 +115,17 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
 
-            juego.ejecutar();
+           ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         SolitarioJuego juego;
 
         try {
@@ -126,15 +139,17 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
 
-            juego.ejecutar();
+           ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala) {
 
+        boolean ok = false;
         SolitarioJuego juego;
 
         try {
@@ -148,11 +163,12 @@ public final static Logger log = Logger.getLogger(SolitarioDemo.class.getName())
             log.info("*******************************************\n");
             log.info(new SolitarioEstado().toString());
 
-            juego.ejecutar();
+           ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(SolitarioJuego.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
  }

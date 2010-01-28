@@ -43,7 +43,7 @@ public class OchoPuzzleJuego extends Juego {
 
 
     
-    @Override
+ /*   @Override
     public void ejecutar() {
         //busqueda profundidad limitada
         if (this.busqueda instanceof DepthLimitedSearch) {
@@ -88,7 +88,7 @@ public class OchoPuzzleJuego extends Juego {
             e.printStackTrace();
         }
         
-    }
+    }*/
 
 }
 
