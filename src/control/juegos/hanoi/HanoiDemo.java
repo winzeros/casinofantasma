@@ -30,14 +30,12 @@ public class HanoiDemo {
         UniformCostSearchDemo("SALA11");
         AStarSearchMalColocados("SALA11");
         GreedyBestFirstSearchMalColocados("SALA11");
-        RecursiveBestFirstSearchMalColocados("SALA11");
         SimulatedAnnealingSearchMalColocados("SALA11");
         HillClimbingSearchMalColocados("SALA11");
         AStarSearchPosibles("SALA11");
         GreedyBestFirstSearchPosibles("SALA11");
-        RecursiveBestFirstSearchPosibles("SALA11");
         SimulatedAnnealingSearchPosibles("SALA11");
-        HillClimbingSearchPosibles("SALA11");
+      
     }
 
     /**
@@ -232,30 +230,6 @@ public class HanoiDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearchMalColocados(String sala) {
-
-        boolean ok = false;
-        HanoiJuego juego;
-
-        try {
-            juego = new HanoiJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new HanoiHeuristicaMalColocados());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda RecursiveBestFirstSearch \n" +
-                    " Heuristica Mal Colocados");
-            log.info("*******************************************\n\n");
-            log.info(new HanoiEstado().toString());
-
-            ok = juego.ejecutarConsola();
-
-        } catch (Exception ex) {
-             Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
-        }
-        return ok;
-    }
 
 
     public static boolean SimulatedAnnealingSearchMalColocados(String sala) {
@@ -359,30 +333,6 @@ public class HanoiDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearchPosibles(String sala) {
-
-        boolean ok = false;
-        HanoiJuego juego;
-
-        try {
-            juego = new HanoiJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new HanoiHeuristicaPosibles());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda RecursiveBestFirstSearch \n" +
-                    " Heuristica Posibles");
-            log.info("*******************************************\n\n");
-            log.info(new HanoiEstado().toString());
-
-            ok = juego.ejecutarConsola();
-
-        } catch (Exception ex) {
-             Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
-        }
-        return ok;
-    }
 
 
     public static boolean SimulatedAnnealingSearchPosibles(String sala) {
@@ -410,29 +360,6 @@ public class HanoiDemo {
         return ok;
     }
 
-    public static boolean HillClimbingSearchPosibles(String sala) {
-
-        boolean ok = false;
-        HanoiJuego juego;
-
-        try {
-            juego = new HanoiJuego(new HillClimbingSearch() ,new HanoiHeuristicaPosibles());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda HillClimbingSearch \n" +
-                    " Heuristica Posibles");
-            log.info("*******************************************\n\n");
-            log.info(new HanoiEstado().toString());
-
-            ok = juego.ejecutarConsola();
-
-        } catch (Exception ex) {
-             Logger.getLogger(HanoiDemo.class.getName()).log(Level.ERROR, null, ex);
-        }
-        return ok;
-    }
+   
 
 }
