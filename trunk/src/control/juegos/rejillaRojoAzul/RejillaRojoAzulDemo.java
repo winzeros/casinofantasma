@@ -24,22 +24,22 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        RejillaRojoAzulGreedyBestFirstSearch("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");
-        AStarSearch("SALA11");
-        GreedyBestFirstSearch("SALA11");
-        RecursiveBestFirstSearch("SALA11");
-        SimulatedAnnealingSearch("SALA11");
-        HillClimbingSearch("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        RejillaRojoAzulGreedyBestFirstSearch("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
+        IterativeDeepeningSearchDemo("SALA11", true);
+        AStarSearch("SALA11", true);
+        GreedyBestFirstSearch("SALA11", true);
+        RecursiveBestFirstSearch("SALA11", true);
+        SimulatedAnnealingSearch("SALA11", true);
+        HillClimbingSearch("SALA11", true);
         
     }
 
 
-    public static boolean RejillaRojoAzulGreedyBestFirstSearch(String sala) {
+    public static boolean RejillaRojoAzulGreedyBestFirstSearch(String sala, boolean consola) {
 
         boolean ok = false;
 
@@ -54,7 +54,12 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-        ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
         }
@@ -62,7 +67,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
     }
 
 
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
         boolean ok = false;
 
@@ -75,14 +80,18 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info(" BÚSQUEDA PRIMERO EN ANCHURA");
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
-        ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
         }
         catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
-        public static boolean DepthFirstSearchDemo(String sala) {
+        public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -98,7 +107,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -106,7 +119,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -122,7 +135,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -130,7 +147,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -146,7 +163,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -154,7 +175,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -170,7 +191,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
@@ -178,7 +203,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean AStarSearch(String sala) {
+    public static boolean AStarSearch(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -194,7 +219,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -203,7 +232,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
     }
 
 
-     public static boolean GreedyBestFirstSearch(String sala) {
+     public static boolean GreedyBestFirstSearch(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -219,7 +248,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -227,7 +260,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearch(String sala) {
+    public static boolean RecursiveBestFirstSearch(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -243,7 +276,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -252,7 +289,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
     }
 
 
-    public static boolean SimulatedAnnealingSearch(String sala) {
+    public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -268,7 +305,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -276,7 +317,7 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         return ok;
     }
 
-    public static boolean HillClimbingSearch(String sala) {
+    public static boolean HillClimbingSearch(String sala, boolean consola) {
 
         boolean ok = false;
         RejillaRojoAzulJuego juego;
@@ -292,7 +333,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
             log.info("*******************************************\n\n");
             log.info(new RejillaRojoAzulEstado().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);

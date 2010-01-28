@@ -157,24 +157,20 @@ public class Juego {
      * Metodo que ejecuta el juego que luego se va a implementar en las
      * clases heredadas.
      */
-    public boolean ejecutarConsola() {
+    public void ejecutarConsola() {
 
         try {
-
             this._agente = new SearchAgent(this._problema, this._busqueda);
             this._problema.getInitialState().toString();
             this.imprimir(this._agente.getActions());
             this.imprimirPropiedades(this._agente.getInstrumentation());
             if (_esSolucion) {
-                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "¡SOLUCIONADO!");
-                return true;
+                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "SOLUCIONADO");
             } else {
                 Logger.getLogger(Juego.class.getName()).log(Level.INFO, "No lo he podido solucionar...");
-                return false;
             }
         } catch (Exception ex) {
             System.out.println(ex);
-            return false;
         }
     }
 
@@ -182,22 +178,26 @@ public class Juego {
      * Metodo que ejecuta el juego que luego se va a implementar en las
      * clases heredadas y lo muestra por la salida estandar.
      */
-    public void ejecutar() {
+    public boolean ejecutar() {
 
         try {
 
             this._agente = new SearchAgent(this._problema, this._busqueda);
             this._problema.getInitialState().toString();
-            this.imprimir(this._agente.getActions());
-            this.imprimirPropiedades(this._agente.getInstrumentation());
+            //this.imprimir(this._agente.getActions());
+            //this.imprimirPropiedades(this._agente.getInstrumentation());
             if (_esSolucion) {
-                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "\n\n¡SOLUCIONADO!");
+            //    Logger.getLogger(Juego.class.getName()).log(Level.INFO, "¡SOLUCIONADO!");
+                return true;
             } else {
-                Logger.getLogger(Juego.class.getName()).log(Level.INFO, "\n\nNo lo he podido solucionar...");
+           //     Logger.getLogger(Juego.class.getName()).log(Level.INFO, "No lo he podido solucionar...");
+                return false;
             }
         } catch (Exception ex) {
             System.out.println(ex);
+            return false;
         }
+
     }
 
     /**

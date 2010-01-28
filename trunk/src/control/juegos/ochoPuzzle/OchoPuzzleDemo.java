@@ -17,19 +17,19 @@ public class OchoPuzzleDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");        
-        AStarSearch("SALA11");
-        GreedyBestFirstSearch("SALA11");
-        RecursiveBestFirstSearch("SALA11");
-        SimulatedAnnealingSearch("SALA11");
-        HillClimbingSearch("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        IterativeDeepeningSearchDemo("SALA11", true);
+        AStarSearch("SALA11", true);
+        GreedyBestFirstSearch("SALA11", true);
+        RecursiveBestFirstSearch("SALA11", true);
+        SimulatedAnnealingSearch("SALA11", true);
+        HillClimbingSearch("SALA11", true);
     }
 
-    public static boolean eightPuzzleGreedyBestFirstManhattanDemo(String sala) {
+    public static boolean eightPuzzleGreedyBestFirstManhattanDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
 
@@ -44,16 +44,21 @@ public class OchoPuzzleDemo {
             log.info("**********************************************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new DepthLimitedSearch(9));
@@ -65,16 +70,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA RECURSIVA DLS");
             log.info("*********************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new DepthFirstSearch(new TreeSearch()));
@@ -86,16 +97,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA RECURSIVA DLS");
             log.info("*********************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new UniformCostSearch(new TreeSearch()));
@@ -107,16 +124,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA RECURSIVA DLS");
             log.info("*********************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new IterativeDeepeningSearch());
@@ -129,16 +152,21 @@ public class OchoPuzzleDemo {
             log.info("*********************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean eightPuzzleGreedyBestFirstDemo(String sala) {
+    public static boolean eightPuzzleGreedyBestFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()));
@@ -150,7 +178,13 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA GreedyBestFirstSearch con función Descolocados");
             log.info("***************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
@@ -158,9 +192,9 @@ public class OchoPuzzleDemo {
 
     }
 
-    public static boolean eightPuzzleAStarManhattanDemo(String sala) {
+    public static boolean eightPuzzleAStarManhattanDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new AStarSearch(new GraphSearch()));
@@ -172,16 +206,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA A ESTRELLA CON FUNCION HEURISTICA DE MANHATTAN");
             log.info("**************************************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean eightPuzzleSimulatedAnnealingDemo(String sala) {
+    public static boolean eightPuzzleSimulatedAnnealingDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new SimulatedAnnealingSearch());
@@ -193,16 +233,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA RECORRIDO SIMULADO ");
             log.info("************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
 
         try {
             OchoPuzzleJuego juego = new OchoPuzzleJuego(new BreadthFirstSearch(new TreeSearch()));
@@ -214,16 +260,22 @@ public class OchoPuzzleDemo {
             log.info(" BÚSQUEDA BÚSQUEDA PRIMERO EN ANCHURA");
             log.info("******************************************\n");
             log.info(new OchoPuzzleEstados().toString() + "\n\n");
-            ok = juego.ejecutarConsola();
+
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    public static boolean AStarSearch(String sala) {
+    public static boolean AStarSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OchoPuzzleJuego juego;
 
         try {
@@ -237,7 +289,11 @@ public class OchoPuzzleDemo {
             log.info("*******************************************\n\n");
             log.info(new OchoPuzzleEstados().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OchoPuzzleDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -246,9 +302,9 @@ public class OchoPuzzleDemo {
     }
 
 
-     public static boolean GreedyBestFirstSearch(String sala) {
+     public static boolean GreedyBestFirstSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OchoPuzzleJuego juego;
 
         try {
@@ -262,7 +318,11 @@ public class OchoPuzzleDemo {
             log.info("*******************************************\n\n");
             log.info(new OchoPuzzleEstados().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OchoPuzzleDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -270,9 +330,9 @@ public class OchoPuzzleDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearch(String sala) {
+    public static boolean RecursiveBestFirstSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OchoPuzzleJuego juego;
 
         try {
@@ -286,7 +346,11 @@ public class OchoPuzzleDemo {
             log.info("*******************************************\n\n");
             log.info(new OchoPuzzleEstados().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OchoPuzzleDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -295,9 +359,9 @@ public class OchoPuzzleDemo {
     }
 
 
-    public static boolean SimulatedAnnealingSearch(String sala) {
+    public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OchoPuzzleJuego juego;
 
         try {
@@ -311,7 +375,11 @@ public class OchoPuzzleDemo {
             log.info("*******************************************\n\n");
             log.info(new OchoPuzzleEstados().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OchoPuzzleDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -319,9 +387,9 @@ public class OchoPuzzleDemo {
         return ok;
     }
 
-    public static boolean HillClimbingSearch(String sala) {
+    public static boolean HillClimbingSearch(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         OchoPuzzleJuego juego;
 
         try {
@@ -335,7 +403,11 @@ public class OchoPuzzleDemo {
             log.info("*******************************************\n\n");
             log.info(new OchoPuzzleEstados().toString());
 
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(OchoPuzzleDemo.class.getName()).log(Level.ERROR, null, ex);

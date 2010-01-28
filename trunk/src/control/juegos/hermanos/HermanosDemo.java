@@ -23,19 +23,19 @@ public class HermanosDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
     }
 
     /**
      * Busqueda Primero en Anchura.
      * @param sala
      */
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         HermanosJuego juego;
 
         try {
@@ -48,8 +48,11 @@ public class HermanosDemo {
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -61,9 +64,9 @@ public class HermanosDemo {
      * Busqueda en profundidad.
      * @param sala
      */
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         HermanosJuego juego;
 
         try {
@@ -76,8 +79,11 @@ public class HermanosDemo {
             log.info(" Busqueda en profundidad");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -89,9 +95,9 @@ public class HermanosDemo {
      * Busqueda con profundida limitada.
      * @param sala
      */
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         HermanosJuego juego;
 
         try {
@@ -104,8 +110,11 @@ public class HermanosDemo {
             log.info(" Busqueda en profundidad limitada");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -117,9 +126,9 @@ public class HermanosDemo {
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         HermanosJuego juego;
 
         try {
@@ -132,8 +141,11 @@ public class HermanosDemo {
             log.info(" Busqueda de coste uniforme");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -145,9 +157,9 @@ public class HermanosDemo {
      * Busqueda iterativa.
      * @param sala
      */
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         HermanosJuego juego;
 
         try {
@@ -160,8 +172,11 @@ public class HermanosDemo {
             log.info(" Busqueda iterativa");
             log.info("*******************************************\n");
             log.info(new HermanosEstado().toString());
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);

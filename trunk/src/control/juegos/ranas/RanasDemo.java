@@ -21,26 +21,26 @@ public class RanasDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");
-        AStarSearchRanas("SALA11");
-        GreedyBestFirstSearchRanas("SALA11");
-        RecursiveBestFirstSearchRanas("SALA11");
-        SimulatedAnnealingSearchRanas("SALA11");
-        HillClimbingSearchRanas("SALA11");
-        AStarSearchDescolocadas("SALA11");
-        GreedyBestFirstSearchDescolocadas("SALA11");
-        RecursiveBestFirstSearchDescolocadas("SALA11");
-        SimulatedAnnealingSearchDescolocadas("SALA11");
-        HillClimbingSearchDescolocadas("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
+        IterativeDeepeningSearchDemo("SALA11", true);
+        AStarSearchRanas("SALA11", true);
+        GreedyBestFirstSearchRanas("SALA11", true);
+        RecursiveBestFirstSearchRanas("SALA11", true);
+        SimulatedAnnealingSearchRanas("SALA11", true);
+        HillClimbingSearchRanas("SALA11", true);
+        AStarSearchDescolocadas("SALA11", true);
+        GreedyBestFirstSearchDescolocadas("SALA11", true);
+        RecursiveBestFirstSearchDescolocadas("SALA11", true);
+        SimulatedAnnealingSearchDescolocadas("SALA11", true);
+        HillClimbingSearchDescolocadas("SALA11", true);
     }
 
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -53,8 +53,11 @@ public class RanasDemo {
             log.info(" Busqueda primero en anchura");
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
-
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -62,9 +65,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -78,7 +81,11 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -86,9 +93,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -102,7 +109,11 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -110,9 +121,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -126,7 +137,11 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -134,9 +149,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -150,7 +165,11 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -158,9 +177,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean AStarSearchRanas(String sala) {
+    public static boolean AStarSearchRanas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -175,7 +194,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -184,9 +207,9 @@ public class RanasDemo {
     }
 
 
-     public static boolean GreedyBestFirstSearchRanas(String sala) {
+     public static boolean GreedyBestFirstSearchRanas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -201,7 +224,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -209,9 +236,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearchRanas(String sala) {
+    public static boolean RecursiveBestFirstSearchRanas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -226,7 +253,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -235,9 +266,9 @@ public class RanasDemo {
     }
 
 
-    public static boolean SimulatedAnnealingSearchRanas(String sala) {
+    public static boolean SimulatedAnnealingSearchRanas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -252,7 +283,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -260,9 +295,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean HillClimbingSearchRanas(String sala) {
+    public static boolean HillClimbingSearchRanas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -277,7 +312,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -285,9 +324,9 @@ public class RanasDemo {
         return ok;
     }
     
-    public static boolean AStarSearchDescolocadas(String sala) {
+    public static boolean AStarSearchDescolocadas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -302,7 +341,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -311,9 +354,9 @@ public class RanasDemo {
     }
 
 
-     public static boolean GreedyBestFirstSearchDescolocadas(String sala) {
+     public static boolean GreedyBestFirstSearchDescolocadas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -328,7 +371,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -336,9 +383,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean RecursiveBestFirstSearchDescolocadas(String sala) {
+    public static boolean RecursiveBestFirstSearchDescolocadas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -353,7 +400,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -362,9 +413,9 @@ public class RanasDemo {
     }
 
 
-    public static boolean SimulatedAnnealingSearchDescolocadas(String sala) {
+    public static boolean SimulatedAnnealingSearchDescolocadas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -379,7 +430,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -387,9 +442,9 @@ public class RanasDemo {
         return ok;
     }
 
-    public static boolean HillClimbingSearchDescolocadas(String sala) {
+    public static boolean HillClimbingSearchDescolocadas(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         RanasJuego juego;
 
         try {
@@ -404,7 +459,11 @@ public class RanasDemo {
             log.info("*******************************************\n\n");
             log.info(new RanasEstado().toString());
 
-            ok = juego.ejecutarConsola();
+           if (consola) {
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
 
         } catch (Exception ex) {
              Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);

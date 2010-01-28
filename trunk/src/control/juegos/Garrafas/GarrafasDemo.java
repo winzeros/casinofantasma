@@ -15,33 +15,38 @@ public class GarrafasDemo {
 
     public static void main(String[] args) {
 
-        BreadthFirstDemo("SALA11");
-        DepthFirstSearchDemo("SALA11");
-        DepthLimitedSearchDemo("SALA11");
-        UniformCostSearchDemo("SALA11");
+        BreadthFirstDemo("SALA11", true);
+        DepthFirstSearchDemo("SALA11", true);
+        DepthLimitedSearchDemo("SALA11", true);
+        UniformCostSearchDemo("SALA11", true);
     }
 
     /**
      * Busqueda primero en anchura.
      * @param sala
      */
-    public static boolean BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         GarrafasJuego juego;
 
         try {
             juego = new GarrafasJuego(new BreadthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS GARRAFAS");
-            log.info(" Busqueda primero en anchura");
-            log.info("*******************************************\n");
-            log.info(new GarrafasEstado().toString(0, 0));
+            if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS GARRAFAS");
+                log.info(" Busqueda primero en anchura");
+                log.info("*******************************************\n");
+                log.info(new GarrafasEstado().toString(0, 0));
 
-            ok = juego.ejecutarConsola();
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
             log.info(ok);
 
         } catch (Exception ex) {
@@ -54,23 +59,27 @@ public class GarrafasDemo {
      * Busqueda en profundidad.
      * @param sala
      */
-    public static boolean DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         GarrafasJuego juego;
 
         try {
             juego = new GarrafasJuego(new DepthFirstSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS GARRAFAS");
-            log.info(" Busqueda en profundidad");
-            log.info("*******************************************\n");
-            log.info(new GarrafasEstado().toString(0, 0));
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS GARRAFAS");
+                log.info(" Busqueda en profundidad");
+                log.info("*******************************************\n");
+                log.info(new GarrafasEstado().toString(0, 0));
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
             log.info(ok);
 
         } catch (Exception ex) {
@@ -83,23 +92,27 @@ public class GarrafasDemo {
      * Busqueda con profundidad limitada.
      * @param sala
      */
-    public static boolean DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         GarrafasJuego juego;
 
         try {
             juego = new GarrafasJuego(new DepthLimitedSearch(11));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS GARRAFAS");
-            log.info(" Busqueda en profundidad limitada");
-            log.info("*******************************************\n");
-            log.info(new GarrafasEstado().toString(0, 0));
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS GARRAFAS");
+                log.info(" Busqueda en profundidad limitada");
+                log.info("*******************************************\n");
+                log.info(new GarrafasEstado().toString(0, 0));
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
             log.info(ok);
 
         } catch (Exception ex) {
@@ -112,23 +125,27 @@ public class GarrafasDemo {
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static boolean UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         GarrafasJuego juego;
 
         try {
             juego = new GarrafasJuego(new UniformCostSearch(new TreeSearch()));
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS GARRAFAS");
-            log.info(" Busqueda de coste uniforme");
-            log.info("*******************************************\n");
-            log.info(new GarrafasEstado().toString(0, 0));
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS GARRAFAS");
+                log.info(" Busqueda de coste uniforme");
+                log.info("*******************************************\n");
+                log.info(new GarrafasEstado().toString(0, 0));
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
             log.info(ok);
 
         } catch (Exception ex) {
@@ -141,23 +158,27 @@ public class GarrafasDemo {
      * Busqueda iterativa.
      * @param sala
      */
-    public static boolean IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala, boolean consola) {
 
-        boolean ok = false;
+        boolean ok = true;
         GarrafasJuego juego;
 
         try {
             juego = new GarrafasJuego(new IterativeDeepeningSearch());
 
-            log.info("\n\n\n*******************************************");
-            if (sala != null)
-                log.info(" " + sala);
-            log.info(" JUEGO DE LAS GARRAFAS");
-            log.info(" Busqueda iterativa");
-            log.info("*******************************************\n");
-            log.info(new GarrafasEstado().toString(0, 0));
-
-            ok = juego.ejecutarConsola();
+            if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS GARRAFAS");
+                log.info(" Busqueda iterativa");
+                log.info("*******************************************\n");
+                log.info(new GarrafasEstado().toString(0, 0));
+                juego.ejecutarConsola();
+            } else {
+                ok = juego.ejecutar();
+            }
             log.info(ok);
 
         } catch (Exception ex) {
@@ -166,8 +187,5 @@ public class GarrafasDemo {
 
         return ok;
     }
-
-
-    
 }
 
