@@ -28,34 +28,33 @@ public class OchoPuzzleFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - OchoPuzzleEstados.horaInicial) < 5000) {
-            OchoPuzzleEstados tablero = (OchoPuzzleEstados) state;
-            if (tablero.puedoMoverHueco(OchoPuzzleEstados.UP)) {
-                OchoPuzzleEstados nuevoTablero = copyOf(tablero);
-                nuevoTablero.moverHuecoArriba();
-                sucesores.add(new Successor(OchoPuzzleEstados.UP + "\n"
-                        + nuevoTablero.toString() + "\n\n", nuevoTablero));
+        if (!OchoPuzzleEstados.timeout) {
+            if ((horaActual - OchoPuzzleEstados.horaInicial) < 5000) {
+                OchoPuzzleEstados tablero = (OchoPuzzleEstados) state;
+                if (tablero.puedoMoverHueco(OchoPuzzleEstados.UP)) {
+                    OchoPuzzleEstados nuevoTablero = copyOf(tablero);
+                    nuevoTablero.moverHuecoArriba();
+                    sucesores.add(new Successor(OchoPuzzleEstados.UP + "\n" + nuevoTablero.toString() + "\n\n", nuevoTablero));
+                }
+                if (tablero.puedoMoverHueco(OchoPuzzleEstados.DOWN)) {
+                    OchoPuzzleEstados nuevoTablero = copyOf(tablero);
+                    nuevoTablero.moverHuecoAbajo();
+                    sucesores.add(new Successor(OchoPuzzleEstados.DOWN + "\n" + nuevoTablero.toString() + "\n\n", nuevoTablero));
+                }
+                if (tablero.puedoMoverHueco(OchoPuzzleEstados.LEFT)) {
+                    OchoPuzzleEstados nuevoTablero = copyOf(tablero);
+                    nuevoTablero.moverHuecoIzq();
+                    sucesores.add(new Successor(OchoPuzzleEstados.LEFT + "\n" + nuevoTablero.toString() + "\n\n", nuevoTablero));
+                }
+                if (tablero.puedoMoverHueco(OchoPuzzleEstados.RIGHT)) {
+                    OchoPuzzleEstados nuevoTablero = copyOf(tablero);
+                    nuevoTablero.MoverHuecoDerch();
+                    sucesores.add(new Successor(OchoPuzzleEstados.RIGHT + "\n" + nuevoTablero.toString() + "\n\n", nuevoTablero));
+                }
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                OchoPuzzleEstados.timeout = true;
             }
-            if (tablero.puedoMoverHueco(OchoPuzzleEstados.DOWN)) {
-                OchoPuzzleEstados nuevoTablero = copyOf(tablero);
-                nuevoTablero.moverHuecoAbajo();
-                sucesores.add(new Successor(OchoPuzzleEstados.DOWN + "\n"
-                        + nuevoTablero.toString() + "\n\n", nuevoTablero));
-            }
-            if (tablero.puedoMoverHueco(OchoPuzzleEstados.LEFT)) {
-                OchoPuzzleEstados nuevoTablero = copyOf(tablero);
-                nuevoTablero.moverHuecoIzq();
-                sucesores.add(new Successor(OchoPuzzleEstados.LEFT + "\n"
-                        + nuevoTablero.toString() + "\n\n", nuevoTablero));
-            }
-            if (tablero.puedoMoverHueco(OchoPuzzleEstados.RIGHT)) {
-                OchoPuzzleEstados nuevoTablero = copyOf(tablero);
-                nuevoTablero.MoverHuecoDerch();
-                sucesores.add(new Successor(OchoPuzzleEstados.RIGHT + "\n"
-                        + nuevoTablero.toString() + "\n\n", nuevoTablero));
-            }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
         return sucesores;
     }

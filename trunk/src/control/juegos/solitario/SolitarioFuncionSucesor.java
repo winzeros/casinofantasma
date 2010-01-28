@@ -19,9 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class SolitarioFuncionSucesor implements SuccessorFunction {
 
-
     public final static Logger log = Logger.getLogger(SolitarioFuncionSucesor.class.getName());
-
     private SolitarioEstado estadoPadre;
 
     public List getSuccessors(Object arg0) {
@@ -29,30 +27,33 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
         ArrayList resultado = new ArrayList();
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
-        
-        if ((horaActual - SolitarioEstado.horaInicial) < 5000) {
-            estadoPadre = new SolitarioEstado((SolitarioEstado) arg0);
-            ArrayList recorrido = estadoPadre.getRecorrido();
-            SolitarioEstado estado;
 
-            for (int i = 0; i < 7; i++) {
+        if (!SolitarioEstado.timeout) {
+            if ((horaActual - SolitarioEstado.horaInicial) < 5000) {
+                estadoPadre = new SolitarioEstado((SolitarioEstado) arg0);
+                ArrayList recorrido = estadoPadre.getRecorrido();
+                SolitarioEstado estado;
 
-                if ((i == 0) || (i == 1) || (i == 5) || (i == 6)) {
-                    for (int j = 2; j < 5; j++) {
-                        estado = new SolitarioEstado(estadoPadre);
-                        estado.setRecorrido(recorrido);
-                        recorrido = ejecutarMovimientos(estado, resultado, i, j);
-                    }
-                } else {
-                    for (int j = 0; j < 7; j++) {
-                        estado = new SolitarioEstado(estadoPadre);
-                        estado.setRecorrido(recorrido);
-                        recorrido = ejecutarMovimientos(estado, resultado, i, j);
+                for (int i = 0; i < 7; i++) {
+
+                    if ((i == 0) || (i == 1) || (i == 5) || (i == 6)) {
+                        for (int j = 2; j < 5; j++) {
+                            estado = new SolitarioEstado(estadoPadre);
+                            estado.setRecorrido(recorrido);
+                            recorrido = ejecutarMovimientos(estado, resultado, i, j);
+                        }
+                    } else {
+                        for (int j = 0; j < 7; j++) {
+                            estado = new SolitarioEstado(estadoPadre);
+                            estado.setRecorrido(recorrido);
+                            recorrido = ejecutarMovimientos(estado, resultado, i, j);
+                        }
                     }
                 }
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                SolitarioEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
         return resultado;
     }

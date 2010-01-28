@@ -16,6 +16,10 @@ public class RejillaRojoAzulEstado {
     private String[][] _tablero;
     static int _nodosExpandidos;
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
     public RejillaRojoAzulEstado() {
         _tablero = new String[3][3];
@@ -31,6 +35,7 @@ public class RejillaRojoAzulEstado {
         _tablero[2][2] = "A";
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     public RejillaRojoAzulEstado(String[][] tablero) {

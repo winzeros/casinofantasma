@@ -19,6 +19,10 @@ public class OchoPuzzleEstados {
     public static String DOWN = "Abajo";
     public static long horaInicial;
     int[] tablero;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
     public int[] getTablero() {
         return tablero;
@@ -28,6 +32,7 @@ public class OchoPuzzleEstados {
         tablero = new int[]{1, 4, 2, 7, 5, 8, 3, 0, 6};
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
 
     }
 

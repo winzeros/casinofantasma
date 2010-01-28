@@ -6,7 +6,6 @@
 package control.juegos.hanoi;
 
 import aima.search.framework.*;
-import control.juegos.hermanos.HermanosEstado;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

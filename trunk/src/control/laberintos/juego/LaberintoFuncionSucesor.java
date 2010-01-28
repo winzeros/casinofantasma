@@ -47,6 +47,11 @@ public class LaberintoFuncionSucesor implements SuccessorFunction {
 
                 int juego = LaberintoSalas.lectorXML.getJuego(linkLoc);
                 int estrategia = LaberintoSalas.lectorXML.getEstrategia(linkLoc);
+                int apuesta = LaberintoSalas.lectorXML.getDistancia(estadoPadre.toString(), linkLoc);
+                 int recompensa = LaberintoSalas.lectorXML.getRecompensa(linkLoc);
+
+                estado.setApuesta(apuesta);
+                estado.setRecompensa(recompensa);
 
            //     if (LaberintoEjecucion.ejecutarJuego(juego, estrategia, linkLoc, false)) {
                     successors.add(new Successor(linkLoc, estado));

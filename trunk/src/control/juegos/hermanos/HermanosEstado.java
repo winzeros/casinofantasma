@@ -34,6 +34,10 @@ public class HermanosEstado {
      * Hora inicial del juego.
      */
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
 
@@ -47,6 +51,7 @@ public class HermanosEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     /**

@@ -23,6 +23,10 @@ public class RanasEstado {
     public static final String SAPO = "*";
     public static final String NADA = "_";
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
     public RanasEstado() {
@@ -32,6 +36,7 @@ public class RanasEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     public RanasEstado(boolean controlCiclos) {

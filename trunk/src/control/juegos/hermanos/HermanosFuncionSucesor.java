@@ -36,6 +36,7 @@ public class HermanosFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
+        if (!HermanosEstado.timeout) {
         if ((horaActual - HermanosEstado.horaInicial) < 5000) {
             HermanosEstado estadoPadre = (HermanosEstado) arg0;
             ArrayList recorrido = estadoPadre.getRecorrido();
@@ -54,8 +55,10 @@ public class HermanosFuncionSucesor implements SuccessorFunction {
             } catch (Exception ex) {
                 Logger.getLogger(HermanosFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
             }
-        } else {
+ }else {
             log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+            HermanosEstado.timeout = true;
+        }
         }
 
         return resultado;

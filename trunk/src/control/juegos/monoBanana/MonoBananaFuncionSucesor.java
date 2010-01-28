@@ -36,26 +36,27 @@ public class MonoBananaFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - MonoBananaEstado.horaInicial) < 5000) {
-            MonoBananaEstado estadoPadre = (MonoBananaEstado) arg0;
-            ArrayList recorrido = estadoPadre.getRecorrido();
+        if (!MonoBananaEstado.timeout) {
+            if ((horaActual - MonoBananaEstado.horaInicial) < 5000) {
+                MonoBananaEstado estadoPadre = (MonoBananaEstado) arg0;
+                ArrayList recorrido = estadoPadre.getRecorrido();
 
-            try {
-                for (int i = 1; i < 6; i++) { //Operaciones
-                    MonoBananaEstado estado = new MonoBananaEstado(estadoPadre);
-                    estado.setRecorrido(recorrido);
-                    if (estado.mover(i)) {
-                        recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + ")\n"
-                                + estado.toString(), estado));
+                try {
+                    for (int i = 1; i < 6; i++) { //Operaciones
+                        MonoBananaEstado estado = new MonoBananaEstado(estadoPadre);
+                        estado.setRecorrido(recorrido);
+                        if (estado.mover(i)) {
+                            recorrido = estado.getRecorrido();
+                            resultado.add(new Successor("                  (" + i + ")\n" + estado.toString(), estado));
+                        }
                     }
+                } catch (Exception ex) {
+                    Logger.getLogger(MonoBananaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(MonoBananaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de "
-                        + arg0.toString(), ex);
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                MonoBananaEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
         return resultado;
     }

@@ -42,92 +42,94 @@ public class GarrafasFuncionSucesor implements SuccessorFunction {
         List<Successor> siguientes = new ArrayList<Successor>();
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
-        
-        if ((horaActual - GarrafasEstado.horaInicial) < 5000) {
-            GarrafasEstado estado = (GarrafasEstado) state;
-            GarrafasEstado generado = null;
-            int aux3, aux4;
-            /**
-             * Llenar la garrafa de 3 litros de capacidad
-             */
-            if (estado.getGarrafa3() < 3) {
-                generado = crearSiguienteEstado(estado, 3, estado.getGarrafa4());
-            }
-            if (generado != null) {
-                siguientes.add(new Successor("Llenar Garrafa3 \n\n" + estado.toString(3, estado.getGarrafa4()), generado));
-            }
-            generado = null;
-            /**
-             * LLenar la garrafa de 4 litros de capacidad
-             */
-            if (estado.getGarrafa4() < 4) {
-                generado = crearSiguienteEstado(estado, estado.getGarrafa3(), 4);
-            }
-            if (generado != null) {
-                siguientes.add(new Successor("Llenar Garrafa4 \n\n" + estado.toString(estado.getGarrafa3(), 4), generado));
-            }
-            generado = null;
-            /**
-             * Verter el contenido de la garrafa de 3 litros de capacidad en la garrafa de 4
-             */
-            if ((0 < estado.getGarrafa3()) && (estado.getGarrafa4() < 4)) {
-                aux3 = 0;
-                aux4 = 0;
-                aux4 = estado.getGarrafa4() + estado.getGarrafa3();
-                if (aux4 > 4) {
-                    aux4 = 4;
+
+        if (!GarrafasEstado.timeout) {
+            if ((horaActual - GarrafasEstado.horaInicial) < 5000) {
+                GarrafasEstado estado = (GarrafasEstado) state;
+                GarrafasEstado generado = null;
+                int aux3, aux4;
+                /**
+                 * Llenar la garrafa de 3 litros de capacidad
+                 */
+                if (estado.getGarrafa3() < 3) {
+                    generado = crearSiguienteEstado(estado, 3, estado.getGarrafa4());
                 }
-                aux3 = estado.getGarrafa3() - (4 - estado.getGarrafa4());
-                if (aux3 < 0) {
+                if (generado != null) {
+                    siguientes.add(new Successor("Llenar Garrafa3 \n\n" + estado.toString(3, estado.getGarrafa4()), generado));
+                }
+                generado = null;
+                /**
+                 * LLenar la garrafa de 4 litros de capacidad
+                 */
+                if (estado.getGarrafa4() < 4) {
+                    generado = crearSiguienteEstado(estado, estado.getGarrafa3(), 4);
+                }
+                if (generado != null) {
+                    siguientes.add(new Successor("Llenar Garrafa4 \n\n" + estado.toString(estado.getGarrafa3(), 4), generado));
+                }
+                generado = null;
+                /**
+                 * Verter el contenido de la garrafa de 3 litros de capacidad en la garrafa de 4
+                 */
+                if ((0 < estado.getGarrafa3()) && (estado.getGarrafa4() < 4)) {
                     aux3 = 0;
-                }
-                generado = crearSiguienteEstado(estado, aux3, aux4);
-                if (generado != null) {
-                    siguientes.add(new Successor("Verter la garrafa3 en la garrafa4 \n\n" + estado.toString(aux3, aux4), generado));
-                }
-            }
-            generado = null;
-            /**
-             * Verter el contenido de la garrafa de 4 litros de capacidad en la garrafa de 3
-             */
-            if ((0 < estado.getGarrafa4()) && (estado.getGarrafa3() < 3)) {
-                aux3 = estado.getGarrafa3() + estado.getGarrafa4();
-                if (aux3 > 3) {
-                    aux3 = 3;
-                }
-                aux4 = estado.getGarrafa4() - (3 - estado.getGarrafa3());
-                if (aux4 < 0) {
                     aux4 = 0;
+                    aux4 = estado.getGarrafa4() + estado.getGarrafa3();
+                    if (aux4 > 4) {
+                        aux4 = 4;
+                    }
+                    aux3 = estado.getGarrafa3() - (4 - estado.getGarrafa4());
+                    if (aux3 < 0) {
+                        aux3 = 0;
+                    }
+                    generado = crearSiguienteEstado(estado, aux3, aux4);
+                    if (generado != null) {
+                        siguientes.add(new Successor("Verter la garrafa3 en la garrafa4 \n\n" + estado.toString(aux3, aux4), generado));
+                    }
                 }
-                generado = crearSiguienteEstado(estado, aux3, aux4);
+                generado = null;
+                /**
+                 * Verter el contenido de la garrafa de 4 litros de capacidad en la garrafa de 3
+                 */
+                if ((0 < estado.getGarrafa4()) && (estado.getGarrafa3() < 3)) {
+                    aux3 = estado.getGarrafa3() + estado.getGarrafa4();
+                    if (aux3 > 3) {
+                        aux3 = 3;
+                    }
+                    aux4 = estado.getGarrafa4() - (3 - estado.getGarrafa3());
+                    if (aux4 < 0) {
+                        aux4 = 0;
+                    }
+                    generado = crearSiguienteEstado(estado, aux3, aux4);
+                    if (generado != null) {
+                        siguientes.add(new Successor("Verter la garrafa4 en la garrafa3 \n\n" + estado.toString(aux3, aux4), generado));
+                    }
+                }
+                generado = null;
+                /**
+                 * Vaciar la garrafa de 3 litros de capacidad
+                 */
+                if (0 < estado.getGarrafa3()) {
+                    generado = crearSiguienteEstado(estado, 0, estado.getGarrafa4());
+                }
                 if (generado != null) {
-                    siguientes.add(new Successor("Verter la garrafa4 en la garrafa3 \n\n"
-                            + estado.toString(aux3, aux4), generado));
+                    siguientes.add(new Successor("Vaciar Garrafa3 \n\n" + estado.toString(0, estado.getGarrafa4()), generado));
                 }
+                generado = null;
+                /**
+                 * Vaciar la garrafa de 4 litros de capacidad
+                 */
+                if (0 < estado.getGarrafa4()) {
+                    generado = crearSiguienteEstado(estado, estado.getGarrafa3(), 0);
+                }
+                if (generado != null) {
+                    siguientes.add(new Successor("Vaciar Garrafa4 \n\n" + estado.toString(estado.getGarrafa3(), 0), generado));
+                }
+                generado = null;
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                GarrafasEstado.timeout = true;
             }
-            generado = null;
-            /**
-             * Vaciar la garrafa de 3 litros de capacidad
-             */
-            if (0 < estado.getGarrafa3()) {
-                generado = crearSiguienteEstado(estado, 0, estado.getGarrafa4());
-            }
-            if (generado != null) {
-                siguientes.add(new Successor("Vaciar Garrafa3 \n\n" + estado.toString(0, estado.getGarrafa4()), generado));
-            }
-            generado = null;
-            /**
-             * Vaciar la garrafa de 4 litros de capacidad
-             */
-            if (0 < estado.getGarrafa4()) {
-                generado = crearSiguienteEstado(estado, estado.getGarrafa3(), 0);
-            }
-            if (generado != null) {
-                siguientes.add(new Successor("Vaciar Garrafa4 \n\n" + estado.toString(estado.getGarrafa3(), 0), generado));
-            }
-            generado = null;
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
         return siguientes;
     }

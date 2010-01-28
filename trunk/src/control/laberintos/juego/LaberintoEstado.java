@@ -18,6 +18,8 @@ public class LaberintoEstado {
     private String sala;
     private ArrayList recorridos;
     public static long horaInicial;
+    private int apuesta;
+    private int recompensa;
 
     public LaberintoEstado(String sala) {
         this.recorridos = new ArrayList();
@@ -38,6 +40,23 @@ public class LaberintoEstado {
 
     public ArrayList getRecorridos() {
         return recorridos;
+    }
+
+    public int getApuesta() {
+        return apuesta;
+    }
+
+    public int getRecompensa() {
+        return recompensa;
+    }
+
+
+    public void setApuesta(int dias) {
+        apuesta = dias;
+    }
+        
+    public void setRecompensa(int dias) {
+        recompensa = dias;
     }
 
     public ArrayList añadirARecorridos(String sala) {
