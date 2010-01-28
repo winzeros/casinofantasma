@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Descripcion Alto Nivel</title>
+</head>
+
+<body>
+<div id="contenido" align="justify">
+  <p>ARQUITECTURA</p>
+  <p>Descripcion general<br />
+    <br />
+  En este apartado de muestra la  organizaci&oacute;n de nuestra arquitectura. Con la siguiente imagen pretendemos dar  una visi&oacute;n global que ser&aacute; ampliada con los comentarios que la sucedan.<br />
+  (Imagen de las carpetas)</p>
+  <p>Como se puede apreciar a aparte del  directorio de fuentes, tenemos diversas carpetas que nos ayudan a mantener una  aplicaci&oacute;n limpia y ordenada.</p>
+  <ul type="disc">
+    <li><strong>Control</strong>: Esta carpeta contiene los diferentes archivos de       configuracion necesarios. <em>Juegos.conf</em> que le asigna a cada juego       una id, <em>Configuracion.conf</em> en este archivo podemos encontrar       diversos parametros de configuracion principalmente para la generacion del       universo, pero tambien por ejemplo la ruta del fichero de nombres de       planetas y el delay que se quiere para la animacion del recorrido. Por       ultimo en esta misma carpeta hemos guardado la base de datos de los       nombres. </li>
+  </ul>
+  <p>&nbsp;</p>
+
+  <ul type="disc">
+  
+    <li><strong>Libraries</strong>: Diversas librer&iacute;as necesarias para la ejecuci&oacute;n de       la aplicaci&oacute;n:<br />
+      <br />
+      <ol>
+        <li><a href="http://code.google.com/p/aima-java/">aima-java.jar</a> es la librer&iacute;a que nos        facilita la labor de recorridos y b&uacute;squedas.<br />
+          <br />
+                        </li>
+        <li>Log4j-1.2.15.jar para escribir en el fichero log.<br />
+          <br />
+        </li>
+        <li>swing application framework        para la interfaz.<br />
+          <br />
+        </li>
+        <li>&nbsp;jdom.jar</li>
+      </ol>
+    </li>
+  </ul>
+  <p>&nbsp;</p>
+  <ul type="disc">
+    <ul type="circle">
+      <br />
+      </li>
+    </ul>
+    <li><strong>logs</strong>: En cada ejecuci&oacute;n de la b&uacute;squeda se       genera un archivo por tipo de b&uacute;squeda a realizar con la informaci&oacute;n de       recorrido y ciertos valores para medir y comparar distintas opciones de b&uacute;squeda.<br />
+      A parte en cada ejecuci&oacute;n se crea un fichero global de log en el que se       recoge toda la informaci&oacute;n de la ejecuci&oacute;n tanto de la b&uacute;squeda del casino,       como de los juegos como de los posibles mensajes de error que hayan podido       aparecer. <em><strong>No se si ser&aacute; cierto en nuestra practica</strong></em><br />
+      <br />
+    </li>
+    <li><strong>Test Packages</strong>: Por defecto aqu&iacute; es donde se guardan los       ficheros que modelan las salas del casino que se va a explorar con la aplicaci&oacute;n.<br />
+      <br />
+    </li>
+    <li><strong>Source Packages:</strong> contiene el c&oacute;digo fuente de la aplicaci&oacute;n. </li>
+  </ul>
+  <p>Descripcion del paquete Source Packages</p>
+  <p>En nuestra pr&aacute;ctica usamos el dise&ntilde;o  Modelo Vista Controlador, por lo que tenemos la implementaci&oacute;n dividida en  estas tres partes:</p>
+  <p>(Imagen carpetas)</p>
+  <ul type="disc">
+    <li><strong>Control</strong>: En nuestro controlador definimos dos paquetes:</li>
+  </ul>
+  <p>&nbsp;</p>
+  <ul>
+    <li><strong>Juegos</strong>: son todos los juegos  que implementa nuestro casino ((no se si querr&aacute;s listarlos)). Para cada juego  tenemos las clases que identifican, el Estado, la funci&oacute;n que nos genera los  sucesores, el estado objetivo que debe alcanzar el juego, as&iacute; como la clase  Juego que extiende del Juego de AIMA y una clase Demo para realizar las  pruebas.<br />
+      <br />
+    </li>
+    <li><strong>Laberintos</strong>: se trata del  casino; tratado como un juego mas a implementar, que se compone de las mismas  clases que el resto de juegos y adem&aacute;s, las clases para el correcto  funcionamiento del laberinto que forma el casino.&nbsp;</li>
+  </ul>
+  <p>&nbsp;</p>
+  <ul type="disc">
+    <li><strong>Model</strong>; Esta parte es la que nos genera el modelo del casino,       es decir, aqu&iacute; definiremos los ficheros XML que van a albergar las       diferentes conexiones entre las salas del casino.<br />
+      <br />
+    </li>
+    <li><strong>View</strong>;&nbsp; Se compone de       todas las interfaces que se le muestran al usuario para el funcionamiento       de la pr&aacute;ctica, pagina de inicio, ayuda de los juegos, tablero&hellip;</li>
+  </ul>
+  <p>&nbsp;</p>
+  <p>Hemos procurado utilizar variedad de  b&uacute;squedas en los juegos y adem&aacute;s utilizar alguna b&uacute;squela que no siempre tenga  resultado para que no siempre podamos avanzar por el enlace donde este el  juego, as&iacute; obligamos a la b&uacute;squeda de alternativas en caso de encontrar  determinados juegos. <br />
+    Juegos.java es la interfaz que todos los  juegos deben implementar, sobretodo el m&eacute;todo ejecutar que es el que nos  devolver&aacute; el resultado de la ejecuci&oacute;n de un juego. </p>
+  <p>El dise&ntilde;o de la arquitectura nos facilita  extender el problema a mas juegos, mas tipos de b&uacute;squedas y universos de diversos  tama&ntilde;os.<br />
+    A&ntilde;adir un juego mas seria tan simple como  introducirlo en el paquete juegos e implementando la interfaz juego.java una  vez hecho esto se a&ntilde;ade el juego al fichero de configuraciones, a la factor&iacute;a y  en el generador de universos para que a&ntilde;ada aleatoriamente tambi&eacute;n ese juego.<br />
+    Del mismo modo a&ntilde;adir otra b&uacute;squeda seria  tan f&aacute;cil como implementar las interfaces que nos facilita AIMA e introducirlas  en los problemas como b&uacute;squedas.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp; </p>
+</div>
+</body>
+
+</html>

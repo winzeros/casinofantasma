@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Hermanos</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/hermanos2.png" alt="hermanos" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>Seis hermanos (numerados del 1 al 6) han de sentarse en una mesa.Cada uno de ellos no puede sentarse al lado del hermano directamente mayor o menor que él, y además los hermanos 3 y 5 no pueden sentarse juntos...¿Como lo colocarias?</p>
+			<h1>Operadores</h1>
+			<blockquote>
+			  <p>	sentar(int hermano, int posicion)</p>
+		  </blockquote>
+			<h1>Espacio de estados</h1>
+			<p>Representamos los estados del problema a traves de una matriz[6]. En ella estar&aacute; definido la posicion de los seis hermanos alrededor de la mesa. </p>
+			<p><em><strong>Estado inicial:</strong></em> Se sienta solo el hermano1. </p>
+			<ul>
+              <li> Estado(Hermano1,Vacio,Vacio,Vacio,Vacio,Vacio) </li>
+          </ul>
+			<p><em><strong>Estado filal: (solucion)</strong></em> </p>
+			<p>Cualquier combinacion posible que cumpla los siguientes premisas: </p>
+			<ol>
+			  <li>Cada Hermano  no puede sentarse al lado del Hermano directamente mayor o menor que &eacute;l.</li>
+		      <li>Los Hermanos 3 y 5 no pueden sentarse juntos ya que se han peleado.</li>
+	      </ol>
+			<p>Con estas premisas un ejemplo de solucion ser&iacute;a: </p>
+			<ul>
+              <li>Estado(Hermano1,Hermano5,Hermano2,Hermano4,Hermano6,Hermano3)<br />
+			</li>
+          </ul>
+			<p></p>
+			<h1>Estrategia de busqueda</h1>
+			<p>Hemos probado con varias busquedas no iformadas y la que mejor resultado nos ha dado es la de Primero en Anchura con coste=4, y con 172 nodos expandidos.Seguido de la busqueda en profundidad. </p>
+  </div>
+	</div>
+</body>
+</html>
+

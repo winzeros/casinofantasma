@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Garrafas</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/garrafas.png" alt="Garrafa" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>Se disponen de 2 garrafas, una de 3 y otra de 4 litros. El objetivo es conseguir que en la garrafa de 3 litros haya 2 	  litros exactos.Para ello unicamente podemos vaciar o llenar completamente las garrafas y verter el contenido de una a la otra</p>
+			<h1>Operadores</h1>
+			<p>Existen los siguientes operadores:
+			<ul>
+			<li>Llenar la garrafa de 3 litros de capacidad</li>
+			<li>LLenar la garrafa de 4 litros de capacidad</li>
+			<li>Verter el contenido de la garrafa de 3 litros de capacidad en la garrafa de 4</li>
+			<li>Verter el contenido de la garrafa de 4 litros de capacidad en la garrafa de 3</li>
+			<li>Vaciar la garrafa de 3 litros de capacidad</li>
+			<li>Vaciar la garrafa de 4 litros de capacidad</li>
+			
+			<h1>Algoritmo heuristico</h1>
+			<p>En este ejercicio no se ha implementado ninguna funci&oacute;n heurisica ya se han hecho pruebas y dichos algoritmos no &quot;guiaban&quot; </p>
+			<h1>Espacio de estados</h1>
+			<p>La representación del los estados seran los litros que tienen las dos garrafas de 3 y 4 L de capacidad.</p>
+
+			<p><em><strong>Estado inicial:</strong></em></p>
+     		<ul>
+     		  <li>	Estado(0,0)
+   		      </li>
+   		  </ul>
+     		<p>
+			
+			<p><em><strong>Estado filal: (solucion)</strong></em></p>
+			<ul>
+			  <li>Estado(0,2)</li>
+</ul>
+			<p><em><strong>Estados inalcanzables:</strong></em></p>
+			 <ul>
+			   <li>Estado(1,1)</li>
+			   <li>Estado(1,2)</li>
+			   <li>Estado(1,3)</li>
+			   <li>Estado(2,1)</li>
+			   <li>Estado(2,2)</li>
+			   <li>Estado(2,3)</li>
+</ul>
+			 <h1>Estrategia de busqueda</h1>
+			 <p>Hemos probado con varias busquedas no iformadas y la que mejor resultado nos ha dado es la de Primero en Anchura con coste=4, y con 9 nodos expandidos.Seguido de la busqueda en profundidad. </p>
+			 <p>Busqueda Iterativa y b&uacute;squeda limitada no encuentran  soluci&oacute;n del problema. </p>
+			 <p>&nbsp;</p>
+	
+			
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Mono</title></head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/mono2.png" alt="hanoi" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo es conseguir que el mono alcance el plátano que hay colgado en el centro de la habitacion.</p>
+			<p>Para ello se puede ayudar de una caja,empuj&aacute;ndola hasta situarla bajo el pl&aacute;tano y subirse a ella para alcanzar su objetivo. </p>
+			<h1>Operadores</h1>
+			<p>Como operador del juego del mono y la banana tenemos:</p>
+			<ul>
+			  <li><strong>andar().</strong><br />
+			  Si el mono esta en la puerta se mueve al centro.<br />
+		      Si esta en el centro, se mueve a la ventana y si esta en la ventana se mueve al centro.</li>
+          </ul>
+			<ul>
+			  <li><strong>empujarCaja()</strong>.<br />
+		      Si el mono y la caja estan en la puerta, el mono empuja la caja al centro de la habitaci&oacute;n.<br />
+	          Si el mono y la caja estan en la ventana, el mono empuja la caja al centro de la habitaci&oacute;n.<br />
+	          Si el mono y la caja estan en el centro,el mono empuja la caja a la puerta de la habitaci&oacute;n.</li>
+          </ul>
+			<ul>
+			  <li><strong>SubirCaja</strong><strong>().<br />
+			  </strong>El mono se sube a al caja para coger el platano,si ambos estan en el mismo lugar de la habitaci&oacute;n.</li>
+	      </ul>
+		  
+			<ul>
+			  <li><strong>BajarCaja()</strong>.<br />
+			    El mono se baja de la caja.<br />
+	          </li>
+	      </ul>
+			<p>&nbsp;</p>
+			<h1>Algoritmo heuristico</h1>
+			<p>Para dicho problema hemos implementado la siguiente heuristica: </p>
+			<ul>
+              <li><strong>Heuristica Potencias:<br />
+              </strong>Asignamos a cada estado el n&uacute;mero correspondiente a elevar 2 al primer elemento, 3 al segundo, 5 al tercero y 7 al cuarto<br />
+ El hecho de elegir estos n&uacute;meros y despu&eacute;s multiplicarlos es que la descomposici&oacute;n en factores primos de un n&uacute;mero siempre es &uacute;nica<strong>.<br />
+ </strong><strong><br />
+        </strong></li>
+          </ul>
+			<h1>Espacio de estados</h1>
+			<p>El espacio de estados representa la disposicon del mono, la caja y el pl&aacute;tano dentro de la habitaci&oacute;n.</p>
+			<p>Dicho espacio se ha implementado mediante el siguiente array: </p>
+			<blockquote>
+			  <blockquote>
+			    <blockquote>
+			      <blockquote>
+			        <p align="left"> habitacion[4]</p>
+		          </blockquote>
+			    </blockquote>
+		      </blockquote>
+	          <p>POSICION DEL MONO EN LA HABITACION: habitacion[0] <br />
+	            <br />
+		      0: puerta<br />
+		      1: centro<br />
+		      2: ventana<br />
+		      <br />
+		      POSICION DEL MONO RESPECTO A LA CAJA:habitacion[1] <br />
+		      <br />
+		      0: suelo<br />
+		      1: caja<br />
+		      <br />
+	            POSICION DE LA CAJA EN LA HABITACION:habitacion[2] <br />
+	            <br />
+	            0: puerta<br />
+	            1: centro<br />
+	            2: ventana<br />
+	            <br />
+	            POSESION DEL PLATANO:habitacion[3] <br />
+	            <br />
+	            0: lo_tiene<br />
+              1: no_lo_tiene</p>
+	          <p>&nbsp;</p>
+	          <p><strong><em>Estado inicial:</em></strong> habitacion({0,0,2,1})</p>
+	          <blockquote>
+	            <p> habitacion[0] = 0; //Mono en la puerta<br />
+habitacion[1] = 0; //Caja en el suelo<br />
+habitacion[2] = 2; //Caja en la ventana<br />
+habitacion[3] = 1; //No tiene el platano</p>
+              </blockquote>
+			  <p><br />
+		        <strong><em>Estado final:</em></strong> habitacion({1,1,1,0})</p>
+			  <blockquote>
+			    <p>habitacion[0] = 1; //Mono en el centro <br />
+habitacion[1] = 1; //Caja la tiene el mono. <br />
+habitacion[2] = 1; //Caja en el centro <br />
+habitacion[3] = 0; //Tiene el platano</p>
+		      </blockquote>
+			  <p>&nbsp;	 </p>
+			</blockquote>
+			<h1>Estrategia de busqueda</h1>
+			<p>Hemos realizado varias pruebas con numerosas busquedas tanto informadas como no informadas.<br />
+Y los mejores resultados han sido:<br />
+		  </p>
+	
+			
+  		    <ul>
+              <li><strong>Busquedas no informadas<br />
+              </strong>La estrategias no infomadas que mejor resultados muestran son Profundidad limitada( coste: 5 y Nodos Exp: 9), Coste Uniforme (coste 5 y Nodos Exp: 10) y Busqueda Iterativa(coste: 5 Nodos Exp: 20).</li>
+          </ul>
+  		    <p>Para el resto de busqueda,tanto informadas como no informadas o no encuentra soluci&oacute;n o tardan demasiado.Por lo que hemos tomada la decisi&oacute;n de utilizar un temporizador que controle dicho tiempo de busqueda, cancelando la aquellas que supere un tiempo prefijado. </p>
+  		    <p>&nbsp;</p>
+		</div>
+	</div>
+</body>
+</html>
+

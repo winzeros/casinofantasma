@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Linterna</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/linterna2.png" alt="8puzzle" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo es cruzar a todos los escursionistas sin que se apague l lampara,que dura 30 segundos, teniendo en cuenta que solo pueden cruzar el punte un maximo de 2 personas, que cada persona tiene una velocidad de caminar y que cruzarán el puente a la velocidad del mas lento.</p>
+			<h1>Operadores</h1>
+			<p>pasar(int operacion)</p>
+			<h1>Algoritmo heuristico</h1>
+			<p>Se ha implementado dos tipos de funciones heuristicas:</p>
+			<ul>
+              <li><strong>Heuristica Personas(h1): </strong></li>
+		  </ul>
+			<blockquote>
+              <p>Calculamos la heuristica en funcion del numero de personas que quedan por pasar al otro lado del puente.</p>
+		  </blockquote>
+			<ul>
+              <li><strong>Heuristica Restantes (h2):</strong> </li>
+		  </ul>
+			<blockquote>
+              <p>Hallamos la heuristica en funcion del tiempo restante del que disponen las personas para pasar al otro lado del puente.</p>
+		  </blockquote>
+			<blockquote>&nbsp;</blockquote>
+			<h1>Espacio de estados</h1>
+			<p>El estado es la representacion de las personas que estan situadas en la calzada del lado izquierdo del puente. <br />
+En nuestro caso hemos decidido implementarlo como un array de enteros de 9 elementos,siendo la representacion del hueco el n&uacute;mero 0. </p>
+			<p>Cada persona tarda un tiempo en pasar a la calzada derecha.Estos tiempos son:</p>
+			<p>Persona1: 1 seg. </p>
+			<p>Persona2: 3 seg.</p>
+			<p>Persona3: 6 seg.</p>
+			<p>Persona4: 8 seg.</p>
+			<p>Persona5: 12 seg.</p>
+		  <p>&nbsp;</p>
+			<p><strong><em>Estado inicial:</em></strong> </p>
+			<p>Estan todos las personas en la calzada izquierda del puente, tiempo transcurrido 0 y tiempo restante 20 segundos. </p>
+			<p>Estado({1, 1, 1, 1, 1, 0, 20})</p>
+			<p>&nbsp; </p>
+			<p><em><strong>Estado filal: (soluci&oacute;n)</strong></em>:		    </p>
+			<p>Todas las personas estan en la calzada de la derecha del puente, y han pasado en un tiempo menor o igual a 20 segundos.</p>
+			<blockquote>
+			  <p>x=tiempo transcurrido en pasar a las 5 personas.<br />
+			    y=tiempo restante. 0 &gt;= y &gt; 20 </p>
+		  </blockquote>
+			<p>Estado ({0,0,0,0,0,x,y} </p>
+			<p>&nbsp;</p>
+			<h1>Estrategia de busqueda</h1>
+			<p>Hemos realizado varias pruebas con numerosas busquedas tanto informadas como no informadas.<br />
+Y los mejores resultados han sido:</p>
+	
+			
+  		    <ul>
+              <li><strong>Busquedas informadas</strong><br />
+                La estrategia A* con heuristica Restantes (con coste 3 y 4 nodos expandidos), seguido de la voraz (Greedy Best First Search).El resto de busquedas informadas con la heuristica Personas tienen un comportamiento menos optimo. <br />
+                  <br />
+                  <br />
+              </li>
+	      </ul>
+  		    <ul>
+              <li><strong>Busquedas no informadas<br />
+              </strong>La estrategias no infomadas que mejor resultados muestran es la busqueda en Profundidad (coste: 3, Nodos Exp: 3), seguido de Profundidad limitada y Primero en anchura. </li>
+	      </ul>
+  		    <p>Las busquedas que no encuentran soluci&oacute;n es la Busqueda en escalada (HillClimbingSearch) y enfriamiento simulado (SimulatedAnnealingSearch)<br />
+	      El resto si que encuentran soluci&oacute;n auqnue son menos eficientes. </p>
+		</div>
+	</div>
+</body>
+</html>
+
