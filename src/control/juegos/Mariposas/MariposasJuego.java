@@ -55,7 +55,7 @@ public class MariposasJuego extends Juego{
      * Constructor parametrizado.
      * @param busqueda
      */
-    public MariposasJuego(Search busqueda){
+    MariposasJuego(Search busqueda){
 
         _nombre = "Problema de las Mariposas";
         this.solucion = false;
@@ -64,7 +64,7 @@ public class MariposasJuego extends Juego{
                 new MariposasEstadoObjetivo(this) ,new MariposasFuncionCoste(),new MariposasFuncionHeuristica());
     }
 
-    public MariposasJuego(Search busqueda, HeuristicFunction heuristica)
+    MariposasJuego(Search busqueda, HeuristicFunction heuristica)
             throws Exception {
 
         try {

@@ -22,7 +22,7 @@ public class HanoiJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public HanoiJuego(Search busqueda) throws Exception {
+    HanoiJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -41,7 +41,7 @@ public class HanoiJuego extends Juego {
      * @param heuristica
      * @throws Exception
      */
-    public HanoiJuego(Search busqueda, HeuristicFunction heuristica)
+    HanoiJuego(Search busqueda, HeuristicFunction heuristica)
             throws Exception {
 
         try {

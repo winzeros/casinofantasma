@@ -196,7 +196,7 @@ public class MariposasDemo {
         MariposasJuego juego;
 
         try {
-            juego = new MariposasJuego(new AStarSearch(new TreeSearch()));
+            juego = new MariposasJuego(new AStarSearch(new TreeSearch()),new MariposasFuncionHeuristica());
 
             log.info("\n\n\n*******************************************");
             if (sala != null) {

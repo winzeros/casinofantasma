@@ -21,7 +21,7 @@ public class OvejasLobosJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public OvejasLobosJuego(Search busqueda) throws Exception {
+    OvejasLobosJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -40,7 +40,7 @@ public class OvejasLobosJuego extends Juego {
      * @param heuristica
      * @throws Exception
      */
-    public OvejasLobosJuego(Search busqueda, HeuristicFunction heuristica)
+    OvejasLobosJuego(Search busqueda, HeuristicFunction heuristica)
             throws Exception {
 
         try {

@@ -39,6 +39,10 @@ public class NReinasEstado {
         horaInicial = calendario.getTimeInMillis();
 	}
 
+    NReinasEstado() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
         public int getNumeroReinas(){
             int numReinas=0;
             for (int i = 0; i < this.n; i++)

@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class NReinasJuego extends Juego {
 
-    public NReinasJuego(Search busqueda) throws Exception {
+    NReinasJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -31,7 +31,7 @@ public class NReinasJuego extends Juego {
         }
     }
 
-        public NReinasJuego(Search busqueda, HeuristicFunction heuristica) throws Exception {
+    NReinasJuego(Search busqueda, HeuristicFunction heuristica) throws Exception {
 
         try {
             this._busqueda = busqueda;

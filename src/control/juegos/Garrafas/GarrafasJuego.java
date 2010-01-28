@@ -16,7 +16,7 @@ public class GarrafasJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public GarrafasJuego(Search busqueda) {
+    GarrafasJuego(Search busqueda) {
         this._busqueda = busqueda;
         this._nombre = "Garrafas de capacidades diferentes";
         this._problema=new Problem(new GarrafasEstado(), new GarrafasFuncionSucesor(),

@@ -5,10 +5,8 @@
 
 package control.juegos.monoBanana;
 
-import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
-import aima.search.informed.AStarSearch;
-import aima.search.informed.GreedyBestFirstSearch;
+import aima.search.informed.*;
 import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -25,11 +23,17 @@ public class MonoBananaDemo {
     public final static Logger log = Logger.getLogger(MonoBananaDemo.class.getName());
 
     public static void main(String[] args) {
+
         BreadthFirstDemo("SALA11");
         DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
+        AStarSearch("SALA11");
+        GreedyBestFirstSearch("SALA11");
+        RecursiveBestFirstSearch("SALA11");
+        SimulatedAnnealingSearch("SALA11");
+        HillClimbingSearch("SALA11");
     }
 
     /**
@@ -172,58 +176,124 @@ public class MonoBananaDemo {
         return ok;
     }
 
-    /**
-     * Busqueda voraz.
-     * @param sala
-     */
-    public static boolean eightPuzzleGreedyBestFirstDemo(String sala) {
+    public static boolean AStarSearch(String sala) {
 
         boolean ok = false;
         MonoBananaJuego juego;
 
         try {
-            juego = new MonoBananaJuego(new GreedyBestFirstSearch(new GraphSearch()), new MonoBananaHeuristicaPotencias());
+            juego = new MonoBananaJuego(new AStarSearch(new TreeSearch()),new MonoBananaHeuristicaPotencias());
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda voraz");
-            log.info("*******************************************\n");
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
             log.info(new MonoBananaEstado().toString());
 
             ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
-            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
+             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
 
-    /**
-     * Busqueda A*
-     * @param sala
-     */
-    public static boolean eightPuzzleAStarDemo(String sala) {
+
+     public static boolean GreedyBestFirstSearch(String sala) {
 
         boolean ok = false;
         MonoBananaJuego juego;
 
         try {
-            juego = new MonoBananaJuego(new AStarSearch(new GraphSearch()), new MonoBananaHeuristicaPotencias());
+            juego = new MonoBananaJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new MonoBananaHeuristicaPotencias());
 
             log.info("\n\n\n*******************************************");
             if (sala != null)
                 log.info(" " + sala);
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda A*");
-            log.info("*******************************************\n");
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda Greedy Best-First");
+            log.info("*******************************************\n\n");
             log.info(new MonoBananaEstado().toString());
 
             ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
-            Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
+             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean RecursiveBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        MonoBananaJuego juego;
+
+        try {
+            juego = new MonoBananaJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new MonoBananaHeuristicaPotencias());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Busqueda Mejor Recursiva");
+            log.info("*******************************************\n\n");
+            log.info(new MonoBananaEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+    public static boolean SimulatedAnnealingSearch(String sala) {
+
+        boolean ok = false;
+        MonoBananaJuego juego;
+
+        try {
+            juego = new MonoBananaJuego(new SimulatedAnnealingSearch() ,new MonoBananaHeuristicaPotencias());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Simulated Annealing Search");
+            log.info("*******************************************\n\n");
+            log.info(new MonoBananaEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean HillClimbingSearch(String sala) {
+
+        boolean ok = false;
+        MonoBananaJuego juego;
+
+        try {
+            juego = new MonoBananaJuego(new HillClimbingSearch() ,new MonoBananaHeuristicaPotencias());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DEL MONO Y LA BANANA");
+            log.info(" Escalada");
+            log.info("*******************************************\n\n");
+            log.info(new MonoBananaEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }

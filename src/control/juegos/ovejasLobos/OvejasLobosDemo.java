@@ -6,8 +6,7 @@ package control.juegos.ovejasLobos;
 
 import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
-import aima.search.informed.AStarSearch;
-import aima.search.informed.GreedyBestFirstSearch;
+import aima.search.informed.*;
 import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -32,6 +31,12 @@ public class OvejasLobosDemo {
         IterativeDeepeningSearchDemo("SALA11");
         eightPuzzleGreedyBestFirstDemo("SALA11");
         eightPuzzleAStarDemo("SALA11");
+
+        AStarSearch("SALA11");
+        GreedyBestFirstSearch("SALA11");
+        RecursiveBestFirstSearch("SALA11");
+        SimulatedAnnealingSearch("SALA11");
+        HillClimbingSearch("SALA11");
     }
 
     /**
@@ -226,6 +231,128 @@ public class OvejasLobosDemo {
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean AStarSearch(String sala) {
+
+        boolean ok = false;
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new AStarSearch(new TreeSearch()),new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
+            log.info(new OvejasLobosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+     public static boolean GreedyBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda Greedy Best-First");
+            log.info("*******************************************\n\n");
+            log.info(new OvejasLobosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean RecursiveBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Busqueda Mejor Recursiva");
+            log.info("*******************************************\n\n");
+            log.info(new OvejasLobosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+    public static boolean SimulatedAnnealingSearch(String sala) {
+
+        boolean ok = false;
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new SimulatedAnnealingSearch() ,new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Simulated Annealing Search");
+            log.info("*******************************************\n\n");
+            log.info(new OvejasLobosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean HillClimbingSearch(String sala) {
+
+        boolean ok = false;
+        OvejasLobosJuego juego;
+
+        try {
+            juego = new OvejasLobosJuego(new HillClimbingSearch() ,new OvejasLobosHeuristicaDescolocados());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LAS OVEJAS Y LOS LOBOS");
+            log.info(" Escalada");
+            log.info("*******************************************\n\n");
+            log.info(new OvejasLobosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(OvejasLobosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }

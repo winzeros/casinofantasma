@@ -119,7 +119,7 @@ public class LinternaEstado {
         estadoInicial[3] = 1;
         estadoInicial[4] = 1;
         estadoInicial[5] = 0;
-        estadoInicial[6] = 30;
+        estadoInicial[6] = 20;
         /*
      * POS 0 -> Persona 1 segundo
      * POS 1 -> Persona 3 segundos
