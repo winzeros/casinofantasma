@@ -10,6 +10,7 @@ import aima.search.framework.TreeSearch;
 import aima.search.informed.AStarSearch;
 import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.informed.HillClimbingSearch;
+import aima.search.informed.SimulatedAnnealingSearch;
 import aima.search.map.DynAttributeNames;
 import aima.search.map.ExtendableMap;
 import aima.search.map.MapEnvironment;
@@ -17,18 +18,8 @@ import aima.search.uninformed.BreadthFirstSearch;
 import aima.search.uninformed.DepthFirstSearch;
 import aima.search.uninformed.IterativeDeepeningSearch;
 import aima.search.uninformed.UniformCostSearch;
-import control.juegos.ochoPuzzle.OchoPuzzleDemo;
-import control.juegos.Garrafas.GarrafasDemo;
-import control.juegos.hanoi.HanoiDemo;
-import control.juegos.mariposas.MariposasDemo;
 import control.juegos.hermanos.HermanosDemo;
-import control.juegos.linterna.LinternaDemo;
-import control.juegos.monoBanana.MonoBananaDemo;
-import control.juegos.nreinas.NReinasDemo;
-import control.juegos.ovejasLobos.OvejasLobosDemo;
-import control.juegos.ranas.RanasDemo;
-import control.juegos.rejillaRojoAzul.RejillaRojoAzulDemo;
-import control.juegos.solitario.SolitarioDemo;
+import control.laberintos.juego.LaberintoHeuristicaMasDias;
 import control.laberintos.juego.LaberintoJuego;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,23 +84,32 @@ public class LaberintoEnvironment extends MapEnvironment {
 
         try {
             if (search instanceof DepthFirstSearch) {
-                juegoLab = new LaberintoJuego(new DepthFirstSearch(new TreeSearch()), this.getMap());
+                juegoLab = new LaberintoJuego(
+                        new DepthFirstSearch(new TreeSearch()), this.getMap());
             } else if (search instanceof BreadthFirstSearch) {
-                juegoLab = new LaberintoJuego(new BreadthFirstSearch(new TreeSearch()), this.getMap());
+                juegoLab = new LaberintoJuego(new BreadthFirstSearch(new TreeSearch()),
+                        this.getMap());
             } else if (search instanceof IterativeDeepeningSearch) {
-                juegoLab = new LaberintoJuego(new IterativeDeepeningSearch(), this.getMap());
+                juegoLab = new LaberintoJuego(new IterativeDeepeningSearch(), 
+                        this.getMap());
             } else if (search instanceof UniformCostSearch) {
-                juegoLab = new LaberintoJuego(new UniformCostSearch(new TreeSearch()), this.getMap());
+                juegoLab = new LaberintoJuego(new UniformCostSearch(new TreeSearch()),
+                        this.getMap());
             } else if (search instanceof GreedyBestFirstSearch) {
-                juegoLab = new LaberintoJuego(new GreedyBestFirstSearch(new TreeSearch()), this.getMap());
+                juegoLab = new LaberintoJuego(new GreedyBestFirstSearch(new TreeSearch()),
+                        this.getMap(),
+                        new LaberintoHeuristicaMasDias());
             } else if (search instanceof AStarSearch) {
-                juegoLab = new LaberintoJuego(new AStarSearch(new TreeSearch()), this.getMap());
-                     //   new H2());
-           /* } else if (search instanceof RecursiveBestFirstSearch) {
-                juegoLab = new LaberintoJuego(new RecursiveBestFirstSearch(new TreeSearch()),
-                        this.getMap());*/
+                juegoLab = new LaberintoJuego(new AStarSearch(new TreeSearch()), 
+                        this.getMap(),
+                        new LaberintoHeuristicaMasDias());
+            } else if (search instanceof SimulatedAnnealingSearch) {
+                juegoLab = new LaberintoJuego(new SimulatedAnnealingSearch(),
+                        this.getMap(),
+                        new LaberintoHeuristicaMasDias());
             } else if (search instanceof HillClimbingSearch) {
-                juegoLab = new LaberintoJuego(new HillClimbingSearch(), this.getMap());
+                juegoLab = new LaberintoJuego(new HillClimbingSearch(), this.getMap(),
+                        new LaberintoHeuristicaMasDias());
             }
 
             if (juegoLab != null) {

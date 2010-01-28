@@ -34,6 +34,10 @@ public class GarrafasEstado {
      * Hora inicial del juego.
      */
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
     /**
      * Constructor por defecto
@@ -45,6 +49,7 @@ public class GarrafasEstado {
         this._contenido = new Vector<GarrafasContenido>();
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
 
     }
 

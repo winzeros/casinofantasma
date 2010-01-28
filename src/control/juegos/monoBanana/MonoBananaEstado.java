@@ -35,6 +35,10 @@ public class MonoBananaEstado {
      * Hora inicial del juego.
      */
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
@@ -49,6 +53,7 @@ public class MonoBananaEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     /**

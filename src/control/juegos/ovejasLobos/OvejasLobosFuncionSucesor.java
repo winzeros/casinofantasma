@@ -32,29 +32,32 @@ public class OvejasLobosFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - OvejasLobosEstado.horaInicial) < 5000) {
-            OvejasLobosEstado estadoPadre = (OvejasLobosEstado) arg0;
-            ArrayList recorrido = estadoPadre.getRecorrido();
+        if (!OvejasLobosEstado.timeout) {
+            if ((horaActual - OvejasLobosEstado.horaInicial) < 1000) {
+                OvejasLobosEstado estadoPadre = (OvejasLobosEstado) arg0;
+                ArrayList recorrido = estadoPadre.getRecorrido();
 
-            try {
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        OvejasLobosEstado estado = new OvejasLobosEstado(estadoPadre);
-                        estado.setRecorrido(recorrido);
-                        if (estado.mover(i, j)) {
-                            recorrido = estado.getRecorrido();
-                            resultado.add(new Successor("          (" + i +
-                                    "," + j + ")" + estado.toString(),
-                                    estado));
+                try {
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            OvejasLobosEstado estado = new OvejasLobosEstado(estadoPadre);
+                            estado.setRecorrido(recorrido);
+                            if (estado.mover(i, j)) {
+                                recorrido = estado.getRecorrido();
+                                resultado.add(new Successor("          (" + i +
+                                        "," + j + ")" + estado.toString(),
+                                        estado));
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    Logger.getLogger(OvejasLobosFuncionSucesor.class.getName()).log(Level.ERROR,
+                            "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(OvejasLobosFuncionSucesor.class.getName()).log(Level.ERROR,
-                        "Error al obtener los sucesores de " + arg0.toString(), ex);
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                OvejasLobosEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
 
         return resultado;

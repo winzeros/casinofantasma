@@ -23,6 +23,10 @@ public class NReinasEstado {
     int[][] tablero;
     int n;
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
     public NReinasEstado(int n) {
 
@@ -35,6 +39,7 @@ public class NReinasEstado {
         }
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     NReinasEstado() {

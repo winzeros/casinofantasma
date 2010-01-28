@@ -36,25 +36,28 @@ public class LinternaFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - LinternaEstado.horaInicial) < 5000) {
-            LinternaEstado estadoPadre = (LinternaEstado) arg0;
-            ArrayList recorrido = estadoPadre.getRecorrido();
+        if (!LinternaEstado.timeout) {
+            if ((horaActual - LinternaEstado.horaInicial) < 5000) {
+                LinternaEstado estadoPadre = (LinternaEstado) arg0;
+                ArrayList recorrido = estadoPadre.getRecorrido();
 
-            try {
-                for (int i = 0; i < 15; i++) {
-                    LinternaEstado estado = new LinternaEstado(estadoPadre);
-                    estado.setRecorrido(recorrido);
-                    if (estado.pasar(i)) {
-                        recorrido = estado.getRecorrido();
-                        resultado.add(new Successor("                  (" + i + ")\n" + estado.toString(),
-                                estado));
+                try {
+                    for (int i = 0; i < 15; i++) {
+                        LinternaEstado estado = new LinternaEstado(estadoPadre);
+                        estado.setRecorrido(recorrido);
+                        if (estado.pasar(i)) {
+                            recorrido = estado.getRecorrido();
+                            resultado.add(new Successor("                  (" + i + ")\n" + estado.toString(),
+                                    estado));
+                        }
                     }
+                } catch (Exception ex) {
+                    Logger.getLogger(LinternaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(LinternaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                LinternaEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
 
         return resultado;

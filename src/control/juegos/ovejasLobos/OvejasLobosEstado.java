@@ -46,6 +46,10 @@ public class OvejasLobosEstado {
      * Hora inicial del juego.
      */
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
 
@@ -59,6 +63,7 @@ public class OvejasLobosEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     /**

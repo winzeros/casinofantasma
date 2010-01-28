@@ -28,20 +28,23 @@ public class NReinasFuncionSucesor implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - NReinasEstado.horaInicial) < 5000) {
-            NReinasEstado tablero = (NReinasEstado) estado;
-            int numReinas = tablero.getNumeroReinasColocadas();
-            int n = tablero.getN();
-            for (int i = 0; i < n; i++) {
-                if (!(tablero.estaAmenazada(new XYLocation(numReinas, i)))) {
-                    NReinasEstado hijo = colocarReina(numReinas, i, tablero);
-                    sucesores.add(new Successor(hijo.toString(), hijo));
+        if (!NReinasEstado.timeout) {
+            if ((horaActual - NReinasEstado.horaInicial) < 5000) {
+                NReinasEstado tablero = (NReinasEstado) estado;
+                int numReinas = tablero.getNumeroReinasColocadas();
+                int n = tablero.getN();
+                for (int i = 0; i < n; i++) {
+                    if (!(tablero.estaAmenazada(new XYLocation(numReinas, i)))) {
+                        NReinasEstado hijo = colocarReina(numReinas, i, tablero);
+                        sucesores.add(new Successor(hijo.toString(), hijo));
+
+                    }
 
                 }
-
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                NReinasEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
 
         return sucesores;

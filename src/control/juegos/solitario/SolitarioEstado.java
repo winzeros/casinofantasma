@@ -24,6 +24,10 @@ public class SolitarioEstado {
     public static final String VACIO = "_";
     public static final String NO_POS = "#";
     public static long horaInicial;
+        /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 
     public static enum Movimiento {
@@ -39,6 +43,7 @@ public class SolitarioEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
 
 
     }
