@@ -7,12 +7,7 @@ package control.juegos.linterna;
 
 import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
-import aima.search.informed.AStarEvaluationFunction;
-import aima.search.informed.AStarSearch;
-import aima.search.informed.GreedyBestFirstSearch;
-import aima.search.informed.HillClimbingSearch;
-import aima.search.informed.RecursiveBestFirstSearch;
-import aima.search.informed.SimulatedAnnealingSearch;
+import aima.search.informed.*;
 import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -475,9 +470,9 @@ public class LinternaDemo {
             if (sala != null) {
                 log.info(" " + sala);
             }
-            log.info(" JUEGO DE LA LINTERNA \n" +
-                    " Heuristica Personas");
-            log.info(" BÚSQUEDA GreedyBestFirstSearch con Funcion Heuristica Restante");
+            log.info(" JUEGO DE LA LINTERNA");
+            log.info(" Busqueda GreedyBestFirstSearch \n" +
+                    " Heuristica Restante");
             log.info("*******************************************\n");
             log.info(" \n\n***********************************\n"
                     + juego.toString()

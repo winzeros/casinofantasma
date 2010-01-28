@@ -24,7 +24,7 @@ public class LinternaJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public LinternaJuego(Search busqueda) throws Exception {
+    LinternaJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -42,7 +42,7 @@ public class LinternaJuego extends Juego {
      * @param heuristica
      * @throws Exception
      */
-    public LinternaJuego(Search busqueda, HeuristicFunction heuristica)
+    LinternaJuego(Search busqueda, HeuristicFunction heuristica)
             throws Exception {
 
         try {

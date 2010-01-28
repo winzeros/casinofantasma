@@ -38,6 +38,7 @@ public class HanoiFuncionSucesor  implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
+        if (!HanoiEstado.timeout) {
         if ((horaActual - HanoiEstado.horaInicial) < 5000) {
         HanoiEstado estadoPadre = (HanoiEstado) arg0;
         ArrayList recorrido = estadoPadre.getRecorrido();
@@ -58,8 +59,10 @@ public class HanoiFuncionSucesor  implements SuccessorFunction {
             Logger.getLogger(HanoiFuncionSucesor.class.getName())
                     .log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
         }
-        } else {
+        }
+        }else {
             log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+            HanoiEstado.timeout = true;
         }
 
         return resultado;

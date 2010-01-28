@@ -25,7 +25,7 @@ public class MonoBananaJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public MonoBananaJuego(Search busqueda) throws Exception {
+    MonoBananaJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -43,7 +43,7 @@ public class MonoBananaJuego extends Juego {
      * @param heuristica
      * @throws Exception
      */
-    public MonoBananaJuego(Search busqueda, HeuristicFunction heuristica)
+    MonoBananaJuego(Search busqueda, HeuristicFunction heuristica)
             throws Exception {
 
         try {

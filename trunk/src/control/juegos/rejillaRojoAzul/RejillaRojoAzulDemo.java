@@ -7,12 +7,8 @@ package control.juegos.rejillaRojoAzul;
 
 import aima.search.framework.GraphSearch;
 import aima.search.framework.TreeSearch;
-import aima.search.informed.GreedyBestFirstSearch;
-import aima.search.uninformed.BreadthFirstSearch;
-import aima.search.uninformed.DepthFirstSearch;
-import aima.search.uninformed.DepthLimitedSearch;
-import aima.search.uninformed.IterativeDeepeningSearch;
-import aima.search.uninformed.UniformCostSearch;
+import aima.search.informed.*;
+import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -34,6 +30,11 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
         IterativeDeepeningSearchDemo("SALA11");
+        AStarSearch("SALA11");
+        GreedyBestFirstSearch("SALA11");
+        RecursiveBestFirstSearch("SALA11");
+        SimulatedAnnealingSearch("SALA11");
+        HillClimbingSearch("SALA11");
         
     }
 
@@ -173,6 +174,128 @@ public final static Logger log = Logger.getLogger(RejillaRojoAzulDemo.class.getN
 
         } catch (Exception ex) {
             Logger.getLogger(RejillaRojoAzulJuego.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean AStarSearch(String sala) {
+
+        boolean ok = false;
+        RejillaRojoAzulJuego juego;
+
+        try {
+            juego = new RejillaRojoAzulJuego(new AStarSearch(new TreeSearch()),new RejillaRojoAzulFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
+            log.info(new RejillaRojoAzulEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+     public static boolean GreedyBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        RejillaRojoAzulJuego juego;
+
+        try {
+            juego = new RejillaRojoAzulJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new RejillaRojoAzulFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda Greedy Best-First");
+            log.info("*******************************************\n\n");
+            log.info(new RejillaRojoAzulEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean RecursiveBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        RejillaRojoAzulJuego juego;
+
+        try {
+            juego = new RejillaRojoAzulJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new RejillaRojoAzulFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Busqueda Mejor Recursiva");
+            log.info("*******************************************\n\n");
+            log.info(new RejillaRojoAzulEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+    public static boolean SimulatedAnnealingSearch(String sala) {
+
+        boolean ok = false;
+        RejillaRojoAzulJuego juego;
+
+        try {
+            juego = new RejillaRojoAzulJuego(new SimulatedAnnealingSearch() ,new RejillaRojoAzulFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Simulated Annealing Search");
+            log.info("*******************************************\n\n");
+            log.info(new RejillaRojoAzulEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean HillClimbingSearch(String sala) {
+
+        boolean ok = false;
+        RejillaRojoAzulJuego juego;
+
+        try {
+            juego = new RejillaRojoAzulJuego(new HillClimbingSearch() ,new RejillaRojoAzulFuncionHeuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO REJILLA ROJO AZUL");
+            log.info(" Escalada");
+            log.info("*******************************************\n\n");
+            log.info(new RejillaRojoAzulEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(RejillaRojoAzulDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }

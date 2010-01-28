@@ -15,7 +15,7 @@ import control.juegos.Juego;
  */
 public class SolitarioJuego extends Juego{
 
-    public SolitarioJuego(Search busqueda) {
+    SolitarioJuego(Search busqueda) {
 
         try {
             this._busqueda = busqueda;
@@ -29,7 +29,7 @@ public class SolitarioJuego extends Juego{
         }
     }
 
-        public SolitarioJuego(Search busqueda, HeuristicFunction heuristica) {
+   SolitarioJuego(Search busqueda, HeuristicFunction heuristica) {
 
         try {
             this._busqueda = busqueda;

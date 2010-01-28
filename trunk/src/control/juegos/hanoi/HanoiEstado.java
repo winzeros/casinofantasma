@@ -40,6 +40,10 @@ public class HanoiEstado {
      * Hora inicial del juego.
      */
     public static long horaInicial;
+    /**
+     * Booleano que indica si se ha alcanzado el timeout.
+     */
+    public static boolean timeout;
 
 // <editor-fold defaultstate="collapsed" desc="CONSTRUCTORES">
 
@@ -57,6 +61,7 @@ public class HanoiEstado {
         _controlCiclos = true;
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
 
     /**

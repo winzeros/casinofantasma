@@ -8,8 +8,8 @@ package control.juegos.ranas;
 import aima.search.framework.*;
 import aima.search.uninformed.*;
 import control.juegos.Juego;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class RanasJuego extends Juego {
 
-    public RanasJuego(Search busqueda) throws Exception {
+    RanasJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;
@@ -26,7 +26,23 @@ public class RanasJuego extends Juego {
                     new RanasEstadoObjetivo());
 
         } catch (Exception ex) {
-            Logger.getLogger(RanasJuego.class.getName()).log(Level.SEVERE, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+            Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+        }
+    }
+
+
+
+    RanasJuego(Search busqueda, HeuristicFunction heuristica) throws Exception {
+
+        try {
+            this._busqueda = busqueda;
+            this._nombre = "Movimiento de ranas";
+            this._problema = new Problem(new RanasEstado(permiteControlCiclos()),
+                    new RanasFuncionSucesor(),new RanasEstadoObjetivo(),
+                    heuristica);
+        } catch (Exception ex) {
+            Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR,
+                    "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
     }
 

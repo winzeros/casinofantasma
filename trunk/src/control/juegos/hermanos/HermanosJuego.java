@@ -23,7 +23,7 @@ public class HermanosJuego extends Juego {
      * @param busqueda
      * @throws Exception
      */
-    public HermanosJuego(Search busqueda) throws Exception {
+    HermanosJuego(Search busqueda) throws Exception {
 
         try {
             this._busqueda = busqueda;

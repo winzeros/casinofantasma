@@ -4,16 +4,11 @@
  */
 package control.juegos.ochoPuzzle;
 
+import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
-import aima.search.informed.AStarSearch;
-import aima.search.informed.SimulatedAnnealingSearch;
-import aima.search.uninformed.DepthLimitedSearch;
-import aima.search.uninformed.IterativeDeepeningSearch;
 
-import aima.search.informed.GreedyBestFirstSearch;
-import aima.search.uninformed.BreadthFirstSearch;
 import control.juegos.Juego;
 
 /**
@@ -30,7 +25,7 @@ public class OchoPuzzleJuego extends Juego {
     private OchoPuzzleEstados estado = null;
     private OchoPuzzleFuncionObjetivo objetivo = null;
 
-    public OchoPuzzleJuego(Search busqueda) {
+    OchoPuzzleJuego(Search busqueda) {
         this.busqueda = busqueda;
         this.nombre = "Problema 8Puzzle";
         this.solucion = false;
@@ -38,6 +33,10 @@ public class OchoPuzzleJuego extends Juego {
         this.objetivo = new OchoPuzzleFuncionObjetivo();
 
 
+    }
+
+    OchoPuzzleJuego(Search busqueda, HeuristicFunction heuristica) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
 

@@ -6,6 +6,7 @@
 package control.juegos.hermanos;
 
 import aima.search.framework.TreeSearch;
+import aima.search.informed.*;
 import aima.search.uninformed.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -27,7 +28,11 @@ public class HermanosDemo {
         DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
         UniformCostSearchDemo("SALA11");
-        IterativeDeepeningSearchDemo("SALA11");
+        AStarSearch("SALA11");
+        GreedyBestFirstSearch("SALA11");
+        RecursiveBestFirstSearch("SALA11");
+        SimulatedAnnealingSearch("SALA11");
+        HillClimbingSearch("SALA11");
     }
 
     /**
@@ -166,6 +171,128 @@ public class HermanosDemo {
 
         } catch (Exception ex) {
             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean AStarSearch(String sala) {
+
+        boolean ok = false;
+        HermanosJuego juego;
+
+        try {
+            juego = new HermanosJuego(new AStarSearch(new TreeSearch()),new Heuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LOS HERMANOS");
+            log.info(" Busqueda A*");
+            log.info("*******************************************\n\n");
+            log.info(new HermanosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+     public static boolean GreedyBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        HermanosJuego juego;
+
+        try {
+            juego = new HermanosJuego(new GreedyBestFirstSearch(new TreeSearch()) ,new Heuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LOS HERMANOS");
+            log.info(" Busqueda Greedy Best-First");
+            log.info("*******************************************\n\n");
+            log.info(new HermanosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean RecursiveBestFirstSearch(String sala) {
+
+        boolean ok = false;
+        HermanosJuego juego;
+
+        try {
+            juego = new HermanosJuego(new RecursiveBestFirstSearch(new AStarEvaluationFunction()) ,new Heuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LOS HERMANOS");
+            log.info(" Busqueda Mejor Recursiva");
+            log.info("*******************************************\n\n");
+            log.info(new HermanosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+
+    public static boolean SimulatedAnnealingSearch(String sala) {
+
+        boolean ok = false;
+        HermanosJuego juego;
+
+        try {
+            juego = new HermanosJuego(new SimulatedAnnealingSearch() ,new Heuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LOS HERMANOS");
+            log.info(" Simulated Annealing Search");
+            log.info("*******************************************\n\n");
+            log.info(new HermanosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
+        }
+        return ok;
+    }
+
+    public static boolean HillClimbingSearch(String sala) {
+
+        boolean ok = false;
+        HermanosJuego juego;
+
+        try {
+            juego = new HermanosJuego(new HillClimbingSearch() ,new Heuristica());
+
+            log.info("\n\n\n*******************************************");
+            if (sala != null)
+                log.info(" " + sala);
+            log.info(" JUEGO DE LOS HERMANOS");
+            log.info(" Escalada");
+            log.info("*******************************************\n\n");
+            log.info(new HermanosEstado().toString());
+
+            ok = juego.ejecutarConsola();
+
+        } catch (Exception ex) {
+             Logger.getLogger(HermanosDemo.class.getName()).log(Level.ERROR, null, ex);
         }
         return ok;
     }
