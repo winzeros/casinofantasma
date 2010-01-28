@@ -15,6 +15,12 @@ import org.apache.log4j.Logger;
  */
 public class MonoBananaEstadoObjetivo implements GoalTest {
 
+    private MonoBananaJuego juego;
+
+    public MonoBananaEstadoObjetivo(MonoBananaJuego monobanana) {
+        this.juego = monobanana;
+    }
+
     /**
      * Metodo que determina si el estado corresponde al estado ojetivo
      * del juego.
@@ -35,6 +41,10 @@ public class MonoBananaEstadoObjetivo implements GoalTest {
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaEstadoObjetivo.class.getName()).log(Level.ERROR,
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
+        }
+
+        if (sol) {
+            this.juego.setSolucion(sol);
         }
 
         return sol;

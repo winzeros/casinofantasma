@@ -15,6 +15,12 @@ import org.apache.log4j.Logger;
  */
 public class OvejasLobosEstadoObjetivo implements GoalTest {
 
+    private OvejasLobosJuego juego;
+
+    public OvejasLobosEstadoObjetivo(OvejasLobosJuego ovejaslobos) {
+        this.juego = ovejaslobos;
+    }
+
     /**
      * Metodo que determina si el estado corresponde al estado ojetivo
      * del juego.
@@ -31,6 +37,10 @@ public class OvejasLobosEstadoObjetivo implements GoalTest {
             estado.put(OvejasLobosEstado.CANOA, 1);
 
             ok = arg0.equals(new OvejasLobosEstado(estado));
+
+            if (ok) {
+                juego.setSolucion(ok);
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosEstadoObjetivo.class.getName()).log(Level.ERROR,

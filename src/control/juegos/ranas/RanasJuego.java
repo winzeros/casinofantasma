@@ -23,7 +23,7 @@ public class RanasJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Movimiento de ranas";
             this._problema = new Problem(new RanasEstado(permiteControlCiclos()), new RanasFuncionSucesor(),
-                    new RanasEstadoObjetivo());
+                    new RanasEstadoObjetivo(this));
 
         } catch (Exception ex) {
             Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
@@ -38,7 +38,7 @@ public class RanasJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Movimiento de ranas";
             this._problema = new Problem(new RanasEstado(permiteControlCiclos()),
-                    new RanasFuncionSucesor(),new RanasEstadoObjetivo(),
+                    new RanasFuncionSucesor(),new RanasEstadoObjetivo(this),
                     heuristica);
         } catch (Exception ex) {
             Logger.getLogger(RanasJuego.class.getName()).log(Level.ERROR,

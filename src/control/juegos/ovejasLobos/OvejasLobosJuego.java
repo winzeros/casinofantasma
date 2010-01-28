@@ -27,7 +27,7 @@ public class OvejasLobosJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Ovejas vs. Lobos";
             this._problema = new Problem(new OvejasLobosEstado(permiteControlCiclos()),
-                    new OvejasLobosFuncionSucesor(),new OvejasLobosEstadoObjetivo());
+                    new OvejasLobosFuncionSucesor(),new OvejasLobosEstadoObjetivo(this));
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosJuego.class.getName()).log(Level.ERROR,
                     "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
@@ -47,7 +47,7 @@ public class OvejasLobosJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Ovejas vs. Lobos";
             this._problema = new Problem(new OvejasLobosEstado(permiteControlCiclos()),
-                    new OvejasLobosFuncionSucesor(),new OvejasLobosEstadoObjetivo(),
+                    new OvejasLobosFuncionSucesor(),new OvejasLobosEstadoObjetivo(this),
                     heuristica);
         } catch (Exception ex) {
             Logger.getLogger(OvejasLobosJuego.class.getName()).log(Level.ERROR,

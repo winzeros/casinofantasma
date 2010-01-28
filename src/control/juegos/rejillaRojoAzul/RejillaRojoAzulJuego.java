@@ -20,15 +20,22 @@ public class RejillaRojoAzulJuego extends Juego{
 static int _nodosExpandidos;
 
 
-RejillaRojoAzulJuego(Search busqueda) {
-        _nombre="Tenemos un tablero con las casillas pintadas de color rojo o azul y queremos que el numero de pares del mismo color sea minimo.";
+ public RejillaRojoAzulJuego(Search busqueda) {
+        _nombre="Rejilla Rojo y Azul";
     	_nodosExpandidos=0;
         _busqueda=busqueda;
-        _problema = new Problem(new RejillaRojoAzulEstado(), new RejillaRojoAzulFuncionSucesor(), new RejillaRojoAzulEstadoObjetivo(), new RejillaRojoAzulFuncionHeuristica());
+        _problema = new Problem(new RejillaRojoAzulEstado(), 
+                new RejillaRojoAzulFuncionSucesor(), new RejillaRojoAzulEstadoObjetivo(this));
     
    }
 
-    RejillaRojoAzulJuego(Search busqueda, HeuristicFunction heuristica) {
-        throw new UnsupportedOperationException("Not yet implemented");
+
+   public  RejillaRojoAzulJuego(Search busqueda, HeuristicFunction heuristica) {
+        _nombre="Rejilla Rojo y Azul";
+    	_nodosExpandidos=0;
+        _busqueda=busqueda;
+        _problema = new Problem(new RejillaRojoAzulEstado(),
+                new RejillaRojoAzulFuncionSucesor(), new RejillaRojoAzulEstadoObjetivo(this),
+                heuristica);
     }
 }

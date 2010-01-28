@@ -29,7 +29,7 @@ public class HanoiJuego extends Juego {
             this._nombre = "Las torres de Hanoi";
 
             this._problema = new Problem(new HanoiEstado(permiteControlCiclos()), new HanoiFuncionSucesor(),
-                    new HanoiEstadoObjetivo());
+                    new HanoiEstadoObjetivo(this));
         } catch (Exception ex) {
             Logger.getLogger(HanoiJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
@@ -48,7 +48,7 @@ public class HanoiJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "Torres de Hanoi";
             this._problema = new Problem(new HanoiEstado(permiteControlCiclos()),
-                    new HanoiFuncionSucesor(),new HanoiEstadoObjetivo(),
+                    new HanoiFuncionSucesor(),new HanoiEstadoObjetivo(this),
                     heuristica);
         } catch (Exception ex) {
             Logger.getLogger(HanoiJuego.class.getName()).log(Level.ERROR,

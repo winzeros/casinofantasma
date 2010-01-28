@@ -14,6 +14,12 @@ import org.apache.log4j.Logger;
  */
 public class HermanosEstadoObjetivo implements GoalTest {
 
+    private HermanosJuego juego;
+
+    public HermanosEstadoObjetivo(HermanosJuego hermanos) {
+        this.juego = hermanos;
+    }
+
     /**
      * Metodo que determina si el estado corresponde al estado ojetivo
      * del juego.
@@ -35,6 +41,12 @@ public class HermanosEstadoObjetivo implements GoalTest {
                     "Error al comparar el estado " + arg0.toString() + " con el estado final.", ex);
         }
 
-        return i == 6;
+        if (i==6) {
+            juego.setSolucion(true);
+            return true;
+        }else {
+            return false;
+        }
+
     }
 }

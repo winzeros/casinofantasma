@@ -15,7 +15,6 @@ public class GarrafasDemo {
 
     public static void main(String[] args) {
 
-
         BreadthFirstDemo("SALA11");
         DepthFirstSearchDemo("SALA11");
         DepthLimitedSearchDemo("SALA11");
@@ -43,6 +42,7 @@ public class GarrafasDemo {
             log.info(new GarrafasEstado().toString(0, 0));
 
             ok = juego.ejecutarConsola();
+            log.info(ok);
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -70,7 +70,8 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutarConsola();
+            ok = juego.ejecutarConsola();
+            log.info(ok);
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -98,7 +99,8 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutarConsola();
+            ok = juego.ejecutarConsola();
+            log.info(ok);
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -126,7 +128,8 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutarConsola();
+            ok = juego.ejecutarConsola();
+            log.info(ok);
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -154,7 +157,8 @@ public class GarrafasDemo {
             log.info("*******************************************\n");
             log.info(new GarrafasEstado().toString(0, 0));
 
-            juego.ejecutarConsola();
+            ok = juego.ejecutarConsola();
+            log.info(ok);
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);

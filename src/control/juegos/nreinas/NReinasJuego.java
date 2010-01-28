@@ -25,7 +25,7 @@ public class NReinasJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "N Reinas";
             this._problema = new Problem(new NReinasEstado(8), new NReinasFuncionSucesor(),
-                    new NReinasEstadoObjetivo());
+                    new NReinasEstadoObjetivo(this));
         } catch (Exception ex) {
             Logger.getLogger(NReinasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }
@@ -37,7 +37,7 @@ public class NReinasJuego extends Juego {
             this._busqueda = busqueda;
             this._nombre = "N Reinas";
             this._problema = new Problem(new NReinasEstado(8), new NReinasFuncionSucesor(),
-                    new NReinasEstadoObjetivo(), heuristica);
+                    new NReinasEstadoObjetivo(this), heuristica);
         } catch (Exception ex) {
             Logger.getLogger(NReinasJuego.class.getName()).log(Level.ERROR, "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
         }

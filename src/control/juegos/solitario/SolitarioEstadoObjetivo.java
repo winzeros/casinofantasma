@@ -14,6 +14,12 @@ import java.util.Arrays;
  */
 public class SolitarioEstadoObjetivo implements GoalTest {
 
+    private SolitarioJuego juego;
+
+    public SolitarioEstadoObjetivo(SolitarioJuego solitario) {
+        juego = solitario;
+    }
+
     public boolean isGoalState(Object state) {
 
         boolean ok = false;
@@ -76,6 +82,10 @@ public class SolitarioEstadoObjetivo implements GoalTest {
         tablero[6][6] = SolitarioEstado.NO_POS;
 
         ok = Arrays.equals(tablero, ((SolitarioEstado) state).getTablero());
+
+        if (ok) {
+            juego.setSolucion(ok);
+        }
 
         return ok;
     }
