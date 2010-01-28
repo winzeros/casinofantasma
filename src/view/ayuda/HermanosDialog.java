@@ -65,9 +65,7 @@ public class HermanosDialog extends javax.swing.JDialog {
             public void run() {
                 HermanosDialog dialog = new HermanosDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
+
                 });
                 dialog.setVisible(true);
             }

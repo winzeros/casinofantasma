@@ -68,9 +68,7 @@ public class MariposasDialog extends javax.swing.JDialog {
                 MariposasDialog dialog = new MariposasDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
+
                 });
                 dialog.setVisible(true);
             }
