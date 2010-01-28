@@ -27,8 +27,9 @@ public class RanasDemo {
         IterativeDeepeningSearchDemo("SALA11");
     }
 
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
 
+        boolean ok = false;
         RanasJuego juego;
 
         try {
@@ -42,15 +43,17 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala) {
 
+        boolean ok = false;
         RanasJuego juego;
 
         try {
@@ -64,15 +67,17 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
+        boolean ok = false;
         RanasJuego juego;
 
         try {
@@ -86,15 +91,17 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         RanasJuego juego;
 
         try {
@@ -108,15 +115,17 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala) {
 
+        boolean ok = false;
         RanasJuego juego;
 
         try {
@@ -130,10 +139,11 @@ public class RanasDemo {
             log.info("*******************************************\n");
             log.info(new RanasEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(RanasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 }

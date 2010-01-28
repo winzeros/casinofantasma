@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Puzzle</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+			<a alt="photo"><img src="images/puzzle.png" alt="Puzzle" width="243" height="152" /></a>
+			<h1>Descripcion del juego</h1>
+			<p>El objetivo es que, intercambiando la casilla vacía por la que se encuentre a su izquierda, derecha, arriba o abajo consigamos colocar todas las fichas ordenadas con la casilla vacia arriba a la izquierda. </p>
+			<h1>Operadores</h1>
+			<p>Existen los siguientes operadores:</p>
+			<ul>
+			  <li>Mover hueco Arriba. </li>
+			  <li>Mover hueco Abajo.</li>
+			  <li>Mover hueco Izquierda.</li>
+			  <li>Mover hueco Derecha.</li>
+		  </ul>
+			<p>&nbsp;</p>
+			<h1>Algoritmo heuristico</h1>
+			<p> Se ha implementado dos tipos de funciones heuristicas:</p>
+			<p>&nbsp;</p>
+			<ul>
+			  <li><strong>Funci&oacute;n descolocados(h1): </strong></li>
+		  </ul>
+			<blockquote>
+              <p>Contabiliza el n&uacute;mero de piezas que est&aacute;n en posici&oacute;n incorrecta.</p>
+		  </blockquote>
+			<ul>
+			  <li><strong>Distancia de Manhattan (h2):</strong>			  </li>
+		  </ul>
+			<blockquote>
+			  <p>Suma de las distancias de las piezas a sus posiciones finales, usando<br />
+			    la distancia de Manhattan de la pieza: suma de las distancias<br />
+			    horizontal y vertical a la posici&oacute;n final.</p>
+		    </blockquote>
+			<blockquote>
+			  <p align="left">Se puede ver que h2(n) &gt;= h1(n) para cualquier nodo.Por lo tanto h2 domina a h1<br />
+  La dominaci&oacute;n se traduce en eficiencia: una heur&iacute;stica dominante expande<br />
+		      menos nodos.</p>
+		  </blockquote>
+			<h1>Espacio de estados</h1>
+			<p>El estado es la representacion del tablero.<br />
+			En nuestro caso hemos decidido implementarlo como un array de enteros de 9 elementos,siendo la representacion del hueco el n&uacute;mero 0. </p>
+			<p><strong><em>Estado inicial:</em></strong></p>
+			<p>Tablero({1, 4, 2, 7, 5, 8, 3, 0, 6}).</p>
+			<p>&nbsp; </p>
+			<p><em><strong>Estado filal: (soluci&oacute;n)</strong></em></p>
+			<p>Tablero({0, 1, 2, 3, 4, 5, 6, 7, 8}).</p>
+			<p>&nbsp;</p>
+			<h1>Estrategia de busqueda</h1>
+			<p>La estrategia m&aacute;s optima.... </p>
+	
+			
+  		</div>
+	</div>
+</body>
+</html>
+
+

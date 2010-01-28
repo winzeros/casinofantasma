@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>8reinas</title>
+</head>
+
+<body>
+<div id="contenido" align="left">
+		<div id="left">
+		
+		
+		<a alt="photo"><img src="images/8reinas.png" alt="8puzzle" width="243" height="152" /></a>			
+		<h1>Descripcion del juego</h1>
+			<p><br />
+			El&nbsp;<strong>problema de las ocho reinas</strong>&nbsp;se trata de un acertijo en el que se colocan&nbsp;<strong>ocho reinas</strong>&nbsp;sin que se amenacen. En el juego de&nbsp;ajedrez&nbsp;la reina amenaza a aquellas fichas que se encuentren en su misma fila, columna o diagonal. Las 8 reinas consiste en colocar sobre un tablero de ajedrez ocho reinas sin que estas se den&nbsp;jaques&nbsp;entre ellas. </p>
+			<h1>Operadores</h1>
+			<p>Existen los siguientes operadores:</p>
+			<ul>
+              <li>A&ntilde;adirReina(Posici&oacute;n)</li>
+              <li>QuitarReina(Posici&oacute;n)</li>
+			  <li>MoverReina(PosicionINI,PosicionFIN)</li>
+			</ul>
+            <h1>Algoritmo heuristico</h1>
+			<p>La funci&oacute;n heuristica implementada tiene en cuenta el tama&ntilde;o del tablero(en este problema siempre ser&aacute; 8) - el n&uacute;mero de reinas que han sido colocadas en el tablero.<br />
+			  Hay que tener en cuenta que el n&uacute;mero m&aacute;ximo de reinas sera igual a la dimensi&oacute;n del tablero.
+</p>
+			<h1>Espacio de estados</h1>
+			<p>El estado es la representacion del tablero.<br />
+En nuestro caso hemos decidido implementarlo como un array de enteros de dos dimensiones 8x8.</p>
+			<p>Representaci&oacute;n en el tablero:</p>
+			<ul>
+			  <li><strong>R</strong>: reina</li>
+		      <li><strong>_</strong>: casilla vacia  </li>
+		  </ul>
+			<p>&nbsp;</p>
+			<p><strong><em>Estado inicial:</em></strong></p>
+			<blockquote>
+			  <p>Tablero vacio. </p>
+		  </blockquote>
+			<p>&nbsp; </p>
+			<p><em><strong>Estado filal: (soluci&oacute;n)</strong></em></p>
+			<p> El problema de las ocho reinas tiene 92 soluciones, de las cuales 12 son&nbsp;<strong>esencialmente distintas</strong>, es decir las 92 soluciones existentes se pueden obtener a partir de simetr&iacute;as, rotaciones y traslaciones de las 12 soluciones &uacute;nicas, aqui te mostramos una de ellas:</p>
+			<p align="center"><img src="images/solucion8reinas.png" alt="solucion8reinas" width="231" height="237" /> </p>
+			<p align="left">Como se puede observar, ninguna de las reinas se ve amenazada, es decir no existe otra reina en su misma fila,columna o diagonal.</p>
+			<p align="left">Los estados inalcanzables seran aquellas combinaciones donde las reinas se vean amenazadas. </p>
+			<p>&nbsp;</p>
+			<h1>Estrategia de busqueda</h1>
+		  <p>Se han implementado numerosas busquedas tanto informadas como no informadas.<br />
+		    Las busquedas con mejores resulados han sido A* con la heuristica descrita anteriormente (con coste 8 y  nodos expandidos 146) y primero en Anchura (con un coste de 8 y 1965 nodos expandidos)<br />
+	        <br />
+          </p>
+  </div>		
+		
+</div>
+</body>
+</html>

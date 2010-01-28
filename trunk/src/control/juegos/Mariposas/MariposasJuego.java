@@ -1,5 +1,6 @@
 package control.juegos.mariposas;
 
+import aima.search.framework.HeuristicFunction;
 import aima.search.framework.Problem;
 import aima.search.framework.Search;
 import aima.search.framework.SearchAgent;
@@ -23,7 +24,7 @@ public class MariposasJuego extends Juego{
     /**
      * Nombre del juego.
      */
-    private String nombre;
+    //private String nombre;
     /**
      * Solucion del juego.
      */
@@ -56,12 +57,26 @@ public class MariposasJuego extends Juego{
      */
     public MariposasJuego(Search busqueda){
 
-        this.nombre = "Problema de las Mariposas";
+        _nombre = "Problema de las Mariposas";
         this.solucion = false;
-        this.objetivo = new MariposasEstadoObjetivo(this);
-        this.estado= new MariposasEstado();
-        this.busqueda= busqueda;
-        this.problema = new Problem(this.estado,new MariposasFuncionSucesora(),this.objetivo,new MariposasFuncionCoste(),new MariposasFuncionHeuristica());
+        _busqueda= busqueda;
+        _problema = new Problem(new MariposasEstado(), new MariposasFuncionSucesora(),
+                new MariposasEstadoObjetivo(this) ,new MariposasFuncionCoste(),new MariposasFuncionHeuristica());
+    }
+
+    public MariposasJuego(Search busqueda, HeuristicFunction heuristica)
+            throws Exception {
+
+        try {
+            this._busqueda = busqueda;
+            this._nombre = "Problema de las Mariposas";
+            this._problema = new Problem(new MariposasEstado(),
+                    new MariposasFuncionSucesora(),new MariposasEstadoObjetivo(this),
+                    heuristica);
+        } catch (Exception ex) {
+            Logger.getLogger(MariposasJuego.class.getName()).log(Level.ERROR,
+                    "Crear el juego utilizando la búsqueda " + busqueda.toString(), ex);
+        }
     }
 
     /**
@@ -117,7 +132,7 @@ public class MariposasJuego extends Juego{
      * @return nombre
      */
     public String getNombre() {
-        return nombre;
+        return _nombre;
     }
 
     /**
@@ -125,7 +140,7 @@ public class MariposasJuego extends Juego{
      * @param nombre
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        _nombre = nombre;
     }
 
     /**
@@ -181,7 +196,7 @@ public class MariposasJuego extends Juego{
     * Metodo que ejecuta el juego.
     * Heredado de la clase Juego.
     */
-    public void ejecutar(){
+    public void ejecutarconsola(){
 
         try{
             this.agente = new SearchAgent(this.problema,this.busqueda);

@@ -36,8 +36,9 @@ public class MonoBananaDemo {
      * Busqueda Primero en Anchura.
      * @param sala
      */
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -51,19 +52,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda en profundidad.
      * @param sala
      */
-    public static void DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -77,19 +80,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda con profundida limitada.
      * @param sala
      */
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -103,19 +108,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda de coste uniforme.
      * @param sala
      */
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -129,19 +136,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda iterativa.
      * @param sala
      */
-    public static void IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -155,19 +164,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda voraz.
      * @param sala
      */
-    public static void eightPuzzleGreedyBestFirstDemo(String sala) {
+    public static boolean eightPuzzleGreedyBestFirstDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -181,19 +192,21 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
     /**
      * Busqueda A*
      * @param sala
      */
-    public static void eightPuzzleAStarDemo(String sala) {
+    public static boolean eightPuzzleAStarDemo(String sala) {
 
+        boolean ok = false;
         MonoBananaJuego juego;
 
         try {
@@ -207,11 +220,12 @@ public class MonoBananaDemo {
             log.info("*******************************************\n");
             log.info(new MonoBananaEstado().toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(MonoBananaDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
 }

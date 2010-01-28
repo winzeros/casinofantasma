@@ -6,6 +6,8 @@ package control.juegos.hanoi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -53,6 +55,8 @@ public class HanoiEstado {
         _recorrido = new ArrayList();
         _recorrido.add(_tablero);
         _controlCiclos = true;
+        Calendar calendario = new GregorianCalendar();
+        horaInicial = calendario.getTimeInMillis();
     }
 
     /**

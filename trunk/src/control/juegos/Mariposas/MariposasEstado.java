@@ -22,6 +22,10 @@ public class MariposasEstado {
      * Hora de inicio del juego.
      */
     public static long horaInicial;
+    /**
+     * Indica si se ha alcanzado el timeout
+     */
+    public static boolean timeout;
 
 
     /**
@@ -33,6 +37,7 @@ public class MariposasEstado {
         this.contenido.add(this.instante);
         Calendar calendario = new GregorianCalendar();
         horaInicial = calendario.getTimeInMillis();
+        timeout = false;
     }
     
     /**

@@ -53,26 +53,29 @@ public class MariposasFuncionSucesora implements SuccessorFunction {
         Calendar calendario = new GregorianCalendar();
         long horaActual = calendario.getTimeInMillis();
 
-        if ((horaActual - MariposasEstado.horaInicial) < 10000) {
-            MariposasEstado estado = (MariposasEstado) state;
-            MariposasEstado posible = null;
+        if (!MariposasEstado.timeout) {
+            if (((horaActual - MariposasEstado.horaInicial) < 10000)) {
+                MariposasEstado estado = (MariposasEstado) state;
+                MariposasEstado posible = null;
 
-            for (int i = 0; i < coordenadaX; i++) {
-                for (int j = 0; j < coordenadaY; j++) {
-                    posible = crearSiguienteEstado(estado,
-                            new Tablero(estado.getInstante(), i, j));
-                    if (posible != null) {
-                        siguientes.add(new Successor("Cambio en [ " + i + " , " +
-                                j + " ] : " + posible.getInstante().getValor(i, j).toString() +
-                                " \n " + "\n" + "***********************************\n" +
-                                posible.getInstante().imprimirTablero(posible.getInstante()) +
-                                "***********************************\n", posible));
+                for (int i = 0; i < coordenadaX; i++) {
+                    for (int j = 0; j < coordenadaY; j++) {
+                        posible = crearSiguienteEstado(estado,
+                                new Tablero(estado.getInstante(), i, j));
+                        if (posible != null) {
+                            siguientes.add(new Successor("Cambio en [ " + i + " , " +
+                                    j + " ] : " + posible.getInstante().getValor(i, j).toString() +
+                                    " \n " + "\n" + "***********************************\n" +
+                                    posible.getInstante().imprimirTablero(posible.getInstante()) +
+                                    "***********************************\n", posible));
+                        }
+                        posible = null;
                     }
-                    posible = null;
                 }
+            } else {
+                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                MariposasEstado.timeout = true;
             }
-        } else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
         }
         return siguientes;
     }

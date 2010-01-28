@@ -34,8 +34,9 @@ public class NReinasDemo {
 
     }
 
-    public static void BreadthFirstDemo(String sala) {
+    public static boolean BreadthFirstDemo(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -49,15 +50,17 @@ public class NReinasDemo {
             log.info("*******************************************\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void DepthFirstSearchDemo(String sala) {
+    public static boolean DepthFirstSearchDemo(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -71,15 +74,17 @@ public class NReinasDemo {
             log.info("*******************************************\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void DepthLimitedSearchDemo(String sala) {
+    public static boolean DepthLimitedSearchDemo(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -93,15 +98,17 @@ public class NReinasDemo {
             log.info("*******************************************\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void UniformCostSearchDemo(String sala) {
+    public static boolean UniformCostSearchDemo(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -115,15 +122,17 @@ public class NReinasDemo {
             log.info("*******************************************\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
-    public static void IterativeDeepeningSearchDemo(String sala) {
+    public static boolean IterativeDeepeningSearchDemo(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -137,16 +146,18 @@ public class NReinasDemo {
             log.info("*******************************************\n\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
 
         } catch (Exception ex) {
             Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 
 
-        public static void AStarSearch(String sala) {
+        public static boolean AStarSearch(String sala) {
 
+        boolean ok = false;
         NReinasJuego juego;
 
         try {
@@ -160,10 +171,11 @@ public class NReinasDemo {
             log.info("*******************************************\n\n");
             log.info(new NReinasEstado(8).toString());
 
-            juego.ejecutar();
+            ok = juego.ejecutarConsola();
             
         } catch (Exception ex) {
              Logger.getLogger(NReinasDemo.class.getName()).log(Level.ERROR, null, ex);
         }
+        return ok;
     }
 }
