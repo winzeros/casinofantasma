@@ -420,7 +420,7 @@ public class LaberintoEnvironment extends MapEnvironment {
                         break;
                     //Busqueda iterativa
                     case 4:
-                        ok = MariposasDemo.RejillaRojoAzulGreedyBestFirstSearch(sala);
+                        ok = MariposasDemo.GreedyBestFirstSearch(sala);
                         break;
                 }
                 break;
