@@ -21,8 +21,8 @@ public class OchoPuzzleDemo {
         DepthLimitedSearchDemo("SALA11", true);
         IterativeDeepeningSearchDemo("SALA11", true);
         AStarSearch("SALA11", true);
-        GreedyBestFirstSearch("SALA11", true);
-        RecursiveBestFirstSearch("SALA11", true);
+        //GreedyBestFirstSearch("SALA11", true);
+        //RecursiveBestFirstSearch("SALA11", true);
         SimulatedAnnealingSearch("SALA11", true);
         HillClimbingSearch("SALA11", true);
     }

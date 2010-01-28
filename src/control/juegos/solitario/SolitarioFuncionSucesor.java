@@ -29,7 +29,7 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!SolitarioEstado.timeout) {
-            if ((horaActual - SolitarioEstado.horaInicial) < 5000) {
+            if ((horaActual - SolitarioEstado.horaInicial) < 100) {
                 estadoPadre = new SolitarioEstado((SolitarioEstado) arg0);
                 ArrayList recorrido = estadoPadre.getRecorrido();
                 SolitarioEstado estado;

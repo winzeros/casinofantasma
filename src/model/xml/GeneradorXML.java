@@ -28,7 +28,7 @@ public class GeneradorXML {
             item = new Element(Vista.SALA);
             item.setAttribute(Vista.ID, String.valueOf(i));
             item.setAttribute(Vista.JUEGO, String.valueOf((int) (Math.random() * 11))); //Son 12 juegos
-             item.setAttribute(Vista.ESTRATEGIA, String.valueOf((int) (Math.random() * 5))); //Son 8 estrategias
+             item.setAttribute(Vista.ESTRATEGIA, String.valueOf((int) (Math.random() * 13))); //Son 8 estrategias
             item.setAttribute(Vista.RECOMPENSA, String.valueOf((int) (Math.random() * 100))); //Supongo que el máximo de dias a ganar son 100
             root.addContent(item);
         }
@@ -43,7 +43,7 @@ public class GeneradorXML {
 
         root = new Element(Vista.CASINO);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 500; i++) {
             item = new Element(Vista.CAMINO);
             item.setAttribute(Vista.ORIGEN, String.valueOf((int) (Math.random() * 100))); //Son 100 salas
             item.setAttribute(Vista.DESTINO, String.valueOf((int) (Math.random() * 100))); //Son 100 salas

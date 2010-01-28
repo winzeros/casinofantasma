@@ -29,7 +29,7 @@ public class OchoPuzzleFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!OchoPuzzleEstados.timeout) {
-            if ((horaActual - OchoPuzzleEstados.horaInicial) < 5000) {
+            if ((horaActual - OchoPuzzleEstados.horaInicial) < 1000) {
                 OchoPuzzleEstados tablero = (OchoPuzzleEstados) state;
                 if (tablero.puedoMoverHueco(OchoPuzzleEstados.UP)) {
                     OchoPuzzleEstados nuevoTablero = copyOf(tablero);

@@ -32,7 +32,7 @@ public class OvejasLobosDemo {
 
         AStarSearch("SALA11", true);
         GreedyBestFirstSearch("SALA11", true);
-        RecursiveBestFirstSearch("SALA11", true);
+        //RecursiveBestFirstSearch("SALA11", true);
         SimulatedAnnealingSearch("SALA11", true);
         HillClimbingSearch("SALA11", true);
     }

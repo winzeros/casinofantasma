@@ -31,7 +31,10 @@ public class LaberintoEstado {
 
     public LaberintoEstado(LaberintoEstado estado) {
             sala = estado.getSala();
-            recorridos = estado.getRecorridos();
+            recorridos = new ArrayList();
+            for (int i = 0; i < estado.recorridos.size(); i++) {
+            this.recorridos.add(estado.recorridos.get(i));
+        }
     }
 
     public String getSala() {

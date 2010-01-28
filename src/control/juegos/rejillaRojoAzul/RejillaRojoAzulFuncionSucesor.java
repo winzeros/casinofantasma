@@ -28,7 +28,7 @@ public class RejillaRojoAzulFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!RejillaRojoAzulEstado.timeout) {
-            if ((horaActual - RejillaRojoAzulEstado.horaInicial) < 5000) {
+            if ((horaActual - RejillaRojoAzulEstado.horaInicial) < 1000) {
                 RejillaRojoAzulEstado puzzle = (RejillaRojoAzulEstado) state;
                 String movimiento = "";
                 int coste = 0;

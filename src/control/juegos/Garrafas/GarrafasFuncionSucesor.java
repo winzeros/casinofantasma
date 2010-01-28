@@ -44,7 +44,7 @@ public class GarrafasFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!GarrafasEstado.timeout) {
-            if ((horaActual - GarrafasEstado.horaInicial) < 5000) {
+            if ((horaActual - GarrafasEstado.horaInicial) < 2000) {
                 GarrafasEstado estado = (GarrafasEstado) state;
                 GarrafasEstado generado = null;
                 int aux3, aux4;

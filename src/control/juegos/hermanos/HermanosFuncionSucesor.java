@@ -37,7 +37,7 @@ public class HermanosFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!HermanosEstado.timeout) {
-        if ((horaActual - HermanosEstado.horaInicial) < 5000) {
+        if ((horaActual - HermanosEstado.horaInicial) < 1000) {
             HermanosEstado estadoPadre = (HermanosEstado) arg0;
             ArrayList recorrido = estadoPadre.getRecorrido();
 
