@@ -4,6 +4,8 @@
 
 package view.casinofantasma;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -13,8 +15,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.Timer;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import model.xml.LectorXML;
+import view.ayuda.*;
 
 /**
  * The application's main frame.
@@ -92,6 +98,9 @@ public class CasinoInicioView extends FrameView {
 
         mainPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
@@ -103,7 +112,7 @@ public class CasinoInicioView extends FrameView {
 
         mainPanel.setName("mainPanel"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(CasinoInicioView.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(view.casinofantasma.CasinoInicio.class).getContext().getResourceMap(CasinoInicioView.class);
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
         jButton1.setName("jButton1"); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,21 +121,50 @@ public class CasinoInicioView extends FrameView {
             }
         });
 
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Garrafas", "Mariposas", "Torres de Hanoi", "Hermanos a la Greña", "Linterna", "Mono y Banana", "N-Reinas", "8-Puzzle", "Lobos y pollos", "Ranas", "Rejilla Rojo Azul", "Solitario" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList1.setName("jList1"); // NOI18N
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(154, 154, 154))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jButton1))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(23, 23, 23))
+                .addGap(29, 29, 29))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -134,7 +172,7 @@ public class CasinoInicioView extends FrameView {
         helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
         helpMenu.setName("helpMenu"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance().getContext().getActionMap(CasinoInicioView.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(view.casinofantasma.CasinoInicio.class).getContext().getActionMap(CasinoInicioView.class, this);
         aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
         aboutMenuItem.setText(resourceMap.getString("aboutMenuItem.text")); // NOI18N
         aboutMenuItem.setActionCommand(resourceMap.getString("aboutMenuItem.actionCommand")); // NOI18N
@@ -158,11 +196,11 @@ public class CasinoInicioView extends FrameView {
         statusPanel.setLayout(statusPanelLayout);
         statusPanelLayout.setHorizontalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -198,8 +236,41 @@ public class CasinoInicioView extends FrameView {
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+           
+        switch (this.jList1.getSelectedIndex()) {
+            case 0: GarrafasDialog.main(null);
+                    break;
+            case 1: MariposasDialog.main(null);
+                    break;
+            case 2: HanoiDialog.main(null);
+                    break;
+            case 3: HermanosDialog.main(null);
+                    break;
+            case 4: LinternaDialog.main(null);
+                    break;
+            case 5: MonoDialog.main(null);
+                    break;
+            case 6: ReinasDialog.main(null);
+                    break;
+            case 7: PuzzleDialog.main(null);
+                    break;
+            case 8: LobosPollosDialog.main(null);
+                    break;
+            case 9: RanasDialog.main(null);
+                    break;
+            //case 10: RejillaDialog.main(null);
+                    //break;
+            default:
+                SolitarioDialog.main(null); break;
+        }
+    }//GEN-LAST:event_jList1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
@@ -213,4 +284,5 @@ public class CasinoInicioView extends FrameView {
     private final Icon idleIcon;
     private final Icon[] busyIcons = new Icon[15];
     private int busyIconIndex = 0;
+
 }

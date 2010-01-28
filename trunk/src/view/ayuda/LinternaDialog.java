@@ -65,9 +65,7 @@ public class LinternaDialog extends javax.swing.JDialog {
             public void run() {
                 LinternaDialog dialog = new LinternaDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
+
                 });
                 dialog.setVisible(true);
             }

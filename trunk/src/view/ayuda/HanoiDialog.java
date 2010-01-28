@@ -65,9 +65,7 @@ public class HanoiDialog extends javax.swing.JDialog {
             public void run() {
                 HanoiDialog dialog = new HanoiDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
+
                 });
                 dialog.setVisible(true);
             }

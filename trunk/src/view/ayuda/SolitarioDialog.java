@@ -29,6 +29,7 @@ public class SolitarioDialog extends javax.swing.JDialog {
         this.setTitle("Ayuda - Juego del Solitario");
 
         initComponents();
+        
     }
 
     /** This method is called from within the constructor to
@@ -65,9 +66,6 @@ public class SolitarioDialog extends javax.swing.JDialog {
             public void run() {
                 SolitarioDialog dialog = new SolitarioDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
                 });
                 dialog.setVisible(true);
             }
