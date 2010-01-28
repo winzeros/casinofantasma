@@ -29,7 +29,7 @@ public class NReinasFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!NReinasEstado.timeout) {
-            if ((horaActual - NReinasEstado.horaInicial) < 5000) {
+            if ((horaActual - NReinasEstado.horaInicial) < 1000) {
                 NReinasEstado tablero = (NReinasEstado) estado;
                 int numReinas = tablero.getNumeroReinasColocadas();
                 int n = tablero.getN();

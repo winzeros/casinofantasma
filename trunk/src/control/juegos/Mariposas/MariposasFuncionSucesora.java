@@ -54,7 +54,7 @@ public class MariposasFuncionSucesora implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!MariposasEstado.timeout) {
-            if (((horaActual - MariposasEstado.horaInicial) < 10000)) {
+            if (((horaActual - MariposasEstado.horaInicial) < 1000)) {
                 MariposasEstado estado = (MariposasEstado) state;
                 MariposasEstado posible = null;
 

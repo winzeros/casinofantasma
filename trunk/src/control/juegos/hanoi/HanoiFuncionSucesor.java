@@ -38,7 +38,7 @@ public class HanoiFuncionSucesor  implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!HanoiEstado.timeout) {
-        if ((horaActual - HanoiEstado.horaInicial) < 5000) {
+        if ((horaActual - HanoiEstado.horaInicial) < 1000) {
         HanoiEstado estadoPadre = (HanoiEstado) arg0;
         ArrayList recorrido = estadoPadre.getRecorrido();
 

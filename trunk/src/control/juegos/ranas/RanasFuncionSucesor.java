@@ -29,7 +29,7 @@ public class RanasFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!RanasEstado.timeout) {
-            if ((horaActual - RanasEstado.horaInicial) < 5000) {
+            if ((horaActual - RanasEstado.horaInicial) < 1000) {
                 RanasEstado estadoPadre = (RanasEstado) arg0;
                 ArrayList recorrido = estadoPadre.getRecorrido();
 

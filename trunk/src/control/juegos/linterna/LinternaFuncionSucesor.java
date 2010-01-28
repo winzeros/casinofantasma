@@ -37,7 +37,7 @@ public class LinternaFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!LinternaEstado.timeout) {
-            if ((horaActual - LinternaEstado.horaInicial) < 5000) {
+            if ((horaActual - LinternaEstado.horaInicial) < 1000) {
                 LinternaEstado estadoPadre = (LinternaEstado) arg0;
                 ArrayList recorrido = estadoPadre.getRecorrido();
 

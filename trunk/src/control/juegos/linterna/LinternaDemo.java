@@ -30,12 +30,12 @@ public class LinternaDemo {
         UniformCostSearchDemo("SALA11", true);
         AStarSearchPersonas("SALA11", true);
         GreedyBestFirstSearchPersonas("SALA11", true);
-        RecursiveBestFirstSearchPersonas("SALA11", true);
+        //RecursiveBestFirstSearchPersonas("SALA11", true);
         SimulatedAnnealingSearchPersonas("SALA11", true);
         HillClimbingSearchPersonas("SALA11", true);
         AStarSearchRestante("SALA11", true);
         GreedyBestFirstSearchRestante("SALA11", true);
-        RecursiveBestFirstSearchRestante("SALA11", true);
+        //RecursiveBestFirstSearchRestante("SALA11", true);
         SimulatedAnnealingSearchRestante("SALA11", true);
         HillClimbingSearchRestante("SALA11", true);
 

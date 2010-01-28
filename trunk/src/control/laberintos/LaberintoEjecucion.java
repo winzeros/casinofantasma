@@ -61,7 +61,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva
                     case 7:
-                        ok = OvejasLobosDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = OvejasLobosDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing
                     case 8:
@@ -256,7 +256,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = NReinasDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = NReinasDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -321,7 +321,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = RanasDemo.RecursiveBestFirstSearchRanas(sala, consola);
+                        ok = RanasDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -341,7 +341,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = RanasDemo.RecursiveBestFirstSearchDescolocadas(sala, consola);
+                        ok = RanasDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
@@ -451,7 +451,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = MonoBananaDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = MonoBananaDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -471,7 +471,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = MonoBananaDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = MonoBananaDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
@@ -517,7 +517,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = RejillaRojoAzulDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = RejillaRojoAzulDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -537,7 +537,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = RejillaRojoAzulDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = RejillaRojoAzulDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
@@ -582,7 +582,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = OchoPuzzleDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = OchoPuzzleDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -602,7 +602,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = OchoPuzzleDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = OchoPuzzleDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
@@ -647,7 +647,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
-                        ok = MariposasDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = MariposasDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
@@ -667,7 +667,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = MariposasDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = MariposasDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:
@@ -781,7 +781,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Simulated Annealing heuristica ranas
                     case 8:
-                        ok = SolitarioDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = SolitarioDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Escalada heuristica ranas
                     case 9:
@@ -797,7 +797,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Mejor Recursiva heuristica descolocadas
                     case 12:
-                        ok = SolitarioDemo.RecursiveBestFirstSearch(sala, consola);
+                        ok = SolitarioDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Simulated Annealing heuristica descolocadas
                     case 13:

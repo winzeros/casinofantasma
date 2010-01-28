@@ -26,7 +26,7 @@ public class MariposasDemo {
         UniformCostSearchDemo("SALA11", true);
         AStarSearch("SALA11", true);
         GreedyBestFirstSearch("SALA11", true);
-        RecursiveBestFirstSearch("SALA11", true);
+        //RecursiveBestFirstSearch("SALA11", true);
         SimulatedAnnealingSearch("SALA11", true);
         HillClimbingSearch("SALA11", true);
     }
@@ -225,7 +225,7 @@ public class MariposasDemo {
         return ok;
     }
 
-    private static boolean RecursiveBestFirstSearch(String sala, boolean consola) {
+    public static boolean RecursiveBestFirstSearch(String sala, boolean consola) {
 
         boolean ok = true;
         MariposasJuego juego;
@@ -253,7 +253,7 @@ public class MariposasDemo {
         return ok;
     }
 
-    private static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
+    public static boolean SimulatedAnnealingSearch(String sala, boolean consola) {
 
         boolean ok = true;
         MariposasJuego juego;
@@ -282,7 +282,7 @@ public class MariposasDemo {
         return ok;
     }
 
-    private static boolean HillClimbingSearch(String sala, boolean consola) {
+    public static boolean HillClimbingSearch(String sala, boolean consola) {
 
         boolean ok = true;
         MariposasJuego juego;
