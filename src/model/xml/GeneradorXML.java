@@ -43,7 +43,7 @@ public class GeneradorXML {
 
         root = new Element(Vista.CASINO);
 
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 300; i++) {
             item = new Element(Vista.CAMINO);
             item.setAttribute(Vista.ORIGEN, String.valueOf((int) (Math.random() * 100))); //Son 100 salas
             item.setAttribute(Vista.DESTINO, String.valueOf((int) (Math.random() * 100))); //Son 100 salas

@@ -578,7 +578,7 @@ public class LaberintoEjecucion {
                         break;
                     //Busqueda Greedy Best-First heuristica ranas
                     case 6:
-                        ok = OchoPuzzleDemo.GreedyBestFirstSearch(sala, consola);
+                        ok = OchoPuzzleDemo.BreadthFirstDemo(sala, consola);
                         break;
                     //Busqueda Mejor Recursiva heuristica ranas
                     case 7:
