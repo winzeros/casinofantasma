@@ -41,7 +41,7 @@ public class RejillaRojoAzulDemo {
 
         try {
 
-            RejillaRojoAzulJuego juego = new RejillaRojoAzulJuego(new GreedyBestFirstSearch(new GraphSearch()));
+            RejillaRojoAzulJuego juego = new RejillaRojoAzulJuego(new GreedyBestFirstSearch(new GraphSearch()), new RejillaRojoAzulFuncionHeuristica());
             if (consola) {
                 log.info("\n\n\n*******************************************");
                 if (sala != null) {

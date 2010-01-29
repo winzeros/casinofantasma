@@ -54,8 +54,8 @@ public class MonoBananaFuncionSucesor implements SuccessorFunction {
                     Logger.getLogger(MonoBananaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
-              //  MonoBananaEstado.timeout = true;
+                //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                MonoBananaEstado.timeout = true;
             }
         }
         return resultado;

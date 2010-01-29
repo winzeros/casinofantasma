@@ -215,8 +215,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda AStarSearch \n" +
-                        " Heuristica Mal Colocados");
+                log.info(" Busqueda AStarSearch \n"
+                        + " Heuristica Mal Colocados");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 
@@ -245,8 +245,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda GreedyBestFirstSearch \n" +
-                        " Heuristica Mal Colocados");
+                log.info(" Busqueda GreedyBestFirstSearch \n"
+                        + " Heuristica Mal Colocados");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 
@@ -275,8 +275,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda SimulatedAnnealingSearch \n" +
-                        " Heuristica Mal Colocados");
+                log.info(" Busqueda SimulatedAnnealingSearch \n"
+                        + " Heuristica Mal Colocados");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 
@@ -305,8 +305,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda HillClimbingSearch \n" +
-                        " Heuristica Mal Colocados");
+                log.info(" Busqueda HillClimbingSearch \n"
+                        + " Heuristica Mal Colocados");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 
@@ -335,8 +335,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda AStarSearch \n" +
-                        " Heuristica Posibles");
+                log.info(" Busqueda AStarSearch \n"
+                        + " Heuristica Posibles");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 
@@ -358,18 +358,18 @@ public class HanoiDemo {
 
         try {
             juego = new HanoiJuego(new GreedyBestFirstSearch(new TreeSearch()), new HanoiHeuristicaPosibles());
-
-            log.info("\n\n\n*******************************************");
-            if (sala != null) {
-                log.info(" " + sala);
-            }
-            log.info(" JUEGO DE LAS TORRES DE HANOI");
-            log.info(" Busqueda GreedyBestFirstSearch \n" +
-                    " Heuristica Posibles");
-            log.info("*******************************************\n\n");
-            log.info(new HanoiEstado().toString());
-
             if (consola) {
+                log.info("\n\n\n*******************************************");
+                if (sala != null) {
+                    log.info(" " + sala);
+                }
+                log.info(" JUEGO DE LAS TORRES DE HANOI");
+                log.info(" Busqueda GreedyBestFirstSearch \n"
+                        + " Heuristica Posibles");
+                log.info("*******************************************\n\n");
+                log.info(new HanoiEstado().toString());
+
+
                 juego.ejecutarConsola();
             } else {
                 ok = juego.ejecutar();
@@ -395,8 +395,8 @@ public class HanoiDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO DE LAS TORRES DE HANOI");
-                log.info(" Busqueda SimulatedAnnealingSearch \n" +
-                        " Heuristica Posibles");
+                log.info(" Busqueda SimulatedAnnealingSearch \n"
+                        + " Heuristica Posibles");
                 log.info("*******************************************\n\n");
                 log.info(new HanoiEstado().toString());
 

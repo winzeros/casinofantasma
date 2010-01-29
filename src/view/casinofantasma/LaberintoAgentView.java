@@ -10,12 +10,11 @@ import aima.search.map.Map;
 import aima.search.map.Point2D;
 import control.laberintos.LaberintoEnvironment;
 import java.awt.Color;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -163,8 +162,8 @@ public class LaberintoAgentView extends AgentView {
             if (maModel.hasObjects(loc)) {
                 g2.setColor(Color.green);
                 g2.fillOval(x - 5, y - 5, 10, 10);
-                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
-                g2.drawImage(img, x, y, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/sala.gif"));
+                g2.drawImage(img.getImage(), x, y, null);
             }
             /*if (!history.isEmpty() && loc.equals(history.get(history.size() - 1))) {
             g2.setColor(Color.red);
@@ -173,28 +172,28 @@ public class LaberintoAgentView extends AgentView {
             if (maModel.hasInfos(loc)) {
                 g2.setColor(Color.blue);
                 //g2.drawString("i", x, y + 12);
-                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
-                g2.drawImage(img, x - 15, y - 16, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/sala.gif"));
+                g2.drawImage(img.getImage(), x - 15, y - 16, null);
             }
             if (maModel.isStart(loc)) {
                 g2.setColor(Color.red);
                 //ancho += 10;
-                Image img = Toolkit.getDefaultToolkit().getImage("llave.gif");
-                g2.drawImage(img, x - 15, y - 16, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/llave.gif"));
+                g2.drawImage(img.getImage(), x - 15, y - 16, null);
             } else if (maModel.isDestination(loc)) {
                 g2.setColor(Color.green);
                 //ancho += 10;
-                Image img = Toolkit.getDefaultToolkit().getImage("dinero.gif");
-                g2.drawImage(img, x - 15, y - 16, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/dinero.gif"));
+                g2.drawImage(img.getImage(), x - 15, y - 16, null);
             } else if (history.contains(loc)) {
                 g2.setColor(Color.black);
-                Image img = Toolkit.getDefaultToolkit().getImage("trebol.gif");
-                g2.drawImage(img, x - 15, y - 16, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/trebol.gif"));
+                g2.drawImage(img.getImage(), x - 15, y - 16, null);
                 //ancho += 10;
             } else {
                 g2.setColor(Color.lightGray);
-                Image img = Toolkit.getDefaultToolkit().getImage("sala.gif");
-                g2.drawImage(img, x - 15, y - 16, null);
+                ImageIcon img = new ImageIcon(getClass().getResource("images/sala.gif"));
+                g2.drawImage(img.getImage(), x - 15, y - 16, null);
             }
             //g2.fillRect(x - 3, y - 16, ancho, 20);
            // g2.setColor(Color.lightGray);

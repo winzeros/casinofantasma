@@ -41,7 +41,7 @@ public class MariposasDemo {
 
         try {
 
-            MariposasJuego juego = new MariposasJuego(new GreedyBestFirstSearch(new GraphSearch()));
+            MariposasJuego juego = new MariposasJuego(new GreedyBestFirstSearch(new GraphSearch()), new MariposasFuncionHeuristica());
             if (consola) {
                 log.info("\n\n\n*******************************************");
                 if (sala != null) {
