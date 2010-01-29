@@ -33,14 +33,14 @@ public class OchoPuzzleDemo {
 
         try {
 
-            OchoPuzzleJuego juego = new OchoPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()));
+            OchoPuzzleJuego juego = new OchoPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()), new OchoPuzzleFuncionManhattan());
             if (consola) {
                 log.info("\n\n\n**********************************************************************");
                 if (sala != null) {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA GreedyBestFirstSearch \n" +
+                log.info(" BÚSQUEDA eightPuzzleGreedyBestFirstSearch \n" +
                         " con Funcion Heuristica Manhattan");
                 log.info("**********************************************************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
@@ -69,7 +69,7 @@ public class OchoPuzzleDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA RECURSIVA DLS");
+                log.info(" BÚSQUEDA CON PROFUNDIDAD LIMITADA");
                 log.info("*********************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
@@ -97,7 +97,7 @@ public class OchoPuzzleDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA RECURSIVA DLS");
+                log.info(" BÚSQUEDA EN PROFUNDIDAD");
                 log.info("*********************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
@@ -125,7 +125,7 @@ public class OchoPuzzleDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA RECURSIVA DLS");
+                log.info(" BÚSQUEDA COSTE UNIFORME");
                 log.info("*********************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
@@ -153,7 +153,7 @@ public class OchoPuzzleDemo {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA ITERATIVA IDLS");
+                log.info(" BÚSQUEDA ITERATIVA");
                 log.info("*********************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
@@ -169,41 +169,14 @@ public class OchoPuzzleDemo {
         return ok;
     }
 
-    public static boolean eightPuzzleGreedyBestFirstDemo(String sala, boolean consola) {
 
-        boolean ok = true;
-
-        try {
-            OchoPuzzleJuego juego = new OchoPuzzleJuego(new GreedyBestFirstSearch(new GraphSearch()));
-            if (consola) {
-                log.info("\n\n\n***************************************");
-                if (sala != null) {
-                    log.info(" " + sala);
-                }
-                log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA GreedyBestFirstSearch con función Descolocados");
-                log.info("***************************************\n");
-                log.info(new OchoPuzzleEstados().toString() + "\n\n");
-
-
-                juego.ejecutarConsola();
-            } else {
-                ok = juego.ejecutar();
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(OchoPuzzleJuego.class.getName()).log(Level.ERROR, null, ex);
-        }
-        return ok;
-
-    }
 
     public static boolean eightPuzzleAStarManhattanDemo(String sala, boolean consola) {
 
         boolean ok = true;
 
         try {
-            OchoPuzzleJuego juego = new OchoPuzzleJuego(new AStarSearch(new GraphSearch()));
+            OchoPuzzleJuego juego = new OchoPuzzleJuego(new AStarSearch(new GraphSearch()), new OchoPuzzleFuncionManhattan());
             if (consola) {
                 log.info("\n\n\n*************************************************************");
                 if (sala != null) {
@@ -231,14 +204,14 @@ public class OchoPuzzleDemo {
         boolean ok = true;
 
         try {
-            OchoPuzzleJuego juego = new OchoPuzzleJuego(new SimulatedAnnealingSearch());
+            OchoPuzzleJuego juego = new OchoPuzzleJuego(new SimulatedAnnealingSearch(), new OchoPuzzleFuncionManhattan());
             if (consola) {
                 log.info("\n\n\n************************************");
                 if (sala != null) {
                     log.info(" " + sala);
                 }
                 log.info(" JUEGO 8PUZZLE");
-                log.info(" BÚSQUEDA RECORRIDO SIMULADO ");
+                log.info(" BÚSQUEDA RECORRIDO SIMULADO CON HEURISTICA MANHATTAN");
                 log.info("************************************\n");
                 log.info(new OchoPuzzleEstados().toString() + "\n\n");
 
