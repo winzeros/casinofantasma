@@ -37,7 +37,7 @@ public class MonoBananaFuncionSucesor implements SuccessorFunction {
         long horaActual = calendario.getTimeInMillis();
 
         if (!MonoBananaEstado.timeout) {
-            if ((horaActual - MonoBananaEstado.horaInicial) < 1000) {
+            if ((horaActual - MonoBananaEstado.horaInicial) < 100) {
                 MonoBananaEstado estadoPadre = (MonoBananaEstado) arg0;
                 ArrayList recorrido = estadoPadre.getRecorrido();
 
