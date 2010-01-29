@@ -47,7 +47,7 @@ public class GarrafasDemo {
             } else {
                 ok = juego.ejecutar();
             }
-            log.info(ok);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -80,7 +80,7 @@ public class GarrafasDemo {
             } else {
                 ok = juego.ejecutar();
             }
-            log.info(ok);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -113,7 +113,7 @@ public class GarrafasDemo {
             } else {
                 ok = juego.ejecutar();
             }
-            log.info(ok);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -146,7 +146,7 @@ public class GarrafasDemo {
             } else {
                 ok = juego.ejecutar();
             }
-            log.info(ok);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);
@@ -179,7 +179,7 @@ public class GarrafasDemo {
             } else {
                 ok = juego.ejecutar();
             }
-            log.info(ok);
+            
 
         } catch (Exception ex) {
             Logger.getLogger(GarrafasDemo.class.getName()).log(Level.ERROR, null, ex);

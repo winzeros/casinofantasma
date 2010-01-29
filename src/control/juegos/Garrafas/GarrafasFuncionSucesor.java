@@ -127,7 +127,7 @@ public class GarrafasFuncionSucesor implements SuccessorFunction {
                 }
                 generado = null;
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 GarrafasEstado.timeout = true;
             }
         }

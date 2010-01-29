@@ -55,7 +55,7 @@ public class LinternaFuncionSucesor implements SuccessorFunction {
                     Logger.getLogger(LinternaFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+               // log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 LinternaEstado.timeout = true;
             }
         }

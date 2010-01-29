@@ -51,7 +51,7 @@ public class SolitarioFuncionSucesor implements SuccessorFunction {
                     }
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+               // log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 SolitarioEstado.timeout = true;
             }
         }

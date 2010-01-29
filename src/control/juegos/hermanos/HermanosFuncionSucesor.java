@@ -56,7 +56,7 @@ public class HermanosFuncionSucesor implements SuccessorFunction {
                 Logger.getLogger(HermanosFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
             }
  }else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+            //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
             HermanosEstado.timeout = true;
         }
         }
