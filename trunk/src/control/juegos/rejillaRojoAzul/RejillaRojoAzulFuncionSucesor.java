@@ -141,7 +141,7 @@ public class RejillaRojoAzulFuncionSucesor implements SuccessorFunction {
                     }
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 RejillaRojoAzulEstado.timeout = true;
             }
         }

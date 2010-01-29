@@ -23,9 +23,11 @@ public class LaberintoFuncionSucesor implements SuccessorFunction {
 
     public final static Logger log = Logger.getLogger(LaberintoFuncionSucesor.class.getName());
     private Map map = null;
+    private ArrayList recorrido;
 
     public LaberintoFuncionSucesor(Map aMap) {
         this.map = aMap;
+        recorrido = new ArrayList();
     }
 
     public List getSuccessors(Object currentState) {
@@ -33,8 +35,8 @@ public class LaberintoFuncionSucesor implements SuccessorFunction {
         List<Successor> successors = new ArrayList<Successor>();
 
         LaberintoEstado estadoPadre = (LaberintoEstado) currentState;
+        recorrido.add(currentState.toString());
 
-        ArrayList recorrido = estadoPadre.getRecorridos();
 
         String location = currentState.toString();
         if (currentState instanceof Percept) {

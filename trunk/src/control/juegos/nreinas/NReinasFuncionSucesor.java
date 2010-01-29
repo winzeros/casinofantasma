@@ -42,7 +42,7 @@ public class NReinasFuncionSucesor implements SuccessorFunction {
 
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+           //     log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 NReinasEstado.timeout = true;
             }
         }

@@ -60,7 +60,7 @@ public class HanoiFuncionSucesor  implements SuccessorFunction {
         }
         }
         }else {
-            log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+            //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
             HanoiEstado.timeout = true;
         }
 

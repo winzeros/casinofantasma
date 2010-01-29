@@ -55,7 +55,7 @@ public class MonoBananaFuncionSucesor implements SuccessorFunction {
                 }
             } else {
                 log.info("\nTIEMPO DE ESPERA SUPERADO\n");
-                MonoBananaEstado.timeout = true;
+              //  MonoBananaEstado.timeout = true;
             }
         }
         return resultado;

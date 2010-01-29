@@ -73,7 +73,7 @@ public class MariposasFuncionSucesora implements SuccessorFunction {
                     }
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+               // log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 MariposasEstado.timeout = true;
             }
         }

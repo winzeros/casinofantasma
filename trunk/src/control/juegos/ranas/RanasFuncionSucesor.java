@@ -46,7 +46,7 @@ public class RanasFuncionSucesor implements SuccessorFunction {
                     Logger.getLogger(RanasFuncionSucesor.class.getName()).log(Level.ERROR, "Error al obtener los sucesores de " + arg0.toString(), ex);
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+               // log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 RanasEstado.timeout = true;
             }
         }

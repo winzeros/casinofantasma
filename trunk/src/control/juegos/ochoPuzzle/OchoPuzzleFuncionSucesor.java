@@ -52,7 +52,7 @@ public class OchoPuzzleFuncionSucesor implements SuccessorFunction {
                     sucesores.add(new Successor(OchoPuzzleEstados.RIGHT + "\n" + nuevoTablero.toString() + "\n\n", nuevoTablero));
                 }
             } else {
-                log.info("\nTIEMPO DE ESPERA SUPERADO\n");
+                //log.info("\nTIEMPO DE ESPERA SUPERADO\n");
                 OchoPuzzleEstados.timeout = true;
             }
         }
