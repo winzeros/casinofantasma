@@ -37,7 +37,7 @@ public class RoutePlanningAgent {
             setTitle("CASINO FANTASMA - the Route Planning Agent");
             setSelectorItems(SCENARIO_SEL, laberintos, 0);
             setSelectorItems(SEARCH_MODE_SEL, SearchFactory.getInstance().getSearchModeNames(), 1); // change the default!
-            setSelectorItems(HEURISTIC_SEL, new String[]{"Distancia geográfica"}, 0);
+            setSelectorItems(HEURISTIC_SEL, new String[]{"Mejor recompensa-apuesta"}, 0);
             setSelectorItems(DESTINATION_SEL, destinos, 0);
             setAgentView(new LaberintoAgentView());
         }
