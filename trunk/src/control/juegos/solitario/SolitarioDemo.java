@@ -40,7 +40,7 @@ public class SolitarioDemo {
 
         try {
 
-            SolitarioJuego juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()));
+            SolitarioJuego juego = new SolitarioJuego(new GreedyBestFirstSearch(new GraphSearch()), new SolitarioHeuristicaEsquinas());
             if (consola) {
                 log.info("\n\n\n*******************************************");
                 if (sala != null) {
