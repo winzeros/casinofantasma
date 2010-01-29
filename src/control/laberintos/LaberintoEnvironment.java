@@ -6,7 +6,7 @@ package control.laberintos;
 
 import aima.basic.Agent;
 import aima.search.framework.Search;
-import aima.search.framework.TreeSearch;
+import aima.search.framework.GraphSearch;
 import aima.search.informed.AStarSearch;
 import aima.search.informed.GreedyBestFirstSearch;
 import aima.search.informed.HillClimbingSearch;
@@ -85,22 +85,22 @@ public class LaberintoEnvironment extends MapEnvironment {
         try {
             if (search instanceof DepthFirstSearch) {
                 juegoLab = new LaberintoJuego(
-                        new DepthFirstSearch(new TreeSearch()), this.getMap());
+                        new DepthFirstSearch(new GraphSearch()), this.getMap());
             } else if (search instanceof BreadthFirstSearch) {
-                juegoLab = new LaberintoJuego(new BreadthFirstSearch(new TreeSearch()),
+                juegoLab = new LaberintoJuego(new BreadthFirstSearch(new GraphSearch()),
                         this.getMap());
             } else if (search instanceof IterativeDeepeningSearch) {
                 juegoLab = new LaberintoJuego(new IterativeDeepeningSearch(), 
                         this.getMap());
             } else if (search instanceof UniformCostSearch) {
-                juegoLab = new LaberintoJuego(new UniformCostSearch(new TreeSearch()),
+                juegoLab = new LaberintoJuego(new UniformCostSearch(new GraphSearch()),
                         this.getMap());
             } else if (search instanceof GreedyBestFirstSearch) {
-                juegoLab = new LaberintoJuego(new GreedyBestFirstSearch(new TreeSearch()),
+                juegoLab = new LaberintoJuego(new GreedyBestFirstSearch(new GraphSearch()),
                         this.getMap(),
                         new LaberintoHeuristicaMasDias());
             } else if (search instanceof AStarSearch) {
-                juegoLab = new LaberintoJuego(new AStarSearch(new TreeSearch()), 
+                juegoLab = new LaberintoJuego(new AStarSearch(new GraphSearch()),
                         this.getMap(),
                         new LaberintoHeuristicaMasDias());
             } else if (search instanceof SimulatedAnnealingSearch) {
